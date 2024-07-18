@@ -168,7 +168,7 @@ const updateRating = (group, rating) => {
 
 const fetchSvgContent = async (step) => {
   try {
-    const svgModule = await import(`../../public/TestData/${step}/${step}.svg?raw`);
+    const svgModule = await import(`./TestData/${step}/${step}.svg?raw`);
     Svg.value = svgModule.default;
     turnGrayVisibleNodes();
     addHoverEffectToVisibleNodes();
@@ -290,7 +290,7 @@ const addOtherGroup = () => {
 
 const eleURL = computed(() => {
   const step = active.value + 1;
-  return `../../public/TestData/${step}/layer_data.json`;
+  return `./TestData/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);

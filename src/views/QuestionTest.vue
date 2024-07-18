@@ -168,7 +168,7 @@ const updateRating = (group, rating) => {
 
 const fetchSvgContent = async (step) => {
   try {
-    const svgModule = await import(`./TestData/${step}/${step}.svg?raw`);
+    const svgModule = await import(`../../public/TestData/${step}/${step}.svg?raw`);
     Svg.value = svgModule.default;
     turnGrayVisibleNodes();
     addHoverEffectToVisibleNodes();

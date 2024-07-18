@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 或者你使用的其他分支
+      - master 
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3  # 更新到 v3
       with:
-        node-version: '20'  # 使用 Node.js 版本 18
+        node-version: '20'  # 使用 Node.js 版本 20
 
     - name: Install dependencies
       run: npm install

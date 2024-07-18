@@ -152,8 +152,12 @@ const handleDialogClose = () => {
 
 const fetchSvgContent = async (step) => {
   try {
-    const svgModule = await import(`../../public/Data/${step}/${step}.svg?raw`);
-    Svg.value = svgModule.default;
+    const response = await fetch(`./Data/${step}/${step}.svg`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const svgContent = await response.text();
+    Svg.value = svgContent;
     turnGrayVisibleNodes();
     addHoverEffectToVisibleNodes();
     addClickEffectToVisibleNodes();

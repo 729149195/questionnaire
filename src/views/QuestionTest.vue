@@ -290,7 +290,7 @@ const addOtherGroup = () => {
 
 const eleURL = computed(() => {
   const step = active.value + 1;
-  return `../../questionnaire/public/TestData/${step}/layer_data.json`;
+  return `../../public/TestData/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);

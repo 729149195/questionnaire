@@ -24,8 +24,8 @@
               <div v-html="Svg" class="svg-container"></div>
             </el-card>
             <el-card ref="svg2" class="bottom-card" shadow="never">
-              <div ref="chartContainer" class="chart-container" v-show="false"></div>
               <div v-html="Svg" class="svg-container2"></div>
+              <div ref="chartContainer" class="chart-container" v-show="false"></div>
             </el-card>
           </div>
           <el-card ref="groupCard" class="group-card" shadow="never">
@@ -179,10 +179,43 @@ const fetchSvgContent = async (step) => {
     addClickEffectToVisibleNodes();
     nextTick(() => {
       highlightGroup();
+      addZoomEffectToSvg();  // 添加缩放效果
     });
   } catch (error) {
     console.error('Error loading SVG content:', error);
     Svg.value = '<svg><text x="10" y="20" font-size="20">加载SVG时出错</text></svg>';
+  }
+};
+
+const addZoomEffectToSvg = () => {
+  const svgContainer = document.querySelector('.svg-container2');
+  if (!svgContainer) return;
+  const svg = d3.select(svgContainer).select('svg');
+  if (!svg) return;
+
+  const zoom = d3.zoom()
+    .scaleExtent([1, 10])  // 设置缩放范围，最小值为1，初始大小
+    .on('zoom', (event) => {
+      svg.attr('transform', event.transform);
+      limitPan(event.transform, svgContainer);
+    });
+
+  svg.call(zoom)
+     .call(zoom.transform, d3.zoomIdentity.translate(svgContainer.clientWidth / 2, svgContainer.clientHeight / 2));
+
+  function limitPan(transform, container) {
+    const scale = transform.k;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    const maxX = (width / 2) * (scale - 1);
+    const maxY = (height / 2) * (scale - 1);
+    const limitedTransform = d3.zoomIdentity
+      .translate(
+        Math.max(Math.min(transform.x, maxX), -maxX),
+        Math.max(Math.min(transform.y, maxY), -maxY)
+      )
+      .scale(scale);
+    svg.attr('transform', limitedTransform);
   }
 };
 
@@ -228,7 +261,15 @@ const addClickEffectToVisibleNodes = () => {
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
       node.addEventListener('click', () => {
-        addToGroupAndHighlight(node.id);
+        const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
+        if (groupNodes.includes(node.id)) {
+          store.commit('REMOVE_NODE_FROM_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+        } else {
+          store.commit('ADD_NODE_TO_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+        }
+        nextTick(() => {
+          highlightGroup();
+        });
       });
     }
   });
@@ -462,6 +503,7 @@ onMounted(() => {
   });
 });
 
+
 watch([active, groups], () => {
   ratings.value = {};
   const stepRatings = store.state.ratings[active.value] || {};
@@ -624,6 +666,14 @@ watch(allVisiableNodes, () => {
   justify-content: center;
   align-items: center;
   height: 50%;
+  position: relative; /* 重要，确保缩放效果能正确应用 */
+  overflow: hidden; /* 确保缩放时不出现滚动条 */
+}
+
+.svg-container2 svg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .steps-container {
@@ -643,5 +693,15 @@ watch(allVisiableNodes, () => {
 .next-button,
 .submit-button {
   margin: 0 12px;
+}
+
+.drag-selection {
+  position: absolute;
+  border: 1px dashed #999;
+  background-color: rgba(150, 150, 150, 0.3);
+}
+
+.crosshair-cursor {
+  cursor: crosshair;
 }
 </style>

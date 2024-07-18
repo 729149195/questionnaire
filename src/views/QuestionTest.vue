@@ -45,7 +45,7 @@
             </div>
             <div v-for="(nodes, group) in filteredGroups" :key="group" class="group">
               <h3>{{ group }}</h3>
-              <el-scrollbar height="635px">
+              <el-scrollbar height="460px">
                 <div class="group-tags">
                   <el-tag v-for="node in nodes" :key="node" closable @close="removeFromGroup(group, node)"
                     @mousedown="highlightElement(node)" @mouseup="resetHighlight">
@@ -112,7 +112,7 @@
       <el-tour-step :target="openDialogBtn?.$el" title="说明按钮" description="点击这里可以打开说明。" />
       <el-tour-step :target="svg1?.$el" title="SVG区域1" description="这里是交互结果的直观显示区域。" />
       <el-tour-step :target="svg2?.$el" title="SVG区域2" description="这里是主要交互区域。" />
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" description="里面主要包含分组标签及其操作按钮和注意力评分" />
+      <el-tour-step :target="groupCard?.$el" title="分组卡片" description="里面主要包含分组标签及其操作按钮和注意力评分" placement="left"/>
       <el-tour-step :target="groupSelector?.$el" title="分组选择器" description="在这里选择分组。" />
       <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮" description="点击这里可以添加新分组。" />
       <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮" description="点击这里可以删除当前分组及其内容。" />
@@ -290,7 +290,7 @@ const addOtherGroup = () => {
 
 const eleURL = computed(() => {
   const step = active.value + 1;
-  return `../../public/TestData/${step}/layer_data.json`;
+  return `../../questionnaire/public/TestData/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);
@@ -498,7 +498,7 @@ watch(allVisiableNodes, () => {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 85vw;
+  width: 80vw;
   margin: 0 auto;
 }
 
@@ -507,7 +507,7 @@ watch(allVisiableNodes, () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -534,11 +534,6 @@ watch(allVisiableNodes, () => {
   font-weight: bold;
 }
 
-.time {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff6f6f;
-}
 
 .el-main {
   width: 100%;
@@ -547,6 +542,7 @@ watch(allVisiableNodes, () => {
   align-items: center;
   position: relative;
   flex-direction: column;
+  margin-bottom: -10px;
 }
 
 .main-card {
@@ -558,11 +554,11 @@ watch(allVisiableNodes, () => {
   .left-two {
     display: flex;
     flex-direction: column;
-    width: 250%;
+    width: 200%;
     margin-right: 20px;
 
     .top-card {
-      margin-bottom: 23px;
+      margin-bottom: 20px;
     }
   }
 
@@ -578,7 +574,7 @@ watch(allVisiableNodes, () => {
 
       .el-select {
         margin-right: 10px;
-        width: 180px;
+        width: 140px;
       }
     }
 
@@ -631,7 +627,7 @@ watch(allVisiableNodes, () => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 35px 0;
+  margin: 25px 0;
 }
 
 .steps {

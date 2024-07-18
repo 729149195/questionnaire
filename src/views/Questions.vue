@@ -42,7 +42,7 @@
               </div>
               <div v-for="(nodes, group) in filteredGroups" :key="group" class="group">
                 <h3>{{ group }}</h3>
-                <el-scrollbar height="635px">
+                <el-scrollbar height="450px">
                   <div class="group-tags">
                     <el-tag v-for="node in nodes" :key="node" closable @close="removeFromGroup(group, node)"
                       @mousedown="highlightElement(node)" @mouseup="resetHighlight">
@@ -276,7 +276,7 @@ const addOtherGroup = () => {
 
 const eleURL = computed(() => {
   const step = active.value + 1;
-  return `../../public/Data/${step}/layer_data.json`;
+  return `../../questionnaire/public/Data/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);
@@ -473,7 +473,7 @@ watch(allVisiableNodes, () => {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 85vw;
+  width: 80vw;
   margin: 0 auto;
 }
 
@@ -482,7 +482,7 @@ watch(allVisiableNodes, () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -509,11 +509,6 @@ watch(allVisiableNodes, () => {
   font-weight: bold;
 }
 
-.time {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff6f6f;
-}
 
 .el-main {
   width: 100%;
@@ -522,6 +517,7 @@ watch(allVisiableNodes, () => {
   align-items: center;
   position: relative;
   flex-direction: column;
+  margin-bottom: -10px;
 }
 
 .main-card {
@@ -533,57 +529,59 @@ watch(allVisiableNodes, () => {
   .left-two {
     display: flex;
     flex-direction: column;
-    width: 250%;
+    width: 200%;
     margin-right: 20px;
-    .top-card{
-      margin-bottom: 23px;
+
+    .top-card {
+      margin-bottom: 20px;
     }
   }
+
   .group-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-
-  .select-group {
-    display: flex;
-    align-items: center;
-
-    .el-select {
-      margin-right: 10px;
-      width: 180px;
-    }
-  }
-
-  .group {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 10px;
 
-    .group-tags-container {
-      width: 100%;
-      height: 100%;
+    .select-group {
+      display: flex;
+      align-items: center;
+
+      .el-select {
+        margin-right: 10px;
+        width: 140px;
+      }
     }
 
-    .group-tags {
+    .group {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      width: 300px;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
 
-      .el-tag {
-        margin: 5px;
-        flex: 1 0 calc(33.33% - 10px);
-        max-width: calc(33.33% - 10px);
-        box-sizing: border-box;
-        text-align: center;
-        cursor: pointer;
+      .group-tags-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .group-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 300px;
+
+        .el-tag {
+          margin: 5px;
+          flex: 1 0 calc(33.33% - 10px);
+          max-width: calc(33.33% - 10px);
+          box-sizing: border-box;
+          text-align: center;
+          cursor: pointer;
+        }
       }
     }
   }
-}
 }
 
 .svg-container {
@@ -604,7 +602,7 @@ watch(allVisiableNodes, () => {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 35px 0;
+  margin: 25px 0;
 }
 
 .steps {

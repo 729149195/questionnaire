@@ -6,7 +6,4 @@
     <path d="M0,100 A100,100 0 0,1 -100,0 L-60,-60 A60,60 0 0,0 -60,60 Z" fill="salmon" stroke="none" id="path_2" />
     <path d="M-100,0 A100,100 0 0,1 0,-100 L60,-60 A60,60 0 0,0 -60,-60 Z" fill="plum" stroke="none" id="path_1" />
     <path d="M0,-100 A100,100 0 0,1 100,0 L60,-60 A60,60 0 0,0 60,60 Z" fill="gold" stroke="none" id="path" />
-    <text x="-420" y="155" font-family="sans-serif" font-size="12px" id="text_2">XXX</text>
-    <text x="380" y="155" font-family="sans-serif" font-size="12px" id="text_1">XXX</text>
-    <text x="-420" y="-155" font-family="sans-serif" font-size="12px" id="text">XXX</text>
 </svg>

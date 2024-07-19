@@ -30,7 +30,4 @@
     <line x1="110" y1="0" x2="110" y2="80" stroke="black" stroke-width="2" id="line_1" />
     <rect x="140" y="30" width="20" height="40" fill="salmon" id="rect" />
     <line x1="150" y1="10" x2="150" y2="90" stroke="black" stroke-width="2" id="line" />
-    <text x="-420" y="155" font-family="sans-serif" font-size="12px" id="text_2">XXX</text>
-    <text x="380" y="155" font-family="sans-serif" font-size="12px" id="text_1">XXX</text>
-    <text x="-420" y="-155" font-family="sans-serif" font-size="12px" id="text">XXX</text>
 </svg>

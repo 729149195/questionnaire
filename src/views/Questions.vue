@@ -7,7 +7,7 @@
             <!-- <p class="id">分配ID：{{ formData.id }}</p> -->
           </div>
           <div class="right-content">
-            <el-button plain @click="infoDialogVisible = true">打开说明<el-icon style='margin-left:5px'>
+            <el-button plain @click="dialogVisible = true">打开说明<el-icon style='margin-left:5px'>
                 <WindPower />
               </el-icon></el-button>
           </div>
@@ -85,18 +85,19 @@
       </template>
     </el-dialog>
 
-    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="700" align-center>
+    <el-dialog v-model="dialogVisible" title="问卷说明" width="700" align-center>
       <span>
         在开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>(❁´◡`❁)</li>
-          <li>(～￣▽￣)～</li>
-          <li>╰(*°▽°*)╯</li>
+          <li>视觉图形模式：即在视觉中感觉上应该分配到一组的元素集群。</li>
+          <li>右侧group里对应的所有标签元素代表一个图形模式。</li>
+          <li>请尽可能多地选出自己认为的合理的图形模式。</li>
+          <li>报酬获取方式：将最后导出的数据文件及ID提交给管理员，管理员审批后根据完成情况及质量发放报酬。</li>
         </ol>
       </span>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="infoDialogVisible = false">取消</el-button>
+          <el-button @click="dialogVisible = false">取消</el-button>
           <el-button type="primary" @click="handleDialogConfirm">我明白了</el-button>
         </div>
       </template>
@@ -116,7 +117,7 @@ const router = useRouter();
 const formData = computed(() => store.getters.getFormData);
 const selectedNodeIds = computed(() => store.state.selectedNodes.nodeIds);
 const allVisiableNodes = computed(() => store.state.AllVisiableNodes);
-const dialogVisible = ref(false);
+const dialogVisible = ref(true);
 const infoDialogVisible = ref(false);
 const active = ref(0);
 const steps = Array.from({ length: 10 });
@@ -328,7 +329,7 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const handleDialogConfirm = () => {
-  infoDialogVisible.value = false;
+  dialogVisible.value = false;
 };
 
 const next = async () => {

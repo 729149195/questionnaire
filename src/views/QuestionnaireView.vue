@@ -1,6 +1,5 @@
 <template>
   <div class="common-layout">
-    <Particles id="tsparticles" :options="particlesOptions" />
     <el-container class="full-height">
       <el-header class="header">
         <h2 class="title">图形模式感知问卷</h2>
@@ -43,6 +42,19 @@
       <el-footer>{{ currentTime }}</el-footer>
     </el-container>
   </div>
+  <el-dialog v-model="DialogVisible" title="问卷介绍" width="800">
+      <p>可视化技术在提取数据洞察和展示数据模式中都因其所具备的信息展示优势受到社会各界的广泛认可。可视化技术
+        通过将信息转化为一组具有各种视觉编码的元素，即可以通过各种图形模式来表达数据模式。</p>
+      <p>考虑到人类视觉感知系统的复杂性和多样性，这是一项十分具有挑战性的任务，</p>
+      <p>人们对视觉感知的探索已经持续了几十年，并产生了成熟的理论，本研究以其中具有代表性的格式塔感知原则为理论依据。
+        通过深入分析SVG结构代码来提取节点特征信息，经过人工智能模型处理，将可视元素分组成感知模式。</p>
+      <p>该问卷就目的就是给模型训练收集数据。</p>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="DialogVisible = false">开始</el-button>
+        </div>
+      </template>
+    </el-dialog>
 </template>
 
 <script setup>
@@ -53,6 +65,7 @@ import { StarFilled } from '@element-plus/icons-vue';
 
 const store = useStore();
 const router = useRouter();
+const DialogVisible = ref(true)
 
 const currentTime = ref(new Date().toLocaleTimeString());
 
@@ -92,112 +105,6 @@ const handleClean = () => {
   };
 };
 
-// 定义粒子背景的配置
-const particlesOptions = ref({
-  particles: {
-    number: {
-      value: 50,
-      density: {
-        enable: true,
-        value_area: 800
-      }
-    },
-    color: {
-      value: ["#4285f4", "#ea4335", "#fbbc05", "#34a853"]
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000"
-      },
-      polygon: {
-        nb_sides: 5
-      }
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false
-      }
-    },
-    size: {
-      value: 5,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
-        sync: false
-      }
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#000000",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 6,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-        rotateX: 600,
-        rotateY: 1200
-      }
-    }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "grab"
-      },
-      onclick: {
-        enable: true,
-        mode: "push"
-      },
-      resize: true
-    },
-    modes: {
-      grab: {
-        distance: 140,
-        line_linked: {
-          opacity: 1
-        }
-      },
-      bubble: {
-        distance: 400,
-        size: 40,
-        duration: 2,
-        opacity: 8,
-        speed: 3
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4
-      },
-      push: {
-        particles_nb: 4
-      },
-      remove: {
-        particles_nb: 2
-      }
-    }
-  },
-  retina_detect: true
-});
 </script>
 
 <style lang="scss" scoped>
@@ -306,5 +213,11 @@ const particlesOptions = ref({
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 5px;
+}
+
+.dialog-footer{
+   .el-button{
+      width: 60px;
+   }
 }
 </style>

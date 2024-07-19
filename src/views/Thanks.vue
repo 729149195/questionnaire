@@ -3,6 +3,8 @@
     <h1 class="title">感谢您的参与</h1><span style="font-size: 30px;">😘😘😘😘😘😘😘😘😘😘</span>
     <p class="p">您本次填写问卷的ID: {{ formData.id }}</p>
     <el-button type="primary" @click="exportToJson">导出问卷内容</el-button>
+    <img style="width: 160px; margin-top: 10px" src="../../weChat.png" alt="">
+    <p>管理员联系方式</p>
   </div>
 </template>
 

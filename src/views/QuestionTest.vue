@@ -83,9 +83,10 @@
       <span>
         在开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>XXX</li>
-          <li>XXX</li>
-          <li>XXX</li>
+          <li>视觉图形模式：即在视觉中感觉上应该分配到一组的元素集群</li>
+          <li>右侧group里对应的所有标签元素代表一个图形模式</li>
+          <li>请尽可能多地选出自己认为的合理的图形模式</li>
+          <li>报酬获取方式：将最后导出的数据文件及ID提交给管理员，管理员审批后根据完成情况及质量发放报酬</li>
         </ol>
       </span>
       <template #footer>
@@ -96,9 +97,10 @@
       </template>
     </el-dialog>
 
-    <el-dialog v-model="tourDialogVisible" title="漫游引导" width="400">
-      <span>是否进行漫游引导？</span>
-      <p>可以直接在高亮区域进行操作尝试</p>
+    <el-dialog v-model="tourDialogVisible" title="漫游引导" width="500">
+      <span>是否进行漫游引导来帮助您尽快了解该问卷系统的使用方法？</span>
+      <p>在漫游引导中您可以直接在高亮区域进行操作尝试。</p>
+      <span>如果您已经了解过该系统的使用方法，请点击否跳过引导。</span>
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="startTour">是</el-button>
@@ -109,18 +111,18 @@
 
     <el-tour v-model="openTour">
       <!-- <el-tour-step :target="idandtime?.$el" title="ID和时限" description="这里是分配的ID和剩余时间。" /> -->
-      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮" description="点击这里可以打开说明。" />
-      <el-tour-step :target="svg1?.$el" title="SVG区域1" description="这里是交互结果的直观显示区域。" />
-      <el-tour-step :target="svg2?.$el" title="SVG区域2" description="这里是主要交互区域。" />
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" description="里面主要包含分组标签及其操作按钮和注意力评分" placement="left"/>
-      <el-tour-step :target="groupSelector?.$el" title="分组选择器" description="在这里选择分组。" />
-      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮" description="点击这里可以添加新分组。" />
-      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮" description="点击这里可以删除当前分组及其内容。" />
-      <el-tour-step :target="addOtherGroupBtn?.$el" title="添加其他分组按钮" description="点击这里可以添加将其余未分组元素全部添加入Other组" />
+      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮"  >点击这里可以打开说明。</el-tour-step>
+      <el-tour-step :target="svg1?.$el" title="视觉感知区域" >这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
+      <el-tour-step :target="svg2?.$el" title="主要操作区域" >这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。</el-tour-step>
+      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">主要包含分组标签（即所选中的视觉模式元素集群）和注意力评分（即在视觉中该图形模式的显眼程度）</el-tour-step>
+      <el-tour-step :target="groupSelector?.$el" title="分组选择器" >在这里选择已创建的分组。</el-tour-step>
+      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮" >点击这里可以添加新的分组。</el-tour-step>
+      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮" >点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。</el-tour-step>
+      <el-tour-step :target="addOtherGroupBtn?.$el" title="添加其他分组按钮" >点击这里可以添加将其余未加入到任一分组的元素全部添加入Other组（通常是在分完所有图形模式后最后点击的一步）。</el-tour-step>
       <!-- <el-tour-step :target="rateings?.$el" title="分组评分" description="在这里为分组评分。" /> -->
-      <el-tour-step :target="stepsContainer?.$el" title="问卷进度" description="这里显示了问卷的进度。" />
-      <el-tour-step :target="previousBtn?.$el" title="上一个按钮" description="点击这里可以回到上一步。" />
-      <el-tour-step :target="nextBtn?.$el" title="下一个按钮" description="点击这里可以前往下一步。最后一步该按钮会变为绿色的提交按钮" />
+      <el-tour-step :target="stepsContainer?.$el" title="问卷进度"  >这里显示了问卷的进度。已完成的示例节点会变绿。</el-tour-step>
+      <el-tour-step :target="previousBtn?.$el" title="上一个按钮"  >点击这里可以回到上一个示例节点。</el-tour-step>
+      <el-tour-step :target="nextBtn?.$el" title="下一个按钮" >点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。</el-tour-step>
     </el-tour>
   </div>
 </template>

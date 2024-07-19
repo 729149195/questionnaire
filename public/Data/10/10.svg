@@ -40,7 +40,4 @@
     <rect x="160" y="80" width="80" height="80" fill="lightgreen" stroke="black" stroke-width="1" id="rect_2" />
     <rect x="240" y="80" width="80" height="80" fill="salmon" stroke="black" stroke-width="1" id="rect_1" />
     <rect x="320" y="80" width="80" height="80" fill="plum" stroke="black" stroke-width="1" id="rect" />
-    <text x="-420" y="165" font-family="sans-serif" font-size="12px" id="text_2">XXX</text>
-    <text x="380" y="165" font-family="sans-serif" font-size="12px" id="text_1">XXX</text>
-    <text x="-420" y="-155" font-family="sans-serif" font-size="12px" id="text">XXX</text>
 </svg>

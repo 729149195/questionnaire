@@ -1,17 +1,20 @@
 <template>
   <div class="main">
-    <h1 class="title">感谢您的参与</h1><span style="font-size: 30px;">😘😘😘😘😘😘😘😘😘😘</span>
+    <h1 class="title">感谢您的参与</h1>
+    <span style="font-size: 30px;">😘😘😘😘😘😘😘😘😘😘</span>
     <p class="p">您本次填写问卷的ID: {{ formData.id }}</p>
-    <el-button type="primary" @click="exportToJson">导出问卷内容</el-button>
-    <!-- <img style="width: 160px; margin-top: 10px" src="../../weChat.png" alt=""> -->
-    <p>管理员联系方式Wechat: wxid_h82xbml2hx9722</p>
+    <p>(●'◡'●)该问卷结果已发送至管理员邮箱(●'◡'●)</p>
+    <img style="width: 160px; margin-top: 10px" src="/img/weChat.png" alt="Wechat QR Code">
+    <p>联系管理员经审核后获取报酬</p>
+    <el-button type="primary" @click="exportToJson">导出备份问卷数据（可选）</el-button>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 import { saveAs } from 'file-saver';
+import emailjs from 'emailjs-com';
 
 const store = useStore();
 const formData = computed(() => store.getters.getFormData);
@@ -24,7 +27,7 @@ const formatDate = (date) => {
   return localDate.toISOString().replace('T', ' ').substring(0, 19);
 };
 
-const exportToJson = () => {
+const generateJsonData = () => {
   const currentTime = new Date();
   const endTime = formatDate(currentTime);
   const duration = (currentTime - new Date(startTime.value)) / 1000; // in seconds
@@ -53,9 +56,36 @@ const exportToJson = () => {
     data.steps.push(stepData);
   }
 
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  saveAs(blob, `questionnaire_${formData.value.id}.json`);
+  return data;
 };
+
+const exportToJson = () => {
+  const data = generateJsonData();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  saveAs(blob, `${formData.value.id}.json`);
+};
+
+const sendEmail = (data) => {
+  const emailData = {
+    form_id: formData.value.id,
+    to_email: 'zxx729149195@163.com',
+    subject: `问卷+${formData.value.id}`,
+    message: JSON.stringify(data, null, 2)
+  };
+
+  emailjs.send('service_w28zafs', 'template_cq4vqhy', emailData, 'zEOYsF4TFcaSSPSsZ')
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+    })
+    .catch((error) => {
+      console.error('Failed to send email:', error);
+    });
+};
+
+onMounted(() => {
+  const data = generateJsonData();
+  sendEmail(data);
+});
 </script>
 
 <style scoped>

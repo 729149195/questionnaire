@@ -19,48 +19,48 @@
       <el-main>
         <el-card class="main-card">
           <div style="display: flex;">
-          <div class="left-two">
-            <el-card ref="svg1" class="top-card" shadow="never">
-              <div v-html="Svg" class="svg-container"></div>
-            </el-card>
-            <el-card ref="svg2" class="bottom-card" shadow="never">
-              <div v-html="Svg" class="svg-container2"></div>
-              <div ref="chartContainer" class="chart-container" v-show="false"></div>
+            <div class="left-two">
+              <el-card ref="svg1" class="top-card" shadow="never">
+                <div v-html="Svg" class="svg-container"></div>
+              </el-card>
+              <el-card ref="svg2" class="bottom-card" shadow="never">
+                <div v-html="Svg" class="svg-container2"></div>
+                <div ref="chartContainer" class="chart-container" v-show="false"></div>
+              </el-card>
+            </div>
+            <el-card ref="groupCard" class="group-card" shadow="never">
+              <div class="select-group">
+                <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择分组" @change="highlightGroup">
+                  <el-option v-for="(group, index) in groupOptions" :key="index" :label="group" :value="group" />
+                </el-select>
+                <el-button ref="addGroupBtn" @click="addNewGroup"><el-icon>
+                    <Plus />
+                  </el-icon></el-button>
+                <el-button ref="deleteGroupBtn" @click="deleteCurrentGroup"><el-icon>
+                    <Delete />
+                  </el-icon></el-button>
+                <el-button ref="addOtherGroupBtn" @click="addOtherGroup"><el-icon>
+                    <Finished />
+                  </el-icon></el-button>
+              </div>
+              <div v-for="(nodes, group) in filteredGroups" :key="group" class="group">
+                <h3>{{ group }}</h3>
+                <el-scrollbar height="460px">
+                  <div class="group-tags">
+                    <el-tag v-for="node in nodes" :key="node" closable @close="removeFromGroup(group, node)"
+                      @mousedown="highlightElement(node)" @mouseup="resetHighlight">
+                      {{ node }}
+                    </el-tag>
+                  </div>
+                </el-scrollbar>
+                <div ref="rateings">
+                  <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                    :texts="['直接无视', '有点感觉', '一般明显', '有点明显', '非常明显']" show-text v-model="ratings[group]" allow-half
+                    class="rate" @change="updateRating(group, ratings[group])" />
+                </div>
+              </div>
             </el-card>
           </div>
-          <el-card ref="groupCard" class="group-card" shadow="never">
-            <div class="select-group">
-              <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择分组" @change="highlightGroup">
-                <el-option v-for="(group, index) in groupOptions" :key="index" :label="group" :value="group" />
-              </el-select>
-              <el-button ref="addGroupBtn" @click="addNewGroup"><el-icon>
-                  <Plus />
-                </el-icon></el-button>
-              <el-button ref="deleteGroupBtn" @click="deleteCurrentGroup"><el-icon>
-                  <Delete />
-                </el-icon></el-button>
-              <el-button ref="addOtherGroupBtn" @click="addOtherGroup"><el-icon>
-                  <Finished />
-                </el-icon></el-button>
-            </div>
-            <div v-for="(nodes, group) in filteredGroups" :key="group" class="group">
-              <h3>{{ group }}</h3>
-              <el-scrollbar height="460px">
-                <div class="group-tags">
-                  <el-tag v-for="node in nodes" :key="node" closable @close="removeFromGroup(group, node)"
-                    @mousedown="highlightElement(node)" @mouseup="resetHighlight">
-                    {{ node }}
-                  </el-tag>
-                </div>
-              </el-scrollbar>
-              <div ref="rateings">
-                <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                  :texts="['直接无视', '有点感觉', '一般明显', '有点明显', '非常明显']" show-text v-model="ratings[group]" allow-half
-                  class="rate" @change="updateRating(group, ratings[group])" />
-              </div>
-            </div>
-          </el-card>
-        </div>
         </el-card>
       </el-main>
       <div class="steps-container">
@@ -163,6 +163,8 @@ const addOtherGroupBtn = ref(null);
 const previousBtn = ref(null);
 const nextBtn = ref(null);
 
+const nodeEventHandlers = new Map();  // 存储节点的事件处理器
+
 const updateRating = (group, rating) => {
   const step = active.value;
   store.commit('UPDATE_RATING', { step, group, rating });
@@ -170,6 +172,12 @@ const updateRating = (group, rating) => {
 
 const fetchSvgContent = async (step) => {
   try {
+    // 清理旧的事件处理器
+    nodeEventHandlers.forEach((handler, node) => {
+      node.removeEventListener('click', handler);
+    });
+    nodeEventHandlers.clear();
+
     const response = await fetch(`./TestData/${step}/${step}.svg`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -262,17 +270,33 @@ const addClickEffectToVisibleNodes = () => {
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      node.addEventListener('click', () => {
+      // 获取旧的事件处理器
+      const oldHandler = nodeEventHandlers.get(node);
+
+      // 如果存在旧的事件处理器，先移除它
+      if (oldHandler) {
+        node.removeEventListener('click', oldHandler);
+      }
+
+      // 定义新的事件处理器
+      const handleNodeClick = () => {
         const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
         if (groupNodes.includes(node.id)) {
           store.commit('REMOVE_NODE_FROM_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+          // console.log("RE")
         } else {
           store.commit('ADD_NODE_TO_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+          // console.log("Add")
         }
         nextTick(() => {
           highlightGroup();
         });
-      });
+      };
+      // 更新事件处理器映射
+      nodeEventHandlers.set(node, handleNodeClick);
+
+      // 添加新的事件处理器
+      node.addEventListener('click', handleNodeClick);
     }
   });
 };
@@ -504,7 +528,6 @@ onMounted(() => {
     highlightGroup(); // Ensure the group is highlighted on initial load
   });
 });
-
 
 watch([active, groups], () => {
   ratings.value = {};

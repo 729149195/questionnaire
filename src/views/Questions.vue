@@ -22,7 +22,9 @@
               </el-card>
               <el-card class="bottom-card" shadow="never">
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
-                <div v-html="Svg" class="svg-container2"></div>
+                <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
+                <div id="overlay" class="overlay"></div> <!-- 添加覆盖层 -->
+                <el-button @click="toggleCropMode" class="Crop"><el-icon><Crop /></el-icon></el-button>
               </el-card>
             </div>
             <el-card class="group-card" shadow="never">
@@ -85,7 +87,7 @@
       </template>
     </el-dialog>
 
-    <el-dialog v-model="dialogVisible" title="问卷说明" width="700" align-center>
+    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="700" align-center>
       <span>
         在开始问卷之前，请仔细阅读以下说明：
         <ol>
@@ -97,7 +99,7 @@
       </span>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button @click="infoDialogVisible = false">取消</el-button>
           <el-button type="primary" @click="handleDialogConfirm">我明白了</el-button>
         </div>
       </template>
@@ -106,11 +108,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from 'vue';
+import { ref, computed, onMounted, watch, nextTick, onBeforeUnmount } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Finished, Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower } from '@element-plus/icons-vue';
+import { Finished, Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop } from '@element-plus/icons-vue';
 
 const store = useStore();
 const router = useRouter();
@@ -122,11 +124,13 @@ const infoDialogVisible = ref(false);
 const active = ref(0);
 const steps = Array.from({ length: 10 });
 const icons = [View, View, View];
+const svgContainer2 = ref(null);  // 添加对 svg-container2 的引用
 
 const Svg = ref('');
 const selectedGroup = ref('group1');
 const ratings = ref({});
 let reminderTimerId = null;
+const nodeEventHandlers = new Map();
 
 const updateRating = (group, rating) => {
   const step = active.value;
@@ -153,6 +157,12 @@ const handleDialogClose = () => {
 
 const fetchSvgContent = async (step) => {
   try {
+    // 清理旧的事件处理器
+    nodeEventHandlers.forEach((handler, node) => {
+      node.removeEventListener('click', handler);
+    });
+    nodeEventHandlers.clear();
+
     const response = await fetch(`./Data/${step}/${step}.svg`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -163,8 +173,10 @@ const fetchSvgContent = async (step) => {
     addHoverEffectToVisibleNodes();
     addClickEffectToVisibleNodes();
     nextTick(() => {
+      if (!isCropping.value) {
+        addZoomEffectToSvg();  // 添加缩放效果
+      }
       highlightGroup();
-      addZoomEffectToSvg(); 
     });
   } catch (error) {
     console.error('Error loading SVG content:', error);
@@ -173,7 +185,7 @@ const fetchSvgContent = async (step) => {
 };
 
 const addZoomEffectToSvg = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = d3.select(svgContainer).select('svg');
   if (!svg) return;
@@ -204,8 +216,79 @@ const addZoomEffectToSvg = () => {
   }
 };
 
+const isCropping = ref(false);
+const startPoint = ref({ x: 0, y: 0 });
+const currentRect = ref(null);
+
+const toggleCropMode = () => {
+  isCropping.value = !isCropping.value;
+  if (isCropping.value) {
+    svgContainer2.value.classList.add('crosshair-cursor');
+    d3.select(svgContainer2.value).select('svg').on('.zoom', null);  // 移除缩放效果
+  } else {
+    svgContainer2.value.classList.remove('crosshair-cursor');
+    addZoomEffectToSvg();  // 重新添加缩放效果
+  }
+  console.log('Crop mode:', isCropping.value);  // 调试用，检查是否正确切换裁剪模式
+};
+
+const handleMouseDown = (event) => {
+  if (!isCropping.value) return;
+
+  const overlay = document.getElementById('overlay');
+  if (!overlay) return;
+
+  const rect = overlay.getBoundingClientRect();
+  startPoint.value = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top
+  };
+
+  currentRect.value = document.createElement('div');
+  currentRect.value.classList.add('drag-selection');
+  currentRect.value.style.left = `${startPoint.value.x}px`;
+  currentRect.value.style.top = `${startPoint.value.y}px`;
+  overlay.appendChild(currentRect.value);
+
+  overlay.addEventListener('mousemove', handleMouseMove);
+  overlay.addEventListener('mouseup', handleMouseUp);
+};
+
+const handleMouseMove = (event) => {
+  if (!currentRect.value) return;
+
+  const overlay = document.getElementById('overlay');
+  if (!overlay) return;
+
+  const rect = overlay.getBoundingClientRect();
+  const currentPoint = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top
+  };
+
+  const width = Math.abs(currentPoint.x - startPoint.value.x);
+  const height = Math.abs(currentPoint.y - startPoint.value.y);
+  const left = Math.min(currentPoint.x, startPoint.value.x);
+  const top = Math.min(currentPoint.y, startPoint.value.y);
+
+  currentRect.value.style.width = `${width}px`;
+  currentRect.value.style.height = `${height}px`;
+  currentRect.value.style.left = `${left}px`;
+  currentRect.value.style.top = `${top}px`;
+};
+
+const handleMouseUp = () => {
+  const overlay = document.getElementById('overlay');
+  if (!overlay) return;
+
+  overlay.removeEventListener('mousemove', handleMouseMove);
+  overlay.removeEventListener('mouseup', handleMouseUp);
+
+  currentRect.value = null;
+};
+
 const turnGrayVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
@@ -219,52 +302,76 @@ const turnGrayVisibleNodes = () => {
 };
 
 const addHoverEffectToVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      node.addEventListener('mouseover', () => {
+      // 定义新的事件监听器
+      const handleMouseOver = () => {
         node.style.opacity = '1';
-      });
-      node.addEventListener('mouseout', () => {
+      };
+      const handleMouseOut = () => {
         node.style.opacity = '0.2';
         highlightGroup();
-      });
+      };
+
+      // 移除旧的 hover 事件监听器
+      node.removeEventListener('mouseover', handleMouseOver);
+      node.removeEventListener('mouseout', handleMouseOut);
+
+      // 添加新的 hover 事件监听器
+      node.addEventListener('mouseover', handleMouseOver);
+      node.addEventListener('mouseout', handleMouseOut);
     }
   });
-
 };
 
 const addClickEffectToVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      node.addEventListener('click', () => {
+      // 获取旧的事件处理器
+      const oldHandler = nodeEventHandlers.get(node);
+
+      // 如果存在旧的事件处理器，先移除它
+      if (oldHandler) {
+        node.removeEventListener('click', oldHandler);
+      }
+
+      // 定义新的事件处理器
+      const handleNodeClick = () => {
         const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
         if (groupNodes.includes(node.id)) {
           store.commit('REMOVE_NODE_FROM_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+          console.log("REMOVE_NODE_FROM_GROUP", node.id);  // 调试用，检查节点移除
         } else {
           store.commit('ADD_NODE_TO_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
+          console.log("ADD_NODE_TO_GROUP", node.id);  // 调试用，检查节点添加
         }
         nextTick(() => {
           highlightGroup();
         });
-      });
+      };
+
+      // 更新事件处理器映射
+      nodeEventHandlers.set(node, handleNodeClick);
+
+      // 添加新的事件处理器
+      node.addEventListener('click', handleNodeClick);
     }
   });
 };
 
-
 const highlightGroup = () => {
   const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
@@ -279,7 +386,7 @@ const highlightGroup = () => {
 };
 
 const highlightElement = (nodeId) => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
@@ -329,7 +436,7 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const handleDialogConfirm = () => {
-  dialogVisible.value = false;
+  infoDialogVisible.value = false;
 };
 
 const next = async () => {
@@ -342,6 +449,8 @@ const next = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    isCropping.value = false;
+    svgContainer2.value.classList.remove('crosshair-cursor');
   }
 };
 
@@ -355,6 +464,8 @@ const Previous = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    isCropping.value = false;
+    svgContainer2.value.classList.remove('crosshair-cursor');
   }
 };
 
@@ -413,18 +524,6 @@ const renderTree = (data) => {
   });
 };
 
-const addToGroup = (nodeId) => {
-  const step = active.value;
-  store.commit('ADD_NODE_TO_GROUP', { step, group: selectedGroup.value, nodeId });
-};
-
-const addToGroupAndHighlight = (nodeId) => {
-  addToGroup(nodeId);
-  nextTick(() => {
-    highlightGroup();
-  });
-};
-
 const removeFromGroup = (group, nodeId) => {
   const step = active.value;
   store.commit('REMOVE_NODE_FROM_GROUP', { step, group, nodeId });
@@ -471,6 +570,11 @@ onMounted(async () => {
 });
 
 onMounted(() => {
+  const overlay = document.getElementById('overlay');
+  if (overlay) {
+    overlay.addEventListener('mousedown', handleMouseDown);
+  }
+
   const stepRatings = store.state.ratings[active.value] || {};
   for (const group in groups.value) {
     ratings.value[group] = stepRatings[group] || 1;
@@ -513,6 +617,15 @@ watch(allVisiableNodes, () => {
   highlightGroup();
 });
 
+onBeforeUnmount(() => {
+  // 移除鼠标事件监听器
+  const overlay = document.getElementById('overlay');
+  if (overlay) {
+    overlay.removeEventListener('mousedown', handleMouseDown);
+    overlay.removeEventListener('mousemove', handleMouseMove);
+    overlay.removeEventListener('mouseup', handleMouseUp);
+  }
+});
 </script>
 
 <style scoped>
@@ -555,7 +668,6 @@ watch(allVisiableNodes, () => {
   font-size: 16px;
   font-weight: bold;
 }
-
 
 .el-main {
   width: 100%;
@@ -642,6 +754,7 @@ watch(allVisiableNodes, () => {
   justify-content: center;
   align-items: center;
   height: 50%;
+  position: relative;  /* 确保绝对定位的选框能正确显示 */
 }
 
 .steps-container {
@@ -661,5 +774,34 @@ watch(allVisiableNodes, () => {
 .next-button,
 .submit-button {
   margin: 0 12px;
+}
+
+.bottom-card {
+  position: relative;
+
+  .Crop {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* 避免影响其他元素的交互 */
+}
+
+.drag-selection {
+  position: absolute;
+  border: 3px solid black;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.crosshair-cursor {
+  cursor: crosshair !important;
 }
 </style>

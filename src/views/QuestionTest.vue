@@ -103,26 +103,47 @@
       <span>如果您已经了解过该系统的使用方法，请点击否跳过引导。</span>
       <template #footer>
         <div class="dialog-footer">
+          <el-button @click="tourDialogVisible = false">跳过</el-button>
           <el-button @click="startTour">是</el-button>
-          <el-button @click="tourDialogVisible = false">否</el-button>
         </div>
       </template>
     </el-dialog>
 
     <el-tour v-model="openTour">
-      <!-- <el-tour-step :target="idandtime?.$el" title="ID和时限" description="这里是分配的ID和剩余时间。" /> -->
-      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮"  >点击这里可以打开说明。</el-tour-step>
-      <el-tour-step :target="svg1?.$el" title="视觉感知区域" >这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
-      <el-tour-step :target="svg2?.$el" title="主要操作区域" >这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。</el-tour-step>
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">主要包含分组标签（即所选中的视觉模式元素集群）和注意力评分（即在视觉中该图形模式的显眼程度）</el-tour-step>
-      <el-tour-step :target="groupSelector?.$el" title="分组选择器" >在这里选择已创建的分组。</el-tour-step>
-      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮" >点击这里可以添加新的分组。</el-tour-step>
-      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮" >点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。</el-tour-step>
-      <el-tour-step :target="addOtherGroupBtn?.$el" title="添加其他分组按钮" >点击这里可以添加将其余未加入到任一分组的元素全部添加入Other组（通常是在分完所有图形模式后最后点击的一步）。</el-tour-step>
-      <!-- <el-tour-step :target="rateings?.$el" title="分组评分" description="在这里为分组评分。" /> -->
-      <el-tour-step :target="stepsContainer?.$el" title="问卷进度"  >这里显示了问卷的进度。已完成的示例节点会变绿。</el-tour-step>
-      <el-tour-step :target="previousBtn?.$el" title="上一个按钮"  >点击这里可以回到上一个示例节点。</el-tour-step>
-      <el-tour-step :target="nextBtn?.$el" title="下一个按钮" >点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。</el-tour-step>
+      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div
+          v-html="getGifHtml('OpeningInstructions.gif')"></div></el-tour-step>
+      <el-tour-step :target="svg1?.$el" title="视觉感知区域">这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
+      <el-tour-step :target="svg2?.$el"
+        title="主要操作区域">这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。<div
+          v-html="getGifHtml('2.gif')"></div></el-tour-step>
+      <el-tour-step :target="groupCard?.$el" title="分组卡片"
+        placement="left">主要包含分组标签（即所选中的视觉模式元素集群）和注意力评分（即在视觉中该图形模式的显眼程度）
+        <div v-html="getGifHtml('4.gif')"></div>
+      </el-tour-step>
+      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里选择已创建的分组。<div v-html="getGifHtml('5.gif')"
+          style="width: 250px"></div></el-tour-step>
+      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的分组。<div v-html="getGifHtml('6.gif')"
+          style="width: 250px"></div></el-tour-step>
+      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div
+          v-html="getGifHtml('7.gif')" style="width: 250px"></div></el-tour-step>
+      <el-tour-step :target="addOtherGroupBtn?.$el"
+        title="添加其他分组按钮">点击这里可以添加将其余未加入到任一分组的元素全部添加入Other组（通常是在分完所有图形模式后最后点击的一步）。<div v-html="getGifHtml('8.gif')">
+        </div>
+      </el-tour-step>
+      <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
+        </div></el-tour-step>
+      <el-tour-step :target="previousBtn?.$el" title="上一个按钮">点击这里可以回到上一个示例节点。<div v-html="getGifHtml('10.gif')"></div>
+      </el-tour-step>
+      <el-tour-step :target="nextBtn?.$el" title="下一个按钮">点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。<div
+          v-html="getGifHtml('11.gif')"></div></el-tour-step>
+      <el-tour-step title="尝试">现在可以使用当前两个练习示例进行练习</el-tour-step>
+      <template #footer="{ currentIndex, stepCount, prevStep, nextStep, endTour }">
+        <el-space>
+          <el-button @click="endTour">结束引导</el-button>
+          <el-button @click="prevStep" :disabled="currentIndex === 0">上一步</el-button>
+          <el-button @click="nextStep" :disabled="currentIndex === stepCount - 1">下一步</el-button>
+        </el-space>
+      </template>
     </el-tour>
   </div>
 </template>
@@ -162,6 +183,55 @@ const deleteGroupBtn = ref(null);
 const addOtherGroupBtn = ref(null);
 const previousBtn = ref(null);
 const nextBtn = ref(null);
+
+const props = defineProps(['data']);
+const emits = defineEmits(['change', 'prev', 'next']);
+
+// 引导组件开启状态
+const open = ref(true);
+
+// 当前步数，从0开始，由于第0步是开始语，后面的步数可以正好对应
+const currentStep = ref(0);
+
+// 动态修改下一步按钮名称
+const nextBtnName = computed(() => {
+  let name = ''
+  if(currentStep.value === 0) {
+    name = '开始'
+  } else if(currentStep.value === props.data.length - 1) {
+    name = '完成'
+  } else {
+    name = `下一步（${currentStep.value + 1} / ${props.data.length}）`
+  }
+  return name;
+});
+
+// 步数切换时触发
+const handleChange = (step) => {
+  currentStep.value = step;
+  emits('change', step);
+};
+
+// 点击跳过按钮时触发
+const handleSkip = () => {
+  open.value = false;
+};
+
+// 点击上一步按钮时触发
+const handlePrevClick = () => {
+  emits('prev');
+};
+
+// 点击下一步按钮时触发
+const handleNextClick = () => {
+  emits('next');
+};
+
+const getGifHtml = (filename) => {
+  const gifPath = `./gif/${filename}`;
+  return `<img src="${gifPath}" alt="GIF" style="max-width: 100%; height: auto;">`;
+};
+
 
 const nodeEventHandlers = new Map();  // 存储节点的事件处理器
 
@@ -211,7 +281,7 @@ const addZoomEffectToSvg = () => {
     });
 
   svg.call(zoom)
-     .call(zoom.transform, d3.zoomIdentity.translate(svgContainer.clientWidth / 2, svgContainer.clientHeight / 2));
+    .call(zoom.transform, d3.zoomIdentity.translate(svgContainer.clientWidth / 2, svgContainer.clientHeight / 2));
 
   function limitPan(transform, container) {
     const scale = transform.k;
@@ -691,8 +761,10 @@ watch(allVisiableNodes, () => {
   justify-content: center;
   align-items: center;
   height: 50%;
-  position: relative; /* 重要，确保缩放效果能正确应用 */
-  overflow: hidden; /* 确保缩放时不出现滚动条 */
+  position: relative;
+  /* 重要，确保缩放效果能正确应用 */
+  overflow: hidden;
+  /* 确保缩放时不出现滚动条 */
 }
 
 .svg-container2 svg {

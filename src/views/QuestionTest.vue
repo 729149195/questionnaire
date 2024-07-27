@@ -26,7 +26,9 @@
               <el-card ref="svg2" class="bottom-card" shadow="never">
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
-                <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon><Crop /></el-icon></el-button>
+                <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon>
+                    <Crop />
+                  </el-icon></el-button>
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
@@ -96,10 +98,13 @@
       <span>
         在开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>视觉图形模式：即在视觉中感觉上应该分配到一组的元素集群</li>
-          <li>右侧group里对应的所有标签元素代表一个图形模式</li>
+          <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
-          <li>报酬获取方式：将最后导出的数据文件及ID提交给管理员，管理员审批后根据完成情况及质量发放报酬</li>
+          <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
+          <li>显眼程度：您注意到这个图形模式的快慢。分组界限：该图形模式与其它潜在图形模式的区分清晰程度</li>
+          <li>虽然显眼程度和分组界限的评分十分重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+          <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
         </ol>
       </span>
       <template #footer>
@@ -111,9 +116,9 @@
     </el-dialog>
 
     <el-dialog v-model="tourDialogVisible" title="漫游引导" width="500">
-      <span>是否进行漫游引导来帮助您尽快了解该问卷系统的使用方法？</span>
-      <p>在漫游引导中您可以直接在高亮区域进行操作尝试。</p>
-      <span>如果您已经了解过该系统的使用方法，请点击否跳过引导。</span>
+      <span>是否需要一个简单的系统使用指南？</span>
+      <p>在指南中，您可以直接在高亮区域进行操作。</p>
+      <span>如果您已经熟悉该问卷系统，可以选择跳过。</span>
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="tourDialogVisible = false">跳过</el-button>
@@ -125,25 +130,27 @@
     <el-tour v-model="openTour">
       <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="svg1?.$el" title="视觉感知区域" placement="right">这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
-      <el-tour-step :target="svg2?.$el" placement="right"
-        title="主要操作区域">这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。<div
-          v-html="getGifHtml('2.gif')"></div></el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right"
-        title="主要操作区域">这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。<div
+      <el-tour-step :target="svg1?.$el" title="模式观察区域" placement="right">您将在这里总揽全局并进行图形模式的观察与感知。</el-tour-step>
+      <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
+        在这里，您可以点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
+      </el-tour-step>
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中的元素较为密集时，可以进入框选功能进行元素框选。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="groupCard?.$el" title="分组卡片"
-        placement="left">主要包含分组标签（即所选中的视觉模式元素集群）和注意力评分（即在视觉中该图形模式的显眼程度）
+      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示一个模式中所包含标签，点击后可在选取交互区域定位到单一标签所对应的元素
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里选择已创建的分组。<div v-html="getGifHtml('5.gif')"
-          ></div></el-tour-step>
-      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的分组。<div v-html="getGifHtml('6.gif')"
-          ></div></el-tour-step>
+      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里选择已创建的分组。<div v-html="getGifHtml('5.gif')"></div>
+      </el-tour-step>
+      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的分组。<div v-html="getGifHtml('6.gif')"></div>
+      </el-tour-step>
       <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div
-          v-html="getGifHtml('7.gif')" ></div></el-tour-step>
-      <el-tour-step :target="rateings?.$el" title="模式评分">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div v-html="getGifHtml('8.gif')"
-          ></div></el-tour-step>
+          v-html="getGifHtml('7.gif')"></div></el-tour-step>
+      <el-tour-step :target="rateings?.$el" title="模式评分">
+        <p>显眼程度：您注意到这个图形模式的快慢。</p>
+        <p>分组界限：该图形模式与其它潜在图形模式的区分清晰程度。</p>
+        <p>请根据第一印象为每一个图形模式进行评分。</p>
+        <div v-html="getGifHtml('8.gif')"></div>
+      </el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
         </div></el-tour-step>
       <el-tour-step :target="previousBtn?.$el" title="上一个按钮">点击这里可以回到上一个示例节点。<div v-html="getGifHtml('10.gif')"></div>
@@ -603,7 +610,7 @@ const renderTree = (data) => {
     .data(root.leaves())
     .join("g")
     .attr("transform", d => `translate(${d.x0},${d.y0})`);
-    
+
   const nodeIds = [];
   leaf.each(d => {
     nodeIds.push(d.data.name.split("/").pop());
@@ -906,6 +913,7 @@ watch(allVisiableNodes, () => {
     top: 10px;
     right: 10px;
   }
+
   .bottom-title {
     position: absolute;
     top: 5px;

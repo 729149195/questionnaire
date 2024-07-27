@@ -19,11 +19,11 @@
               <el-radio-group id="gender" v-model="form.gender" class="input-field">
                 <el-radio :value="'male'">男</el-radio>
                 <el-radio :value="'female'">女</el-radio>
-                <el-radio :value="OTHER">其他</el-radio>
+                <!-- <el-radio :value="OTHER">其他</el-radio> -->
               </el-radio-group>
-              <span v-if="form.gender === OTHER">你确定吗？(ﾟДﾟ*)ﾉ</span>
+              <!-- <span v-if="form.gender === OTHER">你确定吗？(ﾟДﾟ*)ﾉ</span> -->
             </el-form-item>
-            <el-form-item label="3、您是否有看过可视化作品（比如折线图、柱状图）？" label-for="visualizationExperience">
+            <el-form-item label="3、您是否有独立创建过可视化作品并将其实际应用到生活中的某一个地方？" label-for="visualizationExperience">
               <el-radio-group id="visualizationExperience" v-model="form.visualizationExperience" class="input-field">
                 <el-radio :value="'yes'">有</el-radio>
                 <el-radio :value="'no'">没有</el-radio>
@@ -42,13 +42,8 @@
       <el-footer>{{ currentTime }}</el-footer>
     </el-container>
   </div>
-  <el-dialog v-model="DialogVisible" title="问卷介绍" width="800">
-      <p>可视化技术在提取数据洞察和展示数据模式中都因其所具备的信息展示优势受到社会各界的广泛认可。可视化技术
-        通过将信息转化为一组具有各种视觉编码的元素，即可以通过各种图形模式来表达数据模式。</p>
-      <p>考虑到人类视觉感知系统的复杂性和多样性，这是一项十分具有挑战性的任务，</p>
-      <p>人们对视觉感知的探索已经持续了几十年，并产生了成熟的理论，本研究以其中具有代表性的格式塔感知原则为理论依据。
-        通过深入分析SVG结构代码来提取节点特征信息，经过人工智能模型处理，将可视元素分组成感知模式。</p>
-      <p>该问卷就目的就是给模型训练收集数据。</p>
+  <el-dialog v-model="DialogVisible" title="问卷介绍" width="750">
+    <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="DialogVisible = false">开始</el-button>

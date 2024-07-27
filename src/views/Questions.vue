@@ -101,12 +101,15 @@
 
     <el-dialog v-model="infoDialogVisible" title="问卷说明" width="700" align-center>
       <span>
-        在开始问卷之前，请仔细阅读以下说明：
+        在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>视觉图形模式：即在视觉中感觉上应该分配到一组的元素集群。</li>
-          <li>右侧group里对应的所有标签元素代表一个图形模式。</li>
-          <li>请尽可能多地选出自己认为的合理的图形模式。</li>
-          <li>报酬获取方式：将最后导出的数据文件及ID提交给管理员，管理员审批后根据完成情况及质量发放报酬。</li>
+          <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
+          <li>请尽可能多地选出自己认为的合理的图形模式</li>
+          <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
+          <li>显眼程度：您注意到这个图形模式的快慢。分组界限：该图形模式与其它潜在图形模式的区分清晰程度</li>
+          <li>虽然显眼程度和分组界限的评分十分重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+          <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
         </ol>
       </span>
       <template #footer>
@@ -134,7 +137,7 @@ const selectedNodeIds = computed(() => store.state.selectedNodes.nodeIds);
 const allVisiableNodes = computed(() => store.state.AllVisiableNodes);
 const steps = computed(() => store.state.steps);
 const dialogVisible = ref(false);
-const infoDialogVisible = ref(false);
+const infoDialogVisible = ref(true);
 const active = ref(0);
 const icons = [View, View, View];
 const svgContainer2 = ref(null);

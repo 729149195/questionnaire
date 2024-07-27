@@ -5,7 +5,6 @@
         <div class="header-content">
           <div ref="idandtime" class="left-content">
             <!-- <p class="id">分配ID：666666</p> -->
-            <!-- <span>剩余时间：</span><p class="time">30:00</p> -->
           </div>
           <div class="right-content">
             <el-button ref="openDialogBtn" plain @click="dialogVisible = true">
@@ -22,15 +21,18 @@
             <div class="left-two">
               <el-card ref="svg1" class="top-card" shadow="never">
                 <div v-html="Svg" class="svg-container"></div>
+                <el-button class="top-title" disabled text bg>模式观察区域</el-button>
               </el-card>
               <el-card ref="svg2" class="bottom-card" shadow="never">
-                <div v-html="Svg" class="svg-container2"></div>
+                <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
+                <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon><Crop /></el-icon></el-button>
+                <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
             <el-card ref="groupCard" class="group-card" shadow="never">
               <div class="select-group">
-                <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择分组" @change="highlightGroup">
+                <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择模式" @change="highlightGroup">
                   <el-option v-for="(group, index) in groupOptions" :key="index" :label="group" :value="group" />
                 </el-select>
                 <el-button ref="addGroupBtn" @click="addNewGroup"><el-icon>
@@ -39,25 +41,36 @@
                 <el-button ref="deleteGroupBtn" @click="deleteCurrentGroup"><el-icon>
                     <Delete />
                   </el-icon></el-button>
-                <el-button ref="addOtherGroupBtn" @click="addOtherGroup"><el-icon>
-                    <Finished />
-                  </el-icon></el-button>
               </div>
-              <div v-for="(nodes, group) in filteredGroups" :key="group" class="group">
-                <h3>{{ group }}</h3>
-                <el-scrollbar height="460px">
+              <div v-if="selectedGroup" class="group">
+                <h3>{{ selectedGroup }}</h3>
+                <el-scrollbar height="420px">
                   <div class="group-tags">
-                    <el-tag v-for="node in nodes" :key="node" closable @close="removeFromGroup(group, node)"
-                      @mousedown="highlightElement(node)" @mouseup="resetHighlight">
+                    <el-tag v-for="node in currentGroupNodes" :key="node" closable
+                      @close="removeFromGroup(selectedGroup, node)" @mousedown="highlightElement(node)"
+                      @mouseup="resetHighlight">
                       {{ node }}
                     </el-tag>
                   </div>
                 </el-scrollbar>
-                <div ref="rateings">
-                  <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                    :texts="['直接无视', '有点感觉', '一般明显', '有点明显', '非常明显']" show-text v-model="ratings[group]" allow-half
-                    class="rate" @change="updateRating(group, ratings[group])" />
+
+                <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
+                  <div class="rate-container2">
+                    <span>显眼程度：</span>
+                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
+                      allow-half class="rate"
+                      @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
+                  </div>
+                  <div class="rate-container2">
+                    <span>分组界限：</span>
+                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
+                      allow-half class="rate"
+                      @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
+                  </div>
                 </div>
+
               </div>
             </el-card>
           </div>
@@ -110,26 +123,27 @@
     </el-dialog>
 
     <el-tour v-model="openTour">
-      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div
-          v-html="getGifHtml('OpeningInstructions.gif')"></div></el-tour-step>
-      <el-tour-step :target="svg1?.$el" title="视觉感知区域">这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
-      <el-tour-step :target="svg2?.$el"
+      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div>
+      </el-tour-step>
+      <el-tour-step :target="svg1?.$el" title="视觉感知区域" placement="right">这里是图形模式的直观显示区域，主要通过该区域所示图形来进行视觉图形模式的感知。</el-tour-step>
+      <el-tour-step :target="svg2?.$el" placement="right"
         title="主要操作区域">这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。<div
           v-html="getGifHtml('2.gif')"></div></el-tour-step>
+      <el-tour-step :target="cropBtn?.$el" placement="right"
+        title="主要操作区域">这里是主要交互区域，通过点击元素来进行添加和删除当前所创建的图形模式中应该包含哪些元素。您还可以通过鼠标滚轮来控制缩放，来更方便地点击细小元素。<div
+          v-html="getGifHtml('3.gif')"></div></el-tour-step>
       <el-tour-step :target="groupCard?.$el" title="分组卡片"
         placement="left">主要包含分组标签（即所选中的视觉模式元素集群）和注意力评分（即在视觉中该图形模式的显眼程度）
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
       <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里选择已创建的分组。<div v-html="getGifHtml('5.gif')"
-          style="width: 250px"></div></el-tour-step>
+          ></div></el-tour-step>
       <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的分组。<div v-html="getGifHtml('6.gif')"
-          style="width: 250px"></div></el-tour-step>
+          ></div></el-tour-step>
       <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div
-          v-html="getGifHtml('7.gif')" style="width: 250px"></div></el-tour-step>
-      <el-tour-step :target="addOtherGroupBtn?.$el"
-        title="添加其他分组按钮">点击这里可以添加将其余未加入到任一分组的元素全部添加入Other组（通常是在分完所有图形模式后最后点击的一步）。<div v-html="getGifHtml('8.gif')">
-        </div>
-      </el-tour-step>
+          v-html="getGifHtml('7.gif')" ></div></el-tour-step>
+      <el-tour-step :target="rateings?.$el" title="模式评分">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div v-html="getGifHtml('8.gif')"
+          ></div></el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
         </div></el-tour-step>
       <el-tour-step :target="previousBtn?.$el" title="上一个按钮">点击这里可以回到上一个示例节点。<div v-html="getGifHtml('10.gif')"></div>
@@ -149,11 +163,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from 'vue';
+import { ref, computed, onMounted, nextTick, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Finished, Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower } from '@element-plus/icons-vue';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop } from '@element-plus/icons-vue';
+import { ElMessage } from 'element-plus';
 
 const store = useStore();
 const router = useRouter();
@@ -166,8 +181,11 @@ const active = ref(0);
 const steps = Array.from({ length: 2 });
 const icons = [View, View, View];
 
+const formData = computed(() => store.getters.getFormData);
+const svgContainer2 = ref(null);
+
 const Svg = ref('');
-const selectedGroup = ref('group1');
+const selectedGroup = ref('模式1');
 const ratings = ref({});
 
 const idandtime = ref(null);
@@ -180,69 +198,36 @@ const openDialogBtn = ref(null);
 const groupSelector = ref(null);
 const addGroupBtn = ref(null);
 const deleteGroupBtn = ref(null);
-const addOtherGroupBtn = ref(null);
 const previousBtn = ref(null);
 const nextBtn = ref(null);
+const cropBtn = ref(null);
+
+const nodeEventHandlers = new Map();
+const isCropping = ref(false);
 
 const props = defineProps(['data']);
 const emits = defineEmits(['change', 'prev', 'next']);
 
-// 引导组件开启状态
-const open = ref(true);
-
-// 当前步数，从0开始，由于第0步是开始语，后面的步数可以正好对应
-const currentStep = ref(0);
-
-// 动态修改下一步按钮名称
-const nextBtnName = computed(() => {
-  let name = ''
-  if(currentStep.value === 0) {
-    name = '开始'
-  } else if(currentStep.value === props.data.length - 1) {
-    name = '完成'
-  } else {
-    name = `下一步（${currentStep.value + 1} / ${props.data.length}）`
+const currentGroupNodes = computed(() => {
+  if (!ratings.value[selectedGroup.value]) {
+    ratings.value[selectedGroup.value] = { attention: 1, boundary: 1 };
   }
-  return name;
+  return groups.value[selectedGroup.value] || [];
 });
-
-// 步数切换时触发
-const handleChange = (step) => {
-  currentStep.value = step;
-  emits('change', step);
-};
-
-// 点击跳过按钮时触发
-const handleSkip = () => {
-  open.value = false;
-};
-
-// 点击上一步按钮时触发
-const handlePrevClick = () => {
-  emits('prev');
-};
-
-// 点击下一步按钮时触发
-const handleNextClick = () => {
-  emits('next');
-};
 
 const getGifHtml = (filename) => {
   const gifPath = `./gif/${filename}`;
   return `<img src="${gifPath}" alt="GIF" style="max-width: 100%; height: auto;">`;
 };
 
-
-const nodeEventHandlers = new Map();  // 存储节点的事件处理器
-
-const updateRating = (group, rating) => {
+const updateRating = (group, rating, type) => {
   const step = active.value;
-  store.commit('UPDATE_RATING', { step, group, rating });
+  store.commit('UPDATE_RATING', { step, group, rating, type });
 };
+
 
 const fetchSvgContent = async (step) => {
   try {
-    // 清理旧的事件处理器
     nodeEventHandlers.forEach((handler, node) => {
       node.removeEventListener('click', handler);
     });
@@ -259,7 +244,7 @@ const fetchSvgContent = async (step) => {
     addClickEffectToVisibleNodes();
     nextTick(() => {
       highlightGroup();
-      addZoomEffectToSvg();  // 添加缩放效果
+      addZoomEffectToSvg();
     });
   } catch (error) {
     console.error('Error loading SVG content:', error);
@@ -268,16 +253,18 @@ const fetchSvgContent = async (step) => {
 };
 
 const addZoomEffectToSvg = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = d3.select(svgContainer).select('svg');
   if (!svg) return;
 
   const zoom = d3.zoom()
-    .scaleExtent([1, 10])  // 设置缩放范围，最小值为1，初始大小
+    .scaleExtent([1, 10])
     .on('zoom', (event) => {
-      svg.attr('transform', event.transform);
-      limitPan(event.transform, svgContainer);
+      if (!isCropping.value) {
+        svg.attr('transform', event.transform);
+        limitPan(event.transform, svgContainer);
+      }
     });
 
   svg.call(zoom)
@@ -299,8 +286,121 @@ const addZoomEffectToSvg = () => {
   }
 };
 
+
+let isDrawing = false; // 标志是否正在绘制
+let rectElement; // 矩形元素
+let handleMouseClick, handleMouseMove, handleMouseUp; // 事件处理程序
+
+const toggleCropMode = () => {
+  isCropping.value = !isCropping.value;
+  const svg = d3.select(svgContainer2.value).select('svg');
+  if (isCropping.value) {
+    nextTick(() => {
+      svgContainer2.value.classList.add('crosshair-cursor');
+    });
+    ElMessage.info('进入选框模式');
+    enableCropSelection();
+    svg.on('.zoom', null); // 禁用缩放事件
+  } else {
+    svgContainer2.value.classList.remove('crosshair-cursor');
+    ElMessage.info('退出选框模式');
+    disableCropSelection();
+    addZoomEffectToSvg(); // 重新启用缩放功能
+  }
+};
+
+const enableCropSelection = () => {
+  let startX, startY;
+  const svg = svgContainer2.value.querySelector('svg');
+
+  handleMouseClick = (event) => {
+    if (!isDrawing) {
+      isDrawing = true;
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
+      startX = svgPoint.x;
+      startY = svgPoint.y;
+
+      rectElement = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rectElement.setAttribute('x', startX);
+      rectElement.setAttribute('y', startY);
+      rectElement.setAttribute('stroke', 'red');
+      rectElement.setAttribute('stroke-width', '2');
+      rectElement.setAttribute('fill', 'none');
+      svg.appendChild(rectElement);
+
+      svg.addEventListener('mousemove', handleMouseMove);
+      svg.addEventListener('mouseup', handleMouseUp);
+    }
+  };
+
+  handleMouseMove = (event) => {
+    if (isDrawing) {
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
+      const endX = svgPoint.x;
+      const endY = svgPoint.y;
+      const rectWidth = Math.abs(endX - startX);
+      const rectHeight = Math.abs(endY - startY);
+      const rectX = Math.min(startX, endX);
+      const rectY = Math.min(startY, endY);
+
+      rectElement.setAttribute('width', rectWidth);
+      rectElement.setAttribute('height', rectHeight);
+      rectElement.setAttribute('x', rectX);
+      rectElement.setAttribute('y', rectY);
+    }
+  };
+
+  handleMouseUp = (event) => {
+    if (isDrawing) {
+      isDrawing = false;
+
+      const rectX = parseFloat(rectElement.getAttribute('x'));
+      const rectY = parseFloat(rectElement.getAttribute('y'));
+      const rectWidth = parseFloat(rectElement.getAttribute('width'));
+      const rectHeight = parseFloat(rectElement.getAttribute('height'));
+
+      const svg = svgContainer2.value.querySelector('svg');
+      svg.querySelectorAll('*').forEach(node => {
+        const bbox = node.getBBox();
+        const isTouched =
+          (bbox.x + bbox.width) >= rectX &&
+          bbox.x <= (rectX + rectWidth) &&
+          (bbox.y + bbox.height) >= rectY &&
+          bbox.y <= (rectY + rectHeight);
+
+        if (isTouched) {
+          node.dispatchEvent(new Event('click')); // 模拟点击事件
+        }
+      });
+
+      rectElement.remove(); // 移除选框
+      svg.removeEventListener('mousemove', handleMouseMove);
+      svg.removeEventListener('mouseup', handleMouseUp);
+    }
+  };
+
+  svg.addEventListener('mousedown', handleMouseClick);
+};
+
+const disableCropSelection = () => {
+  const svg = svgContainer2.value.querySelector('svg');
+  if (svg) {
+    svg.removeEventListener('mousedown', handleMouseClick);
+    svg.removeEventListener('mousemove', handleMouseMove);
+    svg.removeEventListener('mouseup', handleMouseUp);
+  }
+};
+
 const turnGrayVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
@@ -314,58 +414,60 @@ const turnGrayVisibleNodes = () => {
 };
 
 const addHoverEffectToVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      node.addEventListener('mouseover', () => {
+      const handleMouseOver = () => {
         node.style.opacity = '1';
-      });
-      node.addEventListener('mouseout', () => {
+      };
+      const handleMouseOut = () => {
         node.style.opacity = '0.2';
         highlightGroup();
-      });
+      };
+
+      node.removeEventListener('mouseover', handleMouseOver);
+      node.removeEventListener('mouseout', handleMouseOut);
+
+      node.addEventListener('mouseover', handleMouseOver);
+      node.addEventListener('mouseout', handleMouseOut);
     }
   });
 };
 
 const addClickEffectToVisibleNodes = () => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      // 获取旧的事件处理器
       const oldHandler = nodeEventHandlers.get(node);
 
-      // 如果存在旧的事件处理器，先移除它
       if (oldHandler) {
         node.removeEventListener('click', oldHandler);
       }
 
-      // 定义新的事件处理器
       const handleNodeClick = () => {
         const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
         if (groupNodes.includes(node.id)) {
           store.commit('REMOVE_NODE_FROM_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
-          // console.log("RE")
+          console.log("REMOVE_NODE_FROM_GROUP", node.id);  // 调试用，检查节点移除
         } else {
           store.commit('ADD_NODE_TO_GROUP', { step: active.value, group: selectedGroup.value, nodeId: node.id });
-          // console.log("Add")
+          console.log("ADD_NODE_TO_GROUP", node.id);  // 调试用，检查节点添加
         }
         nextTick(() => {
           highlightGroup();
         });
       };
-      // 更新事件处理器映射
+
       nodeEventHandlers.set(node, handleNodeClick);
 
-      // 添加新的事件处理器
       node.addEventListener('click', handleNodeClick);
     }
   });
@@ -373,7 +475,7 @@ const addClickEffectToVisibleNodes = () => {
 
 const highlightGroup = () => {
   const groupNodes = store.state.groups[active.value]?.[selectedGroup.value] || [];
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
@@ -388,17 +490,18 @@ const highlightGroup = () => {
 };
 
 const highlightElement = (nodeId) => {
-  const svgContainer = document.querySelector('.svg-container2');
+  const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = svgContainer.querySelector('svg');
   if (!svg) return;
-
-  svg.querySelectorAll('*').forEach(node => {
-    if (node.id === nodeId) {
-      node.style.opacity = '1';
-    } else if (allVisiableNodes.value.includes(node.id)) {
-      node.style.opacity = '0.2';
-    }
+  nextTick(() => {
+    svg.querySelectorAll('*').forEach(node => {
+      if (node.id === nodeId) {
+        node.style.opacity = '1';
+      } else if (allVisiableNodes.value.includes(node.id)) {
+        node.style.opacity = '0.2';
+      }
+    });
   });
 };
 
@@ -411,19 +514,7 @@ const resetHighlight = () => {
 const deleteCurrentGroup = () => {
   const step = active.value;
   store.commit('DELETE_GROUP', { step, group: selectedGroup.value });
-  selectedGroup.value = 'group1';
-  nextTick(() => {
-    highlightGroup();
-  });
-};
-
-const addOtherGroup = () => {
-  const step = active.value;
-  const group = 'Other';
-  const allNodeIds = allVisiableNodes.value;
-  const existingGroupNodeIds = Object.values(store.getters.getGroups(step)).flat();
-  const otherNodeIds = allNodeIds.filter(nodeId => !existingGroupNodeIds.includes(nodeId));
-  store.commit('ADD_OTHER_GROUP', { step, group, nodeIds: otherNodeIds });
+  selectedGroup.value = '模式1';
   nextTick(() => {
     highlightGroup();
   });
@@ -442,7 +533,7 @@ const handleDialogConfirm = () => {
 
 const next = async () => {
   if (active.value < steps.length - 1) {
-    selectedGroup.value = 'group1';
+    selectedGroup.value = '模式1';
     active.value++;
     await fetchSvgContent(active.value + 1);
     await fetchAndRenderTree();
@@ -450,12 +541,14 @@ const next = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    isCropping.value = false;
+    svgContainer2.value.classList.remove('crosshair-cursor');
   }
 };
 
 const Previous = async () => {
   if (active.value > 0) {
-    selectedGroup.value = 'group1';
+    selectedGroup.value = '模式1';
     active.value--;
     await fetchSvgContent(active.value + 1);
     await fetchAndRenderTree();
@@ -463,6 +556,8 @@ const Previous = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    isCropping.value = false;
+    svgContainer2.value.classList.remove('crosshair-cursor');
   }
 };
 
@@ -480,14 +575,10 @@ const fetchAndRenderTree = async () => {
     }
     const data = await response.json();
     renderTree(data);
-    nextTick(() => {
-      highlightGroup();
-    });
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
   }
 };
-
 const renderTree = (data) => {
   const width = 1300;
   const height = 300;
@@ -512,8 +603,7 @@ const renderTree = (data) => {
     .data(root.leaves())
     .join("g")
     .attr("transform", d => `translate(${d.x0},${d.y0})`);
-
-  // Update all visible nodes
+    
   const nodeIds = [];
   leaf.each(d => {
     nodeIds.push(d.data.name.split("/").pop());
@@ -529,13 +619,6 @@ const addToGroup = (nodeId) => {
   });
 };
 
-const addToGroupAndHighlight = (nodeId) => {
-  addToGroup(nodeId);
-  nextTick(() => {
-    highlightGroup();
-  });
-};
-
 const removeFromGroup = (group, nodeId) => {
   const step = active.value;
   store.commit('REMOVE_NODE_FROM_GROUP', { step, group, nodeId });
@@ -546,10 +629,10 @@ const removeFromGroup = (group, nodeId) => {
 
 const addNewGroup = () => {
   const step = active.value;
-  const newGroup = `group${Object.keys(groups.value).length + 1}`;
+  const newGroup = `模式${Object.keys(groups.value).length + 1}`;
   store.commit('ADD_NEW_GROUP', { step, group: newGroup });
   selectedGroup.value = newGroup;
-  ratings.value[newGroup] = 1;
+  ratings.value[newGroup] = { attention: 1, boundary: 1 };
   nextTick(() => {
     highlightGroup();
   });
@@ -558,18 +641,23 @@ const addNewGroup = () => {
 const groups = computed(() => store.getters.getGroups(active.value));
 
 const filteredGroups = computed(() => {
-  return {
-    [selectedGroup.value]: groups.value[selectedGroup.value] || []
-  };
+  const result = {};
+  for (const group of Object.keys(groups.value)) {
+    result[group] = groups.value[group];
+    if (!ratings.value[group]) {
+      ratings.value[group] = { attention: 1, boundary: 1 };
+    }
+  }
+  return result;
 });
 
 const groupOptions = computed(() => Object.keys(groups.value));
 
 const ensureGroupInitialization = () => {
   const step = active.value;
-  if (!groups.value['group1']) {
-    store.commit('ADD_NEW_GROUP', { step, group: 'group1' });
-    ratings.value['group1'] = 1;
+  if (!groups.value['模式1']) {
+    store.commit('ADD_NEW_GROUP', { step, group: '模式1' });
+    ratings.value['模式1'] = { attention: 1, boundary: 1 };
   }
 };
 
@@ -592,7 +680,7 @@ onMounted(async () => {
 onMounted(() => {
   const stepRatings = store.state.ratings[active.value] || {};
   for (const group in groups.value) {
-    ratings.value[group] = stepRatings[group] || 1;
+    ratings.value[group] = stepRatings[group] || { attention: 1, boundary: 1 };
   }
   nextTick(() => {
     highlightGroup(); // Ensure the group is highlighted on initial load
@@ -603,7 +691,7 @@ watch([active, groups], () => {
   ratings.value = {};
   const stepRatings = store.state.ratings[active.value] || {};
   for (const group in groups.value) {
-    ratings.value[group] = stepRatings[group] || 1;
+    ratings.value[group] = stepRatings[group] || { attention: 1, boundary: 1 };
   }
   nextTick(() => {
     highlightGroup();
@@ -675,7 +763,6 @@ watch(allVisiableNodes, () => {
   font-weight: bold;
 }
 
-
 .el-main {
   width: 100%;
   display: flex;
@@ -715,7 +802,7 @@ watch(allVisiableNodes, () => {
 
       .el-select {
         margin-right: 10px;
-        width: 140px;
+        width: 200px;
       }
     }
 
@@ -762,9 +849,7 @@ watch(allVisiableNodes, () => {
   align-items: center;
   height: 50%;
   position: relative;
-  /* 重要，确保缩放效果能正确应用 */
   overflow: hidden;
-  /* 确保缩放时不出现滚动条 */
 }
 
 .svg-container2 svg {
@@ -800,5 +885,41 @@ watch(allVisiableNodes, () => {
 
 .crosshair-cursor {
   cursor: crosshair;
+}
+
+.rate-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+
+  .rate-container2 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.bottom-card {
+  position: relative;
+
+  .Crop {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .bottom-title {
+    position: absolute;
+    top: 5px;
+    left: -15px;
+  }
+}
+
+.top-card {
+  position: relative;
+
+  .top-title {
+    position: absolute;
+    top: 5px;
+    left: -5px;
+  }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div class="grid-container">
     <div v-for="folder in folders" :key="folder" class="svg-container" @click="showSvg(folder)">
-      <img :src="`../../public/Data/${folder}/${folder}.svg`" alt="SVG Image" />
+      <img :src="`./Data/${folder}/${folder}.svg`" alt="SVG Image" />
     </div>
     <el-dialog v-model="dialogVisible" width="80%" :before-close="handleClose">
-      <img :src="`../../public/Data/${selectedFolder}/${selectedFolder}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`./Data/${selectedFolder}/${selectedFolder}.svg`" alt="SVG Image" class="large-svg" />
     </el-dialog>
   </div>
 </template>
@@ -19,7 +19,7 @@ const dialogVisible = ref(false);
 const selectedFolder = ref('');
 
 onMounted(() => {
-  const folderFiles = import.meta.glob('../../public/Data/*/*.svg', { eager: true });
+  const folderFiles = import.meta.glob('./Data/*/*.svg', { eager: true });
   const folderSet = new Set();
   for (const path in folderFiles) {
     const match = path.match(/Data\/(\d+)\//);

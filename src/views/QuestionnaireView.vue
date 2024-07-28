@@ -46,7 +46,7 @@
     <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="openInNewTab" width="300px">总览</el-button>
+          <el-button @click="router.push('/showdata');">实例总览</el-button>
           <el-button @click="DialogVisible = false" type="primary">开始</el-button>
         </div>
       </template>
@@ -72,7 +72,7 @@ const updateCurrentTime = () => {
 let timer = null;
 
 const openInNewTab = () => {
-  window.open('/questionnaire/showdata', '_blank');
+  window.open('/showdata', '_blank');
 };
 
 onMounted(() => {

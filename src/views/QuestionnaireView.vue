@@ -23,7 +23,7 @@
               </el-radio-group>
               <!-- <span v-if="form.gender === OTHER">你确定吗？(ﾟДﾟ*)ﾉ</span> -->
             </el-form-item>
-            <el-form-item label="3、您是否有独立创建过可视化作品并将其实际应用到生活中的某一个地方？" label-for="visualizationExperience">
+            <el-form-item label="3、您是否有独立创建过可视化作品并将其实际应用？（例如 财务报表 等）" label-for="visualizationExperience">
               <el-radio-group id="visualizationExperience" v-model="form.visualizationExperience" class="input-field">
                 <el-radio :value="'yes'">有</el-radio>
                 <el-radio :value="'no'">没有</el-radio>

@@ -1,34 +1,20 @@
 <template>
   <div class="grid-container">
     <div v-for="folder in folders" :key="folder" class="svg-container" @click="showSvg(folder)">
-      <img :src="`./Data/${folder}/${folder}.svg`" alt="SVG Image" />
+      <img :src="`/questionnaire/useData/${folder}.svg`" alt="SVG Image" />
     </div>
     <el-dialog v-model="dialogVisible" width="80%" :before-close="handleClose">
-      <img :src="`./Data/${selectedFolder}/${selectedFolder}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`/questionnaire/useData/${selectedFolder}.svg`" alt="SVG Image" class="large-svg" />
     </el-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { ElDialog } from 'element-plus';
-import 'element-plus/theme-chalk/el-dialog.css';
+import { ref } from 'vue';
 
-const folders = ref([]);
+const folders = ref(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']); // 手动维护文件名
 const dialogVisible = ref(false);
 const selectedFolder = ref('');
-
-onMounted(() => {
-  const folderFiles = import.meta.glob('./Data/*/*.svg', { eager: true });
-  const folderSet = new Set();
-  for (const path in folderFiles) {
-    const match = path.match(/Data\/(\d+)\//);
-    if (match) {
-      folderSet.add(match[1]);
-    }
-  }
-  folders.value = Array.from(folderSet).sort((a, b) => a - b);
-});
 
 const showSvg = (folder) => {
   selectedFolder.value = folder;
@@ -39,6 +25,7 @@ const handleClose = () => {
   dialogVisible.value = false;
 };
 </script>
+
 
 <style scoped>
 .grid-container {

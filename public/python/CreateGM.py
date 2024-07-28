@@ -7,7 +7,7 @@ import re
 import json
 
 
-class SVGParser:
+class GM:
     def __init__(self, file_path):
         self.file_path = file_path
         self.graph = nx.MultiDiGraph()
@@ -16,17 +16,11 @@ class SVGParser:
     @staticmethod
     def escape_text_content(svg_content):
         def replacer(match):
-            # 获取整个匹配的 <text>...</text> 内容
             text_with_tags = match.group(0)
-            # 直接提取 <text> 标签内的内容（不使用后视断言）
-            # 提取开始标签结束和结束标签开始之间的内容
             start_tag_end = text_with_tags.find('>') + 1
             end_tag_start = text_with_tags.rfind('<')
             text_content = text_with_tags[start_tag_end:end_tag_start]
-
-            # 转义文本内容
-            escaped_content = SVGParser.escape_special_xml_chars(text_content)
-            # 重新构造带有转义文本内容的 <text> 元素
+            escaped_content = GM.escape_special_xml_chars(text_content)
             return text_with_tags[:start_tag_end] + escaped_content + text_with_tags[end_tag_start:]
 
         return re.sub(r'<text[^>]*>.*?</text>', replacer, svg_content, flags=re.DOTALL)
@@ -34,32 +28,22 @@ class SVGParser:
     @staticmethod
     def escape_special_xml_chars(svg_content):
         svg_content = re.sub(r'&(?!(amp;|lt;|gt;|quot;|apos;))', '&amp;', svg_content)
-        # svg_content = svg_content.replace("<", "&lt;")
-        # svg_content = svg_content.replace(">", "&gt;")
-        # svg_content = svg_content.replace('"', "&quot;")
-        # svg_content = svg_content.replace("'", "&apos;")
         return svg_content
 
-    # 定义各种元素类型的坐标属性
     coordinate_attrs = {
         "circle": ["cx", "cy", "r"],
         "ellipse": ["cx", "cy", "rx", "ry"],
         "rect": ["x", "y", "width", "height"],
         "line": ["x1", "y1", "x2", "y2", "dy"],
-        # "polyline": ["points"],
-        # "polygon": ["points"],
         "text": ["x", "y", "dy"],
         "image": ["x", "y", "width", "height"],
-        # path元素的d属性在之后做特殊处理
     }
 
     @staticmethod
     def convert_units(value, context_size=16):
-        # 检查是否为纯数字（无单位）
         if value.isdigit():
             return value  # 如果是，直接返回该数字
 
-        # 尝试进行单位转换
         try:
             num = float(re.findall(r'[\d\.]+', value)[0])
             if 'px' in value:
@@ -89,22 +73,18 @@ class SVGParser:
         with open(file_path, 'r', encoding='utf-8') as file:
             svg_content = file.read()
 
-        # 预处理：转义 <text> 内的特殊字符
-        svg_content = SVGParser.escape_text_content(svg_content)
-
-        # print(svg_content)
-        # 解析SVG内容
+        svg_content = GM.escape_text_content(svg_content)
         tree = ET.ElementTree(ET.fromstring(svg_content))
         root = tree.getroot()
 
         # 遍历所有元素进行单位转换
         for element in root.iter():
             tag = element.tag.split('}')[-1]  # 获取无命名空间的标签名
-            if tag in SVGParser.coordinate_attrs:  # 检查元素是否在我们的属性字典中
-                for attr in SVGParser.coordinate_attrs[tag]:  # 遍历需要转换单位的属性
+            if tag in GM.coordinate_attrs:  # 检查元素是否在我们的属性字典中
+                for attr in GM.coordinate_attrs[tag]:  # 遍历需要转换单位的属性
                     if attr in element.attrib:  # 如果属性存在
                         # 对属性值进行单位转换并更新
-                        element.attrib[attr] = str(SVGParser.convert_units(element.attrib[attr]))
+                        element.attrib[attr] = str(GM.convert_units(element.attrib[attr]))
 
         return root
 
@@ -124,10 +104,8 @@ class SVGParser:
     @staticmethod
     def get_coordinate_attributes(element, tag):
 
-        # 获取元素类型的坐标属性列表
-        attrs_list = SVGParser.coordinate_attrs.get(tag, [])
+        attrs_list = GM.coordinate_attrs.get(tag, [])
 
-        # 提取坐标属性
         coordinates = {}
         for attr in attrs_list:
             value = element.get(attr, "0")  # 使用 "0" 作为默认值
@@ -136,7 +114,6 @@ class SVGParser:
         return coordinates
 
     def combine_transforms(self, inherited_transform, own_transform):
-        # 计算总的 transform
         total_transform = {
             "translate": [sum(x) for x in
                           zip(inherited_transform.get("translate", [0, 0]), own_transform.get("translate", [0, 0]))],
@@ -147,7 +124,6 @@ class SVGParser:
             ]
         }
 
-        # 格式化合并后的 transform 为字符串
         combined_transform_str = f"translate({total_transform['translate'][0]}, {total_transform['translate'][1]}) rotate({total_transform['rotate']}) scale({total_transform['scale'][0]}, {total_transform['scale'][1]})"
         return combined_transform_str
 
@@ -170,14 +146,13 @@ class SVGParser:
         text_content = element.text.strip() if element.text else None
 
         # 应用默认属性
-        default_attrs = SVGParser.default_attributes(tag_without_namespace)
+        default_attrs = GM.default_attributes(tag_without_namespace)
 
         attributes = element.attrib.copy()  # 复制原始属性
 
         for key, value in default_attrs.items():
             attributes.setdefault(key, value)  # 如果属性未在元素中定义，则使用默认值
 
-        # 定义所有需要检查单位的属性
         unit_attributes = [
             "width", "height", "x", "y", "rx", "ry",
             "cx", "cy", "r",
@@ -185,22 +160,18 @@ class SVGParser:
             # "points" 需要特别处理，因为它是一系列的点
         ]
 
-        # 应用单位转换到特定属性
         for attr in unit_attributes:
             if attr in attributes:
                 attributes[attr] = self.convert_units(attributes[attr])
 
-        # 对d属性进行特殊处理
         if tag_without_namespace == "path":
             path_data = attributes.get("d", "")
-            Pcode, Pnums = SVGParser.parse_path_d_attribute(path_data)
+            Pcode, Pnums = GM.parse_path_d_attribute(path_data)
             attributes["Pcode"] = Pcode
             attributes["Pnums"] = Pnums
 
-        # 获取元素类型的坐标属性
-        coordinates = SVGParser.get_coordinate_attributes(element, tag_without_namespace)
+        coordinates = GM.get_coordinate_attributes(element, tag_without_namespace)
 
-        # 添加坐标属性到元素属性字典中
         attributes.update(coordinates)
 
         text_content = element.text.strip() if element.text else None
@@ -208,8 +179,7 @@ class SVGParser:
 
     @staticmethod
     def parse_path_d_attribute(d_attribute):  # 返回两个列表：Pcode包含所有的路径指令，Pnums包含与每个指令相对应的参数列表
-        # print(d_attribute)
-        # 匹配路径命令和后续的参数，只包括有效的SVG路径命令
+
         path_commands = re.findall(r"([MLHVCSQTAZmlhvcsqtaz])([^MLHVCSQTAZmlhvcsqtaz]*)", d_attribute)
         Pcode, Pnums = [], []
 
@@ -217,10 +187,6 @@ class SVGParser:
             Pcode.append(command)
             params_list = re.findall(r"[-+]?[0-9]*\.?[0-9]+(?:e[-+]?[0-9]+)?", params, re.IGNORECASE)
             Pnums.append(params_list)
-
-            # print("command:", Pcode)
-            # print("Params:", Pnums)
-            # print("Length of Params:", len(Pnums))
         return Pcode, Pnums
 
     @staticmethod
@@ -249,18 +215,13 @@ class SVGParser:
 
     @staticmethod
     def get_path_points(d_attribute):
-        Pcode, Pnums = SVGParser.parse_path_d_attribute(d_attribute)
+        Pcode, Pnums = GM.parse_path_d_attribute(d_attribute)
         path_points = []
 
         for command, params in zip(Pcode, Pnums):
             # 确保所有参数都被转换为浮点数，处理科学计数法
             params = [float(p) for p in params if p.strip()]
 
-            # print("command:", command)
-            # print("Params:", params)
-            # print("Length of Params:", len(params))
-
-            # 处理移动命令
             if command == "M":
                 current_point = np.array(params).reshape(-1, 2)[0]
                 path_points.append(current_point)
@@ -274,13 +235,13 @@ class SVGParser:
             # 处理二次贝塞尔曲线
             elif command == "Q":
                 control_points = np.array(params).reshape(-1, 2)
-                curve_points = SVGParser.approximate_bezier_curve(control_points, num_points=20)  # 增加拟合点的数量
+                curve_points = GM.approximate_bezier_curve(control_points, num_points=20)  # 增加拟合点的数量
                 path_points.extend(curve_points)
 
             # 处理三次贝塞尔曲线
             elif command == "C":
                 control_points = np.array(params).reshape(-1, 2)
-                curve_points = SVGParser.approximate_bezier_curve(control_points, num_points=20)  # 增加拟合点的数量
+                curve_points = GM.approximate_bezier_curve(control_points, num_points=20)  # 增加拟合点的数量
                 path_points.extend(curve_points)
 
             # 处理路径关闭命令
@@ -341,8 +302,6 @@ class SVGParser:
             return float(num_part.group(1)) if num_part else 0.0
 
     def get_element_bbox(self, element, parent_transform=np.identity(3)):  # 用于计算SVG元素的定界框（Bounding Box）
-        # for child in element:
-        #     print(child.tag, child.attrib)  # 输出子元素的标签和属性
         tag = element.tag.split('}')[-1]
         bbox = None
 
@@ -370,7 +329,7 @@ class SVGParser:
 
         elif tag == "path":
             d_attribute = element.get("d", "")
-            bbox = SVGParser.get_path_points(d_attribute)
+            bbox = GM.get_path_points(d_attribute)
 
         # 处理线段
         elif tag == "line":
@@ -399,10 +358,6 @@ class SVGParser:
 
         elif tag == "text":
             x, y, font_size= map(self.convert_to_float, [parent_transform.get("x", 0), parent_transform.get("y", 0), parent_transform.get("font-size", 12)])
-            # text_content = parent_transform.get("text_content", "")
-            # print(parent_transform)
-            # 这里假设一个默认的宽度和高度，因为无法精确计算
-            # print(text_content)
             height = float(font_size)
             width = 40
             bbox = np.array([[x, y], [x + width, y + height], [x + width/2, y + height/2]])
@@ -683,34 +638,26 @@ class SVGParser:
             self.parse_color_element(child, new_inherited_attrs)
 
     def run(self):
-        svg_root = SVGParser.parse_svg(self.file_path)
+        svg_root = GM.parse_svg(self.file_path)
         self.parse_color_element(svg_root, is_root=True)
         self.build_graph(svg_root)
-        # pos = SVGParser.compute_layout_with_progress(self.graph)
-        # SVGParser.visualize_graph(self.graph, pos)
         self.write_output()
 
     def write_output(self):
         output = {
             "DiGraph": {
                 "nodes": self.graph.number_of_nodes(),
-                # "edges": self.graph.number_of_edges(),
                 "edges": 0,
                 "Nodes": {},
                 "Edges": []
             }
         }
-
-        # Iterating over all nodes to populate node data
         for node, data in self.graph.nodes(data=True):
             node_id = str(node)
-
-            # Remove width and height attributes for non-root nodes
             if node_id != "svg":  # Assuming root node's ID is "svg"
                 data.get("attributes", {}).pop('width', None)
                 data.get("attributes", {}).pop('height', None)
 
-            # Format attributes into the required structure
             attributes = {
                 "tag": data.get("tag", ""),
                 "attributes": data.get("attributes", {}),
@@ -721,10 +668,9 @@ class SVGParser:
             }
             output["DiGraph"]["Nodes"][node_id] = {"Attributes": attributes}
 
-        # Iterating over all edges to populate edge data
-        # for u, v, data in self.graph.edges(data=True):
-        #     output["DiGraph"]["Edges"].append((u, v, data))
-
-        # Writing the output to a JSON file using the json module
-        with open("./GMoutput/GMinfo.json", "w", encoding='utf-8') as file:
+        with open("./public/python/data/GMinfo.json", "w", encoding='utf-8') as file:
             json.dump(output, file, ensure_ascii=False, indent=4)
+
+
+# parser = GM('./public/python/Bars.svg') 
+# parser.run()

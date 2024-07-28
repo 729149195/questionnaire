@@ -5,9 +5,12 @@
         <div class="header-content">
           <div ref="idandtime" class="left-content">
             <!-- <p class="id">分配ID：666666</p> -->
+            <a href="https://github.com/729149195/questionnaire" target="_blank">
+              <img style="width: 30px;" src="/img/favicon.png" alt="Wechat QR Code">
+            </a>
           </div>
           <div class="right-content">
-            <el-button ref="openDialogBtn" plain @click="dialogVisible = true">
+            <el-button ref="openDialogBtn" plain @click="infoDialogVisible = true">
               打开说明<el-icon style='margin-left:5px'>
                 <WindPower />
               </el-icon>
@@ -94,23 +97,23 @@
       </div>
     </el-container>
 
-    <el-dialog v-model="dialogVisible" title="问卷说明" width="700" align-center>
+    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="1000" align-center>
       <span>
-        在开始问卷之前，请仔细阅读以下说明：
+        在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
           <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
           <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
           <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
-          <li>显眼程度：您注意到这个图形模式的快慢。分组界限：该图形模式与其它潜在图形模式的区分清晰程度</li>
-          <li>虽然显眼程度和分组界限的评分十分重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+          <li>显眼程度：您注意到这个图形模式的快慢</li>
+          <li>分组界限：该图形模式与其它潜在图形模式的区分清晰程度</li>
+          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
           <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
         </ol>
       </span>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="handleDialogConfirm">我明白了</el-button>
+          <el-button type="primary" @click="infoDialogVisible = false">关闭</el-button>
         </div>
       </template>
     </el-dialog>
@@ -183,6 +186,7 @@ const selectedNodeIds = computed(() => store.state.selectedNodes.nodeIds);
 const allVisiableNodes = computed(() => store.state.AllVisiableNodes);
 const dialogVisible = ref(false);
 const tourDialogVisible = ref(false);
+const infoDialogVisible = ref(false);
 const openTour = ref(false);
 const active = ref(0);
 const steps = Array.from({ length: 2 });
@@ -365,17 +369,18 @@ const enableCropSelection = () => {
     }
   };
 
-  handleMouseUp = (event) => {
-    if (isDrawing) {
-      isDrawing = false;
+  const handleMouseUp = (event) => {
+  if (isDrawing) {
+    isDrawing = false;
 
-      const rectX = parseFloat(rectElement.getAttribute('x'));
-      const rectY = parseFloat(rectElement.getAttribute('y'));
-      const rectWidth = parseFloat(rectElement.getAttribute('width'));
-      const rectHeight = parseFloat(rectElement.getAttribute('height'));
+    const rectX = parseFloat(rectElement.getAttribute('x'));
+    const rectY = parseFloat(rectElement.getAttribute('y'));
+    const rectWidth = parseFloat(rectElement.getAttribute('width'));
+    const rectHeight = parseFloat(rectElement.getAttribute('height'));
 
-      const svg = svgContainer2.value.querySelector('svg');
-      svg.querySelectorAll('*').forEach(node => {
+    const svg = svgContainer2.value.querySelector('svg');
+    svg.querySelectorAll('*').forEach(node => {
+      if (typeof node.getBBox === 'function') {
         const bbox = node.getBBox();
         const isTouched =
           (bbox.x + bbox.width) >= rectX &&
@@ -386,13 +391,14 @@ const enableCropSelection = () => {
         if (isTouched) {
           node.dispatchEvent(new Event('click')); // 模拟点击事件
         }
-      });
+      }
+    });
 
-      rectElement.remove(); // 移除选框
-      svg.removeEventListener('mousemove', handleMouseMove);
-      svg.removeEventListener('mouseup', handleMouseUp);
-    }
-  };
+    rectElement.remove(); // 移除选框
+    svg.removeEventListener('mousemove', handleMouseMove);
+    svg.removeEventListener('mouseup', handleMouseUp);
+  }
+};
 
   svg.addEventListener('mousedown', handleMouseClick);
 };

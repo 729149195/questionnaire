@@ -1,36 +1,65 @@
 <template>
+  <div v-if="loading">
+      <el-skeleton :rows="15" animated />
+    </div>
   <div class="grid-container">
-    <div v-for="folder in folders" :key="folder" class="svg-container" @click="showSvg(folder)">
-      <img :src="`/questionnaire/useData/${folder}.svg`" alt="SVG Image" />
+    <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
+      <img :src="`/questionnaire/useData/${file}.svg`" alt="SVG Image" />
     </div>
     <el-dialog v-model="dialogVisible" width="80%" :before-close="handleClose">
-      <img :src="`/questionnaire/useData/${selectedFolder}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`/questionnaire/useData/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
     </el-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
-const folders = ref(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']); // 手动维护文件名
+const files = ref([]);
 const dialogVisible = ref(false);
-const selectedFolder = ref('');
+const selectedFile = ref('');
+const maxFiles = 500; // 假设最多有100个文件
+const loading = ref(true)
 
-const showSvg = (folder) => {
-  selectedFolder.value = folder;
+const checkFiles = async () => {
+  const loadedFiles = [];
+  for (let i = 1; i <= maxFiles; i++) {
+    const fileName = `${i}.svg`;
+    try {
+      // 尝试加载文件
+      const response = await fetch(`/questionnaire/useData/${fileName}`);
+      if (response.ok) {
+        loadedFiles.push(i.toString());
+      } else {
+        // 如果文件不存在，则停止查找
+        break;
+      }
+    } catch (error) {
+      // 网络错误或其他问题
+      console.error('Error fetching file:', error);
+      break;
+    }
+  }
+  files.value = loadedFiles;
+  loading.value = false;
+};
+
+const showSvg = (file) => {
+  selectedFile.value = file;
   dialogVisible.value = true;
 };
 
 const handleClose = () => {
   dialogVisible.value = false;
 };
-</script>
 
+onMounted(checkFiles);
+</script>
 
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   padding: 20px;
   width: 90vw;

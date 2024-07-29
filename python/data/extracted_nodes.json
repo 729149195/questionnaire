@@ -1,634 +1,954 @@
 {
-    "svg/svg/g/a": {
-        "tag": "a",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "0",
-            "0"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                0.0,
-                0.0
-            ],
-            [
-                0.0,
-                0.0
-            ]
-        ]
-    },
-    "svg/svg/g/a/text": {
-        "tag": "text",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "0",
-            "0",
-            "0"
-        ],
-        "text_content": "url",
-        "bbox": [
-            [
-                0.0,
-                400.0
-            ],
-            [
-                40.0,
-                412.0
-            ],
-            [
-                20.0,
-                406.0
-            ]
-        ]
-    },
-    "svg/svg/g/text_1": {
-        "tag": "text_1",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "0",
-            "1"
-        ],
-        "text_content": "This chart stacks negative categories to the left and positive categories to the right. Inspired by Robert\n            Mann, the truthfulness of presidential candidates is assessed here by PolitiFact. For reasons to avoid this\n            chart form, see Rost Aisch.",
-        "bbox": [
-            [
-                0.0,
-                400.0
-            ],
-            [
-                40.0,
-                412.0
-            ],
-            [
-                20.0,
-                406.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_2/text_2": {
-        "tag": "text_2",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "0",
-            "0"
-        ],
-        "text_content": "Amy Klobuchar",
-        "bbox": [
-            [
-                407.0,
-                316.0
-            ],
-            [
-                447.0,
-                326.0
-            ],
-            [
-                427.0,
-                321.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_2/line": {
+    "svg/svg/g/line": {
         "tag": "line",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
             "0",
-            "1"
+            "32"
         ],
         "text_content": null,
         "bbox": [
             [
-                398.0,
-                316.0
+                706.5,
+                284.5
             ],
             [
-                404.0,
-                316.0
+                706.5,
+                291.5
             ],
             [
-                401.0,
-                316.0
+                706.5,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_3/text_3": {
-        "tag": "text_3",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "1",
-            "0"
-        ],
-        "text_content": "Michael Bloomberg",
-        "bbox": [
-            [
-                401.0,
-                284.0
-            ],
-            [
-                441.0,
-                294.0
-            ],
-            [
-                421.0,
-                289.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_3/line_1": {
+    "svg/svg/g/line_1": {
         "tag": "line_1",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "1",
-            "1"
+            "0",
+            "33"
         ],
         "text_content": null,
         "bbox": [
             [
-                392.0,
-                284.0
+                640.9,
+                284.5
             ],
             [
-                398.0,
-                284.0
+                640.9,
+                291.5
             ],
             [
-                395.0,
-                284.0
+                640.9,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_4/text_4": {
-        "tag": "text_4",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "2",
-            "0"
-        ],
-        "text_content": "Bernie Sanders",
-        "bbox": [
-            [
-                397.0,
-                252.0
-            ],
-            [
-                437.0,
-                262.0
-            ],
-            [
-                417.0,
-                257.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_4/line_2": {
+    "svg/svg/g/line_2": {
         "tag": "line_2",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "2",
-            "1"
+            "0",
+            "34"
         ],
         "text_content": null,
         "bbox": [
             [
-                388.0,
-                252.0
+                575.2,
+                284.5
             ],
             [
-                394.0,
-                252.0
+                575.2,
+                291.5
             ],
             [
-                391.0,
-                252.0
+                575.2,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_5/text_5": {
-        "tag": "text_5",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "3",
-            "0"
-        ],
-        "text_content": "Elizabeth Warren",
-        "bbox": [
-            [
-                373.0,
-                220.0
-            ],
-            [
-                413.0,
-                230.0
-            ],
-            [
-                393.0,
-                225.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_5/line_3": {
+    "svg/svg/g/line_3": {
         "tag": "line_3",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "3",
-            "1"
+            "0",
+            "35"
         ],
         "text_content": null,
         "bbox": [
             [
-                364.0,
-                220.0
+                509.6,
+                284.5
             ],
             [
-                370.0,
-                220.0
+                509.6,
+                291.5
             ],
             [
-                367.0,
-                220.0
+                509.6,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_6/text_6": {
-        "tag": "text_6",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "4",
-            "0"
-        ],
-        "text_content": "Beto O'Rourke",
-        "bbox": [
-            [
-                330.0,
-                188.0
-            ],
-            [
-                370.0,
-                198.0
-            ],
-            [
-                350.0,
-                193.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_6/line_4": {
+    "svg/svg/g/line_4": {
         "tag": "line_4",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "4",
-            "1"
+            "0",
+            "36"
         ],
         "text_content": null,
         "bbox": [
             [
-                321.0,
-                188.0
+                444.0,
+                284.5
             ],
             [
-                327.0,
-                188.0
+                444.0,
+                291.5
             ],
             [
-                324.0,
-                188.0
+                444.0,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_7/text_7": {
-        "tag": "text_7",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "5",
-            "0"
-        ],
-        "text_content": "Pete Buttigieg",
-        "bbox": [
-            [
-                284.0,
-                156.0
-            ],
-            [
-                324.0,
-                166.0
-            ],
-            [
-                304.0,
-                161.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_7/line_5": {
+    "svg/svg/g/line_5": {
         "tag": "line_5",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "5",
-            "1"
+            "0",
+            "37"
         ],
         "text_content": null,
         "bbox": [
             [
-                275.0,
-                156.0
+                378.3,
+                284.5
             ],
             [
-                281.0,
-                156.0
+                378.3,
+                291.5
             ],
             [
-                278.0,
-                156.0
+                378.3,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_8/text_8": {
-        "tag": "text_8",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "6",
-            "0"
-        ],
-        "text_content": "Joe Biden",
-        "bbox": [
-            [
-                234.0,
-                124.0
-            ],
-            [
-                274.0,
-                134.0
-            ],
-            [
-                254.0,
-                129.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_8/line_6": {
+    "svg/svg/g/line_6": {
         "tag": "line_6",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "6",
-            "1"
+            "0",
+            "38"
         ],
         "text_content": null,
         "bbox": [
             [
-                225.0,
-                124.0
+                312.7,
+                284.5
             ],
             [
-                231.0,
-                124.0
+                312.7,
+                291.5
             ],
             [
-                228.0,
-                124.0
+                312.7,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_9/text_9": {
-        "tag": "text_9",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "7",
-            "0"
-        ],
-        "text_content": "Kamala Harris",
-        "bbox": [
-            [
-                203.0,
-                92.0
-            ],
-            [
-                243.0,
-                102.0
-            ],
-            [
-                223.0,
-                97.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_9/line_7": {
+    "svg/svg/g/line_7": {
         "tag": "line_7",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "1",
-            "7",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                194.0,
-                92.0
-            ],
-            [
-                200.0,
-                92.0
-            ],
-            [
-                197.0,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_1/g_10/text_10": {
-        "tag": "text_10",
         "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
+        "fill": null,
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
-            "1",
-            "8",
-            "0"
+            "0",
+            "39"
         ],
-        "text_content": "Donald Trump",
+        "text_content": null,
         "bbox": [
             [
-                89.0,
-                60.0
+                247.0,
+                284.5
             ],
             [
-                129.0,
-                70.0
+                247.0,
+                291.5
             ],
             [
-                109.0,
-                65.0
+                247.0,
+                288.0
             ]
         ]
     },
-    "svg/svg/g_1/g_10/line_8": {
+    "svg/svg/g/line_8": {
         "tag": "line_8",
-        "stroke": "currentColor",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
         "fill": null,
-        "opacity": "1",
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "40"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                181.4,
+                284.5
+            ],
+            [
+                181.4,
+                291.5
+            ],
+            [
+                181.4,
+                288.0
+            ]
+        ]
+    },
+    "svg/svg/g/line_9": {
+        "tag": "line_9",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "41"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                115.8,
+                284.5
+            ],
+            [
+                115.8,
+                291.5
+            ],
+            [
+                115.8,
+                288.0
+            ]
+        ]
+    },
+    "svg/svg/g/line_10": {
+        "tag": "line_10",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "42"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                23.5
+            ],
+            [
+                43.1,
+                23.5
+            ],
+            [
+                46.6,
+                23.5
+            ]
+        ]
+    },
+    "svg/svg/g/line_11": {
+        "tag": "line_11",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "43"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                49.6
+            ],
+            [
+                43.1,
+                49.6
+            ],
+            [
+                46.6,
+                49.6
+            ]
+        ]
+    },
+    "svg/svg/g/line_12": {
+        "tag": "line_12",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "44"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                75.7
+            ],
+            [
+                43.1,
+                75.7
+            ],
+            [
+                46.6,
+                75.7
+            ]
+        ]
+    },
+    "svg/svg/g/line_13": {
+        "tag": "line_13",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "45"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                101.8
+            ],
+            [
+                43.1,
+                101.8
+            ],
+            [
+                46.6,
+                101.8
+            ]
+        ]
+    },
+    "svg/svg/g/line_14": {
+        "tag": "line_14",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "46"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                127.9
+            ],
+            [
+                43.1,
+                127.9
+            ],
+            [
+                46.6,
+                127.9
+            ]
+        ]
+    },
+    "svg/svg/g/line_15": {
+        "tag": "line_15",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "47"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                154.0
+            ],
+            [
+                43.1,
+                154.0
+            ],
+            [
+                46.6,
+                154.0
+            ]
+        ]
+    },
+    "svg/svg/g/line_16": {
+        "tag": "line_16",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "48"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                180.1
+            ],
+            [
+                43.1,
+                180.1
+            ],
+            [
+                46.6,
+                180.1
+            ]
+        ]
+    },
+    "svg/svg/g/line_17": {
+        "tag": "line_17",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "49"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                206.2
+            ],
+            [
+                43.1,
+                206.2
+            ],
+            [
+                46.6,
+                206.2
+            ]
+        ]
+    },
+    "svg/svg/g/line_18": {
+        "tag": "line_18",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "50"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                232.3
+            ],
+            [
+                43.1,
+                232.3
+            ],
+            [
+                46.6,
+                232.3
+            ]
+        ]
+    },
+    "svg/svg/g/line_19": {
+        "tag": "line_19",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "51"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                258.4
+            ],
+            [
+                43.1,
+                258.4
+            ],
+            [
+                46.6,
+                258.4
+            ]
+        ]
+    },
+    "svg/svg/g/line_20": {
+        "tag": "line_20",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "52"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                284.5
+            ],
+            [
+                43.1,
+                284.5
+            ],
+            [
+                46.6,
+                284.5
+            ]
+        ]
+    },
+    "svg/svg/g/line_21": {
+        "tag": "line_21",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "53"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                50.1,
+                284.5
+            ],
+            [
+                50.1,
+                291.5
+            ],
+            [
+                50.1,
+                288.0
+            ]
+        ]
+    },
+    "svg/svg/g/polyline": {
+        "tag": "polyline",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "0",
+            "54"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                [
+                    707.5,
+                    284.5
+                ],
+                [
+                    50.5,
+                    284.5
+                ],
+                [
+                    379.0,
+                    284.5
+                ]
+            ],
+            [
+                [
+                    50.5,
+                    284.5
+                ],
+                [
+                    50.5,
+                    22.5
+                ],
+                [
+                    50.5,
+                    153.5
+                ]
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect": {
+        "tag": "rect",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
         "level": 0,
         "layer": [
             "0",
             "1",
-            "8",
+            "0"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                262.5,
+                156.6
+            ],
+            [
+                131.25,
+                78.3
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_1": {
+        "tag": "rect_1",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
             "1"
         ],
         "text_content": null,
         "bbox": [
             [
-                80.0,
-                60.0
+                0.0,
+                0.0
             ],
             [
-                86.0,
-                60.0
+                131.3,
+                78.3
             ],
             [
-                83.0,
-                60.0
+                65.65,
+                39.15
             ]
         ]
     },
-    "svg/svg/g_1/path": {
-        "tag": "path",
-        "stroke": "currentColor",
+    "svg/svg/g_33/rect_2": {
+        "tag": "rect_2",
+        "stroke": null,
         "stroke-width": 1,
         "stroke-opacity": 1,
-        "fill": "None",
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "2"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                196.9,
+                104.4
+            ],
+            [
+                98.45,
+                52.2
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_3": {
+        "tag": "rect_3",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "3"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                67.5,
+                52.2
+            ],
+            [
+                33.75,
+                26.1
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_4": {
+        "tag": "rect_4",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "4"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                262.5,
+                27.2
+            ],
+            [
+                131.25,
+                13.6
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_5": {
+        "tag": "rect_5",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "5"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                262.5,
+                64.9
+            ],
+            [
+                131.25,
+                32.45
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_6": {
+        "tag": "rect_6",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "6"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                196.9,
+                78.3
+            ],
+            [
+                98.45,
+                39.15
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_7": {
+        "tag": "rect_7",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "7"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                131.3,
+                52.2
+            ],
+            [
+                65.65,
+                26.1
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_8": {
+        "tag": "rect_8",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
+        "opacity": 1,
+        "level": 0,
+        "layer": [
+            "0",
+            "1",
+            "8"
+        ],
+        "text_content": null,
+        "bbox": [
+            [
+                0.0,
+                0.0
+            ],
+            [
+                131.3,
+                78.3
+            ],
+            [
+                65.65,
+                39.15
+            ]
+        ]
+    },
+    "svg/svg/g_33/rect_9": {
+        "tag": "rect_9",
+        "stroke": null,
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "fill": null,
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -639,1340 +959,20 @@
         "text_content": null,
         "bbox": [
             [
-                [
-                    0.0,
-                    40.0
-                ],
-                [
-                    0.0,
-                    337.0
-                ],
-                [
-                    0.0,
-                    188.5
-                ]
+                0.0,
+                0.0
+            ],
+            [
+                262.5,
+                13.6
+            ],
+            [
+                131.25,
+                6.8
             ]
         ]
     },
-    "svg/svg/g_11/text_11": {
-        "tag": "text_11",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "0"
-        ],
-        "text_content": "\u2190 More falsehoods",
-        "bbox": [
-            [
-                455.0,
-                64.0
-            ],
-            [
-                495.0,
-                74.0
-            ],
-            [
-                475.0,
-                69.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/text_12": {
-        "tag": "text_12",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "1"
-        ],
-        "text_content": "More truths \u2192",
-        "bbox": [
-            [
-                495.0,
-                64.0
-            ],
-            [
-                535.0,
-                74.0
-            ],
-            [
-                515.0,
-                69.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_12/text_13": {
-        "tag": "text_13",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "2",
-            "0"
-        ],
-        "text_content": "80%",
-        "bbox": [
-            [
-                875.0,
-                49.0
-            ],
-            [
-                915.0,
-                59.0
-            ],
-            [
-                895.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_12/line_9": {
-        "tag": "line_9",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "2",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                875.0,
-                40.0
-            ],
-            [
-                875.0,
-                46.0
-            ],
-            [
-                875.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_13/text_14": {
-        "tag": "text_14",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "3",
-            "0"
-        ],
-        "text_content": "70%",
-        "bbox": [
-            [
-                825.0,
-                49.0
-            ],
-            [
-                865.0,
-                59.0
-            ],
-            [
-                845.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_13/line_10": {
-        "tag": "line_10",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "3",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                825.0,
-                40.0
-            ],
-            [
-                825.0,
-                46.0
-            ],
-            [
-                825.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_14/text_15": {
-        "tag": "text_15",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "4",
-            "0"
-        ],
-        "text_content": "60%",
-        "bbox": [
-            [
-                775.0,
-                49.0
-            ],
-            [
-                815.0,
-                59.0
-            ],
-            [
-                795.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_14/line_11": {
-        "tag": "line_11",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "4",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                775.0,
-                40.0
-            ],
-            [
-                775.0,
-                46.0
-            ],
-            [
-                775.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_15/text_16": {
-        "tag": "text_16",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "5",
-            "0"
-        ],
-        "text_content": "50%",
-        "bbox": [
-            [
-                725.0,
-                49.0
-            ],
-            [
-                765.0,
-                59.0
-            ],
-            [
-                745.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_15/line_12": {
-        "tag": "line_12",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "5",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                725.0,
-                40.0
-            ],
-            [
-                725.0,
-                46.0
-            ],
-            [
-                725.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_16/text_17": {
-        "tag": "text_17",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "6",
-            "0"
-        ],
-        "text_content": "40%",
-        "bbox": [
-            [
-                675.0,
-                49.0
-            ],
-            [
-                715.0,
-                59.0
-            ],
-            [
-                695.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_16/line_13": {
-        "tag": "line_13",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "6",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                675.0,
-                40.0
-            ],
-            [
-                675.0,
-                46.0
-            ],
-            [
-                675.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_17/text_18": {
-        "tag": "text_18",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "7",
-            "0"
-        ],
-        "text_content": "30%",
-        "bbox": [
-            [
-                625.0,
-                49.0
-            ],
-            [
-                665.0,
-                59.0
-            ],
-            [
-                645.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_17/line_14": {
-        "tag": "line_14",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "7",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                625.0,
-                40.0
-            ],
-            [
-                625.0,
-                46.0
-            ],
-            [
-                625.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_18/text_19": {
-        "tag": "text_19",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "8",
-            "0"
-        ],
-        "text_content": "20%",
-        "bbox": [
-            [
-                575.0,
-                49.0
-            ],
-            [
-                615.0,
-                59.0
-            ],
-            [
-                595.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_18/line_15": {
-        "tag": "line_15",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "8",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                575.0,
-                40.0
-            ],
-            [
-                575.0,
-                46.0
-            ],
-            [
-                575.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_19/text_20": {
-        "tag": "text_20",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "9",
-            "0"
-        ],
-        "text_content": "10%",
-        "bbox": [
-            [
-                525.0,
-                49.0
-            ],
-            [
-                565.0,
-                59.0
-            ],
-            [
-                545.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_19/line_16": {
-        "tag": "line_16",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "9",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                525.0,
-                40.0
-            ],
-            [
-                525.0,
-                46.0
-            ],
-            [
-                525.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_20/text_21": {
-        "tag": "text_21",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "10",
-            "0"
-        ],
-        "text_content": "0%",
-        "bbox": [
-            [
-                475.0,
-                49.0
-            ],
-            [
-                515.0,
-                59.0
-            ],
-            [
-                495.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_20/line_17": {
-        "tag": "line_17",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "10",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                475.0,
-                40.0
-            ],
-            [
-                475.0,
-                46.0
-            ],
-            [
-                475.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_21/text_22": {
-        "tag": "text_22",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "11",
-            "0"
-        ],
-        "text_content": "10%",
-        "bbox": [
-            [
-                425.0,
-                49.0
-            ],
-            [
-                465.0,
-                59.0
-            ],
-            [
-                445.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_21/line_18": {
-        "tag": "line_18",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "11",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                425.0,
-                40.0
-            ],
-            [
-                425.0,
-                46.0
-            ],
-            [
-                425.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_22/text_23": {
-        "tag": "text_23",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "12",
-            "0"
-        ],
-        "text_content": "20%",
-        "bbox": [
-            [
-                375.0,
-                49.0
-            ],
-            [
-                415.0,
-                59.0
-            ],
-            [
-                395.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_22/line_19": {
-        "tag": "line_19",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "12",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                375.0,
-                40.0
-            ],
-            [
-                375.0,
-                46.0
-            ],
-            [
-                375.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_23/text_24": {
-        "tag": "text_24",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "13",
-            "0"
-        ],
-        "text_content": "30%",
-        "bbox": [
-            [
-                325.0,
-                49.0
-            ],
-            [
-                365.0,
-                59.0
-            ],
-            [
-                345.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_23/line_20": {
-        "tag": "line_20",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "13",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                325.0,
-                40.0
-            ],
-            [
-                325.0,
-                46.0
-            ],
-            [
-                325.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_24/text_25": {
-        "tag": "text_25",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "14",
-            "0"
-        ],
-        "text_content": "40%",
-        "bbox": [
-            [
-                275.0,
-                49.0
-            ],
-            [
-                315.0,
-                59.0
-            ],
-            [
-                295.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_24/line_21": {
-        "tag": "line_21",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "14",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                275.0,
-                40.0
-            ],
-            [
-                275.0,
-                46.0
-            ],
-            [
-                275.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_25/text_26": {
-        "tag": "text_26",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "15",
-            "0"
-        ],
-        "text_content": "50%",
-        "bbox": [
-            [
-                225.0,
-                49.0
-            ],
-            [
-                265.0,
-                59.0
-            ],
-            [
-                245.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_25/line_22": {
-        "tag": "line_22",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "15",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                225.0,
-                40.0
-            ],
-            [
-                225.0,
-                46.0
-            ],
-            [
-                225.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_26/text_27": {
-        "tag": "text_27",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "16",
-            "0"
-        ],
-        "text_content": "60%",
-        "bbox": [
-            [
-                175.0,
-                49.0
-            ],
-            [
-                215.0,
-                59.0
-            ],
-            [
-                195.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_26/line_23": {
-        "tag": "line_23",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "16",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                175.0,
-                40.0
-            ],
-            [
-                175.0,
-                46.0
-            ],
-            [
-                175.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_27/text_28": {
-        "tag": "text_28",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": "currentColor",
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "17",
-            "0"
-        ],
-        "text_content": "70%",
-        "bbox": [
-            [
-                125.0,
-                49.0
-            ],
-            [
-                165.0,
-                59.0
-            ],
-            [
-                145.0,
-                54.0
-            ]
-        ]
-    },
-    "svg/svg/g_11/g_27/line_24": {
-        "tag": "line_24",
-        "stroke": "currentColor",
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": "1",
-        "level": 0,
-        "layer": [
-            "0",
-            "2",
-            "17",
-            "1"
-        ],
-        "text_content": null,
-        "bbox": [
-            [
-                125.0,
-                40.0
-            ],
-            [
-                125.0,
-                46.0
-            ],
-            [
-                125.0,
-                43.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect": {
-        "tag": "rect",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                767.0,
-                269.0
-            ],
-            [
-                892.0,
-                299.0
-            ],
-            [
-                829.5,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_1": {
-        "tag": "rect_1",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "1"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                706.0,
-                173.0
-            ],
-            [
-                821.0,
-                203.0
-            ],
-            [
-                763.5,
-                188.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_2": {
-        "tag": "rect_2",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "2"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                744.0,
-                301.0
-            ],
-            [
-                898.0,
-                331.0
-            ],
-            [
-                821.0,
-                316.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_3": {
-        "tag": "rect_3",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "3"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                675.0,
-                141.0
-            ],
-            [
-                775.0,
-                171.0
-            ],
-            [
-                725.0,
-                156.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_4": {
-        "tag": "rect_4",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "4"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                77.0
-            ],
-            [
-                475.0,
-                107.0
-            ],
-            [
-                475.0,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_5": {
-        "tag": "rect_5",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "5"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                734.0,
-                205.0
-            ],
-            [
-                864.0,
-                235.0
-            ],
-            [
-                799.0,
-                220.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_6": {
-        "tag": "rect_6",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "6"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                669.0,
-                109.0
-            ],
-            [
-                725.0,
-                139.0
-            ],
-            [
-                697.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_7": {
-        "tag": "rect_7",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                825.0,
-                237.0
-            ],
-            [
-                887.0,
-                267.0
-            ],
-            [
-                856.0,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_29/rect_8": {
-        "tag": "rect_8",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "0",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                560.0,
-                45.0
-            ],
-            [
-                580.0,
-                75.0
-            ],
-            [
-                570.0,
-                60.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_30/rect_9": {
-        "tag": "rect_9",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "1",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                600.0,
-                269.0
-            ],
-            [
-                767.0,
-                299.0
-            ],
-            [
-                683.5,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_30/rect_10": {
+    "svg/svg/g_33/rect_10": {
         "tag": "rect_10",
         "stroke": null,
         "stroke-width": 1,
@@ -1982,27 +982,26 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "1"
+            "10"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                552.0,
-                173.0
+                0.0,
+                0.0
             ],
             [
-                706.0,
-                203.0
+                66.6,
+                65.5
             ],
             [
-                629.0,
-                188.0
+                33.3,
+                32.75
             ]
         ]
     },
-    "svg/svg/g_28/g_30/rect_11": {
+    "svg/svg/g_33/rect_11": {
         "tag": "rect_11",
         "stroke": null,
         "stroke-width": 1,
@@ -2012,27 +1011,26 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "2"
+            "11"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                590.0,
-                301.0
+                0.0,
+                0.0
             ],
             [
-                744.0,
-                331.0
+                66.6,
+                78.3
             ],
             [
-                667.0,
-                316.0
+                33.3,
+                39.15
             ]
         ]
     },
-    "svg/svg/g_28/g_30/rect_12": {
+    "svg/svg/g_33/rect_12": {
         "tag": "rect_12",
         "stroke": null,
         "stroke-width": 1,
@@ -2042,27 +1040,26 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "3"
+            "12"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                608.0,
-                141.0
+                0.0,
+                0.0
             ],
             [
-                675.0,
-                171.0
+                196.9,
+                52.5
             ],
             [
-                641.5,
-                156.0
+                98.45,
+                26.25
             ]
         ]
     },
-    "svg/svg/g_28/g_30/rect_13": {
+    "svg/svg/g_33/rect_13": {
         "tag": "rect_13",
         "stroke": null,
         "stroke-width": 1,
@@ -2072,27 +1069,26 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "4"
+            "13"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                538.0,
-                77.0
+                0.0,
+                0.0
             ],
             [
-                694.0,
-                107.0
+                196.9,
+                52.5
             ],
             [
-                616.0,
-                92.0
+                98.45,
+                26.25
             ]
         ]
     },
-    "svg/svg/g_28/g_30/rect_14": {
+    "svg/svg/g_33/rect_14": {
         "tag": "rect_14",
         "stroke": null,
         "stroke-width": 1,
@@ -2102,27 +1098,26 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "5"
+            "14"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                605.0,
-                205.0
+                0.0,
+                0.0
             ],
             [
-                734.0,
-                235.0
+                66.6,
+                67.3
             ],
             [
-                669.5,
-                220.0
+                33.3,
+                33.65
             ]
         ]
     },
-    "svg/svg/g_28/g_30/rect_15": {
+    "svg/svg/g_33/rect_15": {
         "tag": "rect_15",
         "stroke": null,
         "stroke-width": 1,
@@ -2132,1163 +1127,22 @@
         "level": 0,
         "layer": [
             "0",
-            "3",
             "1",
-            "6"
+            "15"
         ],
-        "text_content": "",
+        "text_content": null,
         "bbox": [
             [
-                545.0,
-                109.0
+                0.0,
+                0.0
             ],
             [
-                669.0,
-                139.0
+                131.3,
+                53.3
             ],
             [
-                607.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_30/rect_16": {
-        "tag": "rect_16",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "1",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                663.0,
-                237.0
-            ],
-            [
-                825.0,
-                267.0
-            ],
-            [
-                744.0,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_30/rect_17": {
-        "tag": "rect_17",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "1",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                533.0,
-                45.0
-            ],
-            [
-                560.0,
-                75.0
-            ],
-            [
-                546.5,
-                60.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_18": {
-        "tag": "rect_18",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                269.0
-            ],
-            [
-                600.0,
-                299.0
-            ],
-            [
-                537.5,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_19": {
-        "tag": "rect_19",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "1"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                173.0
-            ],
-            [
-                552.0,
-                203.0
-            ],
-            [
-                513.5,
-                188.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_20": {
-        "tag": "rect_20",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "2"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                301.0
-            ],
-            [
-                590.0,
-                331.0
-            ],
-            [
-                532.5,
-                316.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_21": {
-        "tag": "rect_21",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "3"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                141.0
-            ],
-            [
-                608.0,
-                171.0
-            ],
-            [
-                541.5,
-                156.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_22": {
-        "tag": "rect_22",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "4"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                77.0
-            ],
-            [
-                538.0,
-                107.0
-            ],
-            [
-                506.5,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_23": {
-        "tag": "rect_23",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "5"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                205.0
-            ],
-            [
-                605.0,
-                235.0
-            ],
-            [
-                540.0,
-                220.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_24": {
-        "tag": "rect_24",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "6"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                109.0
-            ],
-            [
-                545.0,
-                139.0
-            ],
-            [
-                510.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_25": {
-        "tag": "rect_25",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                237.0
-            ],
-            [
-                663.0,
-                267.0
-            ],
-            [
-                569.0,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_31/rect_26": {
-        "tag": "rect_26",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "2",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                45.0
-            ],
-            [
-                533.0,
-                75.0
-            ],
-            [
-                504.0,
-                60.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_27": {
-        "tag": "rect_27",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                269.0
-            ],
-            [
-                475.0,
-                299.0
-            ],
-            [
-                475.0,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_28": {
-        "tag": "rect_28",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "1"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                173.0
-            ],
-            [
-                475.0,
-                203.0
-            ],
-            [
-                475.0,
-                188.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_29": {
-        "tag": "rect_29",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "2"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                301.0
-            ],
-            [
-                475.0,
-                331.0
-            ],
-            [
-                475.0,
-                316.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_30": {
-        "tag": "rect_30",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "3"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                141.0
-            ],
-            [
-                475.0,
-                171.0
-            ],
-            [
-                475.0,
-                156.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_31": {
-        "tag": "rect_31",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "4"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                77.0
-            ],
-            [
-                475.0,
-                107.0
-            ],
-            [
-                475.0,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_32": {
-        "tag": "rect_32",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "5"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                205.0
-            ],
-            [
-                475.0,
-                235.0
-            ],
-            [
-                475.0,
-                220.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_33": {
-        "tag": "rect_33",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "6"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                225.0,
-                109.0
-            ],
-            [
-                239.0,
-                139.0
-            ],
-            [
-                232.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_34": {
-        "tag": "rect_34",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                475.0,
-                237.0
-            ],
-            [
-                475.0,
-                267.0
-            ],
-            [
-                475.0,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_32/rect_35": {
-        "tag": "rect_35",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "3",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                80.0,
-                45.0
-            ],
-            [
-                157.0,
-                75.0
-            ],
-            [
-                118.5,
-                60.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_36": {
-        "tag": "rect_36",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                392.0,
-                269.0
-            ],
-            [
-                433.0,
-                299.0
-            ],
-            [
-                412.5,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_37": {
-        "tag": "rect_37",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "1"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                321.0,
-                173.0
-            ],
-            [
-                360.0,
-                203.0
-            ],
-            [
-                340.5,
-                188.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_38": {
-        "tag": "rect_38",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "2"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                398.0,
-                301.0
-            ],
-            [
-                437.0,
-                331.0
-            ],
-            [
-                417.5,
-                316.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_39": {
-        "tag": "rect_39",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "3"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                275.0,
-                141.0
-            ],
-            [
-                309.0,
-                171.0
-            ],
-            [
-                292.0,
-                156.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_40": {
-        "tag": "rect_40",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "4"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                194.0,
-                77.0
-            ],
-            [
-                350.0,
-                107.0
-            ],
-            [
-                272.0,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_41": {
-        "tag": "rect_41",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "5"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                364.0,
-                205.0
-            ],
-            [
-                401.0,
-                235.0
-            ],
-            [
-                382.5,
-                220.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_42": {
-        "tag": "rect_42",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "6"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                239.0,
-                109.0
-            ],
-            [
-                309.0,
-                139.0
-            ],
-            [
-                274.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_43": {
-        "tag": "rect_43",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                388.0,
-                237.0
-            ],
-            [
-                425.0,
-                267.0
-            ],
-            [
-                406.5,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_33/rect_44": {
-        "tag": "rect_44",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "4",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                157.0,
-                45.0
-            ],
-            [
-                371.0,
-                75.0
-            ],
-            [
-                264.0,
-                60.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_45": {
-        "tag": "rect_45",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "0"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                433.0,
-                269.0
-            ],
-            [
-                475.0,
-                299.0
-            ],
-            [
-                454.0,
-                284.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_46": {
-        "tag": "rect_46",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "1"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                360.0,
-                173.0
-            ],
-            [
-                475.0,
-                203.0
-            ],
-            [
-                417.5,
-                188.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_47": {
-        "tag": "rect_47",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "2"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                437.0,
-                301.0
-            ],
-            [
-                475.0,
-                331.0
-            ],
-            [
-                456.0,
-                316.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_48": {
-        "tag": "rect_48",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "3"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                309.0,
-                141.0
-            ],
-            [
-                475.0,
-                171.0
-            ],
-            [
-                392.0,
-                156.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_49": {
-        "tag": "rect_49",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "4"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                350.0,
-                77.0
-            ],
-            [
-                475.0,
-                107.0
-            ],
-            [
-                412.5,
-                92.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_50": {
-        "tag": "rect_50",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "5"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                401.0,
-                205.0
-            ],
-            [
-                475.0,
-                235.0
-            ],
-            [
-                438.0,
-                220.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_51": {
-        "tag": "rect_51",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "6"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                309.0,
-                109.0
-            ],
-            [
-                475.0,
-                139.0
-            ],
-            [
-                392.0,
-                124.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_52": {
-        "tag": "rect_52",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "7"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                425.0,
-                237.0
-            ],
-            [
-                475.0,
-                267.0
-            ],
-            [
-                450.0,
-                252.0
-            ]
-        ]
-    },
-    "svg/svg/g_28/g_34/rect_53": {
-        "tag": "rect_53",
-        "stroke": null,
-        "stroke-width": 1,
-        "stroke-opacity": 1,
-        "fill": null,
-        "opacity": 1,
-        "level": 0,
-        "layer": [
-            "0",
-            "3",
-            "5",
-            "8"
-        ],
-        "text_content": "",
-        "bbox": [
-            [
-                371.0,
-                45.0
-            ],
-            [
-                475.0,
-                75.0
-            ],
-            [
-                423.0,
-                60.0
+                65.65,
+                26.65
             ]
         ]
     }

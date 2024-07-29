@@ -4,10 +4,10 @@
     </div>
   <div class="grid-container">
     <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
-      <img :src="`/questionnaire/useData/${file}.svg`" alt="SVG Image" />
+      <img :src="`/questionnaire/newData/${file}.svg`" alt="SVG Image" />
     </div>
     <el-dialog v-model="dialogVisible" width="80%" :before-close="handleClose">
-      <img :src="`/questionnaire/useData/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`/questionnaire/newData/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
     </el-dialog>
   </div>
 </template>
@@ -18,7 +18,7 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 500; // 假设最多有100个文件
+const maxFiles = 53; // 假设最多有100个文件
 const loading = ref(true)
 
 const checkFiles = async () => {
@@ -27,7 +27,7 @@ const checkFiles = async () => {
     const fileName = `${i}.svg`;
     try {
       // 尝试加载文件
-      const response = await fetch(`/questionnaire/useData/${fileName}`);
+      const response = await fetch(`/questionnaire/newData/${fileName}`);
       if (response.ok) {
         loadedFiles.push(i.toString());
       } else {

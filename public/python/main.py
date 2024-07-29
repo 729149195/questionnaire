@@ -96,7 +96,7 @@ def svgid(svg_input_path, svg_output_path):
     svg_tree.write(svg_output_path, encoding='utf-8', xml_declaration=True)
 
 
-input_svg_path = './public/python/svg/Bars.svg'
+input_svg_path = './public/useData/9.svg'
 extracted_node_path = './public/python/data/extracted_nodes.json'
 output_svg_path = './public/python/output/1.svg'
 layer_data_path = './public/python/output/layer_data.json'

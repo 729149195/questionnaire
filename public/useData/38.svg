@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="340" viewBox="0 0 880 340" style="max-width: 100%; height: auto;">
+  <!-- X-axis -->
+  <line x1="40" y1="300" x2="840" y2="300" stroke="#000" stroke-width="1.5" />
+  <!-- Y-axis -->
+  <line x1="40" y1="20" x2="40" y2="300" stroke="#000" stroke-width="1.5" />
+
+  <!-- Grid lines -->
+  <line x1="40" y1="240" x2="840" y2="240" stroke="#ccc" />
+  <line x1="40" y1="180" x2="840" y2="180" stroke="#ccc" />
+  <line x1="40" y1="120" x2="840" y2="120" stroke="#ccc" />
+  <line x1="40" y1="60" x2="840" y2="60" stroke="#ccc" />
+
+  <!-- Bubbles -->
+  <circle cx="80" cy="260" r="15" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="110" cy="220" r="10" fill="#2ca02c" opacity="0.6" />
+  <circle cx="150" cy="280" r="18" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="190" cy="210" r="12" fill="#2ca02c" opacity="0.6" />
+  <circle cx="230" cy="270" r="22" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="270" cy="240" r="16" fill="#2ca02c" opacity="0.6" />
+  <circle cx="310" cy="200" r="26" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="350" cy="260" r="20" fill="#2ca02c" opacity="0.6" />
+  <circle cx="390" cy="230" r="30" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="430" cy="190" r="24" fill="#2ca02c" opacity="0.6" />
+  <circle cx="470" cy="250" r="34" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="510" cy="220" r="28" fill="#2ca02c" opacity="0.6" />
+  <circle cx="550" cy="80" r="20" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="590" cy="140" r="62" fill="#2ca02c" opacity="0.6" />
+  <circle cx="630" cy="50" r="40" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="670" cy="170" r="36" fill="#2ca02c" opacity="0.6" />
+  <circle cx="710" cy="230" r="42" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="750" cy="200" r="38" fill="#2ca02c" opacity="0.6" />
+  <circle cx="790" cy="160" r="5" fill="#ff7f0e" opacity="0.6" />
+  <circle cx="830" cy="60" r="20" fill="#2ca02c" opacity="0.6" />
+
+</svg>

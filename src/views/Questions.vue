@@ -189,7 +189,7 @@ const fetchSvgContent = async (step) => {
     });
     nodeEventHandlers.clear();
 
-    const response = await fetch(`./Data/${step}/${step}.svg`);
+    const response = await fetch(`./Data2/${step}/${step}.svg`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -215,7 +215,7 @@ const addZoomEffectToSvg = () => {
   if (!svg) return;
 
   const zoom = d3.zoom()
-    .scaleExtent([1, 10])
+    .scaleExtent([1, 20])
     .on('zoom', (event) => {
       if (!isCropping.value) {
         svg.attr('transform', event.transform);
@@ -479,7 +479,7 @@ const deleteCurrentGroup = () => {
 
 const eleURL = computed(() => {
   const step = store.state.steps[active.value];
-  return `./Data/${step}/layer_data.json`;
+  return `./Data2/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);
@@ -612,9 +612,9 @@ const ensureGroupInitialization = () => {
 };
 
 const generateRandomArray = () => {
-  const numbers = Array.from({ length: 14 }, (_, index) => index + 1);
+  const numbers = Array.from({ length: 42 }, (_, index) => index + 1);
   const randomArray = [];
-  while (randomArray.length < 10) {
+  while (randomArray.length < 20) {
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const number = numbers.splice(randomIndex, 1)[0];
     randomArray.push(number);

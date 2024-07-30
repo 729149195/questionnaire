@@ -1,0 +1,68 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "0",
+            "children": [
+                {
+                    "name": "0",
+                    "children": [
+                        {
+                            "name": "17",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_24/circle",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "18",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_25/circle_1",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "19",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_26/circle_2",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "20",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_27/circle_3",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "21",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_28/circle_4",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "svg/svg/g/circle_5",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/circle_6",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

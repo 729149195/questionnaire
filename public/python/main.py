@@ -3,6 +3,7 @@ from CreateGM import GM
 import Gestalt_Edges_Features as Gestalt_Edges_Features
 from Statisticians import LayerDataExtractor
 import re
+import os
 
 class SVGParser:
     def __init__(self, file_path):
@@ -95,11 +96,19 @@ def svgid(svg_input_path, svg_output_path):
     svg_tree = parser.run()
     svg_tree.write(svg_output_path, encoding='utf-8', xml_declaration=True)
 
+def ensure_directory_exists(file_path):
+    directory = os.path.dirname(file_path)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
-input_svg_path = './public/useData/9.svg'
+input_svg_path = './public/newData/2.svg'
 extracted_node_path = './public/python/data/extracted_nodes.json'
-output_svg_path = './public/python/output/1.svg'
-layer_data_path = './public/python/output/layer_data.json'
+output_svg_path = './public/Data2/2/2.svg'
+layer_data_path = './public/Data2/2/layer_data.json'
+
+# 确保输出目录存在
+ensure_directory_exists(output_svg_path)
+ensure_directory_exists(layer_data_path)
 
 # 使用 CreateGM 模块
 parser = GM(input_svg_path) 
@@ -108,9 +117,11 @@ parser.run()
 # 使用 Gestalt_Edges_Features 模块
 Gestalt_Edges_Features.extract_nodes()
 
+# 处理 SVG 文件
+svgid(input_svg_path, output_svg_path)
+
 # 使用 LayerDataExtractor 处理层数据
 extractor = LayerDataExtractor(extracted_node_path, layer_data_path)
 extractor.process()
 
-# 处理 SVG 文件
-svgid(input_svg_path, output_svg_path)
+

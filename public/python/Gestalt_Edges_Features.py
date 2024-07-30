@@ -42,7 +42,7 @@ class NodeExtractor:
             fill = attrs.get('fill', 'empty')
             stroke = attrs.get('stroke', 'empty')
 
-            if not visible or (fill == stroke) or (fill in ['None', 'empty'] and stroke in ['None', 'empty']):
+            if not visible or (fill == stroke and fill == 'empty') or (fill in ['None', 'empty'] and stroke in ['None', 'empty']):
                 continue
 
             level = attributes['Attributes']['level']

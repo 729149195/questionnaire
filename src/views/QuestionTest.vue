@@ -92,8 +92,9 @@
           v-if="active != steps.length - 1"><el-icon>
             <CaretRight />
           </el-icon></el-button>
+          <el-tooltip content="进入正式问卷">
         <el-button class="submit-button" @click="submit" type="success"
-          v-if="active === steps.length - 1"><el-icon><Select /></el-icon></el-button>
+          v-if="active === steps.length - 1"><el-icon><DArrowRight /></el-icon></el-button></el-tooltip>
       </div>
     </el-container>
 
@@ -105,8 +106,6 @@
           <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
           <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
-          <li>显眼程度：您注意到这个图形模式的快慢</li>
-          <li>分组界限：该图形模式与其它潜在图形模式的区分清晰程度</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
           <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
         </ol>
@@ -133,26 +132,31 @@
     <el-tour v-model="openTour">
       <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="svg1?.$el" title="模式观察区域" placement="right">您将在这里总揽全局并进行图形模式的观察与感知。</el-tour-step>
+      <el-tour-step :target="svg1?.$el" title="模式观察区域" placement="right">您将在这里观察原图并进行图形模式的感知。</el-tour-step>
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
-        在这里，您可以点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
+        在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中的元素较为密集时，可以进入框选功能进行元素框选。<div
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为密集时，可以点击进入选框模式进行元素框选，框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示一个模式中所包含标签，点击后可在选取交互区域定位到单一标签所对应的元素
+      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示选中模式中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里选择已创建的分组。<div v-html="getGifHtml('5.gif')"></div>
+      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里可以下拉选择已创建的模式。<div v-html="getGifHtml('5.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的分组。<div v-html="getGifHtml('6.gif')"></div>
+      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的模式。<div v-html="getGifHtml('6.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮">点击这里可以删除当前分组及其内容，后续分组的内容会往前覆盖。<div
+      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮"> 点击这里可以删除当前模式及其内容，后续模式的内容会往前覆盖同时继承被删除的模式编号。<div
           v-html="getGifHtml('7.gif')"></div></el-tour-step>
       <el-tour-step :target="rateings?.$el" title="模式评分">
         <p>显眼程度：您注意到这个图形模式的快慢。</p>
         <p>分组界限：该图形模式与其它潜在图形模式的区分清晰程度。</p>
-        <p>请根据第一印象为每一个图形模式进行评分。</p>
+        <p>请根据第一印象为每一个图形模式估计评分。</p>
         <div v-html="getGifHtml('8.gif')"></div>
+        <p>例如：</p>
+        <img style="width: 150%; margin-top: 10px" src="/img/example.png" alt="">
+        <p>a对应的模式最为显眼，但与其它潜在模式的界限较模糊。</p>
+        <p>b对应的模式较不显眼，但因模式中大部分节点都比较集中，因此与潜在模式的界限较为清晰。</p>
+        <p>c对应的模式的显眼程度和分组界限恰好处于a和b之间。</p>
       </el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
         </div></el-tour-step>
@@ -160,14 +164,10 @@
       </el-tour-step>
       <el-tour-step :target="nextBtn?.$el" title="下一个按钮">点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。<div
           v-html="getGifHtml('11.gif')"></div></el-tour-step>
-      <el-tour-step title="尝试">现在可以使用当前两个练习示例进行练习</el-tour-step>
-      <template #footer="{ currentIndex, stepCount, prevStep, nextStep, endTour }">
-        <el-space>
-          <el-button @click="endTour">结束引导</el-button>
-          <el-button @click="prevStep" :disabled="currentIndex === 0">上一步</el-button>
-          <el-button @click="nextStep" :disabled="currentIndex === stepCount - 1">下一步</el-button>
-        </el-space>
-      </template>
+      <el-tour-step title="尝试">
+        <p>现在可以使用当前两个练习示例进行练习。</p>
+        <p>两个示例练习完成后点击绿色按钮即可开始填写正式问卷。</p>
+      </el-tour-step>
     </el-tour>
   </div>
 </template>
@@ -177,7 +177,7 @@ import { ref, computed, onMounted, nextTick, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop } from '@element-plus/icons-vue';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, DArrowRight, WindPower, Crop } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
 
 const store = useStore();

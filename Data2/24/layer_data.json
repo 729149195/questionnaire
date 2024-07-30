@@ -1,0 +1,243 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "0",
+            "children": [
+                {
+                    "name": "0",
+                    "children": [
+                        {
+                            "name": "svg/svg/g/rect",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_1",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_2",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_3",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_4",
+                            "value": 1
+                        },
+                        {
+                            "name": "27",
+                            "children": [
+                                {
+                                    "name": "svg/svg/g/g_22/polygon",
+                                    "value": 1
+                                }
+                            ]
+                        },
+                        {
+                            "name": "28",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "svg/svg/g/g_23/g_24/g_25/polygon_1",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_23/g_24/line",
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "29",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "svg/svg/g/g_26/g_27/g_28/polygon_2",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_26/g_27/polyline",
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "30",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "0",
+                                                    "children": [
+                                                        {
+                                                            "name": "svg/svg/g/g_29/g_30/g_31/g_32/polygon_3",
+                                                            "value": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "svg/svg/g/g_29/g_30/g_31/line_1",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "31",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "0",
+                                                    "children": [
+                                                        {
+                                                            "name": "svg/svg/g/g_33/g_34/g_35/g_36/polygon_4",
+                                                            "value": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "svg/svg/g/g_33/g_34/g_35/line_2",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "32",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "0",
+                                                    "children": [
+                                                        {
+                                                            "name": "svg/svg/g/g_37/g_38/g_39/g_40/polygon_5",
+                                                            "value": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "svg/svg/g/g_37/g_38/g_39/line_3",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "33",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "svg/svg/g/g_41/g_42/g_43/polygon_6",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_41/g_42/line_4",
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "34",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "svg/svg/g/g_44/g_45/g_46/polygon_7",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_44/g_45/line_5",
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "35",
+                            "children": [
+                                {
+                                    "name": "0",
+                                    "children": [
+                                        {
+                                            "name": "0",
+                                            "children": [
+                                                {
+                                                    "name": "svg/svg/g/g_47/g_48/g_49/polygon_8",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_47/g_48/line_6",
+                                            "value": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

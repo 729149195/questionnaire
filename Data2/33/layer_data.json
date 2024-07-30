@@ -1,0 +1,132 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "0",
+            "children": [
+                {
+                    "name": "0",
+                    "children": [
+                        {
+                            "name": "svg/svg/g/line",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_1",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_2",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_3",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_4",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_5",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_1",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_2",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_3",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_4",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/rect_5",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_6",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_7",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g/line_8",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "1",
+                    "children": [
+                        {
+                            "name": "svg/svg/g_14/line_9",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_10",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_11",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_12",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_13",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_14",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_15",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_16",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_17",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_18",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_19",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/polyline",
+                            "value": 1
+                        },
+                        {
+                            "name": "svg/svg/g_14/line_20",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

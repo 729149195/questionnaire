@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg width="900" height="340" viewBox="-530,-150,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg">
+  <path d="M-350,200 A200,200 0 0,1 -150,0" fill="none" stroke="hsl(0, 70%, 50%)" stroke-width="10" id="path_8" />
+  <path d="M-330,180 A180,180 0 0,1 -130,20" fill="none" stroke="hsl(0, 70%, 60%)" stroke-width="4" id="path_7" />
+  <path d="M-310,160 A160,160 0 0,1 -110,40" fill="none" stroke="hsl(0, 70%, 70%)" stroke-width="2" id="path_6" />
+  <path d="M-150,150 A200,200 0 0,1 50,-50" fill="none" stroke="hsl(60, 70%, 50%)" stroke-width="15" id="path_5" />
+  <path d="M-130,130 A180,180 0 0,1 70,-30" fill="none" stroke="hsl(60, 70%, 60%)" stroke-width="8" id="path_4" />
+  <path d="M-110,110 A160,160 0 0,1 90,-10" fill="none" stroke="hsl(60, 70%, 70%)" stroke-width="3" id="path_3" />
+  <path d="M-50,100 A200,200 0 0,1 150,-100" fill="none" stroke="hsl(120, 70%, 50%)" stroke-width="4" id="path_2" />
+  <path d="M-30,80 A180,180 0 0,1 170,-80" fill="none" stroke="hsl(120, 70%, 60%)" stroke-width="13" id="path_1" />
+  <path d="M-10,60 A160,160 0 0,1 190,-60" fill="none" stroke="hsl(120, 70%, 70%)" stroke-width="6" id="path" />
+</svg>

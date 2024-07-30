@@ -71,6 +71,10 @@
                                                                                                                             ]
                                                                                                                         }
                                                                                                                     ]
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_4/g_5/g_6/g_8/g_9/g_10/g_11/g_12/path_5",
+                                                                                                                    "value": 1
                                                                                                                 }
                                                                                                             ]
                                                                                                         },
@@ -99,18 +103,30 @@
                                                                                                                             ]
                                                                                                                         }
                                                                                                                     ]
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_4/g_5/g_6/g_8/g_9/g_10/g_11/g_16/path_8",
+                                                                                                                    "value": 1
                                                                                                                 }
                                                                                                             ]
                                                                                                         }
                                                                                                     ]
                                                                                                 }
                                                                                             ]
+                                                                                        },
+                                                                                        {
+                                                                                            "name": "svg/svg/g/g_1/g_2/g_3/g_4/g_5/g_6/g_8/g_9/path_9",
+                                                                                            "value": 1
                                                                                         }
                                                                                     ]
                                                                                 }
                                                                             ]
                                                                         }
                                                                     ]
+                                                                },
+                                                                {
+                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_4/g_5/path_10",
+                                                                    "value": 1
                                                                 }
                                                             ]
                                                         }
@@ -332,6 +348,10 @@
                                                                             ]
                                                                         }
                                                                     ]
+                                                                },
+                                                                {
+                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_22/g_23/path_38",
+                                                                    "value": 1
                                                                 }
                                                             ]
                                                         }
@@ -479,6 +499,10 @@
                                                                             ]
                                                                         }
                                                                     ]
+                                                                },
+                                                                {
+                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_29/g_30/path_40",
+                                                                    "value": 1
                                                                 }
                                                             ]
                                                         }
@@ -531,12 +555,20 @@
                                                                             ]
                                                                         }
                                                                     ]
+                                                                },
+                                                                {
+                                                                    "name": "svg/svg/g/g_1/g_2/g_3/g_36/g_37/path_42",
+                                                                    "value": 1
                                                                 }
                                                             ]
                                                         }
                                                     ]
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "name": "svg/svg/g/g_1/g_2/path_43",
+                                            "value": 1
                                         }
                                     ]
                                 }

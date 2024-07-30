@@ -18,7 +18,7 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 53; // 假设最多有100个文件
+const maxFiles = 53; // 假设最多有53个文件
 const loading = ref(true)
 
 const checkFiles = async () => {

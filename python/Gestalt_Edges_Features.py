@@ -35,6 +35,9 @@ class NodeExtractor:
         extracted_nodes = {}
 
         for node, attributes in nodes.items():
+            # 调试输出
+            print(f"Processing node: {node}")
+
             tag = attributes['Attributes']['tag']
             attrs = attributes['Attributes']['attributes']
             visible = attributes['Attributes']['visible']
@@ -42,7 +45,9 @@ class NodeExtractor:
             fill = attrs.get('fill', 'empty')
             stroke = attrs.get('stroke', 'empty')
 
-            if not visible or (fill == stroke) or (fill in ['None', 'empty'] and stroke in ['None', 'empty']):
+            if not visible or (fill == stroke and fill == 'empty') or (fill == stroke and fill == 'empty'):
+                # 调试输出
+                print(f"Skipping node: {node} (not visible or no fill/stroke)")
                 continue
 
             level = attributes['Attributes']['level']

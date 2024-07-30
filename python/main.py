@@ -101,10 +101,10 @@ def ensure_directory_exists(file_path):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-input_svg_path = './public/newData/2.svg'
+input_svg_path = './public/newData/7.svg'
 extracted_node_path = './public/python/data/extracted_nodes.json'
-output_svg_path = './public/Data2/2/2.svg'
-layer_data_path = './public/Data2/2/layer_data.json'
+output_svg_path = './public/Data2/7/7.svg'
+layer_data_path = './public/Data2/7/layer_data.json'
 
 # 确保输出目录存在
 ensure_directory_exists(output_svg_path)

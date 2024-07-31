@@ -26,11 +26,10 @@ class SVGModifier:
                 elem.tag = elem.tag[i + 1:]
 
     def embed_css_styles(self):
-        style_element = self.root.find('style')
+        style_element = self.root.find('.//style')
         if style_element is not None:
             css_text = style_element.text.strip()
-            self.root.remove(style_element)
-            css_rules = re.findall(r'\.(st\d+)\{([^\}]+)\}', css_text)
+            css_rules = re.findall(r'\.(st\d+)\s*\{([^\}]+)\}', css_text)
             for cls, style in css_rules:
                 elements = self.root.xpath(f"//*[@class='{cls}']")
                 for elem in elements:
@@ -39,9 +38,11 @@ class SVGModifier:
                     elem.attrib['style'] = new_style
                     if 'class' in elem.attrib:
                         del elem.attrib['class']
+            # 删除style元素
+            self.root.remove(style_element)
 
     def save_svg(self):
         self.tree.write(self.output_path, encoding='utf-8', xml_declaration=True, pretty_print=True)
 
 # 使用方法 - 一行代码完成所有操作
-SVGModifier('./public/python/svg/不等宽柱状图.svg', './public/newData/9.svg').modify_and_save_svg()
+SVGModifier('./public/svg/人口金字塔.svg', './public/svg/666.svg').modify_and_save_svg()

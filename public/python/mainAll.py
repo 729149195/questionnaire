@@ -99,7 +99,7 @@ def ensure_directory_exists(file_path):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-for n in range(1, 55):
+for n in range(1, 60):
     input_svg_path = f'./public/newData/{n}.svg'
     extracted_node_path = f'./public/python/data/extracted_nodes.json'
     output_svg_path = f'./public/Data2/{n}/{n}.svg'

@@ -1,86 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="340" viewBox="-440,-170,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;">
-  <!-- Group 1 -->
-  <line x1="-380" y1="-40" x2="-380" y2="70" stroke="#000" stroke-width="1.5"/>
-  <rect x="-400" y="10" width="40" height="30" fill="#1f77b4" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-400" y1="20" x2="-360" y2="20" stroke="#000" stroke-width="2"/>
-  <line x1="-400" y1="-40" x2="-360" y2="-40" stroke="#000" stroke-width="1.5"/>
-  <line x1="-400" y1="70" x2="-360" y2="70" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-380" cy="80" r="3" fill="#1f77b4"/>
-  <line x1="-330" y1="-30" x2="-330" y2="80" stroke="#000" stroke-width="1.5"/>
-  <rect x="-350" y="5" width="40" height="50" fill="#ff7f0e" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-350" y1="25" x2="-310" y2="25" stroke="#000" stroke-width="2"/>
-  <line x1="-350" y1="-30" x2="-310" y2="-30" stroke="#000" stroke-width="1.5"/>
-  <line x1="-350" y1="80" x2="-310" y2="80" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-330" cy="90" r="3" fill="#ff7f0e"/>
-  <!-- Group 2 -->
-  <line x1="-260" y1="-50" x2="-260" y2="60" stroke="#000" stroke-width="1.5"/>
-  <rect x="-280" y="-5" width="40" height="60" fill="#2ca02c" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-280" y1="15" x2="-240" y2="15" stroke="#000" stroke-width="2"/>
-  <line x1="-280" y1="-50" x2="-240" y2="-50" stroke="#000" stroke-width="1.5"/>
-  <line x1="-280" y1="60" x2="-240" y2="60" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-260" cy="70" r="3" fill="#2ca02c"/>
-  <circle cx="-260" cy="80" r="3" fill="#2ca02c"/>
-  <line x1="-210" y1="-60" x2="-210" y2="50" stroke="#000" stroke-width="1.5"/>
-  <rect x="-230" y="0" width="40" height="40" fill="#d62728" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-230" y1="20" x2="-190" y2="20" stroke="#000" stroke-width="2"/>
-  <line x1="-230" y1="-60" x2="-190" y2="-60" stroke="#000" stroke-width="1.5"/>
-  <line x1="-230" y1="50" x2="-190" y2="50" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-210" cy="-80" r="3" fill="#d62728"/>
-  <!-- Group 3 -->
-  <line x1="-140" y1="-20" x2="-140" y2="80" stroke="#000" stroke-width="1.5"/>
-  <rect x="-160" y="20" width="40" height="50" fill="#9467bd" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-160" y1="40" x2="-120" y2="40" stroke="#000" stroke-width="2"/>
-  <line x1="-160" y1="-20" x2="-120" y2="-20" stroke="#000" stroke-width="1.5"/>
-  <line x1="-160" y1="80" x2="-120" y2="80" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-140" cy="90" r="3" fill="#9467bd"/>
-  <line x1="-90" y1="-40" x2="-90" y2="70" stroke="#000" stroke-width="1.5"/>
-  <rect x="-110" y="10" width="40" height="50" fill="#8c564b" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-110" y1="30" x2="-70" y2="30" stroke="#000" stroke-width="2"/>
-  <line x1="-110" y1="-40" x2="-70" y2="-40" stroke="#000" stroke-width="1.5"/>
-  <line x1="-110" y1="70" x2="-70" y2="70" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-90" cy="80" r="3" fill="#8c564b"/>
-  <!-- Group 4 -->
-  <line x1="-20" y1="-30" x2="-20" y2="60" stroke="#000" stroke-width="1.5"/>
-  <rect x="-40" y="0" width="40" height="50" fill="#e377c2" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="-40" y1="35" x2="0" y2="35" stroke="#000" stroke-width="2"/>
-  <line x1="-40" y1="-30" x2="0" y2="-30" stroke="#000" stroke-width="1.5"/>
-  <line x1="-40" y1="60" x2="0" y2="60" stroke="#000" stroke-width="1.5"/>
-  <circle cx="-20" cy="70" r="3" fill="#e377c2"/>
-  <line x1="30" y1="-50" x2="30" y2="50" stroke="#000" stroke-width="1.5"/>
-  <rect x="10" y="5" width="40" height="40" fill="#7f7f7f" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="10" y1="25" x2="50" y2="25" stroke="#000" stroke-width="2"/>
-  <line x1="10" y1="-50" x2="50" y2="-50" stroke="#000" stroke-width="1.5"/>
-  <line x1="10" y1="50" x2="50" y2="50" stroke="#000" stroke-width="1.5"/>
-  <circle cx="30" cy="60" r="3" fill="#7f7f7f"/>
-  <!-- Group 5 -->
-  <line x1="100" y1="-30" x2="100" y2="70" stroke="#000" stroke-width="1.5"/>
-  <rect x="80" y="0" width="40" height="70" fill="#bcbd22" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="80" y1="50" x2="120" y2="50" stroke="#000" stroke-width="2"/>
-  <line x1="80" y1="-30" x2="120" y2="-30" stroke="#000" stroke-width="1.5"/>
-  <line x1="80" y1="70" x2="120" y2="70" stroke="#000" stroke-width="1.5"/>
-  <circle cx="100" cy="80" r="3" fill="#bcbd22"/>
-  <line x1="150" y1="-40" x2="150" y2="60" stroke="#000" stroke-width="1.5"/>
-  <rect x="130" y="0" width="40" height="40" fill="#17becf" opacity="0.7" stroke="#000" stroke-width="1.5"/>
-  <line x1="130" y1="15" x2="170" y2="15" stroke="#000" stroke-width="2"/>
-  <line x1="130" y1="-40" x2="170" y2="-40" stroke="#000" stroke-width="1.5"/>
-  <line x1="130" y1="60" x2="170" y2="60" stroke="#000" stroke-width="1.5"/>
-  <circle cx="150" cy="70" r="3" fill="#17becf"/>
-  <!-- X-axis labels -->
-  <text x="-355" y="140" fill="#000" font-size="14" text-anchor="middle">Group 1</text>
-  <text x="-235" y="140" fill="#000" font-size="14" text-anchor="middle">Group 2</text>
-  <text x="-110" y="140" fill="#000" font-size="14" text-anchor="middle">Group 3</text>
-  <text x="5" y="140" fill="#000" font-size="14" text-anchor="middle">Group 4</text>
-  <text x="125" y="140" fill="#000" font-size="14" text-anchor="middle">Group 5</text>
-  <!-- Legend -->
-  <rect x="300" y="-150" width="20" height="20" fill="#1f77b4" opacity="0.7"/>
-  <text x="330" y="-135" fill="#000" font-size="12">Category 1</text>
-  <rect x="300" y="-120" width="20" height="20" fill="#ff7f0e" opacity="0.7"/>
-  <text x="330" y="-105" fill="#000" font-size="12">Category 2</text>
-  <rect x="300" y="-90" width="20" height="20" fill="#2ca02c" opacity="0.7"/>
-  <text x="330" y="-75" fill="#000" font-size="12">Category 3</text>
-  <rect x="300" y="-60" width="20" height="20" fill="#d62728" opacity="0.7"/>
-  <text x="330" y="-45" fill="#000" font-size="12">Category 4</text>
-  <rect x="300" y="-30" width="20" height="20" fill="#9467bd" opacity="0.7"/>
-  <text x="330" y="-15" fill="#000" font-size="12">Category 5</text>
+  <rect x="-400" y="-160" width="80" height="80" id="rect_39" style="fill:skyblue; stroke:black; stroke-width:1;"/>
+  <rect x="-320" y="-160" width="80" height="80" id="rect_38" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="-240" y="-160" width="80" height="80" id="rect_37" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="-160" y="-160" width="80" height="80" id="rect_36" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="-80" y="-160" width="80" height="80" id="rect_35" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="0" y="-160" width="80" height="80" id="rect_34" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="80" y="-160" width="80" height="80" id="rect_33" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="160" y="-160" width="80" height="80" id="rect_32" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="240" y="-160" width="80" height="80" id="rect_31" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="320" y="-160" width="80" height="80" id="rect_30" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="-400" y="-80" width="80" height="80" id="rect_29" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="-320" y="-80" width="80" height="80" id="rect_28" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="-240" y="-80" width="80" height="80" id="rect_27" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="-160" y="-80" width="80" height="80" id="rect_26" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="-80" y="-80" width="80" height="80" id="rect_25" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="0" y="-80" width="80" height="80" id="rect_24" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="80" y="-80" width="80" height="80" id="rect_23" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="160" y="-80" width="80" height="80" id="rect_22" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="240" y="-80" width="80" height="80" id="rect_21" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="320" y="-80" width="80" height="80" id="rect_20" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="-400" y="0" width="80" height="80" id="rect_19" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="-320" y="0" width="80" height="80" id="rect_18" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="-240" y="0" width="80" height="80" id="rect_17" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="-160" y="0" width="80" height="80" id="rect_16" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="-80" y="0" width="80" height="80" id="rect_15" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="0" y="0" width="80" height="80" id="rect_14" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="80" y="0" width="80" height="80" id="rect_13" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="160" y="0" width="80" height="80" id="rect_12" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="240" y="0" width="80" height="80" id="rect_11" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="320" y="0" width="80" height="80" id="rect_10" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="-400" y="80" width="80" height="80" id="rect_9" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="-320" y="80" width="80" height="80" id="rect_8" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="-240" y="80" width="80" height="80" id="rect_7" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="-160" y="80" width="80" height="80" id="rect_6" style="fill:plum; stroke:black; stroke-width:1;"/>
+  <rect x="-80" y="80" width="80" height="80" id="rect_5" style="fill:gold; stroke:black; stroke-width:1;"/>
+  <rect x="0" y="80" width="80" height="80" id="rect_4" style="fill:coral; stroke:black; stroke-width:1;"/>
+  <rect x="80" y="80" width="80" height="80" id="rect_3" style="fill:lightblue; stroke:black; stroke-width:1;"/>
+  <rect x="160" y="80" width="80" height="80" id="rect_2" style="fill:lightgreen; stroke:black; stroke-width:1;"/>
+  <rect x="240" y="80" width="80" height="80" id="rect_1" style="fill:salmon; stroke:black; stroke-width:1;"/>
+  <rect x="320" y="80" width="80" height="80" id="rect" style="fill:plum; stroke:black; stroke-width:1;"/>
 </svg>

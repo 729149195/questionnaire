@@ -4,6 +4,7 @@ import Gestalt_Edges_Features as Gestalt_Edges_Features
 from Statisticians import LayerDataExtractor
 import re
 import os
+from tqdm import tqdm
 
 class SVGParser:
     def __init__(self, file_path):
@@ -54,7 +55,6 @@ class SVGParser:
         attributes = element.attrib
         text_content = element.text.strip() if element.text else None
 
-        # Replace text content with 'x' of the same length
         if text_content:
             element.text = 'x' * len(text_content)
         
@@ -65,7 +65,6 @@ class SVGParser:
             tag, attributes, text_content = self.extract_element_info(element)
             node_id = tag
 
-            # Add id to the element
             element.set('id', node_id)
 
             new_layer_counter = 0
@@ -79,7 +78,6 @@ class SVGParser:
     def run(self):
         tree, svg_root = SVGParser.parse_svg(self.file_path)
         self.build_graph(svg_root)
-        # Remove namespace prefixes
         for elem in svg_root.iter():
             elem.tag = elem.tag.split('}', 1)[-1]
             attribs = list(elem.attrib.items())
@@ -99,28 +97,21 @@ def ensure_directory_exists(file_path):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-for n in range(1, 60):
+for n in tqdm(range(1, 541), desc="Processing SVG files"):
     input_svg_path = f'./public/newData/{n}.svg'
     extracted_node_path = f'./public/python/data/extracted_nodes.json'
     output_svg_path = f'./public/Data2/{n}/{n}.svg'
     layer_data_path = f'./public/Data2/{n}/layer_data.json'
 
-    # 确保输出目录存在
     ensure_directory_exists(output_svg_path)
     ensure_directory_exists(layer_data_path)
 
-    # 使用 CreateGM 模块
     parser = GM(input_svg_path) 
     parser.run()
 
-    # 使用 Gestalt_Edges_Features 模块
     Gestalt_Edges_Features.extract_nodes()
 
-    # 处理 SVG 文件
     svgid(input_svg_path, output_svg_path)
 
-    # 使用 LayerDataExtractor 处理层数据
     extractor = LayerDataExtractor(extracted_node_path, layer_data_path)
     extractor.process()
-
-

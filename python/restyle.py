@@ -54,4 +54,4 @@ class SVGStyleEmbedder:
         self.tree.write(self.output_path, encoding='utf-8', xml_declaration=True, pretty_print=True)
 
 # 使用方法
-SVGStyleEmbedder('./public/svg/666.svg', './public/svg/666.svg').embed_and_save_svg()
+SVGStyleEmbedder('./public/svg/子弹图.svg', './public/svg/子弹图.svg').embed_and_save_svg()

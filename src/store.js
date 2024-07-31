@@ -6,9 +6,9 @@ const generateRandomId = () => {
 
 // 生成不重复的随机数数组
 const generateRandomArray = () => {
-  const numbers = Array.from({ length: 54 }, (_, index) => index + 1);
+  const numbers = Array.from({ length: 540 }, (_, index) => index + 1);
   const randomArray = [];
-  while (randomArray.length < 25) {
+  while (randomArray.length < 20) {
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const number = numbers.splice(randomIndex, 1)[0];
     randomArray.push(number);

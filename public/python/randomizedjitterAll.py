@@ -27,15 +27,12 @@ def randomize_color_to_hsl(color, hue_amount=50, lightness_amount=50, saturation
     
     return f'hsl({int(h * 360)}, {int(s * 100)}%, {int(l * 100)}%)'
 
-# 递归地去除指定的命名空间前缀
+# 递归地去除命名空间前缀
 def strip_namespace(element):
-    if '}' in element.tag:
-        element.tag = element.tag.split('}', 1)[1]
-    for el in element:
-        strip_namespace(el)
-    for attr in list(element.attrib.keys()):
-        if '}' in attr:
-            element.attrib[attr.split('}', 1)[1]] = element.attrib.pop(attr)
+    for el in element.iter():
+        if '}' in el.tag:
+            el.tag = el.tag.split('}', 1)[1]  # 去掉命名空间URI部分
+    return element
 
 # 随机抖动circle元素的r属性
 def randomize_circle_radius(element, amount=15):
@@ -46,21 +43,13 @@ def randomize_circle_radius(element, amount=15):
             new_radius = max(0, original_radius + change)
             circle.attrib['r'] = str(new_radius)
 
-# 处理SVG文件
-def process_svg(file_path, versions=5):
+# 处理单个SVG文件
+def process_single_svg(file_path, output_dir, versions=5):
     tree = ET.parse(file_path)
     root = tree.getroot()
     
-    # 保留根元素的原始属性
-    original_attrib = root.attrib.copy()
-    
     # 去除命名空间前缀
-    strip_namespace(root)
-    
-    # 恢复根元素的原始属性，并添加xmlns属性
-    root.attrib.clear()
-    root.attrib.update(original_attrib)
-    root.set('xmlns', 'http://www.w3.org/2000/svg')
+    root = strip_namespace(root)
     
     # 获取所有样式定义
     style_element = root.find('.//style')
@@ -74,26 +63,46 @@ def process_svg(file_path, versions=5):
     for version in range(1, versions + 1):
         new_styles = []
         for style in styles:
-            if style.startswith('.st'):
-                parts = style.split('{')
+            if '{' in style and 'fill:' in style:  # 检查style格式
+                parts = style.split('{', 1)
                 style_name = parts[0]
-                color = parts[1].split(':')[1].split(';')[0].strip()
-                # 对每个样式的不规律随机抖动
-                new_color = randomize_color_to_hsl(color)
-                new_styles.append(f'{style_name} {{fill: {new_color};}}')
+                properties = parts[1].rstrip('}').split(';')
+                for i, prop in enumerate(properties):
+                    if 'fill:' in prop:
+                        color = prop.split(':')[1].strip()
+                        new_color = randomize_color_to_hsl(color)
+                        properties[i] = f'fill: {new_color}'
+                new_style = f'{style_name} {{{";".join(properties).strip()};}}'
+                new_styles.append(new_style)
             else:
-                new_styles.append(style)
+                new_styles.append(style)  # 保留不处理的样式
         
         # 修改样式表
         style_element.text = '\n'.join(new_styles)
         
         # 对circle元素的r属性进行随机抖动
-        randomize_circle_radius(root)
+        # randomize_circle_radius(root)
+        
+        # 重新添加命名空间声明
+        root.set("xmlns", "http://www.w3.org/2000/svg")
         
         # 保存新的SVG文件
-        new_file_name = f"{os.path.splitext(file_path)[0]}_{version}.svg"
-        tree.write(new_file_name, encoding='utf-8', xml_declaration=True)
+        base_name = os.path.basename(file_path)
+        name, ext = os.path.splitext(base_name)
+        new_file_name = os.path.join(output_dir, f"{name}_{version}{ext}")
+        tree.write(new_file_name)
 
+# 批量处理目录下的所有SVG文件
+def process_svg_folder(folder_path, output_dir, versions=10):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    for file_name in os.listdir(folder_path):
+        if file_name.lower().endswith('.svg'):
+            file_path = os.path.join(folder_path, file_name)
+            process_single_svg(file_path, output_dir, versions)
+            
 # 使用示例
-file_path = './public/svg'  # 替换为你的SVG文件路径
-process_svg(file_path)
+input_folder = './public/svg/'  # 替换为你的SVG文件夹路径
+output_folder = './public/randomsvg/'  # 输出文件夹
+process_svg_folder(input_folder, output_folder)

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="340" viewBox="-440,-170,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;">
+  <rect x="-400" y="-160" width="80" height="80" id="rect_39" style="fill: hsl(167, 57%, 53%); stroke:black; stroke-width:1;;"/>
+  <rect x="-320" y="-160" width="80" height="80" id="rect_38" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="-240" y="-160" width="80" height="80" id="rect_37" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="-160" y="-160" width="80" height="80" id="rect_36" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="-80" y="-160" width="80" height="80" id="rect_35" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="0" y="-160" width="80" height="80" id="rect_34" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="80" y="-160" width="80" height="80" id="rect_33" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="160" y="-160" width="80" height="80" id="rect_32" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="240" y="-160" width="80" height="80" id="rect_31" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="320" y="-160" width="80" height="80" id="rect_30" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="-400" y="-80" width="80" height="80" id="rect_29" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="-320" y="-80" width="80" height="80" id="rect_28" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="-240" y="-80" width="80" height="80" id="rect_27" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="-160" y="-80" width="80" height="80" id="rect_26" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="-80" y="-80" width="80" height="80" id="rect_25" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="0" y="-80" width="80" height="80" id="rect_24" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="80" y="-80" width="80" height="80" id="rect_23" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="160" y="-80" width="80" height="80" id="rect_22" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="240" y="-80" width="80" height="80" id="rect_21" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="320" y="-80" width="80" height="80" id="rect_20" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="-400" y="0" width="80" height="80" id="rect_19" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="-320" y="0" width="80" height="80" id="rect_18" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="-240" y="0" width="80" height="80" id="rect_17" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="-160" y="0" width="80" height="80" id="rect_16" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="-80" y="0" width="80" height="80" id="rect_15" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="0" y="0" width="80" height="80" id="rect_14" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="80" y="0" width="80" height="80" id="rect_13" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="160" y="0" width="80" height="80" id="rect_12" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="240" y="0" width="80" height="80" id="rect_11" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="320" y="0" width="80" height="80" id="rect_10" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="-400" y="80" width="80" height="80" id="rect_9" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="-320" y="80" width="80" height="80" id="rect_8" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="-240" y="80" width="80" height="80" id="rect_7" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="-160" y="80" width="80" height="80" id="rect_6" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+  <rect x="-80" y="80" width="80" height="80" id="rect_5" style="fill: hsl(73, 82%, 48%); stroke:black; stroke-width:1;;"/>
+  <rect x="0" y="80" width="80" height="80" id="rect_4" style="fill: hsl(15, 83%, 47%); stroke:black; stroke-width:1;;"/>
+  <rect x="80" y="80" width="80" height="80" id="rect_3" style="fill: hsl(160, 62%, 60%); stroke:black; stroke-width:1;;"/>
+  <rect x="160" y="80" width="80" height="80" id="rect_2" style="fill: hsl(111, 74%, 83%); stroke:black; stroke-width:1;;"/>
+  <rect x="240" y="80" width="80" height="80" id="rect_1" style="fill: hsl(346, 92%, 88%); stroke:black; stroke-width:1;;"/>
+  <rect x="320" y="80" width="80" height="80" id="rect" style="fill: hsl(318, 30%, 91%); stroke:black; stroke-width:1;;"/>
+</svg>

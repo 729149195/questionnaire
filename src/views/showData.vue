@@ -22,7 +22,7 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 648;
+const maxFiles = 540;
 const loading = ref(false);  // 初始状态设置为 false
 const batchSize = 20;
 let currentFileIndex = 0;

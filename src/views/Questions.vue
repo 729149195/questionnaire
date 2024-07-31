@@ -28,6 +28,7 @@
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
                 <el-button @click="toggleCropMode" class="Crop"><el-icon><Crop /></el-icon></el-button>
+                <el-button @click="toggleTrackMode" class="track"><el-icon><Pointer /></el-icon></el-button>
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
@@ -106,12 +107,12 @@
       <span>
         在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
-          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
+          <!-- <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li> -->
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
           <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
-          <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
+          <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
       </span>
       <template #footer>
@@ -128,12 +129,12 @@ import { ref, computed, onMounted, nextTick, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop } from '@element-plus/icons-vue';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop, Pointer } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
 
 const store = useStore();
 const router = useRouter();
-const formData = computed(() => store.getters.getFormData);
+// const formData = computed(() => store.getters.getFormData);
 const selectedNodeIds = computed(() => store.state.selectedNodes.nodeIds);
 const allVisiableNodes = computed(() => store.state.AllVisiableNodes);
 const steps = computed(() => store.state.steps);
@@ -149,6 +150,8 @@ const ratings = ref({});
 let reminderTimerId = null;
 const nodeEventHandlers = new Map();
 const isCropping = ref(false);
+const isTracking = ref(false);
+
 
 const currentGroupNodes = computed(() => {
   if (!ratings.value[selectedGroup.value]) {
@@ -251,6 +254,12 @@ const toggleCropMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
     });
+    if(isTracking.value){
+      isTracking.value = false;
+      svgContainer2.value.classList.remove('copy-cursor');
+      ElMessage.info('退出路径模式');
+      disableTrackMode();
+    }
     ElMessage.info('进入选框模式');
     enableCropSelection();
     svg.on('.zoom', null); // 禁用缩放事件
@@ -261,6 +270,8 @@ const toggleCropMode = () => {
     addZoomEffectToSvg(); // 重新启用缩放功能
   }
 };
+
+
 
 const enableCropSelection = () => {
   let startX, startY;
@@ -354,6 +365,79 @@ const disableCropSelection = () => {
   }
 };
 
+const toggleTrackMode = () => {
+  isTracking.value = !isTracking.value;
+  const svg = d3.select(svgContainer2.value).select('svg');
+  if (isTracking.value) {
+    nextTick(() => {
+      svgContainer2.value.classList.add('copy-cursor');
+    });
+    if(isCropping.value){
+      isCropping.value = false;
+      svgContainer2.value.classList.remove('crosshair-cursor');
+      ElMessage.info('退出选框模式');
+      disableCropSelection();
+    }
+    ElMessage.info('进入路径模式');
+    enableTrackMode();
+    svg.on('.zoom', null); // 禁用缩放事件
+  } else {
+    svgContainer2.value.classList.remove('copy-cursor');
+    ElMessage.info('退出路径模式');
+    disableTrackMode();
+    addZoomEffectToSvg(); // 重新启用缩放功能
+  }
+};
+
+const enableTrackMode = () => {
+  let isMouseDown = false;
+  let clickedElements = new Set();
+  const svg = svgContainer2.value.querySelector('svg');
+
+  const handleMouseDown = () => {
+    isMouseDown = true;
+    clickedElements.clear(); // 重置点击元素集合
+  };
+
+  const handleMouseUp = () => {
+    isMouseDown = false;
+  };
+
+  const handleMouseMove = (event) => {
+    if (isMouseDown) {
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
+      const node = document.elementFromPoint(event.clientX, event.clientY);
+      if (node && allVisiableNodes.value.includes(node.id) && !clickedElements.has(node)) {
+        clickedElements.add(node); // 记录已点击的元素
+        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟点击事件
+      }
+    }
+  };
+
+  svg.addEventListener('mousedown', handleMouseDown);
+  svg.addEventListener('mouseup', handleMouseUp);
+  svg.addEventListener('mousemove', handleMouseMove);
+
+  nodeEventHandlers.set(svg, { handleMouseDown, handleMouseUp, handleMouseMove });
+};
+
+const disableTrackMode = () => {
+  const svg = svgContainer2.value.querySelector('svg');
+  if (svg) {
+    const handlers = nodeEventHandlers.get(svg);
+    if (handlers) {
+      svg.removeEventListener('mousedown', handlers.handleMouseDown);
+      svg.removeEventListener('mouseup', handlers.handleMouseUp);
+      svg.removeEventListener('mousemove', handlers.handleMouseMove);
+    }
+    nodeEventHandlers.delete(svg);
+  }
+};
+
 const turnGrayVisibleNodes = () => {
   const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
@@ -363,7 +447,7 @@ const turnGrayVisibleNodes = () => {
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
       node.style.opacity = '0.2';
-      node.style.cursor = 'pointer';
+      // node.style.cursor = 'pointer';
     }
   });
 };
@@ -494,6 +578,7 @@ const next = async () => {
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
+    svgContainer2.value.classList.remove('copy-cursor');
   }
 };
 
@@ -509,6 +594,7 @@ const Previous = async () => {
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
+    svgContainer2.value.classList.remove('copy-cursor');
   }
 };
 
@@ -828,6 +914,11 @@ watch(allVisiableNodes, () => {
     top: 10px;
     right: 10px;
   }
+  .track {
+    position: absolute;
+    top: 10px;
+    right: 65px;
+  }
   .bottom-title {
     position: absolute;
     top: 5px;
@@ -847,6 +938,10 @@ watch(allVisiableNodes, () => {
 
 .crosshair-cursor {
   cursor: crosshair !important;
+}
+
+.copy-cursor {
+  cursor: copy !important;
 }
 
 .rate-container {

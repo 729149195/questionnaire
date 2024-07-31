@@ -58,6 +58,8 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { StarFilled } from '@element-plus/icons-vue';
+import { ElMessage } from 'element-plus';
+
 
 const store = useStore();
 const router = useRouter();
@@ -92,10 +94,36 @@ const form = ref({
 const OTHER = 'other';  // Define a constant for 'other'
 
 const handleSubmit = () => {
+  const age = parseInt(form.value.age, 10);
+  if (!age || isNaN(age) || age < 10 || age > 90) {
+    ElMessage({
+      message: '请输入有效的年龄（14到85岁之间的整数）',
+      type: 'warning',
+    });
+    return;
+  }
+
+  if (!form.value.gender) {
+    ElMessage({
+      message: '请选择性别。',
+      type: 'warning',
+    });
+    return;
+  }
+
+  if (!form.value.visualizationExperience) {
+    ElMessage({
+      message: '请选择是否有可视化经验。',
+      type: 'warning',
+    });
+    return;
+  }
+
   store.dispatch('submitForm', form.value);
-  const formData = store.getters.getFormData;
   router.push('/questionstest');
 };
+
+
 
 const handleClean = () => {
   form.value = {

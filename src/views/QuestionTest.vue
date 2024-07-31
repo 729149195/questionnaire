@@ -32,6 +32,8 @@
                 <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon>
                     <Crop />
                   </el-icon></el-button>
+                  <el-button @click="toggleTrackMode" class="track" ref="trackBtn"><el-icon><Pointer /></el-icon></el-button>
+
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
@@ -102,12 +104,12 @@
       <span>
         在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
-          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li>
+          <!-- <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li> -->
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
-          <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
+          <li>图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
-          <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li>
+          <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
       </span>
       <template #footer>
@@ -136,8 +138,10 @@
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为密集时，可以点击进入选框模式进行元素框选，框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为细小时，可以点击进入选框模式进行元素框选，框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
+      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮"> 当遇到的图形模式中元素较为密集时，可以点击进入路径选择模式进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择模式，选框模式下也可进行当个元素的点击）。<div
+          v-html="getGifHtml('12.gif')"></div></el-tour-step>
       <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示选中模式中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
@@ -149,13 +153,13 @@
           v-html="getGifHtml('7.gif')"></div></el-tour-step>
       <el-tour-step :target="rateings?.$el" title="模式评分">
         <p>显眼程度：您注意到这个图形模式的快慢。</p>
-        <p>分组界限：该图形模式与其它潜在图形模式的区分清晰程度。</p>
+        <p>分组界限：该图形模式与其它潜在图形模式重叠的多少，重叠得越少，分组界限越清晰。</p>
         <p>请根据第一印象为每一个图形模式估计评分。</p>
         <div v-html="getGifHtml('8.gif')"></div>
         <p>例如：</p>
         <img style="width: 150%; margin-top: 10px" src="/img/example.png" alt="">
         <p>a对应的模式最为显眼，但与其它潜在模式的界限较模糊。</p>
-        <p>b对应的模式较不显眼，但因模式中大部分节点都比较集中，因此与潜在模式的界限较为清晰。</p>
+        <p>b对应的模式比较显眼，但因模式中大部分节点都比较集中，因此与潜在模式的界限较为清晰（即与其余潜在模式重叠较少）。</p>
         <p>c对应的模式的显眼程度和分组界限恰好处于a和b之间。</p>
       </el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
@@ -165,8 +169,8 @@
       <el-tour-step :target="nextBtn?.$el" title="下一个按钮">点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。<div
           v-html="getGifHtml('11.gif')"></div></el-tour-step>
       <el-tour-step title="尝试">
-        <p>现在可以使用当前两个练习示例进行练习。</p>
-        <p>两个示例练习完成后点击绿色按钮即可开始填写正式问卷。</p>
+        <p>现在可以使用当前示例进行练习</p>
+        <p>并在下一个已选好示例进行浏览获取大致分组规则</p>
       </el-tour-step>
     </el-tour>
   </div>
@@ -192,7 +196,7 @@ const active = ref(0);
 const steps = Array.from({ length: 2 });
 const icons = [View, View, View];
 
-const formData = computed(() => store.getters.getFormData);
+// const formData = computed(() => store.getters.getFormData);
 const svgContainer2 = ref(null);
 
 const Svg = ref('');
@@ -212,9 +216,11 @@ const deleteGroupBtn = ref(null);
 const previousBtn = ref(null);
 const nextBtn = ref(null);
 const cropBtn = ref(null);
-
+const trackBtn = ref(null);
 const nodeEventHandlers = new Map();
 const isCropping = ref(false);
+const isTracking = ref(false);
+
 
 const props = defineProps(['data']);
 const emits = defineEmits(['change', 'prev', 'next']);
@@ -234,6 +240,45 @@ const getGifHtml = (filename) => {
 const updateRating = (group, rating, type) => {
   const step = active.value;
   store.commit('UPDATE_RATING', { step, group, rating, type });
+};
+
+// 加载并提交 example.json 数据
+const loadExampleData = async () => {
+  if (active.value === 1) {
+    try {
+      const response = await fetch(`./TestData/2/example.json`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch example data');
+      }
+      const data = await response.json();
+
+      data.groups.forEach((groupData, index) => {
+        const groupName = `模式${index + 1}`;
+        // console.log(groupData.ratings.boundary);
+
+        store.commit('ADD_NEW_GROUP', { step: 1, group: groupName });
+        store.commit('ADD_OTHER_GROUP', { step: 1, group: groupName, nodeIds: groupData[groupName] });
+        store.commit('UPDATE_RATING', {
+          step: 1,
+          group: groupName,
+          rating: groupData.ratings.attention,
+          type: 'attention'
+        });
+        store.commit('UPDATE_RATING', {
+          step: 1,
+          group: groupName,
+          rating: groupData.ratings.boundary,
+          type: 'boundary'
+        });
+      });
+
+      nextTick(() => {
+        highlightGroup();
+      });
+    } catch (error) {
+      console.error('Error loading example data:', error);
+    }
+  }
 };
 
 
@@ -261,6 +306,7 @@ const fetchSvgContent = async (step) => {
     console.error('Error loading SVG content:', error);
     Svg.value = '<svg><text x="10" y="20" font-size="20">加载SVG时出错</text></svg>';
   }
+  await loadExampleData();  
 };
 
 const addZoomEffectToSvg = () => {
@@ -309,6 +355,12 @@ const toggleCropMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
     });
+    if(isTracking.value){
+      isTracking.value = false;
+      svgContainer2.value.classList.remove('copy-cursor');
+      ElMessage.info('退出路径模式');
+      disableTrackMode();
+    }
     ElMessage.info('进入选框模式');
     enableCropSelection();
     svg.on('.zoom', null); // 禁用缩放事件
@@ -412,6 +464,79 @@ const disableCropSelection = () => {
   }
 };
 
+const toggleTrackMode = () => {
+  isTracking.value = !isTracking.value;
+  const svg = d3.select(svgContainer2.value).select('svg');
+  if (isTracking.value) {
+    nextTick(() => {
+      svgContainer2.value.classList.add('copy-cursor');
+    });
+    if(isCropping.value){
+      isCropping.value = false;
+      svgContainer2.value.classList.remove('crosshair-cursor');
+      ElMessage.info('退出选框模式');
+      disableCropSelection();
+    }
+    ElMessage.info('进入路径模式');
+    enableTrackMode();
+    svg.on('.zoom', null); // 禁用缩放事件
+  } else {
+    svgContainer2.value.classList.remove('copy-cursor');
+    ElMessage.info('退出路径模式');
+    disableTrackMode();
+    addZoomEffectToSvg(); // 重新启用缩放功能
+  }
+};
+
+const enableTrackMode = () => {
+  let isMouseDown = false;
+  let clickedElements = new Set();
+  const svg = svgContainer2.value.querySelector('svg');
+
+  const handleMouseDown = () => {
+    isMouseDown = true;
+    clickedElements.clear(); // 重置点击元素集合
+  };
+
+  const handleMouseUp = () => {
+    isMouseDown = false;
+  };
+
+  const handleMouseMove = (event) => {
+    if (isMouseDown) {
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+
+      const node = document.elementFromPoint(event.clientX, event.clientY);
+      if (node && allVisiableNodes.value.includes(node.id) && !clickedElements.has(node)) {
+        clickedElements.add(node); // 记录已点击的元素
+        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟点击事件
+      }
+    }
+  };
+
+  svg.addEventListener('mousedown', handleMouseDown);
+  svg.addEventListener('mouseup', handleMouseUp);
+  svg.addEventListener('mousemove', handleMouseMove);
+
+  nodeEventHandlers.set(svg, { handleMouseDown, handleMouseUp, handleMouseMove });
+};
+
+const disableTrackMode = () => {
+  const svg = svgContainer2.value.querySelector('svg');
+  if (svg) {
+    const handlers = nodeEventHandlers.get(svg);
+    if (handlers) {
+      svg.removeEventListener('mousedown', handlers.handleMouseDown);
+      svg.removeEventListener('mouseup', handlers.handleMouseUp);
+      svg.removeEventListener('mousemove', handlers.handleMouseMove);
+    }
+    nodeEventHandlers.delete(svg);
+  }
+};
+
 const turnGrayVisibleNodes = () => {
   const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
@@ -421,7 +546,7 @@ const turnGrayVisibleNodes = () => {
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
       node.style.opacity = '0.2';
-      node.style.cursor = 'pointer';
+      // node.style.cursor = 'pointer';
     }
   });
 };
@@ -540,10 +665,6 @@ const eleURL = computed(() => {
 
 const chartContainer = ref(null);
 
-const handleDialogConfirm = () => {
-  dialogVisible.value = false;
-};
-
 const next = async () => {
   if (active.value < steps.length - 1) {
     selectedGroup.value = '模式1';
@@ -556,6 +677,7 @@ const next = async () => {
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
+    await loadExampleData();  
   }
 };
 
@@ -900,6 +1022,10 @@ watch(allVisiableNodes, () => {
   cursor: crosshair;
 }
 
+.copy-cursor {
+  cursor: copy !important;
+}
+
 .rate-container {
   display: flex;
   flex-direction: column;
@@ -920,6 +1046,11 @@ watch(allVisiableNodes, () => {
     right: 10px;
   }
 
+  .track {
+    position: absolute;
+    top: 10px;
+    right: 65px;
+  }
   .bottom-title {
     position: absolute;
     top: 5px;

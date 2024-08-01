@@ -447,11 +447,14 @@ const turnGrayVisibleNodes = () => {
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
       node.style.opacity = '0.2';
+      // if(isCropping.value === false && isTracking.value === false){
+        // node.style.cursor = 'pointer';
+      // }
       // node.style.cursor = 'pointer';
     }
   });
 };
-
+//isTracking.valueisCropping.value
 const addHoverEffectToVisibleNodes = () => {
   const svgContainer = svgContainer2.value;
   if (!svgContainer) return;

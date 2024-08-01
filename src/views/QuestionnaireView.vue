@@ -42,7 +42,7 @@
       <el-footer>{{ currentTime }}</el-footer>
     </el-container>
   </div>
-  <el-dialog v-model="DialogVisible" title="问卷介绍" width="750">
+  <el-dialog v-model="DialogVisible" title="问卷介绍（预估完成所需时间为20分钟）" width="750">
     <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
       <template #footer>
         <div class="dialog-footer">

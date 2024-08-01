@@ -9,7 +9,7 @@
           ],
           "ratings": {
             "attention": 5,
-            "boundary": 3
+            "boundary": 4.5
           }
         },
         {
@@ -21,7 +21,7 @@
           ],
           "ratings": {
             "attention": 4.5,
-            "boundary": 3.5
+            "boundary": 4
           }
         },
         {
@@ -33,7 +33,7 @@
           ],
           "ratings": {
             "attention": 3.5,
-            "boundary": 3
+            "boundary": 4
           }
         },
         {
@@ -49,7 +49,7 @@
           ],
           "ratings": {
             "attention": 4,
-            "boundary": 4
+            "boundary": 2.5
           }
         },
         {
@@ -60,7 +60,7 @@
             "rect_11"
           ],
           "ratings": {
-            "attention": 2.5,
+            "attention": 4,
             "boundary": 3.5
           }
         },
@@ -132,8 +132,8 @@
             "rect"
           ],
           "ratings": {
-            "attention": 1,
-            "boundary": 5
+            "attention": 1.5,
+            "boundary": 1
           }
         },
         {

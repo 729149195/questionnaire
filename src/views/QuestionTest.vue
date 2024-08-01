@@ -170,7 +170,7 @@
           v-html="getGifHtml('11.gif')"></div></el-tour-step>
       <el-tour-step title="尝试">
         <p>现在可以使用当前示例进行练习</p>
-        <p>并在下一个已选好示例进行浏览获取大致分组规则</p>
+        <p>并在对下一个示例已选好的模式进行浏览（仅供参考）</p>
       </el-tour-step>
     </el-tour>
   </div>

@@ -94,7 +94,7 @@
     <el-dialog v-model="dialogVisible" title="提醒" width="700" align-center @close="handleDialogClose"
       :close-on-click-modal="false">
       <span>
-        您已经做了15分钟了，可以稍微闭眼休息10到30秒以保证问卷效果。
+        您已经做了15分钟了，可以稍微闭眼休息一下哦~。
       </span>
       <template #footer>
         <div class="dialog-footer">
@@ -111,9 +111,10 @@
           <li>右侧模式N里对应的所有标签元素代表一个图形模式</li> -->
           <li>请尽可能多地选出自己认为的合理的图形模式</li>
           <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
-          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的rate第一印象来进行打分<img style="width: 30%; margin-top: 10px" src="/img/rate.png" alt=""></li>
           <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
+        
       </span>
       <template #footer>
         <div class="dialog-footer">
@@ -701,7 +702,7 @@ const ensureGroupInitialization = () => {
 const generateRandomArray = () => {
   const numbers = Array.from({ length: 540 }, (_, index) => index + 1);
   const randomArray = [];
-  while (randomArray.length < 20) {
+  while (randomArray.length < 15) {
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const number = numbers.splice(randomIndex, 1)[0];
     randomArray.push(number);

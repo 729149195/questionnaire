@@ -138,7 +138,7 @@
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为细小时，可以点击进入选框模式进行元素框选，框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为细小时，可以点击进入选框模式进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
       <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮"> 当遇到的图形模式中元素较为密集时，可以点击进入路径选择模式进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择模式，选框模式下也可进行当个元素的点击）。<div
           v-html="getGifHtml('12.gif')"></div></el-tour-step>

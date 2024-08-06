@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-180,-30,1350,520" width="780" font-family="sans-serif" text-anchor="middle" style="max-width: 100%; height: auto; height: intrinsic;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-180,-30,1350,520" width="780" font-family="sans-serif" text-anchor="middle" max-width="100%" height="intrinsic">
   <g transform="translate(0,0)">
     <text font-size="67" transform="translate(393,352) rotate(0)">freedom</text>
     <text font-size="58" transform="translate(246,285) rotate(0)">negro</text>

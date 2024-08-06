@@ -100,7 +100,7 @@ const store = createStore({
         const newGroups = {};
         const newRatings = {};
         Object.keys(state.groups[step]).forEach((grp, idx) => {
-          const newGroup = `模式${idx + 1}`;
+          const newGroup = `组合${idx + 1}`;
           newGroups[newGroup] = state.groups[step][grp];
           newRatings[newGroup] = state.ratings[step][grp];
         });

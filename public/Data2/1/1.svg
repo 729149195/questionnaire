@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg width="900" height="340" viewBox="50,-30,880,400" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg">
+<svg width="900" height="auto" viewBox="50,-30,880,400" max-width="100%" font="10px sans-serif" id="svg">
   <g id="g_28">
-    <g style="fill: hsl(359, 100%, 76%);;" id="g_34">
+    <g fill="hsl(359, 100%, 76%)" id="g_34">
       <rect x="371" y="45" width="104" height="30" id="rect_53">
         <title id="title_53">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -30,7 +30,7 @@
         <title id="title_45">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
     </g>
-    <g style="fill: hsl(26, 100%, 83%);;" id="g_33">
+    <g fill="hsl(26, 100%, 83%)" id="g_33">
       <rect x="157" y="45" width="214" height="30" id="rect_44">
         <title id="title_44">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -59,7 +59,7 @@
         <title id="title_36">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
     </g>
-    <g style="fill: hsl(28, 64%, 68%);;" id="g_32">
+    <g fill="hsl(28, 64%, 68%)" id="g_32">
       <rect x="80" y="45" width="77" height="30" id="rect_35">
         <title id="title_35">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -88,7 +88,7 @@
         <title id="title_27">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
     </g>
-    <g style="fill: hsl(43, 65%, 70%);;" id="g_31">
+    <g fill="hsl(43, 65%, 70%)" id="g_31">
       <rect x="475" y="45" width="58" height="30" id="rect_26">
         <title id="title_26">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -117,7 +117,7 @@
         <title id="title_18">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
     </g>
-    <g style="fill: hsl(90, 46%, 78%);;" id="g_30">
+    <g fill="hsl(90, 46%, 78%)" id="g_30">
       <rect x="533" y="45" width="27" height="30" id="rect_17">
         <title id="title_17">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -146,7 +146,7 @@
         <title id="title_9">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
     </g>
-    <g style="fill: hsl(213, 65%, 66%);;" id="g_29">
+    <g fill="hsl(213, 65%, 66%)" id="g_29">
       <rect x="560" y="45" width="20" height="30" id="rect_8">
         <title id="title_8">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</title>
       </rect>
@@ -176,111 +176,111 @@
       </rect>
     </g>
   </g>
-  <g transform="translate(0,40)" font-size="10" font-family="sans-serif" text-anchor="middle" style="fill: none;;" id="g_11">
-    <g transform="translate(125,0)" style="opacity:1;" id="g_27">
-      <line y2="-6" style="stroke:currentColor;" id="line_24" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_27">xxx</text>
+  <g transform="translate(0,40)" font-size="10" font-family="sans-serif" text-anchor="middle" fill="none" id="g_11">
+    <g transform="translate(125,0)" opacity="1" id="g_27">
+      <line y2="-6" stroke="currentColor" id="line_24" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_27">xxx</text>
     </g>
-    <g transform="translate(175,0)" style="opacity:1;" id="g_26">
-      <line y2="-6" style="stroke:currentColor;" id="line_23" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_26">xxx</text>
+    <g transform="translate(175,0)" opacity="1" id="g_26">
+      <line y2="-6" stroke="currentColor" id="line_23" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_26">xxx</text>
     </g>
-    <g transform="translate(225,0)" style="opacity:1;" id="g_25">
-      <line y2="-6" style="stroke:currentColor;" id="line_22" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_25">xxx</text>
+    <g transform="translate(225,0)" opacity="1" id="g_25">
+      <line y2="-6" stroke="currentColor" id="line_22" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_25">xxx</text>
     </g>
-    <g transform="translate(275,0)" style="opacity:1;" id="g_24">
-      <line y2="-6" style="stroke:currentColor;" id="line_21" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_24">xxx</text>
+    <g transform="translate(275,0)" opacity="1" id="g_24">
+      <line y2="-6" stroke="currentColor" id="line_21" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_24">xxx</text>
     </g>
-    <g transform="translate(325,0)" style="opacity:1;" id="g_23">
-      <line y2="-6" style="stroke:currentColor;" id="line_20" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_23">xxx</text>
+    <g transform="translate(325,0)" opacity="1" id="g_23">
+      <line y2="-6" stroke="currentColor" id="line_20" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_23">xxx</text>
     </g>
-    <g transform="translate(375,0)" style="opacity:1;" id="g_22">
-      <line y2="-6" style="stroke:currentColor;" id="line_19" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_22">xxx</text>
+    <g transform="translate(375,0)" opacity="1" id="g_22">
+      <line y2="-6" stroke="currentColor" id="line_19" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_22">xxx</text>
     </g>
-    <g transform="translate(425,0)" style="opacity:1;" id="g_21">
-      <line y2="-6" style="stroke:currentColor;" id="line_18" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_21">xxx</text>
+    <g transform="translate(425,0)" opacity="1" id="g_21">
+      <line y2="-6" stroke="currentColor" id="line_18" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_21">xxx</text>
     </g>
-    <g transform="translate(475,0)" style="opacity:1;" id="g_20">
-      <line y2="-6" style="stroke:currentColor;" id="line_17" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_20">xx</text>
+    <g transform="translate(475,0)" opacity="1" id="g_20">
+      <line y2="-6" stroke="currentColor" id="line_17" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_20">xx</text>
     </g>
-    <g transform="translate(525,0)" style="opacity:1;" id="g_19">
-      <line y2="-6" style="stroke:currentColor;" id="line_16" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_19">xxx</text>
+    <g transform="translate(525,0)" opacity="1" id="g_19">
+      <line y2="-6" stroke="currentColor" id="line_16" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_19">xxx</text>
     </g>
-    <g transform="translate(575,0)" style="opacity:1;" id="g_18">
-      <line y2="-6" style="stroke:currentColor;" id="line_15" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_18">xxx</text>
+    <g transform="translate(575,0)" opacity="1" id="g_18">
+      <line y2="-6" stroke="currentColor" id="line_15" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_18">xxx</text>
     </g>
-    <g transform="translate(625,0)" style="opacity:1;" id="g_17">
-      <line y2="-6" style="stroke:currentColor;" id="line_14" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_17">xxx</text>
+    <g transform="translate(625,0)" opacity="1" id="g_17">
+      <line y2="-6" stroke="currentColor" id="line_14" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_17">xxx</text>
     </g>
-    <g transform="translate(675,0)" style="opacity:1;" id="g_16">
-      <line y2="-6" style="stroke:currentColor;" id="line_13" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_16">xxx</text>
+    <g transform="translate(675,0)" opacity="1" id="g_16">
+      <line y2="-6" stroke="currentColor" id="line_13" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_16">xxx</text>
     </g>
-    <g transform="translate(725,0)" style="opacity:1;" id="g_15">
-      <line y2="-6" style="stroke:currentColor;" id="line_12" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_15">xxx</text>
+    <g transform="translate(725,0)" opacity="1" id="g_15">
+      <line y2="-6" stroke="currentColor" id="line_12" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_15">xxx</text>
     </g>
-    <g transform="translate(775,0)" style="opacity:1;" id="g_14">
-      <line y2="-6" style="stroke:currentColor;" id="line_11" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_14">xxx</text>
+    <g transform="translate(775,0)" opacity="1" id="g_14">
+      <line y2="-6" stroke="currentColor" id="line_11" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_14">xxx</text>
     </g>
-    <g transform="translate(825,0)" style="opacity:1;" id="g_13">
-      <line y2="-6" style="stroke:currentColor;" id="line_10" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_13">xxx</text>
+    <g transform="translate(825,0)" opacity="1" id="g_13">
+      <line y2="-6" stroke="currentColor" id="line_10" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_13">xxx</text>
     </g>
-    <g transform="translate(875,0)" style="opacity:1;" id="g_12">
-      <line y2="-6" style="stroke:currentColor;" id="line_9" />
-      <text y="-9" dy="0em" style="fill: currentColor;;" id="text_12">xxx</text>
+    <g transform="translate(875,0)" opacity="1" id="g_12">
+      <line y2="-6" stroke="currentColor" id="line_9" />
+      <text y="-9" dy="0em" fill="currentColor" id="text_12">xxx</text>
     </g>
-    <text x="495" y="-24" text-anchor="start" style="fill: currentColor;;" id="text_11">xxxxxxxxxxxxx</text>
-    <text x="455" y="-24" text-anchor="end" style="fill: currentColor;;" id="text_10">xxxxxxxxxxxxxxxxx</text>
+    <text x="495" y="-24" text-anchor="start" fill="currentColor" id="text_11">xxxxxxxxxxxxx</text>
+    <text x="455" y="-24" text-anchor="end" fill="currentColor" id="text_10">xxxxxxxxxxxxxxxxx</text>
   </g>
-  <g font-size="10" font-family="sans-serif" text-anchor="end" style="fill: none;;" id="g_1">
-    <path d="M0,40V337" transform="translate(475,0)" style="stroke:currentColor;" id="path" />
-    <g transform="translate(80,60)" style="opacity:1;" id="g_10">
-      <line x2="-6" style="stroke:currentColor;" id="line_8" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_9">xxxxxxxxxxxx</text>
+  <g font-size="10" font-family="sans-serif" text-anchor="end" fill="none" id="g_1">
+    <path d="M0,40V337" transform="translate(475,0)" stroke="currentColor" id="path" />
+    <g transform="translate(80,60)" opacity="1" id="g_10">
+      <line x2="-6" stroke="currentColor" id="line_8" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_9">xxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(194,92)" style="opacity:1;" id="g_9">
-      <line x2="-6" style="stroke:currentColor;" id="line_7" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_8">xxxxxxxxxxxxx</text>
+    <g transform="translate(194,92)" opacity="1" id="g_9">
+      <line x2="-6" stroke="currentColor" id="line_7" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_8">xxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(225,124)" style="opacity:1;" id="g_8">
-      <line x2="-6" style="stroke:currentColor;" id="line_6" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_7">xxxxxxxxx</text>
+    <g transform="translate(225,124)" opacity="1" id="g_8">
+      <line x2="-6" stroke="currentColor" id="line_6" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_7">xxxxxxxxx</text>
     </g>
-    <g transform="translate(275,156)" style="opacity:1;" id="g_7">
-      <line x2="-6" style="stroke:currentColor;" id="line_5" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_6">xxxxxxxxxxxxxx</text>
+    <g transform="translate(275,156)" opacity="1" id="g_7">
+      <line x2="-6" stroke="currentColor" id="line_5" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_6">xxxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(321,188)" style="opacity:1;" id="g_6">
-      <line x2="-6" style="stroke:currentColor;" id="line_4" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_5">xxxxxxxxxxxxx</text>
+    <g transform="translate(321,188)" opacity="1" id="g_6">
+      <line x2="-6" stroke="currentColor" id="line_4" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_5">xxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(364,220)" style="opacity:1;" id="g_5">
-      <line x2="-6" style="stroke:currentColor;" id="line_3" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_4">xxxxxxxxxxxxxxxx</text>
+    <g transform="translate(364,220)" opacity="1" id="g_5">
+      <line x2="-6" stroke="currentColor" id="line_3" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_4">xxxxxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(388,252)" style="opacity:1;" id="g_4">
-      <line x2="-6" style="stroke:currentColor;" id="line_2" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_3">xxxxxxxxxxxxxx</text>
+    <g transform="translate(388,252)" opacity="1" id="g_4">
+      <line x2="-6" stroke="currentColor" id="line_2" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_3">xxxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(392,284)" style="opacity:1;" id="g_3">
-      <line x2="-6" style="stroke:currentColor;" id="line_1" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_2">xxxxxxxxxxxxxxxxx</text>
+    <g transform="translate(392,284)" opacity="1" id="g_3">
+      <line x2="-6" stroke="currentColor" id="line_1" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_2">xxxxxxxxxxxxxxxxx</text>
     </g>
-    <g transform="translate(398,316)" style="opacity:1;" id="g_2">
-      <line x2="-6" style="stroke:currentColor;" id="line" />
-      <text x="-9" dy="0.32em" style="fill: currentColor;;" id="text_1">xxxxxxxxxxxxx</text>
+    <g transform="translate(398,316)" opacity="1" id="g_2">
+      <line x2="-6" stroke="currentColor" id="line" />
+      <text x="-9" dy="0.32em" fill="currentColor" id="text_1">xxxxxxxxxxxxx</text>
     </g>
   </g>
   <g id="g">

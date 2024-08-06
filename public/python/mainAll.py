@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 from CreateGM import GM
 import Gestalt_Edges_Features as Gestalt_Edges_Features
 from Statisticians import LayerDataExtractor
+from Ex_Features import SVGFeatureExtractor
 import re
 import os
 from tqdm import tqdm
@@ -102,6 +103,7 @@ for n in tqdm(range(1, 541), desc="Processing SVG files"):
     extracted_node_path = f'./public/python/data/extracted_nodes.json'
     output_svg_path = f'./public/Data2/{n}/{n}.svg'
     layer_data_path = f'./public/Data2/{n}/layer_data.json'
+    output_dir = f'./public/Data2/{n}'
 
     ensure_directory_exists(output_svg_path)
     ensure_directory_exists(layer_data_path)
@@ -112,6 +114,11 @@ for n in tqdm(range(1, 541), desc="Processing SVG files"):
     Gestalt_Edges_Features.extract_nodes()
 
     svgid(input_svg_path, output_svg_path)
+    
+    # json_file_path = './GMoutput/extracted_nodes.json'
+    
+    extractor = SVGFeatureExtractor(json_file_path=extracted_node_path, output_dir=output_dir)
+    extractor.process_specific_json_file()
 
     extractor = LayerDataExtractor(extracted_node_path, layer_data_path)
     extractor.process()

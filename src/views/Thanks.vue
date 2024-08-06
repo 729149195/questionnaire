@@ -85,7 +85,7 @@ const sendEmail = (data) => {
     })
     .catch((error) => {
       console.error('Failed to send email:', error);
-      ElMessage.error('数据文件上传失败。');
+      ElMessage.error('数据文件上传失败。请导出备份问卷数据手动发送给管理员😭');
     });
 };
 

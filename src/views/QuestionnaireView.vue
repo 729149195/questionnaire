@@ -23,7 +23,14 @@
               </el-radio-group>
               <!-- <span v-if="form.gender === OTHER">你确定吗？(ﾟДﾟ*)ﾉ</span> -->
             </el-form-item>
-            <el-form-item label="3、您是否有独立创建过可视化作品并将其实际应用？（例如 财务报表 等）" label-for="visualizationExperience">
+            <el-form-item label="3、您是否有视觉感知障碍（如色盲、色弱等）？" label-for="visualimpairment">
+              <el-radio-group id="visualimpairment" v-model="form.visualimpairment" class="input-field">
+                <el-radio :value="'yes'">有</el-radio>
+                <el-radio :value="'no'">没有</el-radio>
+              </el-radio-group>
+              <span v-if="form.visualimpairment === 'yes'" style="color: red;">非常抱歉，您无法参与本次实验இ௰இ</span>
+            </el-form-item>
+            <el-form-item label="4、您是否有独立创建过可视化作品并将其实际应用？（例如 财务报表 等）" label-for="visualizationExperience">
               <el-radio-group id="visualizationExperience" v-model="form.visualizationExperience" class="input-field">
                 <el-radio :value="'yes'">有</el-radio>
                 <el-radio :value="'no'">没有</el-radio>
@@ -46,7 +53,7 @@
     <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="showdata">实例总览</el-button>
+          <el-button @click="showdata"> 实例总览 </el-button>
           <el-button @click="DialogVisible = false" type="primary">开始</el-button>
         </div>
       </template>
@@ -88,6 +95,7 @@ onUnmounted(() => {
 const form = ref({
   age: '',
   gender: '',
+  visualimpairment:'',
   visualizationExperience: '',
 });
 
@@ -111,6 +119,22 @@ const handleSubmit = () => {
     return;
   }
 
+  if (!form.value.visualimpairment) {
+    ElMessage({
+      message: '请选择是否有视觉感知障碍。',
+      type: 'warning',
+    });
+    return;
+  }
+
+  if (form.value.visualimpairment === 'yes') {
+    ElMessage({
+      message: '抱歉您无法参与本次实验〒▽〒',
+      type: 'warning',
+    });
+    return;
+  }
+
   if (!form.value.visualizationExperience) {
     ElMessage({
       message: '请选择是否有可视化经验。',
@@ -129,6 +153,7 @@ const handleClean = () => {
   form.value = {
     age: '',
     gender: '',
+    visualimpairment:'',
     visualizationExperience: '',
   };
 };

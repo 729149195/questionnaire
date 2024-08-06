@@ -24,7 +24,7 @@
             <div class="left-two">
               <el-card ref="svg1" class="top-card" shadow="never">
                 <div v-html="Svg" class="svg-container"></div>
-                <el-button class="top-title" disabled text bg>模式观察区域</el-button>
+                <el-button class="top-title" disabled text bg>组合观察区域</el-button>
               </el-card>
               <el-card ref="svg2" class="bottom-card" shadow="never">
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
@@ -39,7 +39,7 @@
             </div>
             <el-card ref="groupCard" class="group-card" shadow="never">
               <div class="select-group">
-                <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择模式" @change="highlightGroup">
+                <el-select ref="groupSelector" v-model="selectedGroup" placeholder="选择组合" @change="highlightGroup">
                   <el-option v-for="(group, index) in groupOptions" :key="index" :label="group" :value="group" />
                 </el-select>
                 <el-button ref="addGroupBtn" @click="addNewGroup"><el-icon>
@@ -104,10 +104,10 @@
       <span>
         在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <!-- <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
-          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li> -->
-          <li>请尽可能多地选出自己认为的合理的图形模式</li>
-          <li>图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
+          <!-- <li>图形组合：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧组合N里对应的所有标签元素代表一个图形组合</li> -->
+          <li>请尽可能多地选出自己认为的合理的图形组合</li>
+          <li>图形组合大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
           <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
@@ -121,7 +121,6 @@
 
     <el-dialog v-model="tourDialogVisible" title="漫游引导" width="500">
       <span>是否需要一个简单的系统使用指南？</span>
-      <p>在指南中，您可以直接在高亮区域进行操作。</p>
       <span>如果您已经熟悉该问卷系统，可以选择跳过。</span>
       <template #footer>
         <div class="dialog-footer">
@@ -134,43 +133,38 @@
     <el-tour v-model="openTour">
       <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="svg1?.$el" title="模式观察区域" placement="right">您将在这里观察原图并进行图形模式的感知。</el-tour-step>
+      <el-tour-step :target="svg1?.$el" title="组合观察区域" placement="right">您将在这里观察原图并进行图形组合的感知。</el-tour-step>
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
-        在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形模式。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
+        在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形组合。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形模式中元素较为细小时，可以点击进入选框模式进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框模式，选框模式下也可进行当个元素的点击）。<div
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮"> 当遇到的图形模式中元素较为密集时，可以点击进入路径选择模式进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择模式，选框模式下也可进行当个元素的点击）。<div
+      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮"> 当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('12.gif')"></div></el-tour-step>
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示选中模式中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
+      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示选中组合中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里可以下拉选择已创建的模式。<div v-html="getGifHtml('5.gif')"></div>
+      <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里可以下拉选择已创建的组合。<div v-html="getGifHtml('5.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的模式。<div v-html="getGifHtml('6.gif')"></div>
+      <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的组合。<div v-html="getGifHtml('6.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮"> 点击这里可以删除当前模式及其内容，后续模式的内容会往前覆盖同时继承被删除的模式编号。<div
+      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮"> 点击这里可以删除当前组合及其内容，后续组合的内容会往前覆盖同时继承被删除的组合编号。<div
           v-html="getGifHtml('7.gif')"></div></el-tour-step>
-      <el-tour-step :target="rateings?.$el" title="模式评分">
-        <p>显眼程度：您注意到这个图形模式的快慢。</p>
-        <p>分组界限：该图形模式与其它潜在图形模式重叠的多少，重叠得越少，分组界限越清晰。</p>
-        <p>请根据第一印象为每一个图形模式估计评分。</p>
-        <div v-html="getGifHtml('8.gif')"></div>
-        <p>例如：</p>
-        <img style="width: 150%; margin-top: 10px" src="/img/example.png" alt="">
-        <p>a对应的模式最为显眼，但与其它潜在模式的界限较模糊。</p>
-        <p>b对应的模式比较显眼，但因模式中大部分节点都比较集中，因此与潜在模式的界限较为清晰（即与其余潜在模式重叠较少）。</p>
-        <p>c对应的模式的显眼程度和分组界限恰好处于a和b之间。</p>
+      <el-tour-step :target="rateings?.$el" title="组合评分">
+        <p>显眼程度：您注意到这个图形组合的容易程度。越容易注意到评分越高</p>
+        <p>分组界限：明确划入组内的图形的占比，占比越高评分越高</p>
+        <p>请根据第一印象为每一个图形组合估计评分。</p>
+        <div v-html="getGifHtml('8.gif')"></div>       
       </el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
         </div></el-tour-step>
       <el-tour-step :target="previousBtn?.$el" title="上一个按钮">点击这里可以回到上一个示例节点。<div v-html="getGifHtml('10.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="nextBtn?.$el" title="下一个按钮">点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形模式数据。<div
+      <el-tour-step :target="nextBtn?.$el" title="下一个按钮">点击这里可以前往下一个示例节点。到最后一个节点时该按钮会变为绿色的提交按钮，点击后获取ID并导出图形组合数据。<div
           v-html="getGifHtml('11.gif')"></div></el-tour-step>
       <el-tour-step title="尝试">
         <p>现在可以使用当前示例进行练习</p>
-        <p>并在对下一个示例已选好的模式进行浏览（仅供参考）</p>
+        <p>并在对下一个示例已选好的组合进行浏览（仅供参考）</p>
       </el-tour-step>
     </el-tour>
   </div>
@@ -200,7 +194,7 @@ const icons = [View, View, View];
 const svgContainer2 = ref(null);
 
 const Svg = ref('');
-const selectedGroup = ref('模式1');
+const selectedGroup = ref('组合1');
 const ratings = ref({});
 
 const idandtime = ref(null);
@@ -253,7 +247,7 @@ const loadExampleData = async () => {
       const data = await response.json();
 
       data.groups.forEach((groupData, index) => {
-        const groupName = `模式${index + 1}`;
+        const groupName = `组合${index + 1}`;
         // console.log(groupData.ratings.boundary);
 
         store.commit('ADD_NEW_GROUP', { step: 1, group: groupName });
@@ -652,7 +646,7 @@ const resetHighlight = () => {
 const deleteCurrentGroup = () => {
   const step = active.value;
   store.commit('DELETE_GROUP', { step, group: selectedGroup.value });
-  selectedGroup.value = '模式1';
+  selectedGroup.value = '组合1';
   nextTick(() => {
     highlightGroup();
   });
@@ -667,7 +661,7 @@ const chartContainer = ref(null);
 
 const next = async () => {
   if (active.value < steps.length - 1) {
-    selectedGroup.value = '模式1';
+    selectedGroup.value = '组合1';
     active.value++;
     await fetchSvgContent(active.value + 1);
     await fetchAndRenderTree();
@@ -683,7 +677,7 @@ const next = async () => {
 
 const Previous = async () => {
   if (active.value > 0) {
-    selectedGroup.value = '模式1';
+    selectedGroup.value = '组合1';
     active.value--;
     await fetchSvgContent(active.value + 1);
     await fetchAndRenderTree();
@@ -764,7 +758,7 @@ const removeFromGroup = (group, nodeId) => {
 
 const addNewGroup = () => {
   const step = active.value;
-  const newGroup = `模式${Object.keys(groups.value).length + 1}`;
+  const newGroup = `组合${Object.keys(groups.value).length + 1}`;
   store.commit('ADD_NEW_GROUP', { step, group: newGroup });
   selectedGroup.value = newGroup;
   ratings.value[newGroup] = { attention: 1, boundary: 1 };
@@ -790,9 +784,9 @@ const groupOptions = computed(() => Object.keys(groups.value));
 
 const ensureGroupInitialization = () => {
   const step = active.value;
-  if (!groups.value['模式1']) {
-    store.commit('ADD_NEW_GROUP', { step, group: '模式1' });
-    ratings.value['模式1'] = { attention: 1, boundary: 1 };
+  if (!groups.value['组合1']) {
+    store.commit('ADD_NEW_GROUP', { step, group: '组合1' });
+    ratings.value['组合1'] = { attention: 1, boundary: 1 };
   }
 };
 

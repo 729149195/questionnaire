@@ -22,7 +22,7 @@
             <div class="left-two">
               <el-card class="top-card" shadow="never">
                 <div v-html="Svg" class="svg-container"></div>
-                <el-button class="top-title" disabled text bg>模式观察区域</el-button>
+                <el-button class="top-title" disabled text bg>组合观察区域</el-button>
               </el-card>
               <el-card class="bottom-card" shadow="never">
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
@@ -34,7 +34,7 @@
             </div>
             <el-card class="group-card" shadow="never">
               <div class="select-group">
-                <el-select v-model="selectedGroup" placeholder="选择模式" @change="highlightGroup">
+                <el-select v-model="selectedGroup" placeholder="选择组合" @change="highlightGroup">
                   <el-option v-for="(group, index) in groupOptions" :key="index" :label="group" :value="group" />
                 </el-select>
                 <el-button @click="addNewGroup"><el-icon>
@@ -107,11 +107,11 @@
       <span>
         在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
-          <!-- <li>图形模式：指由线条、形状、颜色等元素组成的视觉结构</li>
-          <li>右侧模式N里对应的所有标签元素代表一个图形模式</li> -->
-          <li>请尽可能多地选出自己认为的合理的图形模式</li>
-          <li>这些图形模式大概率会产生重叠，即同一个元素可以同时属于多个图形模式</li>
-          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的rate第一印象来进行打分<img style="width: 30%; margin-top: 10px" src="/img/rate.png" alt=""></li>
+          <!-- <li>图形组合：指由线条、形状、颜色等元素组成的视觉结构</li>
+          <li>右侧组合N里对应的所有标签元素代表一个图形组合</li> -->
+          <li>请尽可能多地选出自己认为的合理的图形组合</li>
+          <li>这些图形组合大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
+          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
           <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
         
@@ -146,7 +146,7 @@ const icons = [View, View, View];
 const svgContainer2 = ref(null);
 
 const Svg = ref('');
-const selectedGroup = ref('模式1');
+const selectedGroup = ref('组合1');
 const ratings = ref({});
 let reminderTimerId = null;
 const nodeEventHandlers = new Map();
@@ -384,7 +384,7 @@ const toggleTrackMode = () => {
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('copy-cursor');
-    ElMessage.info('退出路径模式');
+    ElMessage.info('退出路径组模式');
     disableTrackMode();
     addZoomEffectToSvg(); // 重新启用缩放功能
   }
@@ -557,7 +557,7 @@ const resetHighlight = () => {
 const deleteCurrentGroup = () => {
   const step = active.value;
   store.commit('DELETE_GROUP', { step, group: selectedGroup.value });
-  selectedGroup.value = '模式1';
+  selectedGroup.value = '组合1';
   nextTick(() => {
     highlightGroup();
   });
@@ -572,7 +572,7 @@ const chartContainer = ref(null);
 
 const next = async () => {
   if (steps.value && active.value < steps.value.length - 1) {
-    selectedGroup.value = '模式1';
+    selectedGroup.value = '组合1';
     active.value++;
     await fetchSvgContent(steps.value[active.value]);
     await fetchAndRenderTree();
@@ -588,7 +588,7 @@ const next = async () => {
 
 const Previous = async () => {
   if (steps.value && active.value > 0) {
-    selectedGroup.value = '模式1';
+    selectedGroup.value = '组合1';
     active.value--;
     await fetchSvgContent(steps.value[active.value]);
     await fetchAndRenderTree();
@@ -667,7 +667,7 @@ const removeFromGroup = (group, nodeId) => {
 
 const addNewGroup = () => {
   const step = active.value;
-  const newGroup = `模式${Object.keys(groups.value).length + 1}`;
+  const newGroup = `组合${Object.keys(groups.value).length + 1}`;
   store.commit('ADD_NEW_GROUP', { step, group: newGroup });
   selectedGroup.value = newGroup;
   ratings.value[newGroup] = { attention: 1, boundary: 1 };
@@ -693,9 +693,9 @@ const groupOptions = computed(() => Object.keys(groups.value));
 
 const ensureGroupInitialization = () => {
   const step = active.value;
-  if (!groups.value['模式1']) {
-    store.commit('ADD_NEW_GROUP', { step, group: '模式1' });
-    ratings.value['模式1'] = { attention: 1, boundary: 1 };
+  if (!groups.value['组合1']) {
+    store.commit('ADD_NEW_GROUP', { step, group: '组合1' });
+    ratings.value['组合1'] = { attention: 1, boundary: 1 };
   }
 };
 

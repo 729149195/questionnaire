@@ -1,10 +1,10 @@
-<svg width="900" height="340" viewBox="-530,-100,880,340" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="-550,-100,900,300" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
 .st1 {stroke:#000; stroke-width:2;}
-.st2  {fill: hsl(241, 65%, 59%);;}
-.st3  {fill: hsl(346, 0%, 16%);;}
-.st4  {fill: hsl(16, 85%, 38%);;}
-.st5  {fill: hsl(344, 8%, 29%);;}</style>
+.st2  {fill: hsl(197, 51%, 72%);;}
+.st3  {fill: hsl(42, 0%, 0%);;}
+.st4  {fill: hsl(0, 97%, 41%);;}
+.st5  {fill: hsl(36, 3%, 25%);;}</style>
   <line x1="-400" y1="180" x2="250" y2="180" class="st1" />
   <line x1="-400" y1="180" x2="-400" y2="-40" class="st1" />
   <rect x="-350" y="80" width="20" height="100" class="st2" />

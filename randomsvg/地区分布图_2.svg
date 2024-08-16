@@ -1,22 +1,22 @@
 <svg width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
-<style type="text/css">.st0 {fill: hsl(16, 63%, 45%);;}
-	.st1 {fill: hsl(22, 66%, 61%);;}
-	.st2 {fill: hsl(27, 66%, 45%);;}
-	.st3 {fill: hsl(8, 72%, 74%);;}
-	.st4 {fill: hsl(17, 88%, 100%);stroke:#EEAE33;stroke-width:0.25;;}
-	.st5 {fill: hsl(16, 0%, 26%);;}
-	.st6 {fill: hsl(6, 52%, 44%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+<style type="text/css">.st0 {fill: hsl(42, 57%, 40%);;}
+	.st1 {fill: hsl(35, 72%, 41%);;}
+	.st2 {fill: hsl(351, 66%, 55%);;}
+	.st3 {fill: hsl(51, 87%, 54%);;}
+	.st4 {fill: hsl(94, 92%, 73%);stroke:#EEAE33;stroke-width:0.25;;}
+	.st5 {fill: hsl(0, 19%, 11%);;}
+	.st6 {fill: hsl(20, 61%, 45%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
 	
-		.st7 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(7, 15%, 35%);stroke:#FFFFFF;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;;}
-	.st8 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(70, 68%, 68%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st9 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(3, 91%, 69%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st10 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(98, 94%, 82%);stroke:#FFFFFF;stroke-width:0.5;;}
-	.st11 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(24, 97%, 64%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st12 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(337, 69%, 52%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st13 {fill: hsl(324, 9%, 39%);stroke:#FFFFFF;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;;}
-	.st14 {fill: hsl(14, 100%, 63%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st15 {fill: hsl(76, 100%, 67%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}</style>
+		.st7 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(313, 0%, 42%);stroke:#FFFFFF;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;;}
+	.st8 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(15, 72%, 50%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st9 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(346, 66%, 55%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st10 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(83, 98%, 74%);stroke:#FFFFFF;stroke-width:0.5;;}
+	.st11 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(70, 90%, 74%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st12 {fill-rule:evenodd;clip-rule:evenodd;fill: hsl(17, 56%, 52%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st13 {fill: hsl(39, 0%, 57%);stroke:#FFFFFF;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;;}
+	.st14 {fill: hsl(39, 70%, 84%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st15 {fill: hsl(56, 76%, 51%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}</style>
 <g id="Layer_2">
 	<rect x="648.2" y="220.5" class="st0" width="11" height="11" />
 	<rect x="648.2" y="237" class="st1" width="11" height="11" />

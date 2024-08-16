@@ -1,11 +1,11 @@
-<svg width="900" height="340" viewBox="50,-30,880,400" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="-20,-30,1000,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
-.st1  {fill: hsl(10, 78%, 71%);;}
-.st2  {fill: hsl(9, 100%, 57%);;}
-.st3  {fill: hsl(304, 60%, 47%);;}
-.st4  {fill: hsl(104, 90%, 84%);;}
-.st5  {fill: hsl(133, 59%, 82%);;}
-.st6  {fill: hsl(212, 66%, 35%);;}
+.st1  {fill: hsl(16, 100%, 69%);;}
+.st2  {fill: hsl(60, 79%, 83%);;}
+.st3  {fill: hsl(349, 52%, 42%);;}
+.st4  {fill: hsl(48, 94%, 83%);;}
+.st5  {fill: hsl(132, 33%, 53%);;}
+.st6  {fill: hsl(182, 58%, 35%);;}
 .st7  {fill: none;;}
 .st8 {opacity:1;}
 .st9 {stroke:currentColor;}

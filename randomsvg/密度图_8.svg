@@ -1,8 +1,8 @@
 <svg width="900" height="340" viewBox="-100,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
-<style type="text/css">.st0 {fill: hsl(38, 39%, 63%);fill-opacity:0.5;stroke:#7EBA2E;stroke-width:1.5;;}
-	.st1 {fill: hsl(253, 85%, 68%);fill-opacity:0.5;stroke:#B973F0;stroke-width:1.5;;}
-	.st2 {fill: hsl(22, 18%, 64%);;}
+<style type="text/css">.st0 {fill: hsl(98, 66%, 33%);fill-opacity:0.5;stroke:#7EBA2E;stroke-width:1.5;;}
+	.st1 {fill: hsl(288, 76%, 62%);fill-opacity:0.5;stroke:#B973F0;stroke-width:1.5;;}
+	.st2 {fill: hsl(330, 0%, 31%);;}
 	.st3 {fill: none;stroke:#666666;;}</style>
 <g id="Layer_2">
 	<path class="st0" d="M462,283c-86.6-5.2-154.5-82.8-177.6-159.8c-31.5-105.1-89.8,14.9-104-15.4c-24.3-51.9-32.2-86.7-61.9-3.7   c-20.6,57.5-20.3,136.9-70,178.4" />

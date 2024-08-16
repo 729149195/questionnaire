@@ -93,7 +93,7 @@ def process_single_svg(file_path, output_dir, versions=5):
         tree.write(new_file_name)
 
 # 批量处理目录下的所有SVG文件
-def process_svg_folder(folder_path, output_dir, versions=10):
+def process_svg_folder(folder_path, output_dir, versions=9):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     

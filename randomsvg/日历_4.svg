@@ -1,11 +1,11 @@
 <svg width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
-<style type="text/css">.st0 {opacity:0.2;fill: hsl(332, 100%, 36%);;}
+<style type="text/css">.st0 {opacity:0.2;fill: hsl(27, 85%, 37%);;}
 	.st1 {fill: none;stroke:#E6E6E6;stroke-width:0.5;;}
-	.st2 {fill: hsl(354, 90%, 55%);;}
-	.st3 {fill: hsl(326, 0%, 21%);;}
-	.st4 {opacity:0.3;fill: hsl(354, 100%, 63%);;}
-	.st5 {fill: hsl(17, 17%, 90%);;}</style>
+	.st2 {fill: hsl(355, 81%, 63%);;}
+	.st3 {fill: hsl(9, 0%, 11%);;}
+	.st4 {opacity:0.3;fill: hsl(6, 65%, 67%);;}
+	.st5 {fill: hsl(24, 0%, 89%);;}</style>
 <g id="Layer_1">
 	<rect x="30.3" y="53.7" class="st0" width="316.6" height="17" />
 	<rect x="30.3" y="54.1" class="st1" width="45.2" height="61.8" />

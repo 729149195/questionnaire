@@ -1,14 +1,14 @@
 <svg width="900" height="340" viewBox="-90,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
-<style type="text/css">.st0 {fill: hsl(23, 100%, 55%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st1 {fill: hsl(12, 86%, 81%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st2 {fill: hsl(332, 0%, 100%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st3 {fill: hsl(346, 100%, 99%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st4 {fill: hsl(312, 17%, 100%);stroke:#FFFFFF;stroke-miterlimit:10;;}
-	.st5 {fill: hsl(17, 2%, 100%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
-	.st6 {fill: hsl(36, 91%, 89%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}
-	.st7 {fill: hsl(41, 82%, 84%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}
-	.st8 {fill: hsl(35, 100%, 43%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}</style>
+<style type="text/css">.st0 {fill: hsl(3, 100%, 45%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st1 {fill: hsl(358, 100%, 68%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st2 {fill: hsl(342, 0%, 89%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st3 {fill: hsl(326, 89%, 72%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st4 {fill: hsl(6, 9%, 90%);stroke:#FFFFFF;stroke-miterlimit:10;;}
+	.st5 {fill: hsl(356, 0%, 86%);stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;;}
+	.st6 {fill: hsl(348, 81%, 67%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}
+	.st7 {fill: hsl(320, 100%, 58%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}
+	.st8 {fill: hsl(26, 90%, 49%);stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;;}</style>
 <g id="Layer_2">
 	<g>
 		<path class="st0" d="M515.4,145.1l-95.9-76c-6.1,7.7-11.4,16-15.9,24.9L513,149C513.7,147.6,514.5,146.3,515.4,145.1z" />

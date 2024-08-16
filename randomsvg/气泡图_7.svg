@@ -2,9 +2,9 @@
 
 <style type="text/css">.st0 {opacity:0.4;fill: none;stroke:#CCCCCC;;}
 	.st1 {fill: none;stroke:#666666;;}
-	.st2 {fill: hsl(4, 15%, 55%);;}
-	.st3 {opacity:0.8;fill: hsl(133, 57%, 54%);;}
-	.st4 {opacity:0.8;fill: hsl(329, 100%, 65%);;}
+	.st2 {fill: hsl(15, 0%, 61%);;}
+	.st3 {opacity:0.8;fill: hsl(108, 78%, 49%);;}
+	.st4 {opacity:0.8;fill: hsl(28, 79%, 39%);;}
 	.st5 {fill: none;stroke:#000000;stroke-width:0.5;;}</style>
 <g id="Layer_2">
 	<line class="st0" x1="51.2" y1="23.6" x2="691.4" y2="23.6" />

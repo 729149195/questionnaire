@@ -1,12 +1,12 @@
-<svg width="880" height="340" viewBox="-440,-170,880,340" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="-440,-170,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
-.st1  {fill: hsl(230, 55%, 58%); stroke:black; stroke-width:1;;}
-.st2  {fill: hsl(112, 78%, 69%); stroke:black; stroke-width:1;;}
-.st3  {fill: hsl(38, 76%, 70%); stroke:black; stroke-width:1;;}
-.st4  {fill: hsl(335, 65%, 90%); stroke:black; stroke-width:1;;}
-.st5  {fill: hsl(78, 86%, 42%); stroke:black; stroke-width:1;;}
-.st6  {fill: hsl(12, 100%, 70%); stroke:black; stroke-width:1;;}
-.st7  {fill: hsl(177, 72%, 69%); stroke:black; stroke-width:1;;}</style>
+.st1  {fill: hsl(162, 53%, 55%); stroke:black; stroke-width:1;;}
+.st2  {fill: hsl(142, 78%, 59%); stroke:black; stroke-width:1;;}
+.st3  {fill: hsl(17, 100%, 74%); stroke:black; stroke-width:1;;}
+.st4  {fill: hsl(318, 59%, 93%); stroke:black; stroke-width:1;;}
+.st5  {fill: hsl(44, 85%, 60%); stroke:black; stroke-width:1;;}
+.st6  {fill: hsl(341, 84%, 76%); stroke:black; stroke-width:1;;}
+.st7  {fill: hsl(204, 43%, 84%); stroke:black; stroke-width:1;;}</style>
   <rect x="-400" y="-160" width="80" height="80" id="rect_39" class="st1" />
   <rect x="-320" y="-160" width="80" height="80" id="rect_38" class="st2" />
   <rect x="-240" y="-160" width="80" height="80" id="rect_37" class="st3" />

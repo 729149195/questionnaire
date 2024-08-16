@@ -1,9 +1,9 @@
-<svg width="900" height="340" viewBox="90,-30,880,340" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="0,20,1100,300" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
-.st1  {fill: hsl(64, 41%, 97%);;}
-.st2  {fill: hsl(356, 78%, 62%);;}
-.st3  {fill: hsl(56, 100%, 52%);;}
-.st4  {fill: hsl(348, 100%, 66%);;}
+.st1  {fill: hsl(129, 51%, 100%);;}
+.st2  {fill: hsl(339, 100%, 87%);;}
+.st3  {fill: hsl(58, 96%, 72%);;}
+.st4  {fill: hsl(347, 94%, 65%);;}
 .st5 {stroke:#800000; stroke-width:2;}</style>
   
   <rect x="150" y="40" width="800" height="40" class="st1" />

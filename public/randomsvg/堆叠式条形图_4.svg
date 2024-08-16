@@ -1,12 +1,12 @@
 <svg width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
 <style type="text/css">.st0 {opacity:0.8;fill: none;stroke:#E6E6E6;;}
-	.st1 {fill: hsl(48, 0%, 51%);;}
+	.st1 {fill: hsl(42, 0%, 32%);;}
 	.st2 {fill: none;stroke:#1A1A1A;;}
-	.st3 {fill: hsl(44, 82%, 40%);;}
-	.st4 {fill: hsl(16, 86%, 62%);;}
-	.st5 {fill: hsl(26, 100%, 76%);;}
-	.st6 {fill: hsl(330, 100%, 93%);;}</style>
+	.st3 {fill: hsl(13, 100%, 47%);;}
+	.st4 {fill: hsl(14, 97%, 78%);;}
+	.st5 {fill: hsl(347, 85%, 81%);;}
+	.st6 {fill: hsl(37, 82%, 95%);;}</style>
 <g id="Layer_2">
 	<line class="st0" x1="80.5" y1="282" x2="80.5" y2="21.5" />
 	<line class="st0" x1="123.8" y1="282" x2="123.8" y2="21.5" />

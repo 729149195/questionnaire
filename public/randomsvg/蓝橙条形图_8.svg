@@ -1,14 +1,14 @@
-<svg width="900" height="340" viewBox="-30,-30,880,340" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
 .st1  {fill: none;;}
 .st2 {stroke:#ddd; stroke-width:1; opacity:1;}
 .st3 {stroke:#888; stroke-width:1; opacity:1;}
-.st4  {fill: hsl(29, 13%, 8%); opacity:1;;}
-.st5  {fill: hsl(250, 37%, 56%);;}
-.st6  {fill: hsl(72, 100%, 64%);;}
+.st4  {fill: hsl(320, 6%, 0%); opacity:1;;}
+.st5  {fill: hsl(255, 52%, 35%);;}
+.st6  {fill: hsl(343, 86%, 70%);;}
 .st7 {opacity:1;}
-.st8  {fill: hsl(195, 38%, 56%); stroke-width:1.5; opacity:1;;}
-.st9  {fill: hsl(29, 89%, 35%); stroke-width:1.5; opacity:1;;}</style>
+.st8  {fill: hsl(239, 52%, 52%); stroke-width:1.5; opacity:1;;}
+.st9  {fill: hsl(67, 72%, 70%); stroke-width:1.5; opacity:1;;}</style>
   <g stroke-miterlimit="10" transform="translate(99,10)" class="st1">
     <g class="mark-group role-frame root" role="graphics-object" aria-roledescription="group mark container">
       <g transform="translate(0,0)">

@@ -1,10 +1,10 @@
 <svg width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
 
 <style type="text/css">.st0 {fill: none;stroke:#CCCCCC;stroke-width:0.75;;}
-	.st1 {fill: hsl(345, 0%, 40%);;}
+	.st1 {fill: hsl(33, 1%, 40%);;}
 	.st2 {fill: none;stroke:#8CC63F;stroke-width:3;stroke-linecap:round;;}
 	.st3 {fill: none;stroke:#F14D24;stroke-width:3;stroke-linecap:round;;}
-	.st4 {fill: hsl(41, 0%, 85%);stroke:#F14D24;stroke-width:3;stroke-linecap:round;;}</style>
+	.st4 {fill: hsl(332, 0%, 100%);stroke:#F14D24;stroke-width:3;stroke-linecap:round;;}</style>
 <g id="Layer_1">
 	<line class="st0" x1="20.5" y1="20.4" x2="710.5" y2="20.4" />
 	<line class="st0" x1="20.5" y1="285.6" x2="710.5" y2="285.6" />

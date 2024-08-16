@@ -1,33 +1,33 @@
-<svg width="880" height="340" viewBox="-440,-170,880,340" class="st0" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="-420,-170,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}
 .st1 {stroke:#000; stroke-width:1.5;}
-.st2  {fill: hsl(219, 75%, 26%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st2  {fill: hsl(222, 77%, 39%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
 .st3 {stroke:#000; stroke-width:2;}
-.st4  {fill: hsl(224, 86%, 23%);;}
-.st5  {fill: hsl(1, 100%, 67%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st6  {fill: hsl(348, 100%, 66%);;}
-.st7  {fill: hsl(155, 56%, 49%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st8  {fill: hsl(87, 63%, 51%);;}
-.st9  {fill: hsl(29, 51%, 54%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st10  {fill: hsl(6, 68%, 59%);;}
-.st11  {fill: hsl(309, 43%, 57%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st12  {fill: hsl(308, 27%, 51%);;}
-.st13  {fill: hsl(356, 39%, 59%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st14  {fill: hsl(325, 41%, 48%);;}
-.st15  {fill: hsl(2, 78%, 86%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st16  {fill: hsl(299, 79%, 53%);;}
-.st17  {fill: hsl(42, 11%, 37%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st18  {fill: hsl(328, 9%, 65%);;}
-.st19  {fill: hsl(22, 84%, 55%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st20  {fill: hsl(70, 76%, 29%);;}
-.st21  {fill: hsl(145, 84%, 28%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
-.st22  {fill: hsl(229, 86%, 52%);;}
-.st23  {fill: hsl(34, 17%, 15%);;}
-.st24  {fill: hsl(223, 75%, 59%); opacity:0.7;;}
-.st25  {fill: hsl(345, 100%, 34%); opacity:0.7;;}
-.st26  {fill: hsl(105, 74%, 31%); opacity:0.7;;}
-.st27  {fill: hsl(352, 52%, 57%); opacity:0.7;;}
-.st28  {fill: hsl(282, 55%, 45%); opacity:0.7;;}</style>
+.st4  {fill: hsl(234, 88%, 30%);;}
+.st5  {fill: hsl(70, 94%, 47%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st6  {fill: hsl(21, 100%, 53%);;}
+.st7  {fill: hsl(128, 72%, 48%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st8  {fill: hsl(71, 71%, 47%);;}
+.st9  {fill: hsl(345, 85%, 31%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st10  {fill: hsl(312, 68%, 34%);;}
+.st11  {fill: hsl(297, 31%, 72%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st12  {fill: hsl(237, 47%, 47%);;}
+.st13  {fill: hsl(49, 21%, 31%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st14  {fill: hsl(328, 34%, 28%);;}
+.st15  {fill: hsl(308, 70%, 64%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st16  {fill: hsl(319, 74%, 82%);;}
+.st17  {fill: hsl(339, 0%, 66%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st18  {fill: hsl(46, 1%, 55%);;}
+.st19  {fill: hsl(27, 74%, 26%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st20  {fill: hsl(59, 58%, 45%);;}
+.st21  {fill: hsl(142, 78%, 35%); stroke:#000; stroke-width:1.5; opacity:0.7;;}
+.st22  {fill: hsl(229, 72%, 42%);;}
+.st23  {fill: hsl(355, 0%, 10%);;}
+.st24  {fill: hsl(177, 63%, 34%); opacity:0.7;;}
+.st25  {fill: hsl(349, 100%, 71%); opacity:0.7;;}
+.st26  {fill: hsl(143, 54%, 27%); opacity:0.7;;}
+.st27  {fill: hsl(322, 77%, 33%); opacity:0.7;;}
+.st28  {fill: hsl(295, 21%, 68%); opacity:0.7;;}</style>
   
   <line x1="-380" y1="-40" x2="-380" y2="70" class="st1" />
   <rect x="-400" y="10" width="40" height="30" class="st2" />

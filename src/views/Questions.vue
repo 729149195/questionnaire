@@ -27,8 +27,12 @@
               <el-card class="bottom-card" shadow="never">
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
-                <el-button @click="toggleCropMode" class="Crop"><el-icon><Crop /></el-icon></el-button>
-                <el-button @click="toggleTrackMode" class="track"><el-icon><Pointer /></el-icon></el-button>
+                <el-button @click="toggleCropMode" class="Crop"><el-icon>
+                    <Crop />
+                  </el-icon></el-button>
+                <el-button @click="toggleTrackMode" class="track"><el-icon>
+                    <Pointer />
+                  </el-icon></el-button>
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
@@ -56,20 +60,24 @@
                   </div>
                 </el-scrollbar>
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
-                  <div class="rate-container2">
-                    <span>显眼程度：</span>
-                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
-                      allow-half class="rate"
-                      @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
-                  </div>
-                  <div class="rate-container2">
-                    <span>分组界限：</span>
-                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
-                      allow-half class="rate"
-                      @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
-                  </div>
+                  <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="top">
+                    <div class="rate-container2">
+                      <span>显眼程度：</span>
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
+                        allow-half class="rate"
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
+                    </div>
+                  </el-tooltip>
+                  <el-tooltip class="box-item" effect="dark" content="一个组合中无关紧要的元素越少评分越高" placement="bottom">
+                    <div class="rate-container2">
+                      <span>分组界限：</span>
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
+                        allow-half class="rate"
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
+                    </div>
+                  </el-tooltip>
                 </div>
               </div>
             </el-card>
@@ -114,7 +122,7 @@
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
           <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
         </ol>
-        
+
       </span>
       <template #footer>
         <div class="dialog-footer">
@@ -255,7 +263,7 @@ const toggleCropMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
     });
-    if(isTracking.value){
+    if (isTracking.value) {
       isTracking.value = false;
       svgContainer2.value.classList.remove('copy-cursor');
       ElMessage.info('退出路径模式');
@@ -324,35 +332,35 @@ const enableCropSelection = () => {
   };
 
   const handleMouseUp = (event) => {
-  if (isDrawing) {
-    isDrawing = false;
+    if (isDrawing) {
+      isDrawing = false;
 
-    const rectX = parseFloat(rectElement.getAttribute('x'));
-    const rectY = parseFloat(rectElement.getAttribute('y'));
-    const rectWidth = parseFloat(rectElement.getAttribute('width'));
-    const rectHeight = parseFloat(rectElement.getAttribute('height'));
+      const rectX = parseFloat(rectElement.getAttribute('x'));
+      const rectY = parseFloat(rectElement.getAttribute('y'));
+      const rectWidth = parseFloat(rectElement.getAttribute('width'));
+      const rectHeight = parseFloat(rectElement.getAttribute('height'));
 
-    const svg = svgContainer2.value.querySelector('svg');
-    svg.querySelectorAll('*').forEach(node => {
-      if (typeof node.getBBox === 'function') {
-        const bbox = node.getBBox();
-        const isTouched =
-          (bbox.x + bbox.width) >= rectX &&
-          bbox.x <= (rectX + rectWidth) &&
-          (bbox.y + bbox.height) >= rectY &&
-          bbox.y <= (rectY + rectHeight);
+      const svg = svgContainer2.value.querySelector('svg');
+      svg.querySelectorAll('*').forEach(node => {
+        if (typeof node.getBBox === 'function') {
+          const bbox = node.getBBox();
+          const isTouched =
+            (bbox.x + bbox.width) >= rectX &&
+            bbox.x <= (rectX + rectWidth) &&
+            (bbox.y + bbox.height) >= rectY &&
+            bbox.y <= (rectY + rectHeight);
 
-        if (isTouched) {
-          node.dispatchEvent(new Event('click')); // 模拟点击事件
+          if (isTouched) {
+            node.dispatchEvent(new Event('click')); // 模拟点击事件
+          }
         }
-      }
-    });
+      });
 
-    rectElement.remove(); // 移除选框
-    svg.removeEventListener('mousemove', handleMouseMove);
-    svg.removeEventListener('mouseup', handleMouseUp);
-  }
-};
+      rectElement.remove(); // 移除选框
+      svg.removeEventListener('mousemove', handleMouseMove);
+      svg.removeEventListener('mouseup', handleMouseUp);
+    }
+  };
 
   svg.addEventListener('mousedown', handleMouseClick);
 };
@@ -373,7 +381,7 @@ const toggleTrackMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('copy-cursor');
     });
-    if(isCropping.value){
+    if (isCropping.value) {
       isCropping.value = false;
       svgContainer2.value.classList.remove('crosshair-cursor');
       ElMessage.info('退出选框模式');
@@ -449,7 +457,7 @@ const turnGrayVisibleNodes = () => {
     if (allVisiableNodes.value.includes(node.id)) {
       node.style.opacity = '0.2';
       // if(isCropping.value === false && isTracking.value === false){
-        // node.style.cursor = 'pointer';
+      // node.style.cursor = 'pointer';
       // }
       // node.style.cursor = 'pointer';
     }
@@ -918,11 +926,13 @@ watch(allVisiableNodes, () => {
     top: 10px;
     right: 10px;
   }
+
   .track {
     position: absolute;
     top: 10px;
     right: 65px;
   }
+
   .bottom-title {
     position: absolute;
     top: 5px;

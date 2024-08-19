@@ -32,7 +32,9 @@
                 <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon>
                     <Crop />
                   </el-icon></el-button>
-                  <el-button @click="toggleTrackMode" class="track" ref="trackBtn"><el-icon><Pointer /></el-icon></el-button>
+                <el-button @click="toggleTrackMode" class="track" ref="trackBtn"><el-icon>
+                    <Pointer />
+                  </el-icon></el-button>
 
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
@@ -60,24 +62,26 @@
                     </el-tag>
                   </div>
                 </el-scrollbar>
-
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
-                  <div class="rate-container2">
-                    <span>显眼程度：</span>
-                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
-                      allow-half class="rate"
-                      @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
-                  </div>
-                  <div class="rate-container2">
-                    <span>分组界限：</span>
-                    <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                      :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
-                      allow-half class="rate"
-                      @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
-                  </div>
+                  <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="top">
+                    <div class="rate-container2">
+                      <span>显眼程度：</span>
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
+                        allow-half class="rate"
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
+                    </div>
+                  </el-tooltip>
+                  <el-tooltip class="box-item" effect="dark" content="一个组合中无关紧要的元素越少评分越高" placement="bottom">
+                    <div class="rate-container2">
+                      <span>分组界限：</span>
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
+                        allow-half class="rate"
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
+                    </div>
+                  </el-tooltip>
                 </div>
-
               </div>
             </el-card>
           </div>
@@ -94,9 +98,10 @@
           v-if="active != steps.length - 1"><el-icon>
             <CaretRight />
           </el-icon></el-button>
-          <el-tooltip content="进入正式问卷">
-        <el-button class="submit-button" @click="submit" type="success"
-          v-if="active === steps.length - 1"><el-icon><DArrowRight /></el-icon></el-button></el-tooltip>
+        <el-tooltip content="进入正式问卷">
+          <el-button class="submit-button" @click="submit" type="success" v-if="active === steps.length - 1"><el-icon>
+              <DArrowRight />
+            </el-icon></el-button></el-tooltip>
       </div>
     </el-container>
 
@@ -137,11 +142,14 @@
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形组合。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮"> 当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
+      <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮">
+        当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮"> 当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
+      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮">
+        当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('12.gif')"></div></el-tour-step>
-      <el-tour-step :target="groupCard?.$el" title="分组卡片" placement="left">显示选中组合中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
+      <el-tour-step :target="groupCard?.$el" title="分组卡片"
+        placement="left">显示选中组合中所包含标签，以及一些操作按钮，点击蓝色标签后可在选取交互区域定位到单一标签所对应的元素，也可通过取消蓝色标签来移除对应元素。
         <div v-html="getGifHtml('4.gif')"></div>
       </el-tour-step>
       <el-tour-step :target="groupSelector?.$el" title="分组选择器">在这里可以下拉选择已创建的组合。<div v-html="getGifHtml('5.gif')"></div>
@@ -154,7 +162,7 @@
         <p>显眼程度：您注意到这个图形组合的容易程度。越容易注意到评分越高</p>
         <p>分组界限：明确划入组内的图形的占比，占比越高评分越高</p>
         <p>请根据第一印象为每一个图形组合估计评分。</p>
-        <div v-html="getGifHtml('8.gif')"></div>       
+        <div v-html="getGifHtml('8.gif')"></div>
       </el-tour-step>
       <el-tour-step :target="stepsContainer?.$el" title="问卷进度">这里显示了问卷的进度。已完成的示例节点会变绿。<div v-html="getGifHtml('9.gif')">
         </div></el-tour-step>
@@ -300,7 +308,7 @@ const fetchSvgContent = async (step) => {
     console.error('Error loading SVG content:', error);
     Svg.value = '<svg><text x="10" y="20" font-size="20">加载SVG时出错</text></svg>';
   }
-  await loadExampleData();  
+  await loadExampleData();
 };
 
 const addZoomEffectToSvg = () => {
@@ -349,7 +357,7 @@ const toggleCropMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
     });
-    if(isTracking.value){
+    if (isTracking.value) {
       isTracking.value = false;
       svgContainer2.value.classList.remove('copy-cursor');
       ElMessage.info('退出路径模式');
@@ -416,35 +424,35 @@ const enableCropSelection = () => {
   };
 
   const handleMouseUp = (event) => {
-  if (isDrawing) {
-    isDrawing = false;
+    if (isDrawing) {
+      isDrawing = false;
 
-    const rectX = parseFloat(rectElement.getAttribute('x'));
-    const rectY = parseFloat(rectElement.getAttribute('y'));
-    const rectWidth = parseFloat(rectElement.getAttribute('width'));
-    const rectHeight = parseFloat(rectElement.getAttribute('height'));
+      const rectX = parseFloat(rectElement.getAttribute('x'));
+      const rectY = parseFloat(rectElement.getAttribute('y'));
+      const rectWidth = parseFloat(rectElement.getAttribute('width'));
+      const rectHeight = parseFloat(rectElement.getAttribute('height'));
 
-    const svg = svgContainer2.value.querySelector('svg');
-    svg.querySelectorAll('*').forEach(node => {
-      if (typeof node.getBBox === 'function') {
-        const bbox = node.getBBox();
-        const isTouched =
-          (bbox.x + bbox.width) >= rectX &&
-          bbox.x <= (rectX + rectWidth) &&
-          (bbox.y + bbox.height) >= rectY &&
-          bbox.y <= (rectY + rectHeight);
+      const svg = svgContainer2.value.querySelector('svg');
+      svg.querySelectorAll('*').forEach(node => {
+        if (typeof node.getBBox === 'function') {
+          const bbox = node.getBBox();
+          const isTouched =
+            (bbox.x + bbox.width) >= rectX &&
+            bbox.x <= (rectX + rectWidth) &&
+            (bbox.y + bbox.height) >= rectY &&
+            bbox.y <= (rectY + rectHeight);
 
-        if (isTouched) {
-          node.dispatchEvent(new Event('click')); // 模拟点击事件
+          if (isTouched) {
+            node.dispatchEvent(new Event('click')); // 模拟点击事件
+          }
         }
-      }
-    });
+      });
 
-    rectElement.remove(); // 移除选框
-    svg.removeEventListener('mousemove', handleMouseMove);
-    svg.removeEventListener('mouseup', handleMouseUp);
-  }
-};
+      rectElement.remove(); // 移除选框
+      svg.removeEventListener('mousemove', handleMouseMove);
+      svg.removeEventListener('mouseup', handleMouseUp);
+    }
+  };
 
   svg.addEventListener('mousedown', handleMouseClick);
 };
@@ -465,7 +473,7 @@ const toggleTrackMode = () => {
     nextTick(() => {
       svgContainer2.value.classList.add('copy-cursor');
     });
-    if(isCropping.value){
+    if (isCropping.value) {
       isCropping.value = false;
       svgContainer2.value.classList.remove('crosshair-cursor');
       ElMessage.info('退出选框模式');
@@ -671,7 +679,7 @@ const next = async () => {
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
-    await loadExampleData();  
+    await loadExampleData();
   }
 };
 
@@ -1045,6 +1053,7 @@ watch(allVisiableNodes, () => {
     top: 10px;
     right: 65px;
   }
+
   .bottom-title {
     position: absolute;
     top: 5px;

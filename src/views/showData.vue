@@ -3,7 +3,7 @@
     <div v-if="loading && files.length === 0">
       <el-skeleton :rows="15" animated />
     </div>
-    <div v-infinite-scroll="loadMoreFiles" :infinite-scroll-disabled="loading" infinite-scroll-distance="50" class="grid-container" style="height: 700px; overflow-y: auto;">
+    <div v-infinite-scroll="loadMoreFiles" :infinite-scroll-disabled="loading" infinite-scroll-distance="50" class="grid-container" style="height: 1200px; overflow-y: auto;">
       <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
         <img :src="`/questionnaire/newData/${file}.svg`" alt="SVG Image" />
         <span class="svgid">{{file}}</span>
@@ -22,9 +22,9 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 540;
+const maxFiles = 53;
 const loading = ref(false);  // 初始状态设置为 false
-const batchSize = 20;
+const batchSize = 53;
 let currentFileIndex = 0;
 
 const loadMoreFiles = async () => {

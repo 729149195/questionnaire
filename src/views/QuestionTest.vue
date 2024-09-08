@@ -95,7 +95,7 @@
         </el-steps>
         <el-tooltip content="查看示例组合" placement="top-start" hide-after=1000>
         <el-button ref="nextBtn" class="next-button" @click="next" type="primary"
-          v-if="active != steps.length - 1"><el-icon>
+          v-if="active != steps.length - 1"><el-icon> 
             <CaretRight />
           </el-icon></el-button></el-tooltip>
         <el-tooltip content="进入正式问卷" placement="top-start" hide-after=1000>

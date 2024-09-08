@@ -4,17 +4,16 @@
       <el-header class="header">
         <div class="header-content">
           <div ref="idandtime" class="left-content">
-            <!-- <p class="id">分配ID：666666</p> -->
             <a href="https://github.com/729149195/questionnaire" target="_blank">
               <img style="width: 30px;" src="/img/favicon.png" alt="Wechat QR Code">
             </a>
           </div>
           <div class="right-content">
-            <el-button ref="openDialogBtn" plain @click="infoDialogVisible = true">
+            <!-- <el-button ref="openDialogBtn" plain @click="infoDialogVisible = true">
               打开说明<el-icon style='margin-left:5px'>
                 <WindPower />
               </el-icon>
-            </el-button>
+            </el-button> -->
           </div>
         </div>
       </el-header>
@@ -53,7 +52,7 @@
               </div>
               <div v-if="selectedGroup" class="group">
                 <h3>{{ selectedGroup }}</h3>
-                <el-scrollbar height="420px">
+                <el-scrollbar height="850px">
                   <div class="group-tags">
                     <el-tag v-for="node in currentGroupNodes" :key="node" closable
                       @close="removeFromGroup(selectedGroup, node)" @mousedown="highlightElement(node)"
@@ -92,13 +91,14 @@
             <CaretLeft />
           </el-icon></el-button>
         <el-steps :active="active" finish-status="success" class="steps" ref="stepsContainer">
-          <el-step v-for="(step, index) in steps" :key="index" />
+          <el-step v-for="(step, index) in steps" :key="index" @click.native="goToStep(index)" />
         </el-steps>
+        <el-tooltip content="查看示例组合" placement="top-start" hide-after=1000>
         <el-button ref="nextBtn" class="next-button" @click="next" type="primary"
           v-if="active != steps.length - 1"><el-icon>
             <CaretRight />
-          </el-icon></el-button>
-        <el-tooltip content="进入正式问卷">
+          </el-icon></el-button></el-tooltip>
+        <el-tooltip content="进入正式问卷" placement="top-start" hide-after=1000>
           <el-button class="submit-button" @click="submit" type="success" v-if="active === steps.length - 1"><el-icon>
               <DArrowRight />
             </el-icon></el-button></el-tooltip>
@@ -136,8 +136,8 @@
     </el-dialog>
 
     <el-tour v-model="openTour">
-      <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div>
-      </el-tour-step>
+      <!-- <el-tour-step :target="openDialogBtn?.$el" title="说明按钮">点击这里可以打开说明。<div v-html="getGifHtml('1.gif')"></div> -->
+      <!-- </el-tour-step> -->
       <el-tour-step :target="svg1?.$el" title="组合观察区域" placement="right">您将在这里观察原图并进行图形组合的感知。</el-tour-step>
       <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形组合。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
@@ -172,7 +172,8 @@
           v-html="getGifHtml('11.gif')"></div></el-tour-step>
       <el-tour-step title="尝试">
         <p>现在可以使用当前示例进行练习</p>
-        <p>并在对下一个示例已选好的组合进行浏览（仅供参考）</p>
+        <p>并在对下一个示例已选好的组合进行浏览</p>
+        <p>（示例仅供参考, 不用选出那么多组合，只用把自己感觉到的组合选出即可）</p>
       </el-tour-step>
     </el-tour>
   </div>
@@ -227,6 +228,23 @@ const isTracking = ref(false);
 const props = defineProps(['data']);
 const emits = defineEmits(['change', 'prev', 'next']);
 
+const goToStep = async (index) => {
+  if (index !== active.value) {
+    selectedGroup.value = '组合1';
+    active.value = index;
+    await fetchSvgContent(active.value + 1); // 加载对应步骤的SVG内容
+    await fetchAndRenderTree(); // 加载对应步骤的树形结构
+    ensureGroupInitialization(); // 确保组合初始化
+    nextTick(() => {
+      highlightGroup(); // 确保组合在初始加载时被高亮
+    });
+    isCropping.value = false;
+    svgContainer2.value.classList.remove('crosshair-cursor');
+    await loadExampleData();
+  }
+};
+
+
 const currentGroupNodes = computed(() => {
   if (!ratings.value[selectedGroup.value]) {
     ratings.value[selectedGroup.value] = { attention: 1, boundary: 1 };
@@ -246,42 +264,46 @@ const updateRating = (group, rating, type) => {
 
 // 加载并提交 example.json 数据
 const loadExampleData = async () => {
-  if (active.value === 1) {
-    try {
-      const response = await fetch(`./TestData/2/example.json`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch example data');
-      }
-      const data = await response.json();
+  try {
+    // 动态构造文件路径，基于当前步骤（active + 1）
+    const step = active.value + 1;
+    const response = await fetch(`./TestData/${step}/example.json`);
 
-      data.groups.forEach((groupData, index) => {
-        const groupName = `组合${index + 1}`;
-        // console.log(groupData.ratings.boundary);
-
-        store.commit('ADD_NEW_GROUP', { step: 1, group: groupName });
-        store.commit('ADD_OTHER_GROUP', { step: 1, group: groupName, nodeIds: groupData[groupName] });
-        store.commit('UPDATE_RATING', {
-          step: 1,
-          group: groupName,
-          rating: groupData.ratings.attention,
-          type: 'attention'
-        });
-        store.commit('UPDATE_RATING', {
-          step: 1,
-          group: groupName,
-          rating: groupData.ratings.boundary,
-          type: 'boundary'
-        });
-      });
-
-      nextTick(() => {
-        highlightGroup();
-      });
-    } catch (error) {
-      console.error('Error loading example data:', error);
+    if (!response.ok) {
+      throw new Error('Failed to fetch example data');
     }
+
+    const data = await response.json();
+
+    // 动态更新基于当前步骤的数据
+    data.groups.forEach((groupData, index) => {
+      const groupName = groupData.group;
+      console.log(groupData.group)
+      console.log(groupData.nodes)
+      store.commit('ADD_NEW_GROUP', { step: active.value, group: groupName });
+      store.commit('ADD_OTHER_GROUP', { step: active.value, group: groupName, nodeIds: groupData.nodes });
+      store.commit('UPDATE_RATING', {
+        step: active.value,
+        group: groupName,
+        rating: groupData.ratings.attention,
+        type: 'attention'
+      });
+      store.commit('UPDATE_RATING', {
+        step: active.value,
+        group: groupName,
+        rating: groupData.ratings.boundary,
+        type: 'boundary'
+      });
+    });
+
+    nextTick(() => {
+      highlightGroup();
+    });
+  } catch (error) {
+    console.error('Error loading example data:', error);
   }
 };
+
 
 
 const fetchSvgContent = async (step) => {
@@ -863,8 +885,8 @@ watch(allVisiableNodes, () => {
 .common-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 80vw;
+  height: 95vh;
+  width: 70vw;
   margin: 0 auto;
 }
 
@@ -899,17 +921,6 @@ watch(allVisiableNodes, () => {
   font-size: 16px;
   font-weight: bold;
 }
-
-.el-main {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  flex-direction: column;
-  margin-bottom: -10px;
-}
-
 .main-card {
   display: flex;
   flex-direction: column;
@@ -919,11 +930,32 @@ watch(allVisiableNodes, () => {
   .left-two {
     display: flex;
     flex-direction: column;
-    width: 200%;
+    width: 300%;
     margin-right: 20px;
-
     .top-card {
       margin-bottom: 20px;
+      height: 50%;
+    }
+    .bottom-card {
+      position: relative;
+      height: 50%;
+      .Crop {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .track {
+        position: absolute;
+        top: 10px;
+        right: 65px;
+      }
+
+      .bottom-title {
+        position: absolute;
+        top: 5px;
+        left: -15px;
+      }
     }
   }
 
@@ -932,7 +964,7 @@ watch(allVisiableNodes, () => {
     flex-direction: column;
     align-items: center;
     width: 100%;
-
+    height: 100%;
     .select-group {
       display: flex;
       align-items: center;
@@ -978,21 +1010,14 @@ watch(allVisiableNodes, () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .svg-container2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
   position: relative;
-  overflow: hidden;
-}
-
-.svg-container2 svg {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
 }
 
 .steps-container {
@@ -1014,52 +1039,6 @@ watch(allVisiableNodes, () => {
   margin: 0 12px;
 }
 
-.drag-selection {
-  position: absolute;
-  border: 1px dashed #999;
-  background-color: rgba(150, 150, 150, 0.3);
-}
-
-.crosshair-cursor {
-  cursor: crosshair;
-}
-
-.copy-cursor {
-  cursor: copy !important;
-}
-
-.rate-container {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-
-  .rate-container2 {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.bottom-card {
-  position: relative;
-
-  .Crop {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  .track {
-    position: absolute;
-    top: 10px;
-    right: 65px;
-  }
-
-  .bottom-title {
-    position: absolute;
-    top: 5px;
-    left: -15px;
-  }
-}
 
 .top-card {
   position: relative;
@@ -1069,5 +1048,32 @@ watch(allVisiableNodes, () => {
     top: 5px;
     left: -5px;
   }
+}
+
+.crosshair-cursor {
+  cursor: crosshair !important;
+}
+
+.copy-cursor {
+  cursor: copy !important;
+}
+
+.rate-container {
+  display: flex;
+  flex-direction: column;
+
+  .rate-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+}
+
+.flow {
+  position: absolute;
+  left: 10px;
+  top: 114px;
+  width: 15vw;
+  height: auto;
 }
 </style>

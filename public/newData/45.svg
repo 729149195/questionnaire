@@ -1,24 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="-50,-30,1100,520" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg">
   <g transform="translate(0,0)">
-    <text font-size="67" transform="translate(393,352) rotate(0)">freedom</text>
-    <text font-size="58" transform="translate(246,285) rotate(0)">negro</text>
-    <text font-size="54" transform="translate(577,201) rotate(0)">one</text>
+    <text font-size="67" transform="translate(290,352) rotate(0)">freedom</text>
+    <text font-size="58" transform="translate(206,285) rotate(0)">negro</text>
+    <text font-size="54" transform="translate(547,201) rotate(0)">one</text>
     <text font-size="54" transform="translate(359,295) rotate(0)">let</text>
     <text font-size="51" transform="translate(704,246) rotate(0)">ring</text>
-    <text font-size="49" transform="translate(415,144) rotate(0)">nation</text>
-    <text font-size="49" transform="translate(399,386) rotate(0)">day</text>
-    <text font-size="49" transform="translate(378,200) rotate(0)">dream</text>
-    <text font-size="47" transform="translate(673,152) rotate(0)">come</text>
-    <text font-size="47" transform="translate(664,114) rotate(0)">every</text>
-    <text font-size="45" transform="translate(323,105) rotate(0)">today</text>
+    <text font-size="49" transform="translate(385,144) rotate(0)">nation</text>
+    <text font-size="49" transform="translate(389,386) rotate(0)">day</text>
+    <text font-size="49" transform="translate(338,200) rotate(0)">dream</text>
+    <text font-size="47" transform="translate(653,152) rotate(0)">come</text>
+    <text font-size="47" transform="translate(634,114) rotate(0)">every</text>
+    <text font-size="45" transform="translate(303,105) rotate(0)">today</text>
     <text font-size="45" transform="translate(700,280) rotate(0)">go</text>
     <text font-size="45" transform="translate(469,226) rotate(0)">back</text>
-    <text font-size="42" transform="translate(693,187) rotate(0)">justice</text>
+    <text font-size="42" transform="translate(653,187) rotate(0)">justice</text>
     <text font-size="42" transform="translate(562,169) rotate(0)">must</text>
-    <text font-size="42" transform="translate(521,114) rotate(0)">satisfied</text>
-    <text font-size="42" transform="translate(478,393) rotate(0)">able</text>
-    <text font-size="39" transform="translate(525,254) rotate(0)">together</text>
+    <text font-size="42" transform="translate(471,114) rotate(0)">satisfied</text>
+    <text font-size="42" transform="translate(468,393) rotate(0)">able</text>
+    <text font-size="39" transform="translate(475,254) rotate(0)">together</text>
     <text font-size="36" transform="translate(213,321) rotate(0)">long</text>
     <text font-size="36" transform="translate(218,352) rotate(0)">men</text>
     <text font-size="36" transform="translate(634,351) rotate(0)">white</text>
@@ -27,7 +27,7 @@
     <text font-size="33" transform="translate(435,279) rotate(0)">great</text>
     <text font-size="33" transform="translate(767,153) rotate(0)">free</text>
     <text font-size="33" transform="translate(265,224) rotate(0)">check</text>
-    <text font-size="33" transform="translate(637,321) rotate(0)">america</text>
+    <text font-size="33" transform="translate(587,321) rotate(0)">america</text>
     <text font-size="33" transform="translate(722,348) rotate(0)">time</text>
     <text font-size="33" transform="translate(449,80) rotate(0)">children</text>
     <text font-size="33" transform="translate(308,154) rotate(0)">new</text>
@@ -40,7 +40,7 @@
     <text font-size="30" transform="translate(430,417) rotate(0)">land</text>
     <text font-size="30" transform="translate(566,379) rotate(0)">black</text>
     <text font-size="30" transform="translate(330,378) rotate(0)">god</text>
-    <text font-size="30" transform="translate(545,421) rotate(0)">mississippi</text>
+    <text font-size="30" transform="translate(490,421) rotate(0)">mississippi</text>
     <text font-size="30" transform="translate(262,132) rotate(0)">mountain</text>
     <text font-size="25" transform="translate(595,300) rotate(0)">join</text>
     <text font-size="25" transform="translate(762,282) rotate(0)">stand</text>

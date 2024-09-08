@@ -67,20 +67,20 @@
   <line x1="130" y1="60" x2="170" y2="60" stroke="#000" stroke-width="1.5" id="line" />
   <circle cx="150" cy="70" r="3" fill="#17becf" id="circle" />
   
-  <text x="-355" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_9">xxxxxxx</text>
-  <text x="-235" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_8">xxxxxxx</text>
-  <text x="-110" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_7">xxxxxxx</text>
-  <text x="5" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_6">xxxxxxx</text>
-  <text x="125" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_5">xxxxxxx</text>
+  <text x="-355" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_9">Group 1</text>
+  <text x="-235" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_8">Group 2</text>
+  <text x="-110" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_7">Group 3</text>
+  <text x="5" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_6">Group 4</text>
+  <text x="125" y="140" font-size="14" text-anchor="middle" fill="#000" id="text_5">Group 5</text>
   
   <rect x="300" y="-150" width="20" height="20" fill="#1f77b4" opacity="0.7" id="rect_4" />
-  <text x="330" y="-135" font-size="12" fill="#000" id="text_4">xxxxxxxxxx</text>
+  <text x="330" y="-135" font-size="12" fill="#000" id="text_4">Category 1</text>
   <rect x="300" y="-120" width="20" height="20" fill="#ff7f0e" opacity="0.7" id="rect_3" />
-  <text x="330" y="-105" font-size="12" fill="#000" id="text_3">xxxxxxxxxx</text>
+  <text x="330" y="-105" font-size="12" fill="#000" id="text_3">Category 2</text>
   <rect x="300" y="-90" width="20" height="20" fill="#2ca02c" opacity="0.7" id="rect_2" />
-  <text x="330" y="-75" font-size="12" fill="#000" id="text_2">xxxxxxxxxx</text>
+  <text x="330" y="-75" font-size="12" fill="#000" id="text_2">Category 3</text>
   <rect x="300" y="-60" width="20" height="20" fill="#d62728" opacity="0.7" id="rect_1" />
-  <text x="330" y="-45" font-size="12" fill="#000" id="text_1">xxxxxxxxxx</text>
+  <text x="330" y="-45" font-size="12" fill="#000" id="text_1">Category 4</text>
   <rect x="300" y="-30" width="20" height="20" fill="#9467bd" opacity="0.7" id="rect" />
-  <text x="330" y="-15" font-size="12" fill="#000" id="text">xxxxxxxxxx</text>
+  <text x="330" y="-15" font-size="12" fill="#000" id="text">Category 5</text>
 </svg>

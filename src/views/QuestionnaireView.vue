@@ -53,7 +53,7 @@
     <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="showdata"> 实例总览 </el-button>
+          <!-- <el-button @click="showdata"> 实例总览 </el-button> -->
           <el-button @click="DialogVisible = false" type="primary">开始</el-button>
         </div>
       </template>

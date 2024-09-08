@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "group": "组合1",
+      "nodes": [
+          "rect_39",
+          "rect_29",
+          "rect_19"
+      ],
+      "ratings": {
+          "attention": 4,
+          "boundary": 4
+      }
+  }
+  ]
+}

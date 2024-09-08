@@ -192,6 +192,7 @@
           <p style="text-indent: 2em;">在选取交互区域（左下角板块）选择组成一个组合的所有元素（点选的元素会成为一个个标签放入右侧组合板块中）。</p>
           <p style="text-indent: 2em;">组合元素交密集的话，建议框选和路径选择功能交替使用（一个组合内被选中的元素会在选取交互区别板块高亮出来）。</p>
           <p style="text-indent: 2em;">已经被选中的元素再被选择后，会取消选中状态。</p>
+          <p style="text-indent: 2em;">鼠标滚轮可以放大缩小，然后拖拽选取交互区域板块</p>
         </el-card>
       </el-timeline-item>
       <el-timeline-item timestamp="步骤3" placement="top">

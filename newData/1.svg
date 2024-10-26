@@ -268,8 +268,8 @@
     <text x="495" y="-24" text-anchor="start" fill="currentColor">More truths →</text>
     <text x="455" y="-24" text-anchor="end" fill="currentColor">← More falsehoods</text>
   </g>
+  <path d="M0,40V337" transform="translate(475,0)" stroke="currentColor"/>
   <g font-size="10" font-family="sans-serif" text-anchor="end" fill="none">
-    <path d="M0,40V337" transform="translate(475,0)" stroke="currentColor"/>
     <g transform="translate(80,60)" opacity="1">
       <line x2="-6" stroke="currentColor"/>
       <text x="-9" dy="0.32em" fill="currentColor">Donald Trump</text>
@@ -306,12 +306,5 @@
       <line x2="-6" stroke="currentColor"/>
       <text x="-9" dy="0.32em" fill="currentColor">Amy Klobuchar</text>
     </g>
-  </g>
-  <g>
-    <text transform="translate(0, 400)">
-            This chart stacks negative categories to the left and positive categories to the right. Inspired by Robert
-            Mann, the truthfulness of presidential candidates is assessed here by PolitiFact. For reasons to avoid this
-            chart form, see Rost Aisch.
-        </text>
   </g>
 </svg>

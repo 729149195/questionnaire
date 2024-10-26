@@ -5,7 +5,7 @@ import webcolors
 import colorsys
 
 # 随机抖动颜色并转换为HSL格式的函数
-def randomize_color_to_hsl(color, hue_amount=50, lightness_amount=50, saturation_amount=50):
+def randomize_color_to_hsl(color, hue_amount=0.1, lightness_amount=0.1, saturation_amount=0.1):
     try:
         rgb_color = webcolors.name_to_rgb(color)
     except ValueError:
@@ -17,14 +17,16 @@ def randomize_color_to_hsl(color, hue_amount=50, lightness_amount=50, saturation
             except ValueError:
                 return color  # 返回原始颜色，如果解析失败
     
+    # 将RGB颜色转换为HLS（色相-亮度-饱和度）格式
     r, g, b = rgb_color.red / 255.0, rgb_color.green / 255.0, rgb_color.blue / 255.0
     h, l, s = colorsys.rgb_to_hls(r, g, b)
     
-    # 不规律的随机抖动色相、亮度和饱和度
-    h = (h + random.uniform(-hue_amount / 360.0, hue_amount / 360.0)) % 1.0
-    l = max(0, min(1, l + random.uniform(-lightness_amount / 255.0, lightness_amount / 255.0)))
-    s = max(0, min(1, s + random.uniform(-saturation_amount / 255.0, saturation_amount / 255.0)))
+    # 只在原数值的10%范围内进行随机抖动
+    h = (h + random.uniform(-hue_amount * h, hue_amount * h)) % 1.0
+    l = max(0, min(1, l + random.uniform(-lightness_amount * l, lightness_amount * l)))
+    s = max(0, min(1, s + random.uniform(-saturation_amount * s, saturation_amount * s)))
     
+    # 返回新的HSL颜色格式
     return f'hsl({int(h * 360)}, {int(s * 100)}%, {int(l * 100)}%)'
 
 # 递归地去除命名空间前缀
@@ -60,7 +62,7 @@ def process_single_svg(file_path, output_dir, versions=5):
     styles = style_element.text.strip().split('\n')
     
     # 处理指定的样式
-    for version in range(1, versions + 1):
+    for version in range(1, versions + 10):
         new_styles = []
         for style in styles:
             if '{' in style and 'fill:' in style:  # 检查style格式

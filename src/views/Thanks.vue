@@ -54,7 +54,8 @@ const generateJsonData = () => {
         nodes: groups[group],
         ratings: {
           attention: store.getters.getRating(index, group, 'attention'),
-          boundary: store.getters.getRating(index, group, 'boundary')
+          correlation_strength: store.getters.getRating(index, group, 'correlation_strength'),
+          exclusionary_force: store.getters.getRating(index, group, 'exclusionary_force')
         }
       });
     }

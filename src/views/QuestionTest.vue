@@ -71,13 +71,22 @@
                         @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
                     </div>
                   </el-tooltip>
-                  <el-tooltip class="box-item" effect="dark" content="一个组合中无关紧要的元素越少评分越高" placement="bottom">
+                  <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="bottom">
                     <div class="rate-container2">
-                      <span>分组界限：</span>
+                      <span>分组组内元素的关联强度：</span>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].boundary"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].correlation_strength"
                         allow-half class="rate"
-                        @change="updateRating(selectedGroup, ratings[selectedGroup].boundary, 'boundary')" />
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].correlation_strength, 'correlation_strength')" />
+                    </div>
+                  </el-tooltip>
+                  <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="bottom">
+                    <div class="rate-container2">
+                      <span>分组对组外元素的排斥程度：</span>
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
+                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        allow-half class="rate"
+                        @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
                   </el-tooltip>
                 </div>
@@ -287,7 +296,7 @@ const goToStep = async (index) => {
 
 const currentGroupNodes = computed(() => {
   if (!ratings.value[selectedGroup.value]) {
-    ratings.value[selectedGroup.value] = { attention: 1, boundary: 1 };
+    ratings.value[selectedGroup.value] = { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
   }
   return groups.value[selectedGroup.value] || [];
 });
@@ -331,8 +340,14 @@ const loadExampleData = async () => {
       store.commit('UPDATE_RATING', {
         step: active.value,
         group: groupName,
-        rating: groupData.ratings.boundary,
-        type: 'boundary'
+        rating: groupData.ratings.correlation_strength,
+        type: 'correlation_strength'
+      });
+      store.commit('UPDATE_RATING', {
+        step: active.value,
+        group: groupName,
+        rating: groupData.ratings.exclusionary_force,
+        type: 'exclusionary_force'
       });
     });
 
@@ -831,7 +846,7 @@ const addNewGroup = () => {
   const newGroup = `组合${Object.keys(groups.value).length + 1}`;
   store.commit('ADD_NEW_GROUP', { step, group: newGroup });
   selectedGroup.value = newGroup;
-  ratings.value[newGroup] = { attention: 1, boundary: 1 };
+  ratings.value[newGroup] = { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
   nextTick(() => {
     highlightGroup();
   });
@@ -844,7 +859,7 @@ const filteredGroups = computed(() => {
   for (const group of Object.keys(groups.value)) {
     result[group] = groups.value[group];
     if (!ratings.value[group]) {
-      ratings.value[group] = { attention: 1, boundary: 1 };
+      ratings.value[group] = { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
     }
   }
   return result;
@@ -856,7 +871,7 @@ const ensureGroupInitialization = () => {
   const step = active.value;
   if (!groups.value['组合1']) {
     store.commit('ADD_NEW_GROUP', { step, group: '组合1' });
-    ratings.value['组合1'] = { attention: 1, boundary: 1 };
+    ratings.value['组合1'] = { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
   }
 };
 
@@ -879,7 +894,7 @@ onMounted(async () => {
 onMounted(() => {
   const stepRatings = store.state.ratings[active.value] || {};
   for (const group in groups.value) {
-    ratings.value[group] = stepRatings[group] || { attention: 1, boundary: 1 };
+    ratings.value[group] = stepRatings[group] || { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
   }
   nextTick(() => {
     highlightGroup(); // Ensure the group is highlighted on initial load
@@ -890,7 +905,7 @@ watch([active, groups], () => {
   ratings.value = {};
   const stepRatings = store.state.ratings[active.value] || {};
   for (const group in groups.value) {
-    ratings.value[group] = stepRatings[group] || { attention: 1, boundary: 1 };
+    ratings.value[group] = stepRatings[group] || { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
   }
   nextTick(() => {
     highlightGroup();

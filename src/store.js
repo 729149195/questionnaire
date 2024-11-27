@@ -81,7 +81,7 @@ const store = createStore({
         state.ratings[step] = {};
       }
       if (!state.ratings[step][group]) {
-        state.ratings[step][group] = { attention: 1, boundary: 1 };
+        state.ratings[step][group] = { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
       }
       state.ratings[step][group][type] = rating;
     },

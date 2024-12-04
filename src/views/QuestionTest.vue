@@ -51,7 +51,7 @@
               </div>
               <div v-if="selectedGroup" class="group">
                 <h3>{{ selectedGroup }}</h3>
-                <el-scrollbar height="auto">
+                <el-scrollbar height="500px">
                   <div class="group-tags">
                     <el-tag v-for="node in currentGroupNodes" :key="node" closable
                       @close="removeFromGroup(selectedGroup, node)" @mousedown="highlightElement(node)"
@@ -64,27 +64,27 @@
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
                   <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="top">
                     <div class="rate-container2">
-                      <span>显眼程度：</span>
+                      <div class="rate-text">显眼程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].attention"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
                     </div>
                   </el-tooltip>
                   <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="bottom">
                     <div class="rate-container2">
-                      <span>分组组内元素的关联强度：</span>
+                      <div class="rate-text">分组组内元素的关联强度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].correlation_strength"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].correlation_strength"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].correlation_strength, 'correlation_strength')" />
                     </div>
                   </el-tooltip>
                   <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="bottom">
                     <div class="rate-container2">
-                      <span>分组对组外元素的排斥程度：</span>
+                      <div class="rate-text">分组对组外元素的排斥程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
@@ -424,7 +424,7 @@ const addZoomEffectToSvg = () => {
 
 
 let isDrawing = false; // 标志是否正在绘制
-let rectElement; // 矩形元素
+let rectElement; // 矩��元素
 let handleMouseClick, handleMouseMove, handleMouseUp; // 事件处理程序
 
 const toggleCropMode = () => {
@@ -940,61 +940,48 @@ watch(allVisiableNodes, () => {
 .common-layout {
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: 100vh;
   width: 70vw;
   margin: auto;
+  overflow: hidden;
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.left-content {
+.full-height {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  color: #999;
 }
 
-.right-content {
+.el-main {
+  flex: 1;
   display: flex;
-  align-items: center;
-}
-
-.id {
-  font-size: 16px;
-  font-weight: bold;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .main-card {
-  width: 100%;
-  height: auto;
-
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
   .left-two {
     display: flex;
     flex-direction: column;
-    width: 200%;
+    width: 250%;
+    height: 100%;
     margin-right: 10px;
 
     .top-card {
       margin-bottom: 10px;
-      height: 100%;
+      height: calc(50% - 5px);
+      overflow: hidden;
     }
 
     .bottom-card {
       position: relative;
-      height: 100%;
+      height: calc(50% - 5px);
+      overflow: hidden;
 
       .Crop {
         position: absolute;
@@ -1021,11 +1008,13 @@ watch(allVisiableNodes, () => {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow: hidden;
 
     .select-group {
       display: flex;
       align-items: center;
+      margin-bottom: 10px;
 
       .el-select {
         margin-right: 10px;
@@ -1038,11 +1027,17 @@ watch(allVisiableNodes, () => {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-top: 10px;
+      height: calc(100% - 40px);
+      overflow: hidden;
 
-      .group-tags-container {
+      h3 {
+        margin: 0 0 10px 0;
+      }
+
+      .el-scrollbar {
+        flex: 1;
         width: 100%;
-        height: 100%;
+        height: calc(100% - 200px) !important;
       }
 
       .group-tags {
@@ -1050,6 +1045,8 @@ watch(allVisiableNodes, () => {
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 300px;
+        min-height: 100%;
+        padding: 10px;
 
         .el-tag {
           margin: 5px;
@@ -1058,6 +1055,12 @@ watch(allVisiableNodes, () => {
           text-align: center;
           cursor: pointer;
         }
+      }
+
+      .rate-container {
+        margin-top: auto;
+        width: 100%;
+        padding: 10px;
       }
     }
   }
@@ -1113,5 +1116,22 @@ watch(allVisiableNodes, () => {
 .buzhou {
   font-size: 12px;
   color: #999;
+}
+
+.rate-container2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.rate-text {
+  text-align: left;
+  min-width: 200px;
+}
+
+.rate {
+  margin-left: auto;
 }
 </style>

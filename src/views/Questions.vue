@@ -50,7 +50,7 @@
               </div>
               <div v-if="selectedGroup" class="group">
                 <h3>{{ selectedGroup }}</h3>
-                <el-scrollbar height="550px">
+                <el-scrollbar height="500px">
                   <div class="group-tags">
                     <el-tag v-for="node in currentGroupNodes" :key="node" closable
                       @close="removeFromGroup(selectedGroup, node)" @mousedown="highlightElement(node)"
@@ -62,27 +62,27 @@
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
                   <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="top">
                     <div class="rate-container2">
-                      <span>显眼程度：</span>
+                      <div class="rate-text">显眼程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].attention"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].attention"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
                     </div>
                   </el-tooltip>
                   <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="bottom">
                     <div class="rate-container2">
-                      <span>分组组内元素的关联强度：</span>
+                      <div class="rate-text">分组组内元素的关联强度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].correlation_strength"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].correlation_strength"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].correlation_strength, 'correlation_strength')" />
                     </div>
                   </el-tooltip>
                   <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="bottom">
                     <div class="rate-container2">
-                      <span>分组对组外元素的排斥程度：</span>
+                      <div class="rate-text">分组对组外元素的排斥程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :texts="['一星', '二星', '三星', '四星', '五星']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
                         allow-half class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
@@ -1012,5 +1012,22 @@ watch(allVisiableNodes, () => {
 .buzhou {
   font-size: 12px;
   color: #999;
+}
+
+.rate-container2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.rate-text {
+  text-align: left;
+  min-width: 200px;
+}
+
+.rate {
+  margin-left: auto;
 }
 </style>

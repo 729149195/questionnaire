@@ -940,49 +940,61 @@ watch(allVisiableNodes, () => {
 .common-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 98vh;
   width: 70vw;
   margin: auto;
-  overflow: hidden;
 }
 
-.full-height {
-  height: 100%;
+.header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #dcdcdc;
 }
 
-.el-main {
-  flex: 1;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.left-content {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  align-items: flex-start;
+  color: #999;
+}
+
+.right-content {
+  display: flex;
+  align-items: center;
+}
+
+.id {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .main-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  
+  width: 100%;
+  height: auto;
+
   .left-two {
     display: flex;
     flex-direction: column;
-    width: 250%;
-    height: 100%;
+    width: 200%;
     margin-right: 10px;
 
     .top-card {
       margin-bottom: 10px;
-      height: calc(50% - 5px);
-      overflow: hidden;
+      height: 100%;
     }
 
     .bottom-card {
       position: relative;
-      height: calc(50% - 5px);
-      overflow: hidden;
-
+      height: 105%;
       .Crop {
         position: absolute;
         top: 10px;
@@ -1008,13 +1020,11 @@ watch(allVisiableNodes, () => {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: auto;
 
     .select-group {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
 
       .el-select {
         margin-right: 10px;
@@ -1027,17 +1037,11 @@ watch(allVisiableNodes, () => {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      height: calc(100% - 40px);
-      overflow: hidden;
+      margin-top: 10px;
 
-      h3 {
-        margin: 0 0 10px 0;
-      }
-
-      .el-scrollbar {
-        flex: 1;
+      .group-tags-container {
         width: 100%;
-        height: calc(100% - 200px) !important;
+        height: 100%;
       }
 
       .group-tags {
@@ -1045,8 +1049,6 @@ watch(allVisiableNodes, () => {
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 300px;
-        min-height: 100%;
-        padding: 10px;
 
         .el-tag {
           margin: 5px;
@@ -1055,12 +1057,6 @@ watch(allVisiableNodes, () => {
           text-align: center;
           cursor: pointer;
         }
-      }
-
-      .rate-container {
-        margin-top: auto;
-        width: 100%;
-        padding: 10px;
       }
     }
   }
@@ -1082,6 +1078,7 @@ watch(allVisiableNodes, () => {
 
 .top-card {
   position: relative;
+
   .top-title {
     position: absolute;
     top: 5px;

@@ -60,30 +60,29 @@
                   </div>
                 </el-scrollbar>
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
-                  <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="top">
+                  <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="right">
                     <div class="rate-container2">
                       <div class="rate-text">显眼程度：</div>
-                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].attention"
-                        allow-half class="rate"
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
+                        :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].attention" class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
                     </div>
                   </el-tooltip>
-                  <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="bottom">
+                  <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="right">
                     <div class="rate-container2">
                       <div class="rate-text">分组组内元素的关联强度：</div>
-                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].correlation_strength"
-                        allow-half class="rate"
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
+                        :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].correlation_strength"
+                        class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].correlation_strength, 'correlation_strength')" />
                     </div>
                   </el-tooltip>
-                  <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="bottom">
+                  <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="right">
                     <div class="rate-container2">
                       <div class="rate-text">分组对组外元素的排斥程度：</div>
-                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']"
-                        :max="3" :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
-                        allow-half class="rate"
+                      <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
+                        :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
                   </el-tooltip>
@@ -121,61 +120,80 @@
       </template>
     </el-dialog>
 
-    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="1000" align-center>
-      <span>
-        在正式开始问卷之前，请仔细阅读以下说明：
-        <ol>
+    <el-dialog 
+      v-model="infoDialogVisible" 
+      title="问卷说明" 
+      width="800" 
+      align-center
+      :close-on-click-modal="false"
+      class="info-dialog"
+    >
+      <div class="info-content">
+        <h3 class="info-subtitle">在正式开始问卷之前，请仔细阅读以下说明：</h3>
+        <ol class="info-list">
           <li>请尽可能多地选出自己认为的合理的图形组合</li>
           <li>这些图形组合大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
         </ol>
-
-      </span>
+      </div>
       <template #footer>
         <div class="dialog-footer">
-          <el-button type="primary" @click="infoDialogVisible = false">关闭</el-button>
+          <el-button type="primary" @click="infoDialogVisible = false" class="confirm-btn">我已了解</el-button>
         </div>
       </template>
     </el-dialog>
   </div>
   <el-card class="flow">
-    <div slot="header" class="clearfix">
-      <span>操作流程提示</span>
+    <template #header>
+      <div class="flow-header">
+        <span class="flow-title">操作流程提示</span>
+      </div>
+    </template>
+    <div class="flow-content">
+      <div class="step-item">
+        <span class="step-number">步骤1:</span>
+        <el-card class="step-card" shadow="hover">
+          <p>查看组合观察区域（左上角板块）并记下感知到的元素组合。</p>
+        </el-card>
+      </div>
+      <div class="step-item">
+        <span class="step-number">步骤2:</span>
+        <el-card class="step-card" shadow="hover">
+          <p>在选取交互区域选择您感知中可以组成一个组合的所有元素</p>
+          <ul class="step-list">
+            <li>组合元素较密集的时候，建议使用框选或路径选择功能批量选区元素</li>
+            <li>已经被选中的元素再次被选择后，会取消选中状态</li>
+            <li>鼠标滚轮可以对互区域选择放大缩小交</li>
+          </ul>
+        </el-card>
+      </div>
+      <div class="step-item">
+        <span class="step-number">步骤3:</span>
+        <el-card class="step-card" shadow="hover">
+          <p>选取完一个组后，若还有其他组合未添加，点击组合板块的加号按钮创建新组。</p>
+        </el-card>
+      </div>
+      <div class="step-item">
+        <span class="step-number">步骤4:</span>
+        <el-card class="step-card" shadow="hover">
+          <p>每组元素选完后不要忘记评分嗷~</p>
+        </el-card>
+      </div>
     </div>
-    <span class="buzhou">步骤1:</span>
-    <el-card>
-      <p style="text-indent: 2em;">查看组合观察区域（左上角板块）并记下感知到的元素组合。</p>
-    </el-card>
-    <span class="buzhou">步骤2:</span>
-    <el-card>
-      <p style="text-indent: 2em;">在选取交互区域选择您感知中可以组成一个组合的所有元素</p>
-      <ul>
-        <li>组合元素较密集的时候，建议使用框选或路径选择功能批量选区元素</li>
-        <li>已经被选中的元素再次被选择后，会取消选中状态</li>
-        <li>鼠标滚轮可以对互区域选择放大缩小交</li>
-      </ul>
-    </el-card>
-    <span class="buzhou">步骤3:</span>
-    <el-card>
-      <p style="text-indent: 2em;">选取完一个组后，若还有其他组合未添加，点击组合板块的加号按钮创建新组。</p>
-    </el-card>
-    <span class="buzhou">步骤4:</span>
-    <el-card>
-      每组元素选完后不要忘记评分嗷~
-    </el-card>
   </el-card>
   <el-card class="flow2">
-    <div slot="header" class="clearfix">
-      <span>友情提示:</span>
+    <template #header>
+      <div class="flow-header">
+        <span class="flow-title">友情提示</span>
+      </div>
+    </template>
+    <div class="tips-content">
+      <ul class="tips-list">
+        <li>请尽可能多地选出自己感知到的图形组合</li>
+        <li>相同的元素在不同的组合中可以重复选择</li>
+        <li>尽量遵循自己的第一印象</li>
+      </ul>
     </div>
-    <ul>
-      <!-- <li>图形组合：指由线条、形状、颜色等元素组成的视觉结构</li>
-          <li>右侧组合N里对应的所有标签元素代表一个图形组合</li> -->
-      <li>请尽可能多地选出自己感知到的图形组合</li>
-      <li>相同的元素在不同的组合中可以重复选择</li>
-      <li>尽量遵循自己的第一印象</li>
-      <!-- <li>报酬获取方式：完成问卷后待系统自动将结果提交后，联系管理员并提交问卷ID，管理员审批后将根据完成情况及质量发放报酬（一般不会低于XX￥）</li> -->
-    </ul>
   </el-card>
 </template>
 
@@ -286,31 +304,60 @@ const addZoomEffectToSvg = () => {
   const svg = d3.select(svgContainer).select('svg');
   if (!svg) return;
 
+  // 创建一个包裹实际SVG内容的组
+  let g = svg.select('g.zoom-wrapper');
+  if (g.empty()) {
+    g = svg.append('g').attr('class', 'zoom-wrapper');
+    // 将所有现有内容移动到新的组中
+    const children = svg.node().childNodes;
+    [...children].forEach(child => {
+      if (child.nodeType === 1 && !child.classList.contains('zoom-wrapper')) {
+        g.node().appendChild(child);
+      }
+    });
+  }
+
   const zoom = d3.zoom()
-    .scaleExtent([1, 20])
+    .scaleExtent([0.5, 10])
     .on('zoom', (event) => {
       if (!isCropping.value) {
-        svg.attr('transform', event.transform);
-        limitPan(event.transform, svgContainer);
+        g.attr('transform', event.transform);
       }
     });
 
-  svg.call(zoom)
-    .call(zoom.transform, d3.zoomIdentity.translate(svgContainer.clientWidth / 2, svgContainer.clientHeight / 2));
+  svg.call(zoom);
 
-  function limitPan(transform, container) {
-    const scale = transform.k;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    const maxX = (width / 2) * (scale - 1);
-    const maxY = (height / 2) * (scale - 1);
-    const limitedTransform = d3.zoomIdentity
-      .translate(
-        Math.max(Math.min(transform.x, maxX), -maxX),
-        Math.max(Math.min(transform.y, maxY), -maxY)
-      )
+  // 获取参考 SVG 的位置和尺寸
+  const referenceSvg = d3.select('.svg-container svg');
+  if (referenceSvg.node()) {
+    // 获取两个 SVG 的 viewBox
+    const refViewBox = referenceSvg.node().viewBox.baseVal;
+    const currentViewBox = svg.node().viewBox.baseVal;
+
+    // 获取实际显示尺寸
+    const refRect = referenceSvg.node().getBoundingClientRect();
+    const currentRect = svg.node().getBoundingClientRect();
+
+    // 计算缩放比例
+    const scaleX = (refRect.width / refViewBox.width) / (currentRect.width / currentViewBox.width);
+    const scaleY = (refRect.height / refViewBox.height) / (currentRect.height / currentViewBox.height);
+    const scale = Math.min(scaleX, scaleY);
+
+    // 计算偏移量，使两个 SVG 的内容对齐
+    const refCenterX = refViewBox.x + refViewBox.width / 2;
+    const refCenterY = refViewBox.y + refViewBox.height / 2;
+    const currentCenterX = currentViewBox.x + currentViewBox.width / 2;
+    const currentCenterY = currentViewBox.y + currentViewBox.height / 2;
+
+    const translateX = (refCenterX - currentCenterX) * scale + (refRect.width - currentRect.width * scale) / 2;
+    const translateY = (refCenterY - currentCenterY) * scale + (refRect.height - currentRect.height * scale) / 2;
+
+    // 应用变换
+    const initialTransform = d3.zoomIdentity
+      .translate(translateX, translateY)
       .scale(scale);
-    svg.attr('transform', limitedTransform);
+
+    svg.call(zoom.transform, initialTransform);
   }
 };
 
@@ -894,6 +941,7 @@ watch(allVisiableNodes, () => {
     .bottom-card {
       position: relative;
       height: 105%;
+
       .Crop {
         position: absolute;
         top: 10px;
@@ -999,6 +1047,8 @@ watch(allVisiableNodes, () => {
   top: 100px;
   width: 15vw;
   height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
 .flow2 {
@@ -1007,6 +1057,88 @@ watch(allVisiableNodes, () => {
   top: 100px;
   width: 15vw;
   height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.flow-header {
+  padding: 0;
+  margin: 0;
+}
+
+.flow-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.flow-content {
+  padding: 10px 0;
+}
+
+.step-item {
+  margin-bottom: 15px;
+}
+
+.step-number {
+  display: block;
+  font-size: 14px;
+  color: #409EFF;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.step-card {
+  margin: 0;
+  border: none;
+  background-color: #f5f7fa;
+  
+  :deep(.el-card__body) {
+    padding: 12px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #606266;
+    line-height: 1.6;
+  }
+}
+
+.step-list {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  
+  li {
+    color: #606266;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 4px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.tips-content {
+  padding: 5px 0;
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: 20px;
+  
+  li {
+    color: #606266;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .buzhou {
@@ -1029,5 +1161,83 @@ watch(allVisiableNodes, () => {
 
 .rate {
   margin-left: auto;
+}
+
+.info-dialog :deep(.el-dialog__header) {
+  padding: 20px;
+  margin-right: 0;
+  background-color: #f5f7fa;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.info-dialog :deep(.el-dialog__title) {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.info-content {
+  padding: 30px 20px;
+}
+
+.info-subtitle {
+  font-size: 16px;
+  color: #606266;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+.info-list {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.info-list li {
+  color: #606266;
+  line-height: 2;
+  margin-bottom: 15px;
+  font-size: 15px;
+  position: relative;
+  padding-left: 5px;
+}
+
+.info-list li:last-child {
+  margin-bottom: 0;
+}
+
+.dialog-footer {
+  padding: 20px;
+  text-align: right;
+  background-color: #f5f7fa;
+  border-top: 1px solid #e4e7ed;
+}
+
+.confirm-btn {
+  padding: 12px 25px;
+  font-size: 14px;
+}
+
+.info-dialog :deep(.el-dialog) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.info-dialog :deep(.el-dialog__body) {
+  padding: 0;
+}
+
+.svg-container, .svg-container2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-container svg, .svg-container2 svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 </style>

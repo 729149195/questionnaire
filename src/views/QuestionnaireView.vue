@@ -66,7 +66,7 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { StarFilled } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
-
+import { getSubmissionCount } from '../api/counter';
 
 const store = useStore();
 const router = useRouter();
@@ -86,6 +86,12 @@ let timer = null;
 
 onMounted(() => {
   timer = setInterval(updateCurrentTime, 1000);
+  onMounted(async () => {
+    const count = await getSubmissionCount();
+    if (count >= 5) {
+      router.push('/limit-reached');
+    }
+  });
 });
 
 onUnmounted(() => {
@@ -101,7 +107,7 @@ const form = ref({
 
 const OTHER = 'other';  // Define a constant for 'other'
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   const age = parseInt(form.value.age, 10);
   if (!age || isNaN(age) || age < 10 || age > 90) {
     ElMessage({
@@ -143,11 +149,15 @@ const handleSubmit = () => {
     return;
   }
 
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+    return;
+  }
+
   store.dispatch('submitForm', form.value);
   router.push('/questionstest');
 };
-
-
 
 const handleClean = () => {
   form.value = {

@@ -31,6 +31,11 @@ const routes = [
     path: '/showdata',
     name: 'showData',
     component: showData
+  },
+  {
+    path: '/limit-reached',
+    name: 'LimitReached',
+    component: () => import('../views/LimitReached.vue')
   }
 ]
 

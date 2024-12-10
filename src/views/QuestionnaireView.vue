@@ -150,7 +150,7 @@ const handleSubmit = async () => {
   }
 
   const count = await getSubmissionCount();
-  if (count >= 1) {
+  if (count >= 5) {
     router.push('/limit-reached');
     return;
   }

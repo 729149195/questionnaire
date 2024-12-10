@@ -4,6 +4,7 @@ import Questions from '../views/Questions.vue'
 import Thanks from '../views/Thanks.vue'
 import QuestionTest from '../views/QuestionTest.vue'
 import showData from '../views/showData.vue'
+import QuestionnaireAnalysis from '../views/QuestionnaireAnalysis.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/limit-reached',
     name: 'LimitReached',
     component: () => import('../views/LimitReached.vue')
+  },
+  {
+    path: '/analysis',
+    name: 'QuestionnaireAnalysis',
+    component: QuestionnaireAnalysis
   }
 ]
 

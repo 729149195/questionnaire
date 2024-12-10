@@ -16,7 +16,6 @@ import { useStore } from 'vuex';
 import { saveAs } from 'file-saver';
 import emailjs from 'emailjs-com';
 import { ElMessage } from 'element-plus';
-import { incrementCount } from '../api/counter';
 
 const store = useStore();
 const formData = computed(() => store.getters.getFormData);
@@ -91,9 +90,8 @@ const sendEmail = (data) => {
     });
 };
 
-onMounted(async () => {
+onMounted(() => {
   const data = generateJsonData();
-  await incrementCount();
   sendEmail(data);
 });
 </script>

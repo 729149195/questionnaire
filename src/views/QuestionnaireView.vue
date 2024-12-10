@@ -5,7 +5,7 @@
         <h2 class="title">图形模式感知问卷</h2>
       </el-header>
       <el-divider>
-        <el-icon><star-filled/></el-icon>
+        <el-icon><star-filled /></el-icon>
       </el-divider>
       <el-main>
         <div class="personal-info">
@@ -51,13 +51,13 @@
   </div>
   <el-dialog v-model="DialogVisible" title="问卷介绍（预估完成所需时间为20分钟）" width="750">
     <img style="width: 100%; margin-top: 10px" src="/img/introduction.png" alt="Wechat QR Code">
-      <template #footer>
-        <div class="dialog-footer">
-          <!-- <el-button @click="showdata"> 实例总览 </el-button> -->
-          <el-button @click="DialogVisible = false" type="primary">开始</el-button>
-        </div>
-      </template>
-    </el-dialog>
+    <template #footer>
+      <div class="dialog-footer">
+        <!-- <el-button @click="showdata"> 实例总览 </el-button> -->
+        <el-button @click="DialogVisible = false" type="primary">开始</el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup>
@@ -74,9 +74,10 @@ const DialogVisible = ref(true)
 
 const currentTime = ref(new Date().toLocaleTimeString());
 
-const showdata = () =>{
+const showdata = () => {
   router.push('/showdata');
 };
+
 
 const updateCurrentTime = () => {
   currentTime.value = new Date().toLocaleTimeString();
@@ -84,14 +85,13 @@ const updateCurrentTime = () => {
 
 let timer = null;
 
-onMounted(() => {
+onMounted(async () => {
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+    return;
+  }
   timer = setInterval(updateCurrentTime, 1000);
-  onMounted(async () => {
-    const count = await getSubmissionCount();
-    if (count >= 5) {
-      router.push('/limit-reached');
-    }
-  });
 });
 
 onUnmounted(() => {
@@ -101,7 +101,7 @@ onUnmounted(() => {
 const form = ref({
   age: '',
   gender: '',
-  visualimpairment:'',
+  visualimpairment: '',
   visualizationExperience: '',
 });
 
@@ -150,7 +150,7 @@ const handleSubmit = async () => {
   }
 
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 1) {
     router.push('/limit-reached');
     return;
   }
@@ -163,7 +163,7 @@ const handleClean = () => {
   form.value = {
     age: '',
     gender: '',
-    visualimpairment:'',
+    visualimpairment: '',
     visualizationExperience: '',
   };
 };
@@ -190,7 +190,7 @@ const handleClean = () => {
   height: 100vh;
   width: 80vw;
   margin: 0 auto;
-  position: relative;  // Ensure the layout is positioned correctly
+  position: relative; // Ensure the layout is positioned correctly
 }
 
 .full-height {
@@ -246,6 +246,7 @@ const handleClean = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   .el-button {
     width: 14rem;
     height: 40px;
@@ -278,9 +279,9 @@ const handleClean = () => {
   margin-bottom: 5px;
 }
 
-.dialog-footer{
-   .el-button{
-      width: 60px;
-   }
+.dialog-footer {
+  .el-button {
+    width: 60px;
+  }
 }
 </style>

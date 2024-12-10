@@ -176,7 +176,7 @@
       <div class="step-item">
         <span class="step-number">步骤4:</span>
         <el-card class="step-card" shadow="hover">
-          <p>每组元素选完后不要忘记评分嗷~</p>
+          <p>每组元素选完后不要忘记评���嗷~</p>
         </el-card>
       </div>
     </div>
@@ -204,6 +204,7 @@ import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
 import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop, Pointer } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
+import { getSubmissionCount } from '../api/counter';
 
 const store = useStore();
 const router = useRouter();
@@ -688,6 +689,12 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const next = async () => {
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+    return;
+  }
+
   if (steps.value && active.value < steps.value.length - 1) {
     selectedGroup.value = '组合1';
     active.value++;
@@ -704,6 +711,12 @@ const next = async () => {
 };
 
 const Previous = async () => {
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+    return;
+  }
+
   if (steps.value && active.value > 0) {
     selectedGroup.value = '组合1';
     active.value--;
@@ -720,6 +733,12 @@ const Previous = async () => {
 };
 
 const submit = () => {
+  const count = getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+    return;
+  }
+
   const totalTimeSpent = store.getters.getTotalTimeSpent;
   console.log(`Total time spent: ${totalTimeSpent} seconds`);
   router.push('/thanks');
@@ -827,7 +846,11 @@ const generateRandomArray = () => {
   return randomArray;
 };
 
-onMounted(() => {
+onMounted(async () => {
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+  }
   const randomSteps = generateRandomArray();
   store.commit('setSteps', randomSteps);
   store.dispatch('initializeSteps');

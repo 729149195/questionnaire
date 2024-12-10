@@ -83,7 +83,7 @@
                     <div class="rate-container2">
                       <div class="rate-text">分组对组外元素的排斥程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
-                        :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        :texts="['��', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
                         class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
@@ -100,15 +100,16 @@
           <el-steps :active="active" finish-status="success" class="steps" ref="stepsContainer">
             <el-step v-for="(step, index) in steps" :key="index" @click.native="goToStep(index)" />
           </el-steps>
-          <el-tooltip content="查看示例组合" placement="top-start" hide-after=1000>
-            <el-button ref="nextBtn" class="next-button" @click="next" type="primary"
-              v-if="active != steps.length - 1"><el-icon>
-                <CaretRight />
-              </el-icon></el-button></el-tooltip>
-          <el-tooltip content="进入正式问卷" placement="top-start" hide-after=1000>
-            <el-button class="submit-button" @click="submit" type="success" v-if="active === steps.length - 1"><el-icon>
-                <DArrowRight />
-              </el-icon></el-button></el-tooltip>
+          <el-tooltip content="查看示例组合" placement="top-start" :hide-after="1000">
+            <el-button ref="nextBtn" class="next-button" @click="next" type="primary" v-if="active != steps.length - 1">
+              <el-icon><CaretRight /></el-icon>
+            </el-button>
+          </el-tooltip>
+          <el-tooltip content="进入正式问卷" placement="top-start" :hide-after="1000">
+            <el-button class="submit-button" @click="submit" type="success" v-if="active === steps.length - 1">
+              <el-icon><DArrowRight /></el-icon>
+            </el-button>
+          </el-tooltip>
         </div>
       </el-main>
 
@@ -149,7 +150,7 @@
       <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮">
         当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮">
+      <el-tour-step :target="trackBtn?.$el" placement="right" title="��换路径选择按钮">
         当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('12.gif')"></div></el-tour-step>
       <el-tour-step :target="groupCard?.$el" title="分组卡片"
@@ -244,6 +245,7 @@ import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
 import { Delete, Plus, Hide, View, CaretLeft, CaretRight, DArrowRight, WindPower, Crop } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
+import { getSubmissionCount } from '../api/counter';
 
 const store = useStore();
 const router = useRouter();
@@ -916,6 +918,10 @@ onMounted(async () => {
   await fetchSvgContent(active.value + 1);
   await fetchAndRenderTree();
   ensureGroupInitialization();
+  const count = await getSubmissionCount();
+  if (count >= 5) {
+    router.push('/limit-reached');
+  }
 });
 
 onMounted(() => {

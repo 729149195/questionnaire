@@ -16,11 +16,14 @@ import { useStore } from 'vuex';
 import { saveAs } from 'file-saver';
 import emailjs from 'emailjs-com';
 import { ElMessage } from 'element-plus';
+import { incrementCount } from '../api/counter';
+import { useRouter } from 'vue-router';
 
 const store = useStore();
 const formData = computed(() => store.getters.getFormData);
 const startTime = computed(() => store.state.startTime);
 const steps = computed(() => store.state.steps);
+const router = useRouter();
 
 const formatDate = (date) => {
   const d = new Date(date);
@@ -90,7 +93,8 @@ const sendEmail = (data) => {
     });
 };
 
-onMounted(() => {
+onMounted(async () => {
+  await incrementCount();
   const data = generateJsonData();
   sendEmail(data);
 });

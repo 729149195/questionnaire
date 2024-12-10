@@ -116,6 +116,9 @@ const store = createStore({
     },
     UPDATE_TOTAL_TIME_SPENT(state, time) {
       state.totalTimeSpent = time;
+    },
+    RESET_STEP_RATINGS(state, step) {
+      state.ratings[step] = {};
     }
   },
   actions: {

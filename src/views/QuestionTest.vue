@@ -83,7 +83,7 @@
                     <div class="rate-container2">
                       <div class="rate-text">分组对组外元素的排斥程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
-                        :texts="['��', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
+                        :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
                         class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].exclusionary_force, 'exclusionary_force')" />
                     </div>
@@ -150,7 +150,7 @@
       <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮">
         当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
-      <el-tour-step :target="trackBtn?.$el" placement="right" title="��换路径选择按钮">
+      <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮">
         当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('12.gif')"></div></el-tour-step>
       <el-tour-step :target="groupCard?.$el" title="分组卡片"
@@ -324,7 +324,6 @@ const updateRating = (group, rating, type) => {
 // 加载并提交 example.json 数据
 const loadExampleData = async () => {
   try {
-    // 动态构造文件路径，基于当前步骤（active + 1）
     const step = active.value + 1;
     const response = await fetch(`./TestData/${step}/example.json`);
 
@@ -333,32 +332,50 @@ const loadExampleData = async () => {
     }
 
     const data = await response.json();
+    
+    // 清空当前步骤的评分数据
+    store.commit('RESET_STEP_RATINGS', active.value);
+    
+    // 更新本地 ratings 对象
+    ratings.value = {};
 
-    // 动态更新基于前步骤的数据
-    data.groups.forEach((groupData, index) => {
+    // 动态更新基于当前步骤的数据
+    data.groups.forEach((groupData) => {
       const groupName = groupData.group;
-      console.log(groupData.group)
-      console.log(groupData.nodes)
+      
+      // 添加组和节点
       store.commit('ADD_NEW_GROUP', { step: active.value, group: groupName });
       store.commit('ADD_OTHER_GROUP', { step: active.value, group: groupName, nodeIds: groupData.nodes });
+      
+      // 更新评分
+      const groupRatings = {
+        attention: groupData.ratings.attention,
+        correlation_strength: groupData.ratings.correlation_strength,
+        exclusionary_force: groupData.ratings.exclusionary_force
+      };
+      
+      // 更新 store 中的评分
       store.commit('UPDATE_RATING', {
         step: active.value,
         group: groupName,
-        rating: groupData.ratings.attention,
+        rating: groupRatings.attention,
         type: 'attention'
       });
       store.commit('UPDATE_RATING', {
         step: active.value,
         group: groupName,
-        rating: groupData.ratings.correlation_strength,
+        rating: groupRatings.correlation_strength,
         type: 'correlation_strength'
       });
       store.commit('UPDATE_RATING', {
         step: active.value,
         group: groupName,
-        rating: groupData.ratings.exclusionary_force,
+        rating: groupRatings.exclusionary_force,
         type: 'exclusionary_force'
       });
+      
+      // 更新本地 ratings 对象
+      ratings.value[groupName] = groupRatings;
     });
 
     nextTick(() => {
@@ -935,11 +952,27 @@ onMounted(() => {
 });
 
 watch([active, groups], () => {
-  ratings.value = {};
+  // 获取当前步骤的评分
   const stepRatings = store.state.ratings[active.value] || {};
+  
+  // 重置本地 ratings 对象
+  ratings.value = {};
+  
+  // 为每个组设置评分
   for (const group in groups.value) {
-    ratings.value[group] = stepRatings[group] || { attention: 1, correlation_strength: 1, exclusionary_force: 1 };
+    if (stepRatings[group]) {
+      // 如果存在评分则使用已有评分
+      ratings.value[group] = stepRatings[group];
+    } else {
+      // 否则设置默认评分
+      ratings.value[group] = { 
+        attention: 1, 
+        correlation_strength: 1, 
+        exclusionary_force: 1 
+      };
+    }
   }
+  
   nextTick(() => {
     highlightGroup();
   });

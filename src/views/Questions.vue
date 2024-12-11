@@ -589,6 +589,7 @@ const turnGrayVisibleNodes = () => {
       // node.style.cursor = 'pointer';
       // }
       // node.style.cursor = 'pointer';
+      node.style.transition = 'opacity 0.3s ease';
     }
   });
 };
@@ -606,6 +607,7 @@ const addHoverEffectToVisibleNodes = () => {
       };
       const handleMouseOut = () => {
         node.style.opacity = '0.2';
+        node.style.transition = 'opacity 0.3s ease';
         highlightGroup();
       };
 
@@ -665,6 +667,7 @@ const highlightGroup = () => {
       node.style.opacity = '1';
     } else if (allVisiableNodes.value.includes(node.id)) {
       node.style.opacity = '0.2';
+      node.style.transition = 'opacity 0.3s ease';
     }
   });
 };
@@ -680,6 +683,7 @@ const highlightElement = (nodeId) => {
         node.style.opacity = '1';
       } else if (allVisiableNodes.value.includes(node.id)) {
         node.style.opacity = '0.2';
+        node.style.transition = 'opacity 0.3s ease';
       }
     });
   });

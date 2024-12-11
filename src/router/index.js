@@ -3,51 +3,48 @@ import QuestionnaireView from '../views/QuestionnaireView.vue'
 import Questions from '../views/Questions.vue'
 import Thanks from '../views/Thanks.vue'
 import QuestionTest from '../views/QuestionTest.vue'
-import showData from '../views/showData.vue'
 import QuestionnaireAnalysis from '../views/QuestionnaireAnalysis.vue'
-
-const routes = [
-  {
-    path: '/',
-    name: 'Questionnaire',
-    component: QuestionnaireView
-  },
-  {
-    path: '/questionstest',
-    name: 'Questionstest',
-    component: QuestionTest
-  }
-  ,
-  {
-    path: '/questions',
-    name: 'Questions',
-    component: Questions
-  },
-  {
-    path: '/thanks',
-    name: 'Thanks',
-    component: Thanks
-  },
-  {
-    path: '/showdata',
-    name: 'showData',
-    component: showData
-  },
-  {
-    path: '/limit-reached',
-    name: 'LimitReached',
-    component: () => import('../views/LimitReached.vue')
-  },
-  {
-    path: '/analysis',
-    name: 'QuestionnaireAnalysis',
-    component: QuestionnaireAnalysis
-  }
-]
+import QuestionsShow from '../views/QuestionsShow.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes: [
+    {
+      path: '/',
+      name: 'Questionnaire',
+      component: QuestionnaireView
+    },
+    {
+      path: '/questionstest',
+      name: 'Questionstest',
+      component: QuestionTest
+    },
+    {
+      path: '/questions',
+      name: 'Questions',
+      component: Questions
+    },
+    {
+      path: '/thanks',
+      name: 'Thanks',
+      component: Thanks
+    },
+    {
+      path: '/limit-reached',
+      name: 'LimitReached',
+      component: () => import('../views/LimitReached.vue')
+    },
+    {
+      path: '/analysis',
+      name: 'QuestionnaireAnalysis',
+      component: QuestionnaireAnalysis
+    },
+    {
+      path: '/questions-show',
+      name: 'QuestionsShow',
+      component: QuestionsShow
+    }
+  ]
 })
 
 export default router

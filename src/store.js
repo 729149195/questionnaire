@@ -119,6 +119,9 @@ const store = createStore({
     },
     RESET_STEP_RATINGS(state, step) {
       state.ratings[step] = {};
+    },
+    CLEAR_FORM_DATA(state) {
+      state.formData = null;
     }
   },
   actions: {

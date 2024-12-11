@@ -101,8 +101,15 @@
           <el-button class="next-button" @click="next" type="primary" v-if="active != steps.length - 1"><el-icon>
               <CaretRight />
             </el-icon></el-button>
-          <el-button class="submit-button" @click="submit" type="success"
-            v-if="active === steps.length - 1"><el-icon><Select /></el-icon></el-button>
+          <el-button 
+            class="submit-button" 
+            @click="submit" 
+            type="success"
+            :loading="submitLoading"
+            v-if="active === steps.length - 1"
+          >
+            <el-icon><Select /></el-icon>
+          </el-button>
         </div>
       </el-main>
 
@@ -176,7 +183,7 @@
       <div class="step-item">
         <span class="step-number">步骤4:</span>
         <el-card class="step-card" shadow="hover">
-          <p>每组元素选完后不要忘记评���嗷~</p>
+          <p>每组元素选完后不要忘记评分嗷~</p>
         </el-card>
       </div>
     </div>
@@ -198,17 +205,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, nextTick, watch } from 'vue';
+import { ref, computed, onMounted, nextTick, watch, onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, WindPower, Crop, Pointer } from '@element-plus/icons-vue';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, Crop, Pointer } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
-import { getSubmissionCount } from '../api/counter';
+import { getSubmissionCount, incrementCount } from '../api/counter';
+import emailjs from '@emailjs/browser';
 
 const store = useStore();
 const router = useRouter();
-// const formData = computed(() => store.getters.getFormData);
 const selectedNodeIds = computed(() => store.state.selectedNodes.nodeIds);
 const allVisiableNodes = computed(() => store.state.AllVisiableNodes);
 const steps = computed(() => store.state.steps);
@@ -226,7 +233,19 @@ const nodeEventHandlers = new Map();
 const isCropping = ref(false);
 const isTracking = ref(false);
 
+// 添加ID检查函数
+const checkUserId = () => {
+  const userId = store.getters.getFormData?.id;
+  if (!userId) {
+    ElMessage.error('用户id失效，请重新进入');
+    router.push('/');
+    return false;
+  }
+  return true;
+};
+
 const goToStep = async (index) => {
+  if (!checkUserId()) return;
   if (index !== active.value) {
     selectedGroup.value = '组合1';
     active.value = index;
@@ -689,6 +708,7 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const next = async () => {
+  if (!checkUserId()) return;
   const count = await getSubmissionCount();
   if (count >= 5) {
     router.push('/limit-reached');
@@ -711,6 +731,7 @@ const next = async () => {
 };
 
 const Previous = async () => {
+  if (!checkUserId()) return;
   const count = await getSubmissionCount();
   if (count >= 5) {
     router.push('/limit-reached');
@@ -732,16 +753,115 @@ const Previous = async () => {
   }
 };
 
-const submit = () => {
-  const count = getSubmissionCount();
-  if (count >= 5) {
-    router.push('/limit-reached');
-    return;
-  }
+const formatDate = (date) => {
+  const d = new Date(date);
+  const offset = d.getTimezoneOffset() * 60000;
+  const localDate = new Date(d.getTime() + offset + 28800000); // Convert to UTC+8
+  return localDate.toISOString().replace('T', ' ').substring(0, 19);
+};
 
-  const totalTimeSpent = store.getters.getTotalTimeSpent;
-  console.log(`Total time spent: ${totalTimeSpent} seconds`);
-  router.push('/thanks');
+const generateJsonData = () => {
+  const currentTime = new Date();
+  const endTime = formatDate(currentTime);
+  const duration = (currentTime - new Date(store.state.startTime)) / 1000; // in seconds
+
+  const data = {
+    formData: store.getters.getFormData,
+    startTime: formatDate(store.state.startTime),
+    endTime: endTime,
+    duration: `${Math.floor(duration / 60)} minutes ${Math.floor(duration % 60)} seconds`,
+    steps: []
+  };
+
+  steps.value.forEach((stepId, index) => {
+    const stepData = {
+      stepId,
+      groups: []
+    };
+    const groups = store.getters.getGroups(index);
+    for (const group in groups) {
+      stepData.groups.push({
+        group: group,
+        nodes: groups[group],
+        ratings: {
+          attention: store.getters.getRating(index, group, 'attention'),
+          correlation_strength: store.getters.getRating(index, group, 'correlation_strength'),
+          exclusionary_force: store.getters.getRating(index, group, 'exclusionary_force')
+        }
+      });
+    }
+    data.steps.push(stepData);
+  });
+
+  return data;
+};
+
+const sendEmail = (data) => {
+  const emailData = {
+    form_id: store.getters.getFormData.id,
+    to_email: 'zxx729149195@163.com',
+    subject: `问卷+${store.getters.getFormData.id}`,
+    message: JSON.stringify(data, null, 2)
+  };
+
+  return emailjs.send('service_w28zafs', 'template_cq4vqhy', emailData, 'zEOYsF4TFcaSSPSsZ')
+    .then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+      ElMessage.success('数据文件已自动上传成功!');
+    })
+    .catch((error) => {
+      console.error('Failed to send email:', error);
+      ElMessage.error('数据文件上传失败。请导出备份问卷数据手动发送给管理员😭');
+      throw error; // 重新抛出错误以便上层处理
+    });
+};
+
+// 添加 loading ref
+const submitLoading = ref(false);
+
+const submit = async () => {
+  if (!checkUserId()) return;
+  
+  // 开启加载状态
+  submitLoading.value = true;
+  ElMessage.info('正在提交数据，请稍候...');
+
+  try {
+    // 并行检查提交次数和生成数据
+    const [count, data] = await Promise.all([
+      getSubmissionCount(),
+      Promise.resolve(generateJsonData()) // 将同步操作包装成 Promise
+    ]);
+
+    if (count >= 5) {
+      submitLoading.value = false;
+      router.push('/limit-reached');
+      return;
+    }
+
+    const formData = store.getters.getFormData;
+
+    // 并行处理邮件发送和数据存储
+    await Promise.all([
+      sendEmail(data),
+      Promise.all([
+        localStorage.setItem('submitId', formData.id),
+        localStorage.setItem('submittedData', JSON.stringify(data)),
+        incrementCount()
+      ])
+    ]);
+
+    // 清除用户ID
+    store.commit('CLEAR_FORM_DATA');
+    
+    submitLoading.value = false;
+    router.push('/thanks');
+
+  } catch (error) {
+    console.error('Failed to submit:', error);
+    submitLoading.value = false;
+    ElMessage.error('提交失败，请重试');
+  }
 };
 
 const fetchAndRenderTree = async () => {
@@ -847,6 +967,7 @@ const generateRandomArray = () => {
 };
 
 onMounted(async () => {
+  if (!checkUserId()) return;
   const count = await getSubmissionCount();
   if (count >= 5) {
     router.push('/limit-reached');
@@ -902,6 +1023,10 @@ watch(allVisiableNodes, () => {
   addHoverEffectToVisibleNodes();
   addClickEffectToVisibleNodes();
   highlightGroup();
+});
+
+onBeforeMount(() => {
+  if (!checkUserId()) return;
 });
 </script>
 

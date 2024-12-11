@@ -239,7 +239,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, nextTick, watch } from 'vue';
+import { ref, computed, onMounted, nextTick, watch, onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
@@ -287,7 +287,18 @@ const isTracking = ref(false);
 const props = defineProps(['data']);
 const emits = defineEmits(['change', 'prev', 'next']);
 
+const checkUserId = () => {
+  const userId = store.getters.getFormData?.id;
+  if (!userId) {
+    ElMessage.error('用户id失效，请重新进入');
+    router.push('/');
+    return false;
+  }
+  return true;
+};
+
 const goToStep = async (index) => {
+  if (!checkUserId()) return;
   if (index !== active.value) {
     selectedGroup.value = '组合1';
     active.value = index;
@@ -791,6 +802,7 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const next = async () => {
+  if (!checkUserId()) return;
   if (active.value < steps.length - 1) {
     selectedGroup.value = '组合1';
     active.value++;
@@ -807,6 +819,7 @@ const next = async () => {
 };
 
 const Previous = async () => {
+  if (!checkUserId()) return;
   if (active.value > 0) {
     selectedGroup.value = '组合1';
     active.value--;
@@ -952,7 +965,7 @@ onMounted(() => {
 });
 
 watch([active, groups], () => {
-  // 获取当前步骤的评分
+  // 获取当前步骤的评��
   const stepRatings = store.state.ratings[active.value] || {};
   
   // 重置本地 ratings 对象
@@ -998,6 +1011,10 @@ watch(allVisiableNodes, () => {
   addHoverEffectToVisibleNodes();
   addClickEffectToVisibleNodes();
   highlightGroup();
+});
+
+onBeforeMount(() => {
+  if (!checkUserId()) return;
 });
 
 </script>

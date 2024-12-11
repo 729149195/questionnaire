@@ -14,16 +14,18 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@emailjs/browser": "^3.12.1",
+    "@tsparticles/engine": "^3.0.0",
+    "@tsparticles/slim": "^3.7.1",
+    "@tsparticles/vue3": "^3.0.0",
     "cors": "^2.8.5",
     "d3": "^7.9.0",
     "element-plus": "^2.7.6",
-    "emailjs-com": "^3.2.0",
     "express": "^4.21.2",
     "file-saver": "^2.0.5",
-    "tsparticles": "^3.5.0",
+    "glob": "^9.0.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-particles": "^2.12.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

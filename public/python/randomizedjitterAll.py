@@ -36,15 +36,6 @@ def strip_namespace(element):
             el.tag = el.tag.split('}', 1)[1]  # 去掉命名空间URI部分
     return element
 
-# 随机抖动circle元素的r属性
-def randomize_circle_radius(element, amount=15):
-    for circle in element.findall('.//circle'):
-        if 'r' in circle.attrib:
-            original_radius = float(circle.attrib['r'])
-            change = random.uniform(-amount, amount)
-            new_radius = max(0, original_radius + change)
-            circle.attrib['r'] = str(new_radius)
-
 # 处理单个SVG文件
 def process_single_svg(file_path, output_dir, versions=5):
     tree = ET.parse(file_path)
@@ -62,7 +53,7 @@ def process_single_svg(file_path, output_dir, versions=5):
     styles = style_element.text.strip().split('\n')
     
     # 处理指定的样式
-    for version in range(1, versions + 10):
+    for version in range(1, versions + 1):
         new_styles = []
         for style in styles:
             if '{' in style and 'fill:' in style:  # 检查style格式
@@ -81,9 +72,7 @@ def process_single_svg(file_path, output_dir, versions=5):
         
         # 修改样式表
         style_element.text = '\n'.join(new_styles)
-        
-        # 对circle元素的r属性进行随机抖动
-        # randomize_circle_radius(root)
+
         
         # 重新添加命名空间声明
         root.set("xmlns", "http://www.w3.org/2000/svg")
@@ -95,7 +84,7 @@ def process_single_svg(file_path, output_dir, versions=5):
         tree.write(new_file_name)
 
 # 批量处理目录下的所有SVG文件
-def process_svg_folder(folder_path, output_dir, versions=9):
+def process_svg_folder(folder_path, output_dir, versions=1):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
@@ -105,6 +94,6 @@ def process_svg_folder(folder_path, output_dir, versions=9):
             process_single_svg(file_path, output_dir, versions)
             
 # 使用示例
-input_folder = './public/svg/'  # 替换为你的SVG文件夹路径
+input_folder = './public/newData2/'  # 替换为你的SVG文件夹路径
 output_folder = './public/randomsvg/'  # 输出文件夹
 process_svg_folder(input_folder, output_folder)

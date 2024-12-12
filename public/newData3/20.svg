@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500">
+  <rect x="184" y="369" width="13" height="35" fill="hsl(201, 58%, 50%)"/>
+  <rect x="299" y="375" width="14" height="29" fill="hsl(201, 58%, 50%)"/>
+  <rect x="415" y="370" width="13" height="34" fill="hsl(201, 58%, 50%)"/>
+  <rect x="530" y="374" width="14" height="30" fill="hsl(201, 58%, 50%)"/>
+  <rect x="646" y="375" width="13" height="29" fill="hsl(201, 58%, 50%)"/>
+  <rect x="198" y="199" width="14" height="205" fill="hsl(12, 83%, 49%)"/>
+  <rect x="314" y="159" width="13" height="245" fill="hsl(12, 83%, 49%)"/>
+  <rect x="429" y="148" width="14" height="256" fill="hsl(12, 83%, 49%)"/>
+  <rect x="545" y="161" width="13" height="243" fill="hsl(12, 83%, 49%)"/>
+  <rect x="660" y="253" width="14" height="151" fill="hsl(12, 83%, 49%)"/>
+  <rect x="213" y="290" width="13" height="114" fill="hsl(39, 92%, 45%)"/>
+  <rect x="328" y="273" width="14" height="131" fill="hsl(39, 92%, 45%)"/>
+  <rect x="444" y="276" width="13" height="128" fill="hsl(39, 92%, 45%)"/>
+  <rect x="559" y="270" width="14" height="134" fill="hsl(39, 92%, 45%)"/>
+  <rect x="675" y="267" width="13" height="137" fill="hsl(39, 92%, 45%)"/>
+  <rect x="227" y="185" width="14" height="219" fill="hsl(122, 86%, 30%)"/>
+  <rect x="343" y="126" width="13" height="278" fill="hsl(122, 86%, 30%)"/>
+  <rect x="458" y="227" width="14" height="177" fill="hsl(122, 86%, 30%)"/>
+  <rect x="574" y="192" width="13" height="212" fill="hsl(122, 86%, 30%)"/>
+  <rect x="689" y="179" width="14" height="225" fill="hsl(122, 86%, 30%)"/>
+  <rect x="242" y="306" width="13" height="98" fill="hsl(318, 97%, 32%)"/>
+  <rect x="357" y="342" width="14" height="62" fill="hsl(318, 97%, 32%)"/>
+  <rect x="473" y="318" width="13" height="86" fill="hsl(318, 97%, 32%)"/>
+  <rect x="588" y="358" width="14" height="46" fill="hsl(318, 97%, 32%)"/>
+  <rect x="704" y="324" width="13" height="80" fill="hsl(318, 97%, 32%)"/>
+</svg>

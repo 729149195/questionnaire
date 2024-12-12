@@ -65,5 +65,5 @@ class LayerDataExtractor:
 
 
 # # 示例使用（请在实际使用时取消注释）
-# extractor = LayerDataExtractor('./public/python/output/extracted_nodes.json', './public/python/output/layer_data.json')
+# extractor = LayerDataExtractor('./public/python/data/extracted_nodes.json', './public/python/data/layer_data.json')
 # extractor.process()

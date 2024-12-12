@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-600,-270,1300,520"
-  style="max-width: 100%; height: auto; font: 10px sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-600,-270,1300,520">
   <g stroke="white">
     <path d="M0,-249A249,249,0,0,1,95.881,-229.8L0,0Z" fill="rgb(66, 136, 181)">
     </path>

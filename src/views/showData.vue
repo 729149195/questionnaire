@@ -5,12 +5,12 @@
     </div>
     <div v-infinite-scroll="loadMoreFiles" :infinite-scroll-disabled="loading" infinite-scroll-distance="50" class="grid-container" style="height: 1200px; overflow-y: auto;">
       <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
-        <img :src="`/questionnaire/newData/${file}.svg`" alt="SVG Image" />
+        <img :src="`/questionnaire/newData3/${file}.svg`" alt="SVG Image" />
         <span class="svgid">{{file}}</span>
       </div>
     </div>
     <el-dialog v-model="dialogVisible" width="60%" :before-close="handleClose">
-      <img :src="`/questionnaire/newData/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`/questionnaire/newData3/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
       <span>no.{{ selectedFile }}</span>
     </el-dialog>
   </el-card>
@@ -22,9 +22,9 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 53;
+const maxFiles = 40;
 const loading = ref(false);  // 初始状态设置为 false
-const batchSize = 53;
+const batchSize = 40;
 let currentFileIndex = 0;
 
 const loadMoreFiles = async () => {
@@ -41,7 +41,7 @@ const loadMoreFiles = async () => {
 
     const fileName = `${fileIndex}.svg`;
     try {
-      const response = await fetch(`/questionnaire/newData/${fileName}`);
+      const response = await fetch(`/questionnaire/newData3/${fileName}`);
       if (response.ok) {
         loadedFiles.push(fileIndex.toString());
       } else {

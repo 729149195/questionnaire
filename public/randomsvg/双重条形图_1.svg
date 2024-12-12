@@ -1,6 +1,6 @@
-<svg width="900" height="340" id="svg" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {fill: hsl(207, 68%, 48%);;}
-.st1  {fill: hsl(5, 76%, 52%);;}</style>
+<svg width="900" height="340" viewBox="0,0,1000,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {fill: hsl(185, 71%, 56%);;}
+.st1  {fill: hsl(5, 81%, 58%);;}</style>
   <rect x="200" y="180" width="20" height="100" class="st0" />
   <rect x="225" y="200" width="20" height="80" class="st1" />
   <rect x="300" y="130" width="20" height="150" class="st0" />

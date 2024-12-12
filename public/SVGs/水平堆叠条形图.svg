@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-20,-30,1000,340" style="max-width: 100%; height: auto; font: 10px sans-serif;" id="svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0,0,900,340"  id="svg">
   <g>
     <g fill="#fee08b">
       <rect x="371" y="45" width="104" height="30">

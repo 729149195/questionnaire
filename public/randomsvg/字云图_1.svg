@@ -1,28 +1,28 @@
-<svg version="1.1" class="highcharts-root" width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {font-size: 25px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(148, 100%, 41%); opacity:1;;}
-.st1  {font-size: 15px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(226, 45%, 50%); opacity:1;;}
-.st2  {font-size: 15px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(228, 40%, 61%); opacity:1;;}
-.st3  {font-size: 12px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(30, 100%, 68%); opacity:1;;}
-.st4  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(288, 87%, 66%); opacity:1;;}
-.st5  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(14, 93%, 62%); opacity:1;;}
-.st6  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(204, 94%, 62%); opacity:1;;}
-.st7  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(227, 38%, 62%); opacity:1;;}
-.st8  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(2, 100%, 56%); opacity:1;;}
-.st9  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(189, 62%, 80%); opacity:1;;}
-.st10  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(16, 100%, 65%); opacity:1;;}
-.st11  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(300, 91%, 70%); opacity:1;;}
-.st12  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(178, 73%, 48%); opacity:1;;}
-.st13  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(162, 100%, 44%); opacity:1;;}
-.st14  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(195, 97%, 52%); opacity:1;;}
-.st15  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(254, 49%, 51%); opacity:1;;}
-.st16  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(15, 93%, 59%); opacity:1;;}
-.st17  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(158, 80%, 48%); opacity:1;;}
-.st18  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(28, 100%, 64%); opacity:1;;}
-.st19  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(162, 96%, 40%); opacity:1;;}
-.st20  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(3, 91%, 56%); opacity:1;;}
-.st21  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(190, 66%, 71%); opacity:1;;}
-.st22  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(206, 37%, 55%); opacity:1;;}
-.st23  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(257, 94%, 75%); opacity:1;;}</style>
+<svg width="900" height="340" viewBox="0,0,800,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {font-size: 25px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(138, 93%, 45%); opacity:1;;}
+.st1  {font-size: 15px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(245, 53%, 52%); opacity:1;;}
+.st2  {font-size: 15px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(214, 38%, 54%); opacity:1;;}
+.st3  {font-size: 12px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(30, 100%, 64%); opacity:1;;}
+.st4  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(308, 95%, 66%); opacity:1;;}
+.st5  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(17, 98%, 59%); opacity:1;;}
+.st6  {font-size: 9px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(199, 100%, 61%); opacity:1;;}
+.st7  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(228, 37%, 59%); opacity:1;;}
+.st8  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(3, 87%, 63%); opacity:1;;}
+.st9  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(184, 65%, 76%); opacity:1;;}
+.st10  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(17, 91%, 56%); opacity:1;;}
+.st11  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(267, 86%, 75%); opacity:1;;}
+.st12  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(168, 77%, 57%); opacity:1;;}
+.st13  {font-size: 6px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(139, 100%, 44%); opacity:1;;}
+.st14  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(206, 100%, 52%); opacity:1;;}
+.st15  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(223, 47%, 56%); opacity:1;;}
+.st16  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(16, 96%, 59%); opacity:1;;}
+.st17  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(175, 74%, 50%); opacity:1;;}
+.st18  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(32, 92%, 66%); opacity:1;;}
+.st19  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(147, 100%, 45%); opacity:1;;}
+.st20  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(2, 100%, 67%); opacity:1;;}
+.st21  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(191, 66%, 72%); opacity:1;;}
+.st22  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(238, 34%, 52%); opacity:1;;}
+.st23  {font-size: 3px; font-family: sans-serif; font-weight: 900; outline: none;fill: hsl(257, 94%, 63%); opacity:1;;}</style>
   <g transform="translate(400,226.5) scale(3.1610939881291475 3.1610939881291475)">
     <text x="0" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle" y="0" class="st0" transform="translate(0,0)" tabindex="-1" role="img" aria-label="the, weight: 8. Occurrences.">the</text>
     <text x="36.90851735015772" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle" y="0" class="st1" transform="translate(0,0) rotate(90 36.90851735015772 0)" tabindex="-1" role="img" aria-label="of, weight: 5. Occurrences.">of</text>

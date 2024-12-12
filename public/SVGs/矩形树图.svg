@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1365.640625" height="700">
+<svg width="900" height="340" viewBox="0,0,1300,700" id="svg" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0,0)">
         <rect data-testid="node.viz" width="405" height="273" fill="#1f78b4" stroke-width="2"
             stroke="rgb(31, 120, 180)" fill-opacity="0.35"></rect>

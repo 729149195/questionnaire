@@ -1,7 +1,7 @@
-<svg version="1.1" class="highcharts-root" width="1000" height="400" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="0,20,1100,300" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {opacity:1;}
-.st1  {fill: hsl(8, 61%, 53%); stroke:#ffffff; stroke-width:0; opacity:1;;}
-.st2  {fill: hsl(190, 91%, 35%); stroke:#ffffff; stroke-width:0; opacity:1;;}</style>
+.st1  {fill: hsl(31, 56%, 49%); stroke:#ffffff; stroke-width:0; opacity:1;;}
+.st2  {fill: hsl(182, 85%, 41%); stroke:#ffffff; stroke-width:0; opacity:1;;}</style>
   <g class="highcharts-series-group" data-z-index="3" filter="none">
     <g class="st0" data-z-index="0.1" transform="translate(500,70) rotate(90 87.5 402.5) scale(-1 1)" clip-path="url(#highcharts-yrw9eup-17-)">
       <path d="M 284.2721021611025 453.33038258927496 L 309.2151277013776 453.33038258927496 A 3 3 0 0 1 312.2151277013776 456.33038258927496 L 312.2151277013776 490 A 0 0 0 0 1 312.2151277013776 490 L 281.2721021611025 490 A 0 0 0 0 1 281.2721021611025 490 L 281.2721021611025 456.33038258927496 A 3 3 0 0 1 284.2721021611025 453.33038258927496 Z" filter="none" class="st1" />

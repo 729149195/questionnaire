@@ -1,7 +1,5 @@
-<svg version="1.1" class="highcharts-root"
-    style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, sans-serif; font-size: 1rem;"
-    xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"
-    aria-hidden="false" aria-label="Interactive chart">
+<svg width="900" height="340" viewBox="0,0,800,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+
 
     <g class="highcharts-series-group" data-z-index="3" filter="none" aria-hidden="false">
         <g class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-0"

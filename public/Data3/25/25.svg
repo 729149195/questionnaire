@@ -1,149 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg width="900" height="auto" viewBox="-70,-30,880,340" max-width="100%" font="10px sans-serif" id="svg">
-  <g id="g">
-    <rect x="55" y="12.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_143" />
-    <rect x="55" y="35.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_142" />
-    <rect x="55" y="58.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_141" />
-    <rect x="55" y="81.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_140" />
-    <rect x="55" y="104.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_139" />
-    <rect x="55" y="127.1" width="54.2" height="23" fill="hsl(244, 83%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_138" />
-    <rect x="55" y="150.1" width="54.2" height="23" fill="hsl(225, 79%, 65%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_137" />
-    <rect x="55" y="173.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_136" />
-    <rect x="55" y="196.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_135" />
-    <rect x="55" y="219.1" width="54.2" height="23" fill="hsl(215, 75%, 65%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_134" />
-    <rect x="55" y="242.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_133" />
-    <rect x="55" y="265.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_132" />
-    <rect x="109.2" y="12.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_131" />
-    <rect x="109.2" y="35.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_130" />
-    <rect x="109.2" y="58.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_129" />
-    <rect x="109.2" y="81.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_128" />
-    <rect x="109.2" y="104.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_127" />
-    <rect x="109.2" y="127.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_126" />
-    <rect x="109.2" y="150.1" width="54.2" height="23" fill="hsl(244, 83%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_125" />
-    <rect x="109.2" y="173.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_124" />
-    <rect x="109.2" y="196.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_123" />
-    <rect x="109.2" y="219.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_122" />
-    <rect x="109.2" y="242.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_121" />
-    <rect x="109.2" y="265.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_120" />
-    <rect x="163.3" y="12.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_119" />
-    <rect x="163.3" y="35.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_118" />
-    <rect x="163.3" y="58.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_117" />
-    <rect x="163.3" y="81.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_116" />
-    <rect x="163.3" y="104.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_115" />
-    <rect x="163.3" y="127.1" width="54.2" height="23" fill="hsl(210, 83%, 73%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_114" />
-    <rect x="163.3" y="150.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_113" />
-    <rect x="163.3" y="173.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_112" />
-    <rect x="163.3" y="196.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_111" />
-    <rect x="163.3" y="219.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_110" />
-    <rect x="163.3" y="242.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_109" />
-    <rect x="163.3" y="265.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_108" />
-    <rect x="217.5" y="12.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_107" />
-    <rect x="217.5" y="35.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_106" />
-    <rect x="217.5" y="58.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_105" />
-    <rect x="217.5" y="81.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_104" />
-    <rect x="217.5" y="104.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_103" />
-    <rect x="217.5" y="127.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_102" />
-    <rect x="217.5" y="150.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_101" />
-    <rect x="217.5" y="173.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_100" />
-    <rect x="217.5" y="196.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_99" />
-    <rect x="217.5" y="219.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_98" />
-    <rect x="217.5" y="242.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_97" />
-    <rect x="217.5" y="265.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_96" />
-    <rect x="271.7" y="12.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_95" />
-    <rect x="271.7" y="35.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_94" />
-    <rect x="271.7" y="58.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_93" />
-    <rect x="271.7" y="81.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_92" />
-    <rect x="271.7" y="104.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_91" />
-    <rect x="271.7" y="127.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_90" />
-    <rect x="271.7" y="150.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_89" />
-    <rect x="271.7" y="173.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_88" />
-    <rect x="271.7" y="196.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_87" />
-    <rect x="271.7" y="219.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_86" />
-    <rect x="271.7" y="242.1" width="54.2" height="23" fill="hsl(32, 72%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_85" />
-    <rect x="271.7" y="265.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_84" />
-    <rect x="325.8" y="12.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_83" />
-    <rect x="325.8" y="35.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_82" />
-    <rect x="325.8" y="58.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_81" />
-    <rect x="325.8" y="81.1" width="54.2" height="23" fill="hsl(32, 72%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_80" />
-    <rect x="325.8" y="104.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_79" />
-    <rect x="325.8" y="127.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_78" />
-    <rect x="325.8" y="150.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_77" />
-    <rect x="325.8" y="173.1" width="54.2" height="23" fill="hsl(32, 72%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_76" />
-    <rect x="325.8" y="196.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_75" />
-    <rect x="325.8" y="219.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_74" />
-    <rect x="325.8" y="242.1" width="54.2" height="23" fill="hsl(32, 72%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_73" />
-    <rect x="325.8" y="265.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_72" />
-    <rect x="380" y="12.1" width="54.2" height="23" fill="hsl(32, 72%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_71" />
-    <rect x="380" y="35.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_70" />
-    <rect x="380" y="58.1" width="54.2" height="23" fill="hsl(34, 83%, 66%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_69" />
-    <rect x="380" y="81.1" width="54.2" height="23" fill="hsl(35, 100%, 60%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_68" />
-    <rect x="380" y="104.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_67" />
-    <rect x="380" y="127.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_66" />
-    <rect x="380" y="150.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_65" />
-    <rect x="380" y="173.1" width="54.2" height="23" fill="hsl(34, 83%, 66%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_64" />
-    <rect x="380" y="196.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_63" />
-    <rect x="380" y="219.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_62" />
-    <rect x="380" y="242.1" width="54.2" height="23" fill="hsl(35, 100%, 60%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_61" />
-    <rect x="380" y="265.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_60" />
-    <rect x="434.2" y="12.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_59" />
-    <rect x="434.2" y="35.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_58" />
-    <rect x="434.2" y="58.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_57" />
-    <rect x="434.2" y="81.1" width="54.2" height="23" fill="hsl(34, 83%, 66%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_56" />
-    <rect x="434.2" y="104.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_55" />
-    <rect x="434.2" y="127.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_54" />
-    <rect x="434.2" y="150.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_53" />
-    <rect x="434.2" y="173.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_52" />
-    <rect x="434.2" y="196.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_51" />
-    <rect x="434.2" y="219.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_50" />
-    <rect x="434.2" y="242.1" width="54.2" height="23" fill="hsl(34, 83%, 66%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_49" />
-    <rect x="434.2" y="265.1" width="54.2" height="23" fill="hsl(28, 40%, 63%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_48" />
-    <rect x="488.3" y="12.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_47" />
-    <rect x="488.3" y="35.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_46" />
-    <rect x="488.3" y="58.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_45" />
-    <rect x="488.3" y="81.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_44" />
-    <rect x="488.3" y="104.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_43" />
-    <rect x="488.3" y="127.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_42" />
-    <rect x="488.3" y="150.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_41" />
-    <rect x="488.3" y="173.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_40" />
-    <rect x="488.3" y="196.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_39" />
-    <rect x="488.3" y="219.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_38" />
-    <rect x="488.3" y="242.1" width="54.2" height="23" fill="hsl(31, 54%, 61%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_37" />
-    <rect x="488.3" y="265.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_36" />
-    <rect x="542.5" y="12.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_35" />
-    <rect x="542.5" y="35.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_34" />
-    <rect x="542.5" y="58.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_33" />
-    <rect x="542.5" y="81.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_32" />
-    <rect x="542.5" y="104.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_31" />
-    <rect x="542.5" y="127.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_30" />
-    <rect x="542.5" y="150.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_29" />
-    <rect x="542.5" y="173.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_28" />
-    <rect x="542.5" y="196.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_27" />
-    <rect x="542.5" y="219.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_26" />
-    <rect x="542.5" y="242.1" width="54.2" height="23" fill="hsl(15, 20%, 74%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_25" />
-    <rect x="542.5" y="265.1" width="54.2" height="23" fill="hsl(317, 7%, 70%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_24" />
-    <rect x="596.7" y="12.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_23" />
-    <rect x="596.7" y="35.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_22" />
-    <rect x="596.7" y="58.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_21" />
-    <rect x="596.7" y="81.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_20" />
-    <rect x="596.7" y="104.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_19" />
-    <rect x="596.7" y="127.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_18" />
-    <rect x="596.7" y="150.1" width="54.2" height="23" fill="hsl(210, 83%, 73%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_17" />
-    <rect x="596.7" y="173.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_16" />
-    <rect x="596.7" y="196.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_15" />
-    <rect x="596.7" y="219.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_14" />
-    <rect x="596.7" y="242.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_13" />
-    <rect x="596.7" y="265.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_12" />
-    <rect x="650.8" y="12.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_11" />
-    <rect x="650.8" y="35.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_10" />
-    <rect x="650.8" y="58.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_9" />
-    <rect x="650.8" y="81.1" width="54.2" height="23" fill="hsl(248, 25%, 72%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_8" />
-    <rect x="650.8" y="104.1" width="54.2" height="23" fill="hsl(235, 49%, 71%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_7" />
-    <rect x="650.8" y="127.1" width="54.2" height="23" fill="hsl(210, 83%, 73%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_6" />
-    <rect x="650.8" y="150.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_5" />
-    <rect x="650.8" y="173.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_4" />
-    <rect x="650.8" y="196.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_3" />
-    <rect x="650.8" y="219.1" width="54.2" height="23" fill="hsl(245, 87%, 75%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_2" />
-    <rect x="650.8" y="242.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect_1" />
-    <rect x="650.8" y="265.1" width="54.2" height="23" fill="hsl(210, 90%, 76%)" stroke="#FFFFFF" stroke-width="0.5" id="rect" />
+<svg width="900" height="340" viewBox="0,0,750,300" id="svg">
+  <g data-z-index="0.1" transform="translate(32,51) rotate(90 260 498) scale(-1 1)" clip-path="url(#highcharts-5sh6i7x-14-)" aria-hidden="false" role="region" tabindex="-1" aria-label="Year 1990, bar series 1 of 3 with 4 bars." outline="none" opacity="1" id="g_2">
+    <path d="M 223 662.5 L 223 662.5 A 6.5 6.5 0 0 1 229.5 669 L 229.5 757.5 A 0 0 0 0 1 229.5 757.5 L 216.5 757.5 A 0 0 0 0 1 216.5 757.5 L 216.5 669 A 6.5 6.5 0 0 1 223 662.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 0, 632. Year 1990." outline="none" fill="#2caffe" stroke="#ffffff" stroke-width="1" opacity="1" id="path_11" />
+    <path d="M 164 647.5 L 164 647.5 A 6.5 6.5 0 0 1 170.5 654 L 170.5 757.5 A 0 0 0 0 1 170.5 757.5 L 157.5 757.5 A 0 0 0 0 1 157.5 757.5 L 157.5 654 A 6.5 6.5 0 0 1 164 647.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 1, 727. Year 1990." outline="none" fill="#2caffe" stroke="#ffffff" stroke-width="1" opacity="1" id="path_10" />
+    <path d="M 106 272.5 L 106 272.5 A 6.5 6.5 0 0 1 112.5 279 L 112.5 757.5 A 0 0 0 0 1 112.5 757.5 L 99.5 757.5 A 0 0 0 0 1 99.5 757.5 L 99.5 279 A 6.5 6.5 0 0 1 106 272.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 2, 3,202. Year 1990." outline="none" fill="#2caffe" stroke="#ffffff" stroke-width="1" opacity="1" id="path_9" />
+    <path d="M 47 648.5 L 47 648.5 A 6.5 6.5 0 0 1 53.5 655 L 53.5 757.5 A 0 0 0 0 1 53.5 757.5 L 40.5 757.5 A 0 0 0 0 1 40.5 757.5 L 40.5 655 A 6.5 6.5 0 0 1 47 648.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 3, 721. Year 1990." outline="none" fill="#2caffe" stroke="#ffffff" stroke-width="1" opacity="1" id="path_8" />
+  </g>
+  <g data-z-index="0.1" transform="translate(32,51) rotate(90 260 498) scale(-1 1)" clip-path="url(#highcharts-5sh6i7x-14-)" aria-hidden="false" role="region" tabindex="-1" aria-label="Year 2000, bar series 2 of 3 with 4 bars." outline="none" opacity="1" id="g_1">
+    <path d="M 207 634.5 L 207 634.5 A 6.5 6.5 0 0 1 213.5 641 L 213.5 757.5 A 0 0 0 0 1 213.5 757.5 L 200.5 757.5 A 0 0 0 0 1 200.5 757.5 L 200.5 641 A 6.5 6.5 0 0 1 207 634.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 0, 814. Year 2000." outline="none" fill="#544fc5" stroke="#ffffff" stroke-width="1" opacity="1" id="path_7" />
+    <path d="M 149 630.5 L 149 630.5 A 6.5 6.5 0 0 1 155.5 637 L 155.5 757.5 A 0 0 0 0 1 155.5 757.5 L 142.5 757.5 A 0 0 0 0 1 142.5 757.5 L 142.5 637 A 6.5 6.5 0 0 1 149 630.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 1, 841. Year 2000." outline="none" fill="#544fc5" stroke="#ffffff" stroke-width="1" opacity="1" id="path_6" />
+    <path d="M 90 194.5 L 90 194.5 A 6.5 6.5 0 0 1 96.5 201 L 96.5 757.5 A 0 0 0 0 1 96.5 757.5 L 83.5 757.5 A 0 0 0 0 1 83.5 757.5 L 83.5 201 A 6.5 6.5 0 0 1 90 194.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 2, 3,714. Year 2000." outline="none" fill="#544fc5" stroke="#ffffff" stroke-width="1" opacity="1" id="path_5" />
+    <path d="M 31 647.5 L 31 647.5 A 6.5 6.5 0 0 1 37.5 654 L 37.5 757.5 A 0 0 0 0 1 37.5 757.5 L 24.5 757.5 A 0 0 0 0 1 24.5 757.5 L 24.5 654 A 6.5 6.5 0 0 1 31 647.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 3, 726. Year 2000." outline="none" fill="#544fc5" stroke="#ffffff" stroke-width="1" opacity="1" id="path_4" />
+  </g>
+  <g data-z-index="0.1" transform="translate(32,51) rotate(90 260 498) scale(-1 1)" clip-path="url(#highcharts-5sh6i7x-14-)" aria-hidden="false" role="region" tabindex="-1" aria-label="Year 2021, bar series 3 of 3 with 4 bars." outline="none" opacity="1" id="g">
+    <path d="M 192 546.5 L 192 546.5 A 6.5 6.5 0 0 1 198.5 553 L 198.5 757.5 A 0 0 0 0 1 198.5 757.5 L 185.5 757.5 A 0 0 0 0 1 185.5 757.5 L 185.5 553 A 6.5 6.5 0 0 1 192 546.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 0, 1,393. Year 2021." outline="none" fill="#00e272" stroke="#ffffff" stroke-width="1" opacity="1" id="path_3" />
+    <path d="M 133 601.5 L 133 601.5 A 6.5 6.5 0 0 1 139.5 608 L 139.5 757.5 A 0 0 0 0 1 139.5 757.5 L 126.5 757.5 A 0 0 0 0 1 126.5 757.5 L 126.5 608 A 6.5 6.5 0 0 1 133 601.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 1, 1,031. Year 2021." outline="none" fill="#00e272" stroke="#ffffff" stroke-width="1" opacity="1" id="path_2" />
+    <path d="M 74 46.5 L 74 46.5 A 6.5 6.5 0 0 1 80.5 53 L 80.5 757.5 A 0 0 0 0 1 80.5 757.5 L 67.5 757.5 A 0 0 0 0 1 67.5 757.5 L 67.5 53 A 6.5 6.5 0 0 1 74 46.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 2, 4,695. Year 2021." outline="none" fill="#00e272" stroke="#ffffff" stroke-width="1" opacity="1" id="path_1" />
+    <path d="M 16 645.5 L 16 645.5 A 6.5 6.5 0 0 1 22.5 652 L 22.5 757.5 A 0 0 0 0 1 22.5 757.5 L 9.5 757.5 A 0 0 0 0 1 9.5 757.5 L 9.5 652 A 6.5 6.5 0 0 1 16 645.5 Z" filter="none" tabindex="-1" role="img" aria-label="x, 3, 745. Year 2021." outline="none" fill="#00e272" stroke="#ffffff" stroke-width="1" opacity="1" id="path" />
   </g>
 </svg>

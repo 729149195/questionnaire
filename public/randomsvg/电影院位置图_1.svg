@@ -1,6 +1,6 @@
-<svg version="1.1" class="highcharts-root" width="820" height="500" viewBox="0 0 820 500" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {outline: none;fill: hsl(0, 0%, 82%); stroke:#e6e6e6; opacity:1;;}
-.st1  {outline: none;fill: hsl(195, 100%, 59%); stroke:#e6e6e6; opacity:1;;}</style>
+<svg width="900" height="340" viewBox="0,20,1100,550" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {outline: none;fill: hsl(0, 0%, 87%); stroke:#e6e6e6; opacity:1;;}
+.st1  {outline: none;fill: hsl(184, 95%, 53%); stroke:#e6e6e6; opacity:1;;}</style>
   <g>
     <g>
       <g transform="translate(32.68656716417905,59.85074626865668) scale(2.268656716417911 2.268656716417911)">

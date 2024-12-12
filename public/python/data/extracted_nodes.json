@@ -4,7 +4,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(240, 48%, 57%)",
+        "fill": "#544fc5",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -90,7 +90,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(214, 94%, 57%)",
+        "fill": "#2caffe",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -176,7 +176,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(183, 70%, 75%)",
+        "fill": "#91e8e1",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -262,7 +262,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(33, 100%, 66%)",
+        "fill": "#feb56a",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -348,7 +348,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(3, 98%, 56%)",
+        "fill": "#fa4b42",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -434,7 +434,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(155, 71%, 48%)",
+        "fill": "#2ee0ca",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -520,7 +520,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(268, 87%, 62%)",
+        "fill": "#d568fb",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -606,7 +606,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(216, 38%, 52%)",
+        "fill": "#6b8abc",
         "opacity": 1,
         "level": 0,
         "layer": [
@@ -864,7 +864,7 @@
         "stroke": "#ffffff",
         "stroke-width": "1",
         "stroke-opacity": 1,
-        "fill": "hsl(240, 48%, 57%)",
+        "fill": "#544fc5",
         "opacity": 1,
         "level": 0,
         "layer": [

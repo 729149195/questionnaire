@@ -1,4 +1,4 @@
-<svg version="1.1" class="highcharts-root" width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="0,0,1000,500" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {stroke-width:2286.9024540372397;}
 .st1  {outline: none;fill: rgb(63,88,255); stroke:#e6e6e6; opacity:1;;}
 .st2  {outline: none;fill: rgb(67,92,255); stroke:#e6e6e6; opacity:1;;}

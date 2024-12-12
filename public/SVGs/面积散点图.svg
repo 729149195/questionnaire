@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-70,-30,880,340"
-  style="max-width: 100%; height: auto; font: 10px sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-70,-30,880,340">
   <circle cx="141.9" cy="223.5" r="21.1" opacity="0.8" fill="#22B573" />
   <circle cx="188.6" cy="186.1" r="33.9" opacity="0.8" fill="#F15A24" />
   <circle cx="284.9" cy="171.8" r="24.1" opacity="0.8" fill="#F15A24" />

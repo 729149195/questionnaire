@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340"
-  style="max-width: 100%; height: auto; font: 10px sans-serif;">
+<svg width="900" height="340" viewBox="0,0,750,300" id="svg" xmlns="http://www.w3.org/2000/svg">
+
   <rect x="509.6" y="22.5" width="131.3" height="53.3" fill="#ef2f1a" stroke="#FFFFFF" />
   <rect x="640.9" y="22.5" width="66.6" height="67.3" fill="#ef2f1a" stroke="#FFFFFF" />
   <rect x="312.7" y="73.6" width="196.9" height="27.5" fill="#f02f6d" stroke="#FFFFFF" />

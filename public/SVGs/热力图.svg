@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-70,-30,880,340" style="max-width: 100%; height: auto; font: 10px sans-serif;">
+<svg width="900" height="340" viewBox="0,0,800,600" id="svg" xmlns="http://www.w3.org/2000/svg">
   <g id="Layer_2">
     <rect x="55" y="12.1" width="54.2" height="23" fill="#94ABF5" stroke="#FFFFFF" stroke-width="0.5"/>
     <rect x="55" y="35.1" width="54.2" height="23" fill="#7F9BF5" stroke="#FFFFFF" stroke-width="0.5"/>

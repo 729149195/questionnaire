@@ -299,7 +299,7 @@ const fetchSvgContent = async (step) => {
     });
     nodeEventHandlers.clear();
 
-    const response = await fetch(`./Data2/${step}/${step}.svg`);
+    const response = await fetch(`./Data3/${step}/${step}.svg`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -706,7 +706,7 @@ const deleteCurrentGroup = () => {
 
 const eleURL = computed(() => {
   const step = store.state.steps[active.value];
-  return `./Data2/${step}/layer_data.json`;
+  return `./Data3/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);

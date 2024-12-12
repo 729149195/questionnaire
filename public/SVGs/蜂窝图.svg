@@ -1,5 +1,5 @@
-<svg version="1.1" class="highcharts-root" xmlns="http://www.w3.org/2000/svg" width="700"
-    height="560" viewBox="0 0 700 560">
+<svg width="900" height="340" viewBox="0,0,750,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+
     <g>
         <g
             transform="translate(10,63) rotate(90 120 560) scale(-1 1)">

@@ -1,10 +1,10 @@
-<svg width="1365.640625" height="700" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {fill: hsl(29, 64%, 70%); stroke:#E8C1A0;;}
-.st1  {fill: hsl(8, 80%, 62%);;}
-.st2  {fill: hsl(54, 86%, 66%);;}
-.st3  {fill: hsl(36, 82%, 56%); stroke:#E8A838;;}
-.st4  {fill: hsl(177, 47%, 64%); stroke:#61CDBB;;}
-.st5  {fill: hsl(156, 55%, 79%); stroke:#97E3D5;;}</style>
+<svg width="800" height="340" viewBox="0,0,1300,800" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {fill: hsl(28, 65%, 82%); stroke:#E8C1A0;;}
+.st1  {fill: hsl(8, 82%, 72%);;}
+.st2  {fill: hsl(49, 82%, 67%);;}
+.st3  {fill: hsl(35, 79%, 51%); stroke:#E8A838;;}
+.st4  {fill: hsl(177, 55%, 61%); stroke:#61CDBB;;}
+.st5  {fill: hsl(161, 62%, 76%); stroke:#97E3D5;;}</style>
   <circle cx="662.8203125" cy="330" r="330" class="st0" />
   <circle cx="716.4209778465477" cy="400.5972336944523" r="112.281169861559" class="st1" />
   <circle cx="858.695588324668" cy="400.5972336944523" r="29.99344061656133" class="st1" />

@@ -1,6 +1,5 @@
-<svg version="1.1" class="highcharts-root"
-    xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"
->
+<svg width="900" height="340" viewBox="0,0,750,400" id="svg" xmlns="http://www.w3.org/2000/svg">
+
     <g>
         <g>
             <g stroke-width="2286.9024540372397"

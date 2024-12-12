@@ -1,10 +1,10 @@
-<svg width="1365.640625" height="700" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {fill: hsl(26, 58%, 73%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st1  {fill: hsl(7, 78%, 61%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st2  {fill: hsl(48, 78%, 70%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st3  {fill: hsl(40, 81%, 60%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st4  {fill: hsl(179, 57%, 61%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st5  {fill: hsl(152, 53%, 77%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+<svg width="900" height="340" viewBox="0,0,1300,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {fill: hsl(26, 56%, 75%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st1  {fill: hsl(8, 86%, 68%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st2  {fill: hsl(55, 85%, 64%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st3  {fill: hsl(35, 77%, 52%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st4  {fill: hsl(166, 51%, 53%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st5  {fill: hsl(166, 52%, 69%); stroke:#ffffff; stroke-width:1; opacity:1;;}
 .st6  {fill: rgb(240, 200, 166); stroke:#ffffff; stroke-width:1; opacity:1;;}
 .st7  {fill: rgb(253, 121, 99); stroke:#ffffff; stroke-width:1; opacity:1;;}
 .st8  {fill: rgb(250, 233, 94); stroke:#ffffff; stroke-width:1; opacity:1;;}

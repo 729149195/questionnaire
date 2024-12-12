@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="highcharts-root" width="700" height="560" viewBox="0 0 700 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0,0,750,600" id="svg">
   <style>.st0 {outline: none; fill:#FF7987; stroke:#FF7987; stroke-width:0; opacity:1;}
 .st1 {outline: none; fill:rgb(249,237,179); stroke:#F9EDB3; stroke-width:0; opacity:1;}
 .st2 {outline: none; fill:#FFC428; stroke:#FFC428; stroke-width:0; opacity:1;}

@@ -1,11 +1,11 @@
-<svg version="1.1" class="highcharts-root" width="700" height="560" viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {outline: none;fill: hsl(357, 93%, 70%); stroke:#FF7987; stroke-width:0; opacity:1;;}
+<svg width="900" height="340" viewBox="0,0,1200,700" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {outline: none;fill: hsl(349, 100%, 74%); stroke:#FF7987; stroke-width:0; opacity:1;;}
 .st1  {outline: none;fill: rgb(249,237,179); stroke:#F9EDB3; stroke-width:0; opacity:1;;}
-.st2  {outline: none;fill: hsl(41, 98%, 60%); stroke:#FFC428; stroke-width:0; opacity:1;;}
-.st3  {outline: none;fill: hsl(320, 96%, 56%); stroke:#FF2371; stroke-width:0; opacity:1;;}
-.st4  {outline: none;fill: hsl(46, 81%, 87%); stroke:#F9EDB3; stroke-width:0; opacity:1;;}
+.st2  {outline: none;fill: hsl(47, 100%, 52%); stroke:#FFC428; stroke-width:0; opacity:1;;}
+.st3  {outline: none;fill: hsl(314, 100%, 54%); stroke:#FF2371; stroke-width:0; opacity:1;;}
+.st4  {outline: none;fill: hsl(51, 88%, 81%); stroke:#F9EDB3; stroke-width:0; opacity:1;;}
 .st5  {outline: none;fill: rgb(255,196,40); stroke:#FFC428; stroke-width:0; opacity:1;;}
-.st6  {fill: hsl(42, 100%, 52%);;}</style>
+.st6  {fill: hsl(46, 99%, 62%);;}</style>
   <g>
     <g transform="translate(10,63) rotate(90 120 560) scale(-1 1)">
       <path d="M 143 271 L 118 271 L 104.11111111111111 246 L 118 221 L 143 221 L 156.88888888888889 246 Z" filter="none" class="st0" tabindex="-1" role="img" aria-label="1. Alabama, 5108468." />

@@ -1,9 +1,9 @@
-<svg width="900" height="500" xmlns="http://www.w3.org/2000/svg">
-  <style>.st0  {fill: hsl(201, 58%, 50%);;}
-.st1  {fill: hsl(12, 83%, 49%);;}
-.st2  {fill: hsl(39, 92%, 45%);;}
-.st3  {fill: hsl(122, 86%, 30%);;}
-.st4  {fill: hsl(318, 97%, 32%);;}</style>
+<svg width="900" height="340" viewBox="0,0,1000,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0  {fill: hsl(216, 55%, 52%);;}
+.st1  {fill: hsl(11, 78%, 42%);;}
+.st2  {fill: hsl(35, 100%, 51%);;}
+.st3  {fill: hsl(113, 86%, 31%);;}
+.st4  {fill: hsl(313, 100%, 32%);;}</style>
   <rect x="184" y="369" width="13" height="35" class="st0" />
   <rect x="299" y="375" width="14" height="29" class="st0" />
   <rect x="415" y="370" width="13" height="34" class="st0" />

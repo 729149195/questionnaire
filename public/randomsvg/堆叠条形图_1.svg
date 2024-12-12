@@ -1,8 +1,8 @@
-<svg version="1.1" class="highcharts-root" width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="0,20,1100,300" id="svg" xmlns="http://www.w3.org/2000/svg">
   <style>.st0 {outline: none; opacity:1;}
-.st1  {outline: none;fill: hsl(183, 93%, 59%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st2  {outline: none;fill: hsl(242, 54%, 54%); stroke:#ffffff; stroke-width:1; opacity:1;;}
-.st3  {outline: none;fill: hsl(141, 94%, 45%); stroke:#ffffff; stroke-width:1; opacity:1;;}</style>
+.st1  {outline: none;fill: hsl(214, 94%, 58%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st2  {outline: none;fill: hsl(234, 50%, 51%); stroke:#ffffff; stroke-width:1; opacity:1;;}
+.st3  {outline: none;fill: hsl(143, 100%, 47%); stroke:#ffffff; stroke-width:1; opacity:1;;}</style>
   <g class="st0" data-z-index="0.1" transform="translate(66,51) scale(1 1)" clip-path="url(#highcharts-bbwxnuf-14-)" aria-hidden="false" role="region" tabindex="-1" aria-label="BPL, bar series 1 of 3 with 4 bars.">
     <path d="M 54.5 112.5 L 134.5 112.5 A 3 3 0 0 1 137.5 115.5 L 137.5 138.5 A 0 0 0 0 1 137.5 138.5 L 51.5 138.5 A 0 0 0 0 1 51.5 138.5 L 51.5 115.5 A 3 3 0 0 1 54.5 112.5 Z" filter="none" class="st1" tabindex="-1" role="img" aria-label="x, 0, 3. BPL." />
     <path d="M 233.5 130.5 L 313.5 130.5 A 3 3 0 0 1 316.5 133.5 L 316.5 173.5 A 0 0 0 0 1 316.5 173.5 L 230.5 173.5 A 0 0 0 0 1 230.5 173.5 L 230.5 133.5 A 3 3 0 0 1 233.5 130.5 Z" filter="none" class="st1" tabindex="-1" role="img" aria-label="x, 1, 5. BPL." />

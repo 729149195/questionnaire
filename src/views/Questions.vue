@@ -808,7 +808,7 @@ const sendEmail = (data) => {
     message: JSON.stringify(data, null, 2)
   };
 
-  return emailjs.send('service_w28zafs', 'template_cq4vqhy', emailData, 'zEOYsF4TFcaSSPSsZ')
+  return emailjs.send('service_e1fyicu', 'template_a753pml', emailData, 'V-soSEM_lhq-gts4J')
     .then((response) => {
       console.log('Email sent successfully!', response.status, response.text);
       ElMessage.success('数据文件已自动上传成功!');

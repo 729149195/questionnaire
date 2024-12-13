@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="auto" viewBox="-70,-30,880,340" max-width="100%" font="10px sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="-70,-30,880,340" class="st0">
+  <style>.st0 {max-width: 100%; height: auto; font: 10px sans-serif;}</style>
   <style type="text/css">
 	.st0{fill:none;stroke:#CCCCCC;}
 	.st1{fill:#999999;}

@@ -8,7 +8,7 @@
       :infinite-scroll-disabled="loading || noMore" 
       infinite-scroll-distance="50" 
       class="grid-container" 
-      style="height: 1200px; overflow-y: auto;"
+      style="height: auto; overflow-y: auto;"
     >
       <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
         <img :src="`/questionnaire/newData3/${file}.svg`" alt="SVG Image" />
@@ -28,7 +28,7 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 39;
+const maxFiles = 40;
 const loading = ref(false);
 const noMore = ref(false);  // 新增：标记是否还有更多数据
 const batchSize = 10;  // 减小批量加载数量

@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // 确保目录存在
-const questionnaireDir = join(__dirname, '../public/QuestionnaireData');
+const questionnaireDir = join(__dirname, '../public/QuestionnaireData2');
 
 // 添加错误处理中间件
 app.use((req, res, next) => {
@@ -84,6 +84,6 @@ app.listen(port, () => {
     console.log(`Serving questionnaire data from: ${questionnaireDir}`);
     // 启动时检查目录
     fs.access(questionnaireDir)
-        .then(() => console.log('QuestionnaireData directory exists'))
-        .catch(() => console.error('WARNING: QuestionnaireData directory not found!'));
+        .then(() => console.log('QuestionnaireData2 directory exists'))
+        .catch(() => console.error('WARNING: QuestionnaireData2 directory not found!'));
 }); 

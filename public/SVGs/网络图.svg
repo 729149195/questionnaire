@@ -1,4 +1,4 @@
-<svg width="900" height="340" viewBox="200,0,1000,600" id="svg" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="340" viewBox="300,100,800,600" id="svg" xmlns="http://www.w3.org/2000/svg">
     <line data-testid="link.Node 0.Node 1" stroke="rgb(244, 117, 96)" stroke-width="4"
         stroke-linecap="round" x1="681.2591169613406" y1="350.0491430136193"
         x2="584.9038536747067" y2="265.8356041757961" style="mix-blend-mode: multiply;"></line>

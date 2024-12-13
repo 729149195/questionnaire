@@ -953,7 +953,7 @@ onMounted(async () => {
   await fetchAndRenderTree();
   ensureGroupInitialization();
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
   }
 });

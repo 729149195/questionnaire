@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg width="900" height="340" viewBox="0,0,800,600" id="svg">
+<svg width="900" height="340" viewBox="0,0,700,400" id="svg">
   <g class="highcharts-series-group" data-z-index="3" filter="none" aria-hidden="false" id="g">
     <g data-z-index="0.1" transform="translate(80,68) scale(1 1)" clip-path="url(#highcharts-0fek5hi-29-)" aria-hidden="true" opacity="1" id="g_10">
       <path d="M 4.9803921568583 222.39405 L 46.483660130715 215.6652 L 87.986928104572 192.139875 L 129.49019607843 168.396525 L 170.99346405229 125.196225 L 212.49673202614 82.104225 L 254 40.565475 L 295.50326797386 49.62705 L 337.00653594771 63.901275 L 378.50980392157 54.92805 L 420.01307189543 64.68075 L 461.51633986928 44.232 L 503.01960784314 40.52985" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#2caffe" stroke-width="2" id="path_70" />

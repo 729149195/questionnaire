@@ -3,7 +3,13 @@
     <div v-if="loading && files.length === 0">
       <el-skeleton :rows="15" animated />
     </div>
-    <div v-infinite-scroll="loadMoreFiles" :infinite-scroll-disabled="loading" infinite-scroll-distance="50" class="grid-container" style="height: 1200px; overflow-y: auto;">
+    <div 
+      v-infinite-scroll="loadMoreFiles" 
+      :infinite-scroll-disabled="loading || noMore" 
+      infinite-scroll-distance="50" 
+      class="grid-container" 
+      style="height: 1200px; overflow-y: auto;"
+    >
       <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
         <img :src="`/questionnaire/newData3/${file}.svg`" alt="SVG Image" />
         <span class="svgid">{{file}}</span>
@@ -22,42 +28,43 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 40;
-const loading = ref(false);  // 初始状态设置为 false
-const batchSize = 40;
+const maxFiles = 39;
+const loading = ref(false);
+const noMore = ref(false);  // 新增：标记是否还有更多数据
+const batchSize = 10;  // 减小批量加载数量
 let currentFileIndex = 0;
 
 const loadMoreFiles = async () => {
-  if (loading.value) return;
-  console.log("Loading more files..."); // 调试信息
+  if (loading.value || noMore.value) return;
+  
   loading.value = true;
   const loadedFiles = [];
-  for (let i = 0; i < batchSize; i++) {
-    const fileIndex = currentFileIndex + i + 1;
-    if (fileIndex > maxFiles) {
-      loading.value = false;
-      return;
-    }
+  
+  try {
+    for (let i = 0; i < batchSize; i++) {
+      const fileIndex = currentFileIndex + i + 1;
+      if (fileIndex > maxFiles) {
+        noMore.value = true;
+        break;
+      }
 
-    const fileName = `${fileIndex}.svg`;
-    try {
+      const fileName = `${fileIndex}.svg`;
       const response = await fetch(`/questionnaire/newData3/${fileName}`);
       if (response.ok) {
         loadedFiles.push(fileIndex.toString());
       } else {
-        console.log(`File ${fileName} not found.`); // 文件未找到时的调试信息
+        noMore.value = true;
         break;
       }
-    } catch (error) {
-      console.error('Error fetching file:', error);
-      break;
     }
-  }
 
-  files.value.push(...loadedFiles);
-  currentFileIndex += loadedFiles.length;
-  loading.value = false;
-  // console.log("Current files:", files.value); // 当前文件列表的调试信息
+    files.value = [...files.value, ...loadedFiles];
+    currentFileIndex += loadedFiles.length;
+  } catch (error) {
+    console.error('Error loading files:', error);
+  } finally {
+    loading.value = false;
+  }
 };
 
 const showSvg = (file) => {
@@ -99,8 +106,8 @@ onMounted(() => {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
   padding: 20px;
   width: 90vw;
   box-sizing: border-box;
@@ -115,6 +122,8 @@ onMounted(() => {
   background-color: #fff;
   cursor: pointer;
   position: relative;
+  aspect-ratio: 16 / 9;
+  height: 180px;
 }
 
 .svgid {
@@ -127,6 +136,9 @@ onMounted(() => {
 .svg-container img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .el-dialog__body {

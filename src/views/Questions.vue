@@ -714,7 +714,7 @@ const chartContainer = ref(null);
 const next = async () => {
   if (!checkUserId()) return;
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
     return;
   }
@@ -737,7 +737,7 @@ const next = async () => {
 const Previous = async () => {
   if (!checkUserId()) return;
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
     return;
   }
@@ -837,7 +837,7 @@ const submit = async () => {
       Promise.resolve(generateJsonData()) // 将同步操作包装成 Promise
     ]);
 
-    if (count >= 5) {
+    if (count >= 2) {
       submitLoading.value = false;
       router.push('/limit-reached');
       return;
@@ -960,7 +960,7 @@ const ensureGroupInitialization = () => {
 };
 
 const generateRandomArray = () => {
-  const numbers = Array.from({ length: 53 }, (_, index) => index + 1);
+  const numbers = Array.from({ length: 39 }, (_, index) => index + 1);
   const randomArray = [];
   while (randomArray.length < 10) {
     const randomIndex = Math.floor(Math.random() * numbers.length);
@@ -973,7 +973,7 @@ const generateRandomArray = () => {
 onMounted(async () => {
   if (!checkUserId()) return;
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
   }
   const randomSteps = generateRandomArray();

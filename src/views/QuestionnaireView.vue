@@ -12,10 +12,13 @@
           <h2>个人信息</h2>
           <p class="confidentiality">您的信息将被保密。( •̀ ω •́ )✧</p>
           <el-form label-position="top" class="form" @submit.prevent="handleSubmit">
-            <el-form-item label="1、年龄" label-for="age">
+            <el-form-item label="1、学号" label-for="studentid">
+              <el-input id="studentid" v-model="form.studentid" placeholder="输入您的学号" class="input-field"></el-input>
+            </el-form-item>
+            <el-form-item label="2、年龄" label-for="age">
               <el-input id="age" v-model="form.age" placeholder="输入您的年龄" class="input-field"></el-input>
             </el-form-item>
-            <el-form-item label="2、性别" label-for="gender">
+            <el-form-item label="3、性别" label-for="gender">
               <el-radio-group id="gender" v-model="form.gender" class="input-field">
                 <el-radio :value="'male'">男</el-radio>
                 <el-radio :value="'female'">女</el-radio>
@@ -23,14 +26,14 @@
               </el-radio-group>
               <!-- <span v-if="form.gender === OTHER">你确定吗？(ﾟДﾟ*)ﾉ</span> -->
             </el-form-item>
-            <el-form-item label="3、您是否有视觉感知障碍（如色盲、色弱等）？" label-for="visualimpairment">
+            <el-form-item label="4、您是否有视觉感知障碍（如色盲、色弱等）？" label-for="visualimpairment">
               <el-radio-group id="visualimpairment" v-model="form.visualimpairment" class="input-field">
                 <el-radio :value="'yes'">有</el-radio>
                 <el-radio :value="'no'">没有</el-radio>
               </el-radio-group>
               <span v-if="form.visualimpairment === 'yes'" style="color: red;">非常抱歉，您无法参与本次实验இ௰இ</span>
             </el-form-item>
-            <el-form-item label="4、您是否有独立创建过可视化作品并将其实际应用？（例如 财务报表 等）" label-for="visualizationExperience">
+            <el-form-item label="5、您是否有独立创建过可视化作品并将其实际应用？（例如 财务报表 等）" label-for="visualizationExperience">
               <el-radio-group id="visualizationExperience" v-model="form.visualizationExperience" class="input-field">
                 <el-radio :value="'yes'">有</el-radio>
                 <el-radio :value="'no'">没有</el-radio>
@@ -87,7 +90,7 @@ let timer = null;
 
 onMounted(async () => {
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
     return;
   }
@@ -99,6 +102,7 @@ onUnmounted(() => {
 });
 
 const form = ref({
+  studentid: '',
   age: '',
   gender: '',
   visualimpairment: '',
@@ -108,7 +112,15 @@ const form = ref({
 const OTHER = 'other';  // Define a constant for 'other'
 
 const handleSubmit = async () => {
-  const age = parseInt(form.value.age, 10);
+  const age = parseInt(form.value.age);
+  if (!form.value.studentid) {
+    ElMessage({
+      message: '请填写学号。',
+      type: 'warning',
+    });
+    return;
+  }
+
   if (!age || isNaN(age) || age < 10 || age > 90) {
     ElMessage({
       message: '请输入有效的年龄（14到85岁之间的整数）',
@@ -150,7 +162,7 @@ const handleSubmit = async () => {
   }
 
   const count = await getSubmissionCount();
-  if (count >= 5) {
+  if (count >= 2) {
     router.push('/limit-reached');
     return;
   }
@@ -161,6 +173,7 @@ const handleSubmit = async () => {
 
 const handleClean = () => {
   form.value = {
+    studentid: '',
     age: '',
     gender: '',
     visualimpairment: '',

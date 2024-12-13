@@ -5,8 +5,7 @@
     <p class="p">您本次填写问卷的ID: <span class="highlight-id">{{ submitId }}</span></p>
     <p>(●'◡'●)该问卷结果已自动上传(●'◡'●)</p>
     <el-button type="primary" @click="exportToJson">👍导出备份问卷数据（可选）👍</el-button>
-    <el-card><img style="width: 140px; margin-top: 10px" src="/img/weChat.png" alt="Wechat QR Code"></el-card>
-    <p>联系管理员经审核后获取报酬</p>
+    <p>报酬将会根据学号进行发放，遇到问题请联系飞书计算机学院张翔轩</p>
   </div>
 </template>
 

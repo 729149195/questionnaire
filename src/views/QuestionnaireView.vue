@@ -90,7 +90,7 @@ let timer = null;
 
 onMounted(async () => {
   const count = await getSubmissionCount();
-  if (count >= 2) {
+  if (count >= 50) {
     router.push('/limit-reached');
     return;
   }
@@ -162,7 +162,7 @@ const handleSubmit = async () => {
   }
 
   const count = await getSubmissionCount();
-  if (count >= 2) {
+  if (count >= 50) {
     router.push('/limit-reached');
     return;
   }

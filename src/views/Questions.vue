@@ -27,12 +27,12 @@
               <el-card class="bottom-card" shadow="never">
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
-                <el-button @click="toggleCropMode" class="Crop"><el-icon>
-                    <Crop />
-                  </el-icon></el-button>
-                <el-button @click="toggleTrackMode" class="track"><el-icon>
-                    <Pointer />
-                  </el-icon></el-button>
+                <el-button @click="toggleCropMode" class="Crop" :class="{ 'active-mode': isCropping }">
+                  <el-icon><Crop /></el-icon>
+                </el-button>
+                <el-button @click="toggleTrackMode" class="track" :class="{ 'active-mode': isTracking }">
+                  <el-icon><Pointer /></el-icon>
+                </el-button>
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
               </el-card>
             </div>
@@ -233,6 +233,9 @@ const nodeEventHandlers = new Map();
 const isCropping = ref(false);
 const isTracking = ref(false);
 
+// 存储当前的变换状态
+const currentTransform = ref(null);
+
 // 添加ID检查函数
 const checkUserId = () => {
   const userId = store.getters.getFormData?.id;
@@ -388,6 +391,7 @@ let handleMouseClick, handleMouseMove, handleMouseUp; // 事件处理程序
 const toggleCropMode = () => {
   isCropping.value = !isCropping.value;
   const svg = d3.select(svgContainer2.value).select('svg');
+  
   if (isCropping.value) {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
@@ -400,12 +404,30 @@ const toggleCropMode = () => {
     }
     ElMessage.info('进入选框模式');
     enableCropSelection();
+    
+    // 保存当前变换状态
+    const transform = d3.zoomTransform(svg.node());
+    currentTransform.value = transform;
+    
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('crosshair-cursor');
     ElMessage.info('退出选框模式');
     disableCropSelection();
-    addZoomEffectToSvg(); // 重新启用缩放功能
+    
+    // 重新启用缩放并恢复之前的变换状态
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 10])
+      .on('zoom', (event) => {
+        if (!isCropping.value) {
+          svg.select('g.zoom-wrapper').attr('transform', event.transform);
+        }
+      });
+      
+    svg.call(zoom);
+    if (currentTransform.value) {
+      svg.call(zoom.transform, currentTransform.value);
+    }
   }
 };
 
@@ -506,6 +528,7 @@ const disableCropSelection = () => {
 const toggleTrackMode = () => {
   isTracking.value = !isTracking.value;
   const svg = d3.select(svgContainer2.value).select('svg');
+  
   if (isTracking.value) {
     nextTick(() => {
       svgContainer2.value.classList.add('copy-cursor');
@@ -518,12 +541,30 @@ const toggleTrackMode = () => {
     }
     ElMessage.info('进入路径模式');
     enableTrackMode();
+    
+    // 保存当前变换状态
+    const transform = d3.zoomTransform(svg.node());
+    currentTransform.value = transform;
+    
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('copy-cursor');
-    ElMessage.info('退出路径组模式');
+    ElMessage.info('退出��径组模式');
     disableTrackMode();
-    addZoomEffectToSvg(); // 重新启用缩放功能
+    
+    // 重新启用缩放并恢复之前的变换状态
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 10])
+      .on('zoom', (event) => {
+        if (!isTracking.value) {
+          svg.select('g.zoom-wrapper').attr('transform', event.transform);
+        }
+      });
+      
+    svg.call(zoom);
+    if (currentTransform.value) {
+      svg.call(zoom.transform, currentTransform.value);
+    }
   }
 };
 
@@ -551,7 +592,7 @@ const enableTrackMode = () => {
       const node = document.elementFromPoint(event.clientX, event.clientY);
       if (node && allVisiableNodes.value.includes(node.id) && !clickedElements.has(node)) {
         clickedElements.add(node); // 记录已点击的元素
-        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟点击事件
+        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟���击事件
       }
     }
   };
@@ -584,7 +625,7 @@ const turnGrayVisibleNodes = () => {
 
   svg.querySelectorAll('*').forEach(node => {
     if (allVisiableNodes.value.includes(node.id)) {
-      node.style.opacity = '0.2';
+      node.style.opacity = '0.1';
       // if(isCropping.value === false && isTracking.value === false){
       // node.style.cursor = 'pointer';
       // }
@@ -606,7 +647,7 @@ const addHoverEffectToVisibleNodes = () => {
         node.style.opacity = '1';
       };
       const handleMouseOut = () => {
-        node.style.opacity = '0.2';
+        node.style.opacity = '0.1';
         node.style.transition = 'opacity 0.3s ease';
         highlightGroup();
       };
@@ -666,7 +707,7 @@ const highlightGroup = () => {
     if (groupNodes.includes(node.id)) {
       node.style.opacity = '1';
     } else if (allVisiableNodes.value.includes(node.id)) {
-      node.style.opacity = '0.2';
+      node.style.opacity = '0.1';
       node.style.transition = 'opacity 0.3s ease';
     }
   });
@@ -682,7 +723,7 @@ const highlightElement = (nodeId) => {
       if (node.id === nodeId) {
         node.style.opacity = '1';
       } else if (allVisiableNodes.value.includes(node.id)) {
-        node.style.opacity = '0.2';
+        node.style.opacity = '0.1';
         node.style.transition = 'opacity 0.3s ease';
       }
     });
@@ -815,7 +856,7 @@ const sendEmail = (data) => {
     })
     .catch((error) => {
       console.error('Failed to send email:', error);
-      ElMessage.error('数据文件上传失败。请导出备份问卷数据手动发送给管理员😭');
+      ElMessage.error('数据文件上传失败。请导出��份问卷数据手动发送给管理员😭');
       throw error; // 重新抛出错误以便上层处理
     });
 };
@@ -1391,5 +1432,10 @@ onBeforeMount(() => {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.active-mode {
+  background-color: var(--el-button-hover-bg-color) !important;
+  border-color: var(--el-button-hover-border-color) !important;
 }
 </style>

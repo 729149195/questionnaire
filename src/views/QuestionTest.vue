@@ -28,10 +28,10 @@
               <el-card ref="svg2" class="bottom-card" shadow="never">
                 <div v-html="Svg" class="svg-container2" ref="svgContainer2"></div>
                 <div ref="chartContainer" class="chart-container" v-show="false"></div>
-                <el-button @click="toggleCropMode" class="Crop" ref="cropBtn"><el-icon>
+                <el-button @click="toggleCropMode" class="Crop" ref="cropBtn" :class="{ 'active-mode': isCropping }"><el-icon>
                     <Crop />
                   </el-icon></el-button>
-                <el-button @click="toggleTrackMode" class="track" ref="trackBtn"><el-icon>
+                <el-button @click="toggleTrackMode" class="track" ref="trackBtn" :class="{ 'active-mode': isTracking }"><el-icon>
                     <Pointer />
                   </el-icon></el-button>
                 <el-button class="bottom-title" disabled text bg>选取交互区域</el-button>
@@ -119,7 +119,7 @@
         在正式开始问卷之前，请仔细阅读以下说明：
         <ol>
           <li>请尽可能多地选出自己认为的合理的图形组合</li>
-          <li>图形组合大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
+          <li>图形组大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
           <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
         </ol>
       </span>
@@ -144,7 +144,7 @@
     </el-dialog>
     <el-tour v-model="openTour">
       <el-tour-step :target="svg1?.$el" title="组合观察区域" placement="right">您将在这里观察原图并进行图形组合的感知。</el-tour-step>
-      <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
+      <el-tour-step :target="svg2?.$el" placement="right" title="��取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形组合。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
       <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮">
@@ -217,7 +217,7 @@
       <div class="step-item">
         <span class="step-number">步骤4:</span>
         <el-card class="step-card" shadow="hover">
-          <p>每组元素选完后不要忘记评分嗷~</p>
+          <p>组元素选完后不要忘记评分嗷~</p>
         </el-card>
       </div>
     </div>
@@ -283,6 +283,8 @@ const nodeEventHandlers = new Map();
 const isCropping = ref(false);
 const isTracking = ref(false);
 
+// 添加状态存储
+const currentTransform = ref(null);
 
 const props = defineProps(['data']);
 const emits = defineEmits(['change', 'prev', 'next']);
@@ -497,6 +499,7 @@ let handleMouseClick, handleMouseMove, handleMouseUp; // 事件处理程序
 const toggleCropMode = () => {
   isCropping.value = !isCropping.value;
   const svg = d3.select(svgContainer2.value).select('svg');
+  
   if (isCropping.value) {
     nextTick(() => {
       svgContainer2.value.classList.add('crosshair-cursor');
@@ -509,12 +512,30 @@ const toggleCropMode = () => {
     }
     ElMessage.info('进入选框模式');
     enableCropSelection();
+    
+    // 保存当前变换状态
+    const transform = d3.zoomTransform(svg.node());
+    currentTransform.value = transform;
+    
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('crosshair-cursor');
     ElMessage.info('退出选框模式');
     disableCropSelection();
-    addZoomEffectToSvg(); // 重新启用缩放功能
+    
+    // 重新启用缩放并恢复之前的变换状态
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 10])
+      .on('zoom', (event) => {
+        if (!isCropping.value) {
+          svg.select('g.zoom-wrapper').attr('transform', event.transform);
+        }
+      });
+      
+    svg.call(zoom);
+    if (currentTransform.value) {
+      svg.call(zoom.transform, currentTransform.value);
+    }
   }
 };
 
@@ -525,13 +546,21 @@ const enableCropSelection = () => {
   handleMouseClick = (event) => {
     if (!isDrawing) {
       isDrawing = true;
+      
+      // 获取当前的变换矩阵
+      const transform = d3.zoomTransform(svg);
+      
+      // 获取鼠标点击的SVG坐标
       const point = svg.createSVGPoint();
       point.x = event.clientX;
       point.y = event.clientY;
-      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
-
-      startX = svgPoint.x;
-      startY = svgPoint.y;
+      
+      // 应用当前变换的逆矩阵来获取正确的起始点坐标
+      const matrix = svg.getScreenCTM().inverse();
+      const transformedPoint = point.matrixTransform(matrix);
+      
+      startX = transformedPoint.x;
+      startY = transformedPoint.y;
 
       rectElement = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rectElement.setAttribute('x', startX);
@@ -539,7 +568,10 @@ const enableCropSelection = () => {
       rectElement.setAttribute('stroke', 'red');
       rectElement.setAttribute('stroke-width', '2');
       rectElement.setAttribute('fill', 'none');
-      svg.appendChild(rectElement);
+      
+      // 将矩形添加到zoom-wrapper组内，这样它会跟随缩放
+      const wrapper = svg.querySelector('.zoom-wrapper');
+      wrapper.appendChild(rectElement);
 
       svg.addEventListener('mousemove', handleMouseMove);
       svg.addEventListener('mouseup', handleMouseUp);
@@ -548,13 +580,17 @@ const enableCropSelection = () => {
 
   handleMouseMove = (event) => {
     if (isDrawing) {
+      // 获取当前鼠标位置的实际SVG坐标
       const point = svg.createSVGPoint();
       point.x = event.clientX;
       point.y = event.clientY;
-      const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
-
-      const endX = svgPoint.x;
-      const endY = svgPoint.y;
+      
+      const matrix = svg.getScreenCTM().inverse();
+      const transformedPoint = point.matrixTransform(matrix);
+      
+      const endX = transformedPoint.x;
+      const endY = transformedPoint.y;
+      
       const rectWidth = Math.abs(endX - startX);
       const rectHeight = Math.abs(endY - startY);
       const rectX = Math.min(startX, endX);
@@ -576,23 +612,45 @@ const enableCropSelection = () => {
       const rectWidth = parseFloat(rectElement.getAttribute('width'));
       const rectHeight = parseFloat(rectElement.getAttribute('height'));
 
-      const svg = svgContainer2.value.querySelector('svg');
-      svg.querySelectorAll('*').forEach(node => {
-        if (typeof node.getBBox === 'function') {
-          const bbox = node.getBBox();
-          const isTouched =
-            (bbox.x + bbox.width) >= rectX &&
-            bbox.x <= (rectX + rectWidth) &&
-            (bbox.y + bbox.height) >= rectY &&
-            bbox.y <= (rectY + rectHeight);
+      // 获取当前的变换矩阵
+      const transform = d3.zoomTransform(svg);
 
-          if (isTouched) {
-            node.dispatchEvent(new Event('click')); // 模拟点击事件
+      svg.querySelectorAll('*').forEach(node => {
+        if (typeof node.getBBox === 'function' && allVisiableNodes.value.includes(node.id)) {
+          const bbox = node.getBBox();
+          
+          // 获取元素的实际变换矩阵
+          const ctm = node.getCTM();
+          if (!ctm) return;
+          
+          // 计算元素四个角的坐标
+          const points = [
+            {x: bbox.x, y: bbox.y},
+            {x: bbox.x + bbox.width, y: bbox.y},
+            {x: bbox.x, y: bbox.y + bbox.height},
+            {x: bbox.x + bbox.width, y: bbox.y + bbox.height}
+          ];
+          
+          // 检查任何一个角是否在选区内
+          const isInside = points.some(point => {
+            const transformedPoint = svg.createSVGPoint();
+            transformedPoint.x = point.x;
+            transformedPoint.y = point.y;
+            const screenPoint = transformedPoint.matrixTransform(ctm);
+            
+            return screenPoint.x >= rectX &&
+                   screenPoint.x <= (rectX + rectWidth) &&
+                   screenPoint.y >= rectY &&
+                   screenPoint.y <= (rectY + rectHeight);
+          });
+
+          if (isInside) {
+            node.dispatchEvent(new Event('click'));
           }
         }
       });
 
-      rectElement.remove(); // 移除选框
+      rectElement.remove();
       svg.removeEventListener('mousemove', handleMouseMove);
       svg.removeEventListener('mouseup', handleMouseUp);
     }
@@ -613,6 +671,7 @@ const disableCropSelection = () => {
 const toggleTrackMode = () => {
   isTracking.value = !isTracking.value;
   const svg = d3.select(svgContainer2.value).select('svg');
+  
   if (isTracking.value) {
     nextTick(() => {
       svgContainer2.value.classList.add('copy-cursor');
@@ -625,12 +684,30 @@ const toggleTrackMode = () => {
     }
     ElMessage.info('进入路径模式');
     enableTrackMode();
+    
+    // 保存当前变换状态
+    const transform = d3.zoomTransform(svg.node());
+    currentTransform.value = transform;
+    
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('copy-cursor');
-    ElMessage.info('退出路径模式');
+    ElMessage.info('退出路径组模式');
     disableTrackMode();
-    addZoomEffectToSvg(); // 重新启用缩放功能
+    
+    // 重新启用缩放并恢复之前的变换状态
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 10])
+      .on('zoom', (event) => {
+        if (!isTracking.value) {
+          svg.select('g.zoom-wrapper').attr('transform', event.transform);
+        }
+      });
+      
+    svg.call(zoom);
+    if (currentTransform.value) {
+      svg.call(zoom.transform, currentTransform.value);
+    }
   }
 };
 
@@ -760,7 +837,7 @@ const highlightGroup = () => {
     if (groupNodes.includes(node.id)) {
       node.style.opacity = '1';
     } else if (allVisiableNodes.value.includes(node.id)) {
-      node.style.opacity = '0.2';
+      node.style.opacity = '0.1';
       node.style.transition = 'opacity 0.3s ease';
     }
   });
@@ -776,7 +853,7 @@ const highlightElement = (nodeId) => {
       if (node.id === nodeId) {
         node.style.opacity = '1';
       } else if (allVisiableNodes.value.includes(node.id)) {
-        node.style.opacity = '0.2';
+        node.style.opacity = '0.1';
         node.style.transition = 'opacity 0.3s ease';
       }
     });
@@ -969,7 +1046,7 @@ onMounted(() => {
 });
 
 watch([active, groups], () => {
-  // 获取当前步骤的评��
+  // 获取当前步骤的评分
   const stepRatings = store.state.ratings[active.value] || {};
   
   // 重置本地 ratings 对象
@@ -1386,5 +1463,10 @@ onBeforeMount(() => {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.active-mode {
+  background-color: var(--el-button-hover-bg-color) !important;
+  border-color: var(--el-button-hover-border-color) !important;
 }
 </style>

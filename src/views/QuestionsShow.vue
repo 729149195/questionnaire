@@ -13,6 +13,18 @@
                             />
                         </el-select>
                     </div>
+                    <div class="questionnaire-info" v-if="questionnaireData">
+                        <el-descriptions :column="2" border>
+                            <el-descriptions-item label="学号">{{ questionnaireData.formData.studentid }}</el-descriptions-item>
+                            <el-descriptions-item label="年龄">{{ questionnaireData.formData.age }}</el-descriptions-item>
+                            <el-descriptions-item label="性别">{{ questionnaireData.formData.gender }}</el-descriptions-item>
+                            <el-descriptions-item label="视觉障碍">{{ questionnaireData.formData.visualimpairment }}</el-descriptions-item>
+                            <el-descriptions-item label="可视化经验">{{ questionnaireData.formData.visualizationExperience }}</el-descriptions-item>
+                            <el-descriptions-item label="开始时间">{{ questionnaireData.startTime }}</el-descriptions-item>
+                            <el-descriptions-item label="结束时间">{{ questionnaireData.endTime }}</el-descriptions-item>
+                            <el-descriptions-item label="持续时间">{{ questionnaireData.duration }}</el-descriptions-item>
+                        </el-descriptions>
+                    </div>
                 </div>
             </el-header>
             <el-main class="main-container">
@@ -110,7 +122,7 @@ const ratings = ref({});
 const svgContainer2 = ref(null);
 const allVisiableNodes = ref([]);
 
-// 添加加载状态
+// 添���加载状态
 const loading = ref(true);
 const chartContainer = ref(null);
 
@@ -319,7 +331,7 @@ const turnGrayVisibleNodes = () => {
     // 只处理可见节点
     svg.querySelectorAll('*').forEach(node => {
         if (allVisiableNodes.value.includes(node.id)) {
-            node.style.opacity = '0.2';
+            node.style.opacity = '0.05';
             // 添加过渡效果使颜色变化更平滑
             node.style.transition = 'opacity 0.3s ease';
         }
@@ -338,7 +350,7 @@ const addHoverEffectToVisibleNodes = () => {
                 node.style.opacity = '1';
             });
             node.addEventListener('mouseout', () => {
-                node.style.opacity = '0.2';
+                node.style.opacity = '0.05';
                 highlightGroup();
             });
         }
@@ -357,7 +369,7 @@ const highlightGroup = () => {
 
     svg.querySelectorAll('*').forEach(node => {
         if (allVisiableNodes.value.includes(node.id)) {
-            node.style.opacity = nodes.includes(node.id) ? '1' : '0.2';
+            node.style.opacity = nodes.includes(node.id) ? '1' : '0.1';
             node.style.transition = 'opacity 0.3s ease';
         }
     });
@@ -449,15 +461,18 @@ onMounted(() => {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 0 10px;
     border-bottom: 1px solid #dcdcdc;
+    height: auto !important;
+    min-height: 60px;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 10px;
 }
 
 .left-content {
@@ -621,5 +636,23 @@ onMounted(() => {
 
 :deep(.el-select) {
     width: 100%;
+}
+
+.questionnaire-info {
+    flex-grow: 1;
+    margin-left: 20px;
+    
+    :deep(.el-descriptions) {
+        padding: 10px;
+    }
+    
+    :deep(.el-descriptions__label) {
+        width: 100px;
+        color: #666;
+    }
+    
+    :deep(.el-descriptions__content) {
+        color: #333;
+    }
 }
 </style>

@@ -60,7 +60,7 @@
                   </div>
                 </el-scrollbar>
                 <div v-if="ratings[selectedGroup]" ref="rateings" class="rate-container">
-                  <el-tooltip class="box-item" effect="dark" content="越先被注意到的组合评分越高" placement="right">
+                  <el-tooltip content="评分越高表示这个组合越容易被注意到" placement="right">
                     <div class="rate-container2">
                       <div class="rate-text">显眼程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
@@ -68,18 +68,18 @@
                         @change="updateRating(selectedGroup, ratings[selectedGroup].attention, 'attention')" />
                     </div>
                   </el-tooltip>
-                  <el-tooltip class="box-item" effect="dark" content="组合中不可缺少的元素占比越高评分越高" placement="right">
+                  <el-tooltip content="评分越高表示组内元素的关系越紧密" placement="right">
                     <div class="rate-container2">
-                      <div class="rate-text">分组组内元素的关联强度：</div>
+                      <div class="rate-text">组内关联程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
                         :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].correlation_strength"
                         class="rate"
                         @change="updateRating(selectedGroup, ratings[selectedGroup].correlation_strength, 'correlation_strength')" />
                     </div>
                   </el-tooltip>
-                  <el-tooltip class="box-item" effect="dark" content="组外可以划分到该组的元素越少评分越高" placement="right">
+                  <el-tooltip content="评分越高表示组外元素越难被归入该组" placement="right">
                     <div class="rate-container2">
-                      <div class="rate-text">分组对组外元素的排斥程度：</div>
+                      <div class="rate-text">组外排斥程度：</div>
                       <el-rate :icons="icons" :void-icon="Hide" :colors="['#409eff', '#67c23a', '#FF9900']" :max="3"
                         :texts="['低', '中', '高']" show-text v-model="ratings[selectedGroup].exclusionary_force"
                         class="rate"
@@ -118,7 +118,7 @@
     <el-dialog v-model="dialogVisible" title="提醒" width="700" align-center @close="handleDialogClose"
       :close-on-click-modal="false">
       <span>
-        您已经做了15分钟了，可以稍微闭眼休息一下哦~。
+        您已经做了15分钟了，可以稍微闭眼休息一下哦~
       </span>
       <template #footer>
         <div class="dialog-footer">
@@ -136,54 +136,58 @@
       class="info-dialog"
     >
       <div class="info-content">
-        <h3 class="info-subtitle">在正式开始问卷之前，请仔细阅读以下说明：</h3>
+        <h3 class="info-subtitle">开始问卷前，请了解以下要点：</h3>
         <ol class="info-list">
-          <li>请尽可能多地选出自己认为的合理的图形组合</li>
-          <li>这些图形组合大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
-          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+          <li>请根据您的直观感受，选出所有您认为应该归为一组的图形元素</li>
+          <li>同一个图形元素可以同时属于多个不同的组合</li>
+          <li>评分时请跟随第一印象，无需过度分析</li>
         </ol>
       </div>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button type="primary" @click="infoDialogVisible = false" class="confirm-btn">我已了解</el-button>
-        </div>
-      </template>
     </el-dialog>
   </div>
   <el-card class="flow">
     <template #header>
       <div class="flow-header">
-        <span class="flow-title">操作流程提示</span>
+        <span class="flow-title">操作指南</span>
       </div>
     </template>
     <div class="flow-content">
       <div class="step-item">
-        <span class="step-number">步骤1:</span>
+        <span class="step-number">第1步</span>
         <el-card class="step-card" shadow="hover">
-          <p>查看组合观察区域（左上角板块）并记下感知到的元素组合。</p>
+          <p>观察左上方区域中的图形，思考哪些图形可以归为一组</p>
         </el-card>
       </div>
       <div class="step-item">
-        <span class="step-number">步骤2:</span>
+        <span class="step-number">第2步</span>
         <el-card class="step-card" shadow="hover">
-          <p>在选取交互区域选择您感知中可以组成一个组合的所有元素</p>
+          <p>在下方区域中选择您认为属于同一组的图形</p>
           <ul class="step-list">
-            <li>组合元素较密集的时候，建议使用框选或路径选择功能批量选区元素</li>
-            <li>已经被选中的元素再次被选择后，会取消选中状态</li>
-            <li>鼠标滚轮可以对互区域选择放大缩小交</li>
+            <li>选择密集图形时可以使用：
+              <el-button class="icon-btn" size="small">
+                <el-icon><Crop /></el-icon>
+              </el-button> 
+              框选模式或
+              <el-button class="icon-btn" size="small">
+                <el-icon><Pointer /></el-icon>
+              </el-button> 
+              路径选择模式
+            </li>
+            <li>再次点击已选中的图形可取消选择</li>
+            <li>普通模式下可用鼠标滚轮缩放和拖动图形</li>
           </ul>
         </el-card>
       </div>
       <div class="step-item">
-        <span class="step-number">步骤3:</span>
+        <span class="step-number">第3步</span>
         <el-card class="step-card" shadow="hover">
-          <p>选取完一个组后，若还有其他组合未添加，点击组合板块的加号按钮创建新组。</p>
+          <p>如需添加新的图形组合，点击右侧加号按钮创建新组</p>
         </el-card>
       </div>
       <div class="step-item">
-        <span class="step-number">步骤4:</span>
+        <span class="step-number">第4步</span>
         <el-card class="step-card" shadow="hover">
-          <p>每组元素选完后不要忘记评分嗷~</p>
+          <p>完成一组图形选择后，请不要忘记为该组合进行评分哦~</p>
         </el-card>
       </div>
     </div>
@@ -191,14 +195,16 @@
   <el-card class="flow2">
     <template #header>
       <div class="flow-header">
-        <span class="flow-title">友情提示</span>
+        <span class="flow-title">重要提示</span>
       </div>
     </template>
     <div class="tips-content">
       <ul class="tips-list">
-        <li>请尽可能多地选出自己感知到的图形组合</li>
-        <li>相同的元素在不同的组合中可以重复选择</li>
-        <li>尽量遵循自己的第一印象</li>
+        <li class="highlight-tip">
+          <strong class="underline-text">请尽可能选出所有您认为合理的图形组合</strong>
+        </li>
+        <li>一个图形可以属于多个不同的组合</li>
+        <li>请根据直观感受进行选择和评分</li>
       </ul>
     </div>
   </el-card>
@@ -233,7 +239,7 @@ const nodeEventHandlers = new Map();
 const isCropping = ref(false);
 const isTracking = ref(false);
 
-// 存储当前的变换状态
+// 存储当前的换状态
 const currentTransform = ref(null);
 
 // 添加ID检查函数
@@ -327,7 +333,7 @@ const addZoomEffectToSvg = () => {
   const svg = d3.select(svgContainer).select('svg');
   if (!svg) return;
 
-  // 创建一个包裹实际SVG内容的组
+  // 创建一个包实际SVG内容的组
   let g = svg.select('g.zoom-wrapper');
   if (g.empty()) {
     g = svg.append('g').attr('class', 'zoom-wrapper');
@@ -549,7 +555,7 @@ const toggleTrackMode = () => {
     svg.on('.zoom', null); // 禁用缩放事件
   } else {
     svgContainer2.value.classList.remove('copy-cursor');
-    ElMessage.info('退出��径组模式');
+    ElMessage.info('退出路径模式');
     disableTrackMode();
     
     // 重新启用缩放并恢复之前的变换状态
@@ -575,7 +581,7 @@ const enableTrackMode = () => {
 
   const handleMouseDown = () => {
     isMouseDown = true;
-    clickedElements.clear(); // 重置点击元素集合
+    clickedElements.clear(); // 点元素集合
   };
 
   const handleMouseUp = () => {
@@ -592,7 +598,7 @@ const enableTrackMode = () => {
       const node = document.elementFromPoint(event.clientX, event.clientY);
       if (node && allVisiableNodes.value.includes(node.id) && !clickedElements.has(node)) {
         clickedElements.add(node); // 记录已点击的元素
-        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟���击事件
+        node.dispatchEvent(new Event('click', { bubbles: true })); // 模拟点击事件
       }
     }
   };
@@ -754,6 +760,44 @@ const chartContainer = ref(null);
 
 const next = async () => {
   if (!checkUserId()) return;
+  
+  // 检查当前步骤的组合情况
+  const currentGroups = store.getters.getGroups(active.value);
+  
+  // 检查组数是否大于2
+  if (Object.keys(currentGroups).length < 2) {
+    ElMessage.error('请至少创建2个组合后再继续');
+    return;
+  }
+  
+  // 检查是否存在空组
+  const hasEmptyGroup = Object.values(currentGroups).some(group => group.length === 0);
+  if (hasEmptyGroup) {
+    ElMessage.error('存在空组合，请确保每个组合都包含元素');
+    return;
+  }
+
+  // 检查所有组合的评分情况
+  const allRatingsAreLow = Object.keys(currentGroups).every(group => {
+    // 直接从 ratings 中获取评分数据
+    const groupRatings = ratings.value[group];
+    return (
+      groupRatings?.attention === 1 &&
+      groupRatings?.correlation_strength === 1 &&
+      groupRatings?.exclusionary_force === 1
+    );
+  });
+
+  if (allRatingsAreLow) {
+    ElMessage({
+      type: 'warning',
+      message: '目前所有组合的三个评分都为低，请确保已评分',
+      duration: 5000,
+      showClose: true
+    });
+    return;
+  }
+
   const count = await getSubmissionCount();
   if (count >= 50) {
     router.push('/limit-reached');
@@ -856,7 +900,7 @@ const sendEmail = (data) => {
     })
     .catch((error) => {
       console.error('Failed to send email:', error);
-      ElMessage.error('数据文件上传失败。请导出��份问卷数据手动发送给管理员😭');
+      ElMessage.error('数据文件上传失败。请导出一份问卷数据动发送给管理员😭');
       throw error; // 重新抛出错误以便上层处理
     });
 };
@@ -875,7 +919,7 @@ const submit = async () => {
     // 并行检查提交次数和生成数据
     const [count, data] = await Promise.all([
       getSubmissionCount(),
-      Promise.resolve(generateJsonData()) // 将同步操作包装成 Promise
+      Promise.resolve(generateJsonData()) // 同步操作包装成 Promise
     ]);
 
     if (count >= 50) {
@@ -968,6 +1012,21 @@ const removeFromGroup = (group, nodeId) => {
 
 const addNewGroup = () => {
   const step = active.value;
+  
+  // 检查当前组的评分情况 
+  if (selectedGroup.value && ratings.value[selectedGroup.value]) {
+    const currentRatings = ratings.value[selectedGroup.value];
+    if (currentRatings.attention === 1 && 
+        currentRatings.correlation_strength === 1 && 
+        currentRatings.exclusionary_force === 1) {
+      ElMessage.warning({
+        message: '请确定前一组合的三个评分都是低，如已确定，请忽略该提示',
+        duration: 3000,  // 显示5秒
+        showClose: true
+      });
+    }
+  }
+  
   const newGroup = `组合${Object.keys(groups.value).length + 1}`;
   store.commit('ADD_NEW_GROUP', { step, group: newGroup });
   selectedGroup.value = newGroup;
@@ -1285,7 +1344,7 @@ onBeforeMount(() => {
   margin: 0;
   border: none;
   background-color: #f5f7fa;
-  
+
   :deep(.el-card__body) {
     padding: 12px;
   }
@@ -1301,13 +1360,13 @@ onBeforeMount(() => {
 .step-list {
   margin: 8px 0 0 0;
   padding-left: 20px;
-  
+
   li {
     color: #606266;
     font-size: 13px;
     line-height: 1.6;
     margin-bottom: 4px;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -1321,13 +1380,13 @@ onBeforeMount(() => {
 .tips-list {
   margin: 0;
   padding-left: 20px;
-  
+
   li {
     color: #606266;
     font-size: 14px;
     line-height: 1.8;
     margin-bottom: 8px;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -1356,68 +1415,74 @@ onBeforeMount(() => {
   margin-left: auto;
 }
 
-.info-dialog :deep(.el-dialog__header) {
+.tour-dialog :deep(.el-dialog__header) {
   padding: 20px;
   margin-right: 0;
-  background-color: #f5f7fa;
-  border-bottom: 1px solid #e4e7ed;
+  border-bottom: 1px solid #eee;
 }
 
-.info-dialog :deep(.el-dialog__title) {
+.tour-dialog :deep(.el-dialog__title) {
   font-size: 18px;
   font-weight: 600;
   color: #303133;
 }
 
-.info-content {
+.dialog-content {
   padding: 30px 20px;
 }
 
-.info-subtitle {
+.dialog-text {
   font-size: 16px;
-  color: #606266;
-  margin: 0 0 20px 0;
-  font-weight: 500;
+  color: #303133;
+  margin-bottom: 12px;
 }
 
-.info-list {
+.dialog-subtext {
+  font-size: 14px;
+  color: #909399;
   margin: 0;
-  padding-left: 25px;
-}
-
-.info-list li {
-  color: #606266;
-  line-height: 2;
-  margin-bottom: 15px;
-  font-size: 15px;
-  position: relative;
-  padding-left: 5px;
-}
-
-.info-list li:last-child {
-  margin-bottom: 0;
 }
 
 .dialog-footer {
   padding: 20px;
-  text-align: right;
-  background-color: #f5f7fa;
-  border-top: 1px solid #e4e7ed;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
-.confirm-btn {
-  padding: 12px 25px;
+.skip-btn {
+  min-width: 80px;
+}
+
+.start-btn {
+  min-width: 80px;
+}
+
+.practice-step :deep(.el-tour-step__title) {
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 16px;
+}
+
+.practice-content {
+  padding: 0 10px;
+}
+
+.practice-text {
+  font-size: 15px;
+  color: #606266;
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+.practice-note {
   font-size: 14px;
-}
-
-.info-dialog :deep(.el-dialog) {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
-
-.info-dialog :deep(.el-dialog__body) {
-  padding: 0;
+  color: #909399;
+  line-height: 1.6;
+  margin: 12px 0 8px;
+  font-style: italic;
 }
 
 .svg-container, .svg-container2 {
@@ -1437,5 +1502,29 @@ onBeforeMount(() => {
 .active-mode {
   background-color: var(--el-button-hover-bg-color) !important;
   border-color: var(--el-button-hover-border-color) !important;
+}
+
+.icon-btn {
+  padding: 4px 8px;
+  margin: 0 4px;
+  vertical-align: middle;
+  min-width: 32px;
+}
+
+.icon-btn :deep(.el-icon) {
+  margin: 0;
+}
+
+.tips-list .highlight-tip {
+  font-size: 15px;
+  color: #409EFF;
+}
+
+.tips-list .highlight-tip strong {
+  font-weight: 600;
+}
+
+.underline-text {
+  text-decoration: underline;
 }
 </style>

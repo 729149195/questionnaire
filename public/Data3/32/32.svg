@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg width="900" height="auto" viewBox="-420,-170,600,300" max-width="100%" font="10px sans-serif" id="svg">
+<svg width="900" height="auto" viewBox="-410,-100,600,200" max-width="100%" font="10px sans-serif" id="svg">
   <line x1="-380" y1="-40" x2="-380" y2="70" stroke="#000" stroke-width="1.5" id="line_39" />
   <rect x="-400" y="10" width="40" height="30" fill="#1f77b4" stroke="#000" stroke-width="1.5" opacity="0.7" id="rect_9" />
   <line x1="-400" y1="20" x2="-360" y2="20" stroke="#000" stroke-width="2" id="line_38" />

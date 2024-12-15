@@ -114,26 +114,21 @@
       </el-main>
 
     </el-container>
-    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="1000" align-center>
-      <span>
-        在正式开始问卷之前，请仔细阅读以下说明：
-        <ol>
-          <li>请尽可能多地选出自己认为的合理的图形组合</li>
-          <li>图形组大概率会产生重叠，即同一个元素可以同时属于多个图形组合</li>
-          <li>虽然显眼程度和分组界限的评分很重要，但请不要过多思考分析，尽量遵循自己的第一印象来进行打分</li>
+    <el-dialog v-model="infoDialogVisible" title="问卷说明" width="800" align-center>
+      <div class="info-content">
+        <h3 class="info-subtitle">开始问卷前，请了解以下要点：</h3>
+        <ol class="info-list">
+          <li>请根据您的直观感受，选出所有您认为应该归为一组的图形元素</li>
+          <li>同一个图形元素可以同时属于多个不同的组合</li>
+          <li>评分时请跟随第一印象，无需过度分析</li>
         </ol>
-      </span>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button type="primary" @click="infoDialogVisible = false">关闭</el-button>
-        </div>
-      </template>
+      </div>
     </el-dialog>
 
-    <el-dialog v-model="tourDialogVisible" title="漫游引导" width="500" class="tour-dialog">
+    <el-dialog v-model="tourDialogVisible" title="使用引导" width="500" class="tour-dialog">
       <div class="dialog-content">
-        <p class="dialog-text">是否需要一个简单的系统使用指南？</p>
-        <p class="dialog-subtext">如果您已经熟悉该问卷系统，可以选择跳过。</p>
+        <p class="dialog-text">是否需要查看操作指南？</p>
+        <p class="dialog-subtext">如果您已熟悉系统操作，可以直接跳过</p>
       </div>
       <template #footer>
         <div class="dialog-footer">
@@ -144,11 +139,11 @@
     </el-dialog>
     <el-tour v-model="openTour">
       <el-tour-step :target="svg1?.$el" title="组合观察区域" placement="right">您将在这里观察原图并进行图形组合的感知。</el-tour-step>
-      <el-tour-step :target="svg2?.$el" placement="right" title="��取交互区域">
+      <el-tour-step :target="svg2?.$el" placement="right" title="选取交互区域">
         在这里，您可以通过点击元素来添加或删除它们，以构建或修改当前的图形组合。您还可以使用鼠标滚轮进行缩放，以便更好地查看和选择细小的元素。<div v-html="getGifHtml('2.gif')"></div>
       </el-tour-step>
       <el-tour-step :target="cropBtn?.$el" placement="right" title="切换框选按钮">
-        当遇到的图形组合中元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
+        当遇到的图形组合元素较为细小时，可以点击进入选框组合进行元素框选，被框选的元素相当于被点击一下，未被选中的被框选到会被选中，已选中的被框选到会取消选中（再次点击即可退出选框组合，选框组合下也可进行当个元素的点击）。<div
           v-html="getGifHtml('3.gif')"></div></el-tour-step>
       <el-tour-step :target="trackBtn?.$el" placement="right" title="切换路径选择按钮">
         当遇到的图形组合中元素较为密集时，可以点击进入路径选择组合进行元素路径选择，被按住的鼠标经过的元素相当于被点击一下（再次点击即可退出路径选择组合，选框组合下也可进行当个元素的点击）。<div
@@ -161,11 +156,12 @@
       </el-tour-step>
       <el-tour-step :target="addGroupBtn?.$el" title="添加分组按钮">点击这里可以添加新的组合。<div v-html="getGifHtml('6.gif')"></div>
       </el-tour-step>
-      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮"> 点击这里可以删除当前组合及其内，后续组合的内容会往前覆盖同时继承被删除的组合编号。<div
+      <el-tour-step :target="deleteGroupBtn?.$el" title="删除分组按钮"> 点击这里可以删除当前组合及其内，后续的内容会往前覆盖同时继承被删除的组合编号。<div
           v-html="getGifHtml('7.gif')"></div></el-tour-step>
       <el-tour-step :target="rateings?.$el" title="组合评分">
-        <p>显眼程度：您注意到这个图形组合的容易程度。越容易注意到评分越高</p>
-        <p>分组界限：明确划入组内的图形的占比，占比越高评分越高</p>
+        <p>显眼程度：越先被注意到的组合评分越高</p>
+        <p>分组组内元素的关联强度：组合中不可缺少的元素占比越高评分越高</p>
+        <p>分组对组外元素的排斥程度：组外可以划分到该组的元素越少评分越高</p>
         <p>请根据第一印象为每一个图形组合估计评分。</p>
         <div v-html="getGifHtml('8.gif')"></div>
       </el-tour-step>
@@ -202,16 +198,25 @@
         <el-card class="step-card" shadow="hover">
           <p>在选取交互区域选择您感知中可以组成一个组合的所有元素</p>
           <ul class="step-list">
-            <li>组合元素较密集的时候，建议使用框选或路径选择功能批量选区元素</li>
+            <li>组合元素较密集的时候，建议使用
+              <el-button class="icon-btn" size="small">
+                <el-icon><Crop /></el-icon>
+              </el-button> 
+              框选或
+              <el-button class="icon-btn" size="small">
+                <el-icon><Pointer /></el-icon>
+              </el-button> 
+              路径选择功能批量选区元素
+            </li>
             <li>已经被选中的元素再次被选择后，会取消选中状态</li>
-            <li>鼠标滚轮可以对互区域选择放大缩小交</li>
+            <li>非路径/选框模式下，鼠标滚轮可以对交互图表放大缩小拖动</li>
           </ul>
         </el-card>
       </div>
       <div class="step-item">
         <span class="step-number">步骤3:</span>
         <el-card class="step-card" shadow="hover">
-          <p>选取完一个组后，若还有其他组合未添加，点击组合板块的加号按钮创建组。</p>
+          <p>选取完一个组后，若还有其他组合未添加，点击组合板块的加号按钮创建新组。</p>
         </el-card>
       </div>
       <div class="step-item">
@@ -230,7 +235,9 @@
     </template>
     <div class="tips-content">
       <ul class="tips-list">
-        <li>请尽可能多地选出自己感知到的图形组合</li>
+        <li class="highlight-tip">
+          <strong>请尽可能多地选出自己感知到的图形组合</strong>
+        </li>
         <li>相同的元素在不同的组合中可以重复选择</li>
         <li>尽量遵循自己的第一印象</li>
       </ul>
@@ -243,7 +250,7 @@ import { ref, computed, onMounted, nextTick, watch, onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Delete, Plus, Hide, View, CaretLeft, CaretRight, DArrowRight, WindPower, Crop } from '@element-plus/icons-vue';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, DArrowRight, WindPower, Crop, Pointer } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
 import { getSubmissionCount } from '../api/counter';
 
@@ -308,7 +315,7 @@ const goToStep = async (index) => {
     await fetchAndRenderTree(); // 加载对应步骤的树形结构
     ensureGroupInitialization(); // 确保合初始化
     nextTick(() => {
-      highlightGroup(); // 确保合在初始加载时被高亮
+      highlightGroup(); // 确保合在初始加时被高亮
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
@@ -494,7 +501,7 @@ const addZoomEffectToSvg = () => {
 
 let isDrawing = false; // 标志是否正在绘制
 let rectElement; // 矩元素
-let handleMouseClick, handleMouseMove, handleMouseUp; // 事件处理程序
+let handleMouseClick, handleMouseMove, handleMouseUp; // 件处理程序
 
 const toggleCropMode = () => {
   isCropping.value = !isCropping.value;
@@ -1468,5 +1475,25 @@ onBeforeMount(() => {
 .active-mode {
   background-color: var(--el-button-hover-bg-color) !important;
   border-color: var(--el-button-hover-border-color) !important;
+}
+
+.icon-btn {
+  padding: 4px 8px;
+  margin: 0 4px;
+  vertical-align: middle;
+  min-width: 32px;
+}
+
+.icon-btn :deep(.el-icon) {
+  margin: 0;
+}
+
+.tips-list .highlight-tip {
+  font-size: 15px;
+  color: #409EFF;
+}
+
+.tips-list .highlight-tip strong {
+  font-weight: 600;
 }
 </style>

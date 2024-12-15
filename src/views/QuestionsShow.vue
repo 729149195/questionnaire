@@ -122,7 +122,7 @@ const ratings = ref({});
 const svgContainer2 = ref(null);
 const allVisiableNodes = ref([]);
 
-// 添���加载状态
+// 添加载状态
 const loading = ref(true);
 const chartContainer = ref(null);
 

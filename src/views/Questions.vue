@@ -118,7 +118,7 @@
     <el-dialog v-model="dialogVisible" title="提醒" width="700" align-center @close="handleDialogClose"
       :close-on-click-modal="false">
       <span>
-        您已经做了15分钟了，可以稍微闭眼休息一下哦~
+        您已经做了15分钟了，以稍微闭眼休息一下哦~
       </span>
       <template #footer>
         <div class="dialog-footer">
@@ -187,7 +187,7 @@
       <div class="step-item">
         <span class="step-number">第4步</span>
         <el-card class="step-card" shadow="hover">
-          <p>完成一组图形选择后，请不要忘记为该组合进行评分哦~</p>
+          <p>完成一组图形选择后，请不要忘记为该组进行评分哦~</p>
         </el-card>
       </div>
     </div>
@@ -201,7 +201,7 @@
     <div class="tips-content">
       <ul class="tips-list">
         <li class="highlight-tip">
-          <strong class="underline-text">请尽可能选出所有您认为合理的图形组合</strong>
+          <strong class="underline-text">请尽可能多地选出您感知到的图形组合</strong>
         </li>
         <li>一个图形可以属于多个不同的组合</li>
         <li>请根据直观感受进行选择和评分</li>
@@ -266,7 +266,7 @@ const goToStep = async (index) => {
     });
     isCropping.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
-    await loadExampleData();
+    // await loadExampleData();
   }
 };
 
@@ -312,18 +312,38 @@ const fetchSvgContent = async (step) => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    const svgContent = await response.text();
+    let svgContent = await response.text();
+    
+    // 确保SVG有正确的高度属性
+    if (svgContent.includes('height="auto"')) {
+      svgContent = svgContent.replace('height="auto"', 'height="100%"');
+    }
+    
+    // 如果SVG没有高度属性，添加一个
+    if (!svgContent.includes('height=')) {
+      svgContent = svgContent.replace('<svg', '<svg height="100%"');
+    }
+    
     Svg.value = svgContent;
-    turnGrayVisibleNodes();
-    addHoverEffectToVisibleNodes();
-    addClickEffectToVisibleNodes();
+    
     nextTick(() => {
+      // 确保所有SVG元素都有正确的高度设置
+      const svgElements = document.querySelectorAll('svg');
+      svgElements.forEach(svg => {
+        if (svg.getAttribute('height') === 'auto') {
+          svg.setAttribute('height', '100%');
+        }
+      });
+      
+      turnGrayVisibleNodes();
+      addHoverEffectToVisibleNodes();
+      addClickEffectToVisibleNodes();
       highlightGroup();
       addZoomEffectToSvg();
     });
   } catch (error) {
     console.error('Error loading SVG content:', error);
-    Svg.value = '<svg><text x="10" y="20" font-size="20">加载SVG时出错</text></svg>';
+    Svg.value = '<svg height="100%"><text x="10" y="20" font-size="20">加载SVG时出错</text></svg>';
   }
 };
 
@@ -421,7 +441,7 @@ const toggleCropMode = () => {
     ElMessage.info('退出选框模式');
     disableCropSelection();
     
-    // 重新启用缩放并恢复之前的变换状态
+    // 重新启用缩放并恢复之的变换状态
     const zoom = d3.zoom()
       .scaleExtent([0.5, 10])
       .on('zoom', (event) => {
@@ -813,9 +833,15 @@ const next = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    // 关闭选框模式
     isCropping.value = false;
+    // 关闭路径选择模式
+    isTracking.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
     svgContainer2.value.classList.remove('copy-cursor');
+    // 禁用相应的事件处理
+    disableCropSelection();
+    disableTrackMode();
   }
 };
 
@@ -836,9 +862,15 @@ const Previous = async () => {
     nextTick(() => {
       highlightGroup();
     });
+    // 关闭选框模式
     isCropping.value = false;
+    // 关闭路径选择模式
+    isTracking.value = false;
     svgContainer2.value.classList.remove('crosshair-cursor');
     svgContainer2.value.classList.remove('copy-cursor');
+    // 禁用相应的事件处理
+    disableCropSelection();
+    disableTrackMode();
   }
 };
 
@@ -969,15 +1001,16 @@ const fetchAndRenderTree = async () => {
 
 const renderTree = (data) => {
   const width = 1300;
-  const height = 300;
+  const height = 400;
 
   d3.select(chartContainer.value).select('svg').remove();
 
   const svg = d3.select(chartContainer.value)
     .append('svg')
     .attr('viewBox', `0 0 ${width} ${height}`)
-    .style('width', '100%')
-    .style('height', 'auto');
+    .attr('width', '100%')
+    .attr('height', '100%')
+    .style('max-height', '800px'); // 添加最大高度限制
 
   const root = d3.treemap()
     .size([width, height])
@@ -1059,16 +1092,7 @@ const ensureGroupInitialization = () => {
   }
 };
 
-// const generateRandomArray = () => {
-//   const numbers = Array.from({ length: 40 }, (_, index) => index + 1);
-//   const randomArray = [];
-//   while (randomArray.length < 10) {
-//     const randomIndex = Math.floor(Math.random() * numbers.length);
-//     const number = numbers.splice(randomIndex, 1)[0];
-//     randomArray.push(number);
-//   }
-//   return randomArray;
-// };
+
 
 onMounted(async () => {
   if (!checkUserId()) return;
@@ -1076,8 +1100,6 @@ onMounted(async () => {
   if (count >= 50) {
     router.push('/limit-reached');
   }
-  // const randomSteps = generateRandomArray();
-  // store.commit('setSteps', randomSteps);
   store.dispatch('initializeSteps');
   if (steps.value && steps.value.length > 0) {
     fetchSvgContent(steps.value[active.value]);
@@ -1111,6 +1133,17 @@ watch(active, async () => {
   await fetchSvgContent(store.state.steps[active.value]);
   await fetchAndRenderTree();
   ensureGroupInitialization();
+  // 关闭选框模式
+  isCropping.value = false;
+  // 关闭路径选择模式
+  isTracking.value = false;
+  if (svgContainer2.value) {
+    svgContainer2.value.classList.remove('crosshair-cursor');
+    svgContainer2.value.classList.remove('copy-cursor');
+  }
+  // 禁用相应的事件处理
+  disableCropSelection();
+  disableTrackMode();
   nextTick(() => {
     highlightGroup();
   });
@@ -1140,7 +1173,6 @@ onBeforeMount(() => {
   flex-direction: column;
   height: 98vh;
   width: 70vw;
-  margin: auto;
 }
 
 .header {
@@ -1177,7 +1209,6 @@ onBeforeMount(() => {
 
 .main-card {
   width: 100%;
-  height: auto;
 
   .left-two {
     display: flex;
@@ -1219,7 +1250,6 @@ onBeforeMount(() => {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
 
     .select-group {
       display: flex;
@@ -1298,7 +1328,6 @@ onBeforeMount(() => {
   left: 10px;
   top: 100px;
   width: 15vw;
-  height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
@@ -1308,7 +1337,6 @@ onBeforeMount(() => {
   right: 10px;
   top: 100px;
   width: 15vw;
-  height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
@@ -1411,10 +1439,6 @@ onBeforeMount(() => {
   min-width: 200px;
 }
 
-.rate {
-  margin-left: auto;
-}
-
 .tour-dialog :deep(.el-dialog__header) {
   padding: 20px;
   margin-right: 0;
@@ -1491,12 +1515,14 @@ onBeforeMount(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
 }
 
 .svg-container svg, .svg-container2 svg {
   width: 100%;
   height: 100%;
   display: block;
+  min-height: inherit;
 }
 
 .active-mode {

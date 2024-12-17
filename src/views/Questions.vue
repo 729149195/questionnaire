@@ -759,50 +759,50 @@ const eleURL = computed(() => {
 const chartContainer = ref(null);
 
 const next = async () => {
-  // if (!checkUserId()) return;
+  if (!checkUserId()) return;
   
-  // // 检查当前步骤的组合情况
-  // const currentGroups = store.getters.getGroups(active.value);
+  // 检查当前步骤的组合情况
+  const currentGroups = store.getters.getGroups(active.value);
   
-  // // 检查组数是否大于2
-  // if (Object.keys(currentGroups).length < 2) {
-  //   ElMessage.error('请至少创建2个组合后再继续');
-  //   return;
-  // }
+  // 检查组数是否大于2
+  if (Object.keys(currentGroups).length < 2) {
+    ElMessage.error('请至少创建2个组合后再继续');
+    return;
+  }
   
-  // // 检查是否存在空组
-  // const hasEmptyGroup = Object.values(currentGroups).some(group => group.length === 0);
-  // if (hasEmptyGroup) {
-  //   ElMessage.error('存在空组合，请确保每个组合都包含元素');
-  //   return;
-  // }
+  // 检查是否存在空组
+  const hasEmptyGroup = Object.values(currentGroups).some(group => group.length === 0);
+  if (hasEmptyGroup) {
+    ElMessage.error('存在空组合，请确保每个组合都包含元素');
+    return;
+  }
 
-  // // 检查所有组合的评分情况
-  // const allRatingsAreLow = Object.keys(currentGroups).every(group => {
-  //   // 直接从 ratings 中获取评分数据
-  //   const groupRatings = ratings.value[group];
-  //   return (
-  //     groupRatings?.attention === 1 &&
-  //     groupRatings?.correlation_strength === 1 &&
-  //     groupRatings?.exclusionary_force === 1
-  //   );
-  // });
+  // 检查所有组合的评分情况
+  const allRatingsAreLow = Object.keys(currentGroups).every(group => {
+    // 直接从 ratings 中获取评分数据
+    const groupRatings = ratings.value[group];
+    return (
+      groupRatings?.attention === 1 &&
+      groupRatings?.correlation_strength === 1 &&
+      groupRatings?.exclusionary_force === 1
+    );
+  });
 
-  // if (allRatingsAreLow) {
-  //   ElMessage({
-  //     type: 'warning',
-  //     message: '目前所有组合的三个评分都为低，请确保已评分',
-  //     duration: 5000,
-  //     showClose: true
-  //   });
-  //   return;
-  // }
+  if (allRatingsAreLow) {
+    ElMessage({
+      type: 'warning',
+      message: '目前所有组合的三个评分都为低，请确保已评分',
+      duration: 5000,
+      showClose: true
+    });
+    return;
+  }
 
-  // const count = await getSubmissionCount();
-  // if (count >= 50) {
-  //   router.push('/limit-reached');
-  //   return;
-  // }
+  const count = await getSubmissionCount();
+  if (count >= 50) {
+    router.push('/limit-reached');
+    return;
+  }
 
   if (steps.value && active.value < steps.value.length - 1) {
     selectedGroup.value = '组合1';
@@ -1059,22 +1059,16 @@ const ensureGroupInitialization = () => {
   }
 };
 
-const generateRandomArray = () => {
-  // 直接返回 1-40 的顺序数组
-  return Array.from({ length: 40 }, (_, index) => index + 1);
-  
-  // 原来的随机逻辑暂时注释掉
-  /*
-  const numbers = Array.from({ length: 40 }, (_, index) => index + 1);
-  const randomArray = [];
-  while (randomArray.length < 40) {
-    const randomIndex = Math.floor(Math.random() * numbers.length);
-    const number = numbers.splice(randomIndex, 1)[0];
-    randomArray.push(number);
-  }
-  return randomArray;
-  */
-};
+// const generateRandomArray = () => {
+//   const numbers = Array.from({ length: 40 }, (_, index) => index + 1);
+//   const randomArray = [];
+//   while (randomArray.length < 10) {
+//     const randomIndex = Math.floor(Math.random() * numbers.length);
+//     const number = numbers.splice(randomIndex, 1)[0];
+//     randomArray.push(number);
+//   }
+//   return randomArray;
+// };
 
 onMounted(async () => {
   if (!checkUserId()) return;
@@ -1082,8 +1076,8 @@ onMounted(async () => {
   if (count >= 50) {
     router.push('/limit-reached');
   }
-  const randomSteps = generateRandomArray();
-  store.commit('setSteps', randomSteps);
+  // const randomSteps = generateRandomArray();
+  // store.commit('setSteps', randomSteps);
   store.dispatch('initializeSteps');
   if (steps.value && steps.value.length > 0) {
     fetchSvgContent(steps.value[active.value]);

@@ -2,11 +2,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0,0,550,300" id="svg">
   <g class="highcharts-series-group" data-z-index="3" filter="none" aria-hidden="false">
     <g>
-      <path d="M 4.9803921568583 222.39405 L 46.483660130715 215.6652 L 87.986928104572 192.139875 L 129.49019607843 168.396525 L 170.99346405229 125.196225 L 212.49673202614 82.104225 L 254 40.565475 L 295.50326797386 49.62705 L 337.00653594771 63.901275 L 378.50980392157 54.92805 L 420.01307189543 64.68075 L 461.51633986928 44.232 L 503.01960784314 40.52985" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#2caffe" stroke-width="2"/>
-      <path d="M 4.9803921568583 222.39405 L 46.483660130715 215.6652 L 87.986928104572 192.139875 L 129.49019607843 168.396525 L 170.99346405229 125.196225 L 212.49673202614 82.104225 L 254 40.565475 L 295.50326797386 49.62705 L 337.00653594771 63.901275 L 378.50980392157 54.92805 L 420.01307189543 64.68075 L 461.51633986928 44.232 L 503.01960784314 40.52985" data-z-index="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-width="22"/>
+      <path d="M 4.9803921568583 222.39405 L 46.483660130715 215.6652 L 87.986928104572 192.139875 L 129.49019607843 168.396525 L 170.99346405229 125.196225 L 212.49673202614 82.104225 L 254 40.565475 L 295.50326797386 49.62705 L 337.00653594771 63.901275 L 378.50980392157 54.92805 L 420.01307189543 64.68075 L 461.51633986928 44.232 L 503.01960784314 40.52985" data-z-index="1" fill="none" stroke="#2caffe" stroke-width="2"/>
     </g>
     <g>
-      <path d="M 46.5 215.6652 A 0 0 0 1 1 46.5 215.6652 Z" data-z-index="-1" fill-opacity="0.25" visibility="hidden" fill="#2caffe"/>
       <path d="M 4.5 226.39405 A 4 4 0 1 1 4.500199999999918 226.394049995 Z" tabindex="-1" role="img" aria-label="x, 2010, 43,934. Installation &amp; Developers." fill="#2caffe" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 46.5 219.6652 A 4 4 0 1 1 46.500199999999914 219.665199995 Z" tabindex="-1" role="img" aria-label="x, 2011, 48,656. Installation &amp; Developers." fill="#2caffe" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 87.5 196.139875 A 4 4 0 1 1 87.50019999999992 196.13987499499999 Z" tabindex="-1" role="img" aria-label="x, 2012, 65,165. Installation &amp; Developers." fill="#2caffe" stroke="#ffffff" stroke-width="0" opacity="1"/>
@@ -23,10 +21,8 @@
     </g>
     <g>
       <path d="M 4.9803921568583 249.4947 L 46.483660130715 230.934075 L 87.986928104572 242.61765 L 129.49019607843 242.462325 L 170.99346405229 238.70175 L 212.49673202614 241.84815 L 254 230.677575 L 295.50326797386 232.438875 L 337.00653594771 236.94045 L 378.50980392157 236.203725 L 420.01307189543 240.75375 L 461.51633986928 237.833925 L 503.01960784314 237.300975" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#544fc5" stroke-width="2"/>
-      <path d="M 4.9803921568583 249.4947 L 46.483660130715 230.934075 L 87.986928104572 242.61765 L 129.49019607843 242.462325 L 170.99346405229 238.70175 L 212.49673202614 241.84815 L 254 230.677575 L 295.50326797386 232.438875 L 337.00653594771 236.94045 L 378.50980392157 236.203725 L 420.01307189543 240.75375 L 461.51633986928 237.833925 L 503.01960784314 237.300975" data-z-index="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-width="22"/>
     </g>
     <g>
-      <path d="M 129.5 242.462325 A 0 0 0 1 1 129.5 242.462325 Z" data-z-index="-1" fill-opacity="0.25" visibility="hidden" fill="#544fc5"/>
       <path d="M 4.5 245.4947 L 8.5 249.4947 L 4.5 253.4947 L 0.5 249.4947 Z" aria-label="x, 2010, 24,916. Manufacturing." fill="#544fc5" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 46.5 226.934075 L 50.5 230.934075 L 46.5 234.934075 L 42.5 230.934075 Z" aria-label="x, 2011, 37,941. Manufacturing." fill="#544fc5" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 87.5 238.61765 L 91.5 242.61765 L 87.5 246.61765 L 83.5 242.61765 Z" aria-label="x, 2012, 29,742. Manufacturing." fill="#544fc5" stroke="#ffffff" stroke-width="0" opacity="1"/>
@@ -43,10 +39,8 @@
     </g>
     <g>
       <path d="M 4.9803921568583 268.2648 L 46.483660130715 242.25 L 87.986928104572 262.192875 L 129.49019607843 256.826325 L 170.99346405229 256.236375 L 212.49673202614 250.262775 L 254 239.190525 L 295.50326797386 240.9504 L 337.00653594771 243.328725 L 378.50980392157 243.371475 L 420.01307189543 248.430225 L 461.51633986928 243.70635 L 503.01960784314 241.36935" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#00e272" stroke-width="2"/>
-      <path d="M 4.9803921568583 268.2648 L 46.483660130715 242.25 L 87.986928104572 262.192875 L 129.49019607843 256.826325 L 170.99346405229 256.236375 L 212.49673202614 250.262775 L 254 239.190525 L 295.50326797386 240.9504 L 337.00653594771 243.328725 L 378.50980392157 243.371475 L 420.01307189543 248.430225 L 461.51633986928 243.70635 L 503.01960784314 241.36935" data-z-index="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-width="22"/>
     </g>
     <g>
-      <path d="M 212.5 250.262775 A 0 0 0 1 1 212.5 250.262775 Z" data-z-index="-1" fill-opacity="0.25" visibility="hidden" fill="#00e272"/>
       <path d="M 0.5 264.2648 L 8.5 264.2648 L 8.5 272.2648 L 0.5 272.2648 Z" tabindex="-1" role="img" aria-label="x, 2010, 11,744. Sales &amp; Distribution." fill="#00e272" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 42.5 238.25 L 50.5 238.25 L 50.5 246.25 L 42.5 246.25 Z" tabindex="-1" role="img" aria-label="x, 2011, 30,000. Sales &amp; Distribution." fill="#00e272" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 83.5 258.192875 L 91.5 258.192875 L 91.5 266.192875 L 83.5 266.192875 Z" tabindex="-1" role="img" aria-label="x, 2012, 16,005. Sales &amp; Distribution." fill="#00e272" stroke="#ffffff" stroke-width="0" opacity="1"/>
@@ -63,17 +57,8 @@
     </g>
     <g>
       <path d="M 337.00653594771 269.0913 L 378.50980392157 269.01435 L 420.01307189543 270.640275 L 461.51633986928 267.14475 L 503.01960784314 261.366375" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#fe6a35" stroke-width="2"/>
-      <path d="M 337.00653594771 269.0913 L 378.50980392157 269.01435 L 420.01307189543 270.640275 L 461.51633986928 267.14475 L 503.01960784314 261.366375" data-z-index="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-width="22"/>
     </g>
     <g>
-      <rect x="4.9803921568583" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2010, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="46.483660130715" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2011, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="87.986928104572" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2012, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="129.49019607843" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2013, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="170.99346405229" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2014, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="212.49673202614" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2015, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="254" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2016, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
-      <rect x="295.50326797386" y="269.0913" width="1" height="1" fill-opacity="0" stroke-opacity="0" tabindex="-1" role="img" aria-label="x, 2017, No value. Operations &amp; Maintenance." fill="none" opacity="0"/>
       <path d="M 337.5 265.0913 L 341.5 273.0913 L 333.5 273.0913 Z" tabindex="-1" role="img" aria-label="x, 2018, 11,164. Operations &amp; Maintenance." fill="#fe6a35" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 378.5 265.01435 L 382.5 273.01435 L 374.5 273.01435 Z" tabindex="-1" role="img" aria-label="x, 2019, 11,218. Operations &amp; Maintenance." fill="#fe6a35" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 420.5 266.640275 L 424.5 274.640275 L 416.5 274.640275 Z" tabindex="-1" role="img" aria-label="x, 2020, 10,077. Operations &amp; Maintenance." fill="#fe6a35" stroke="#ffffff" stroke-width="0" opacity="1"/>
@@ -82,10 +67,8 @@
     </g>
     <g>
       <path d="M 4.9803921568583 253.7811 L 46.483660130715 277.0941 L 87.986928104572 273.450375 L 129.49019607843 268.9716 L 170.99346405229 272.190675 L 212.49673202614 268.1622 L 254 258.95955 L 295.50326797386 260.3475 L 337.00653594771 266.399475 L 378.50980392157 268.03395 L 420.01307189543 270.645975 L 461.51633986928 268.653825 L 503.01960784314 268.4016" data-z-index="1" stroke-linejoin="round" stroke-linecap="round" filter="none" fill="none" stroke="#6b8abc" stroke-width="2"/>
-      <path d="M 4.9803921568583 253.7811 L 46.483660130715 277.0941 L 87.986928104572 273.450375 L 129.49019607843 268.9716 L 170.99346405229 272.190675 L 212.49673202614 268.1622 L 254 258.95955 L 295.50326797386 260.3475 L 337.00653594771 266.399475 L 378.50980392157 268.03395 L 420.01307189543 270.645975 L 461.51633986928 268.653825 L 503.01960784314 268.4016" data-z-index="2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-width="22"/>
     </g>
     <g>
-      <path d="M 170.5 272.190675 A 0 0 0 1 1 170.5 272.190675 Z" data-z-index="-1" fill-opacity="0.25" visibility="hidden" fill="#6b8abc"/>
       <path d="M 0.5 249.7811 L 8.5 249.7811 L 4.5 257.78110000000004 Z" tabindex="-1" role="img" aria-label="x, 2010, 21,908. Other." fill="#6b8abc" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 42.5 273.0941 L 50.5 273.0941 L 46.5 281.0941 Z" tabindex="-1" role="img" aria-label="x, 2011, 5,548. Other." fill="#6b8abc" stroke="#ffffff" stroke-width="0" opacity="1"/>
       <path d="M 83.5 269.450375 L 91.5 269.450375 L 87.5 277.450375 Z" tabindex="-1" role="img" aria-label="x, 2012, 8,105. Other." fill="#6b8abc" stroke="#ffffff" stroke-width="0" opacity="1"/>

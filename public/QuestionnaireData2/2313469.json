@@ -672,15 +672,6 @@
             "correlation_strength": 3,
             "exclusionary_force": 1
           }
-        },
-        {
-          "group": "组合3",
-          "nodes": [],
-          "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
         }
       ]
     }

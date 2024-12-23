@@ -32,9 +32,9 @@
             "polygon_6"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -54,9 +54,9 @@
             "polygon_13"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -87,9 +87,9 @@
             "rect_17"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -115,9 +115,9 @@
             "rect_8"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 3
           }
         },
         {
@@ -145,9 +145,9 @@
             "rect_26"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -159,27 +159,27 @@
           "group": "组合1",
           "nodes": ["path_10", "path_7", "path_4", "path_1"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
           "group": "组合2",
           "nodes": ["path", "path_3", "path_6", "path_9"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
           "group": "组合3",
           "nodes": ["path_11", "path_8", "path_5", "path_2"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -187,8 +187,8 @@
           "nodes": ["path_13", "path_15", "path_14"],
           "ratings": {
             "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -218,9 +218,9 @@
             "rect_6"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -241,9 +241,9 @@
             "rect_56"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -258,9 +258,9 @@
             "rect_62"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -278,9 +278,9 @@
             "rect_1"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -344,9 +344,9 @@
             "circle_79"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
@@ -396,9 +396,9 @@
             "circle_64"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -427,9 +427,9 @@
             "polygon_14"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -454,9 +454,9 @@
             "circle"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -483,18 +483,9 @@
             "polygon"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
-        },
-        {
-          "group": "组合4",
-          "nodes": [],
-          "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -513,9 +504,9 @@
             "circle_6"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -530,9 +521,9 @@
             "circle_7"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -546,9 +537,9 @@
             "circle_5"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -562,9 +553,9 @@
             "circle_3"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -578,9 +569,9 @@
             "circle_1"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -594,9 +585,9 @@
             "circle_2"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -610,9 +601,9 @@
             "circle_10"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -626,18 +617,9 @@
             "circle_9"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
-        },
-        {
-          "group": "组合9",
-          "nodes": [],
-          "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         }
       ]
@@ -649,45 +631,45 @@
           "group": "组合1",
           "nodes": ["rect_9", "rect_8", "rect_7", "rect_6", "rect_5"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
           "group": "组合2",
           "nodes": ["rect_19", "rect_18", "rect_17", "rect_16", "rect_15"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
           "group": "组合3",
           "nodes": ["rect_14", "rect_13", "rect_12", "rect_11", "rect_10"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
           "group": "组合4",
           "nodes": ["rect_4", "rect_3", "rect_2", "rect_1", "rect"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
           "group": "组合5",
           "nodes": ["rect_20", "rect_21", "rect_22", "rect_23", "rect_24"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         }
       ]
@@ -708,9 +690,9 @@
             "path_9"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -724,9 +706,9 @@
             "path_17"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -740,53 +722,9 @@
             "path_3"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
-        },
-        {
-          "group": "组合4",
-          "nodes": [
-            "path_33",
-            "path_32",
-            "path_31",
-            "path_30",
-            "path_29",
-            "path_28",
-            "path_27",
-            "path_26",
-            "path_25",
-            "path_24",
-            "path_23",
-            "path_22",
-            "path_21",
-            "path_20",
-            "path_19",
-            "path_18",
-            "path_17",
-            "path_16",
-            "path_15",
-            "path_14",
-            "path_13",
-            "path_12",
-            "path_11",
-            "path_10",
-            "path_9",
-            "path_8",
-            "path_7",
-            "path_6",
-            "path_5",
-            "path_4",
-            "path_3",
-            "path_2",
-            "path_1",
-            "path"
-          ],
-          "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         }
       ]
@@ -798,18 +736,18 @@
           "group": "组合1",
           "nodes": ["text_78"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
           "group": "组合2",
           "nodes": ["text_76", "text_77"],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 3,
+            "correlation_strength": 3,
+            "exclusionary_force": 3
           }
         },
         {
@@ -823,9 +761,9 @@
             "text_67"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
@@ -839,9 +777,9 @@
             "text_8"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "attention": 2,
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         },
         {
@@ -849,8 +787,8 @@
           "nodes": ["text_14", "text_56", "text_43", "text_49", "text_35"],
           "ratings": {
             "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
+            "correlation_strength": 2,
+            "exclusionary_force": 2
           }
         }
       ]

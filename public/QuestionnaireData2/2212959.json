@@ -582,15 +582,6 @@
       "groups": [
         {
           "group": "组合1",
-          "nodes": ["circle_6"],
-          "ratings": {
-            "attention": 3,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
-        },
-        {
-          "group": "组合2",
           "nodes": [
             "line_39",
             "rect_9",
@@ -606,7 +597,7 @@
           }
         },
         {
-          "group": "组合3",
+          "group": "组合2",
           "nodes": [
             "line_35",
             "rect_8",
@@ -622,7 +613,7 @@
           }
         },
         {
-          "group": "组合4",
+          "group": "组合3",
           "nodes": [
             "line_31",
             "rect_7",
@@ -639,7 +630,7 @@
           }
         },
         {
-          "group": "组合5",
+          "group": "组合4",
           "nodes": [
             "line_27",
             "rect_6",
@@ -655,7 +646,7 @@
           }
         },
         {
-          "group": "组合6",
+          "group": "组合5",
           "nodes": [
             "line_23",
             "rect_5",
@@ -671,7 +662,7 @@
           }
         },
         {
-          "group": "组合7",
+          "group": "组合6",
           "nodes": [
             "line_19",
             "rect_4",
@@ -687,7 +678,7 @@
           }
         },
         {
-          "group": "组合8",
+          "group": "组合7",
           "nodes": [
             "line_15",
             "rect_3",
@@ -709,7 +700,7 @@
           }
         },
         {
-          "group": "组合9",
+          "group": "组合8",
           "nodes": [
             "line_7",
             "rect_1",

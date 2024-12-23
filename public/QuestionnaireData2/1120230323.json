@@ -65,8 +65,8 @@
             "line_41"
           ],
           "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
+            "attention": 2,
+            "correlation_strength": 3,
             "exclusionary_force": 1
           }
         },
@@ -171,7 +171,7 @@
           "ratings": {
             "attention": 3,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
@@ -189,7 +189,7 @@
           "ratings": {
             "attention": 3,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
@@ -208,7 +208,7 @@
           "ratings": {
             "attention": 2,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
@@ -227,7 +227,7 @@
           "ratings": {
             "attention": 2,
             "correlation_strength": 1,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
@@ -246,7 +246,7 @@
           "ratings": {
             "attention": 2,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
@@ -264,7 +264,7 @@
           "ratings": {
             "attention": 3,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         }
       ]

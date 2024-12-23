@@ -634,20 +634,20 @@
         {
           "group": "组合1",
           "nodes": [
-            "path_66",
-            "path_67",
-            "path_64",
-            "path_63",
-            "path_65",
-            "path_62",
-            "path_69",
-            "path_61",
             "path_60",
-            "path_59",
             "path_58",
             "path_57",
             "path_56",
-            "path_55"
+            "path_59",
+            "path_55",
+            "path_54",
+            "path_52",
+            "path_53",
+            "path_51",
+            "path_50",
+            "path_49",
+            "path_48",
+            "path_61"
           ],
           "ratings": {
             "attention": 3,
@@ -658,15 +658,48 @@
         {
           "group": "组合2",
           "nodes": [
+            "path_47",
+            "path_45",
+            "path_44",
+            "path_43",
+            "path_42",
+            "path_41",
+            "path_40",
+            "path_39",
             "path_38",
             "path_37",
+            "path_36",
+            "path_35",
+            "path_34",
+            "path_33",
+            "path_31",
+            "path_30",
+            "path_29",
+            "path_28",
+            "path_27",
+            "path_26",
+            "path_25",
+            "path_24",
+            "path_23",
             "path_22",
             "path_21",
+            "path_20",
+            "path_19",
             "path_18",
             "path_17",
             "path_16",
             "path_15",
             "path_14",
+            "path_13",
+            "path_11",
+            "path_10",
+            "path_9",
+            "path_8",
+            "path_7",
+            "path_6",
+            "path_5",
+            "path_4",
+            "path_3",
             "path_2",
             "path_1",
             "path"
@@ -674,12 +707,41 @@
           "ratings": {
             "attention": 2,
             "correlation_strength": 2,
-            "exclusionary_force": 1
+            "exclusionary_force": 3
           }
         },
         {
           "group": "组合3",
-          "nodes": ["path_54", "path_53", "path_41", "path_40"],
+          "nodes": [
+            "path_61",
+            "path_59",
+            "path_58",
+            "path_57",
+            "path_56",
+            "path_55",
+            "path_54",
+            "path_53",
+            "path_52",
+            "path_51",
+            "path_50",
+            "path_49",
+            "path_48",
+            "path_47",
+            "path_45",
+            "path_44",
+            "path_43",
+            "path_42",
+            "path_41",
+            "path_40",
+            "path_39",
+            "path_38",
+            "path_37",
+            "path_36",
+            "path_35",
+            "path_34",
+            "path_60",
+            "path_46"
+          ],
           "ratings": {
             "attention": 2,
             "correlation_strength": 3,
@@ -688,7 +750,14 @@
         },
         {
           "group": "组合4",
-          "nodes": ["path_24", "path_23", "path_22", "path_21"],
+          "nodes": [
+            "path_14",
+            "path_15",
+            "path_16",
+            "path_17",
+            "path_18",
+            "path_19"
+          ],
           "ratings": {
             "attention": 1,
             "correlation_strength": 3,
@@ -1216,15 +1285,6 @@
             "path_6",
             "path_43"
           ],
-          "ratings": {
-            "attention": 1,
-            "correlation_strength": 1,
-            "exclusionary_force": 1
-          }
-        },
-        {
-          "group": "组合5",
-          "nodes": [],
           "ratings": {
             "attention": 1,
             "correlation_strength": 1,

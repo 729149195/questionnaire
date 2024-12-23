@@ -464,7 +464,7 @@
         },
         {
           "group": "组合3",
-          "nodes": ["path_8", "path_6", "path_9", "path_10", "path_11"],
+          "nodes": ["path_8","path_7", "path_6", "path_9", "path_10", "path_11"],
           "ratings": {
             "attention": 2,
             "correlation_strength": 2,

@@ -1553,4 +1553,21 @@ onBeforeMount(() => {
 .underline-text {
   text-decoration: underline;
 }
+
+/* 禁止所有文本选择 */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 特别处理 SVG text 元素 */
+:deep(svg text) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+}
 </style>

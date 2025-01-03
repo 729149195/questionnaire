@@ -4,7 +4,7 @@ const generateRandomId = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
-// 生成不重复的随机数数组
+// // 生成不重复的随机数数组
 // const generateRandomArray = () => {
 //   const numbers = Array.from({ length: 40 }, (_, index) => index + 1);
 //   const randomArray = [];

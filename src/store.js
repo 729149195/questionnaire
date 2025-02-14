@@ -4,20 +4,20 @@ const generateRandomId = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
-// // 生成不重复的随机数数组
-// const generateRandomArray = () => {
-//   const numbers = Array.from({ length: 40 }, (_, index) => index + 1);
-//   const randomArray = [];
-//   while (randomArray.length < 10) {
-//     const randomIndex = Math.floor(Math.random() * numbers.length);
-//     const number = numbers.splice(randomIndex, 1)[0];
-//     randomArray.push(number);
-//   }
-//   return randomArray;
-// };
+// 生成不重复的随机数数组
 const generateRandomArray = () => {
-  return Array.from({ length: 40 }, (_, index) => index + 1);
+  const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
+  const randomArray = [];
+  while (randomArray.length < 10) {
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    const number = numbers.splice(randomIndex, 1)[0];
+    randomArray.push(number);
+  }
+  return randomArray;
 };
+// const generateRandomArray = () => {
+//   return Array.from({ length: 20 }, (_, index) => index + 1);
+// };
 
 const store = createStore({
   state() {

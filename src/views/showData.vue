@@ -11,12 +11,12 @@
       style="height: auto; overflow-y: auto;"
     >
       <div v-for="file in files" :key="file" class="svg-container" @click="showSvg(file)">
-        <img :src="`/questionnaire/newData3/${file}.svg`" alt="SVG Image" />
+        <img :src="`/questionnaire/SVGs_Test/${file}.svg`" alt="SVG Image" />
         <span class="svgid">{{file}}</span>
       </div>
     </div>
     <el-dialog v-model="dialogVisible" width="60%" :before-close="handleClose">
-      <img :src="`/questionnaire/newData3/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
+      <img :src="`/questionnaire/SVGs_Test/${selectedFile}.svg`" alt="SVG Image" class="large-svg" />
       <span>no.{{ selectedFile }}</span>
     </el-dialog>
   </el-card>
@@ -28,7 +28,7 @@ import { ref, onMounted } from 'vue';
 const files = ref([]);
 const dialogVisible = ref(false);
 const selectedFile = ref('');
-const maxFiles = 40;
+const maxFiles = 20;
 const loading = ref(false);
 const noMore = ref(false);  // 新增：标记是否还有更多数据
 const batchSize = 10;  // 减小批量加载数量
@@ -49,7 +49,7 @@ const loadMoreFiles = async () => {
       }
 
       const fileName = `${fileIndex}.svg`;
-      const response = await fetch(`/questionnaire/newData3/${fileName}`);
+      const response = await fetch(`/questionnaire/SVGs_Test/${fileName}`);
       if (response.ok) {
         loadedFiles.push(fileIndex.toString());
       } else {

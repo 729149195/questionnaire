@@ -252,7 +252,7 @@ const loadStep = async (stepIndex) => {
 
 const fetchSvgContent = async (stepId) => {
     try {
-        const response = await fetch(`/questionnaire/Data3/${stepId}/${stepId}.svg`);
+        const response = await fetch(`/questionnaire/Data4/${stepId}/${stepId}.svg`);
         if (!response.ok) throw new Error('Network response was not ok');
         Svg.value = await response.text();
 
@@ -268,7 +268,7 @@ const fetchSvgContent = async (stepId) => {
 
 const fetchAndRenderTree = async (stepId) => {
     try {
-        const response = await fetch(`/questionnaire/Data3/${stepId}/layer_data.json`);
+        const response = await fetch(`/questionnaire/Data4/${stepId}/layer_data.json`);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         renderTree(data);

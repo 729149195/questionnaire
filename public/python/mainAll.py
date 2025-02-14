@@ -98,10 +98,10 @@ def ensure_directory_exists(file_path):
         os.makedirs(directory)
 
 for n in tqdm(range(1, 41), desc="Processing SVG files"):
-    input_svg_path = f'./public/newData3/{n}.svg'
-    output_svg_path = f'./public/Data3/{n}/{n}.svg'
-    layer_data_path = f'./public/Data3/{n}/layer_data.json'
-    output_dir = f'./public/Data3/{n}'
+    input_svg_path = f'./public/newData6/{n}.svg'
+    output_svg_path = f'./public/Data5/{n}/{n}.svg'
+    layer_data_path = f'./public/Data5/{n}/layer_data.json'
+    output_dir = f'./public/Data5/{n}'
 
     ensure_directory_exists(output_svg_path)
     ensure_directory_exists(layer_data_path)

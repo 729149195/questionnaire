@@ -9,11 +9,6 @@
               <img style="width: 30px;" src="/img/favicon.png" alt="Wechat QR Code">
             </a>
           </div>
-          <!-- <div class="right-content">
-            <el-button plain @click="infoDialogVisible = true">打开说明<el-icon style='margin-left:5px'>
-                <WindPower />
-              </el-icon></el-button>
-          </div> -->
         </div>
       </el-header>
       <el-main>
@@ -308,7 +303,7 @@ const fetchSvgContent = async (step) => {
     });
     nodeEventHandlers.clear();
 
-    const response = await fetch(`./Data3/${step}/${step}.svg`);
+    const response = await fetch(`./Data4/${step}/${step}.svg`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -335,11 +330,15 @@ const fetchSvgContent = async (step) => {
         }
       });
       
+      // 确保SVG完全加载后再添加缩放效果
+      setTimeout(() => {
+        addZoomEffectToSvg();
+      }, 100);
+      
       turnGrayVisibleNodes();
       addHoverEffectToVisibleNodes();
       addClickEffectToVisibleNodes();
       highlightGroup();
-      addZoomEffectToSvg();
     });
   } catch (error) {
     console.error('Error loading SVG content:', error);
@@ -351,16 +350,17 @@ const addZoomEffectToSvg = () => {
   const svgContainer = svgContainer2.value;
   if (!svgContainer) return;
   const svg = d3.select(svgContainer).select('svg');
-  if (!svg) return;
+  if (!svg.node()) return;  // 确保 SVG 元素存在
 
-  // 创建一个包实际SVG内容的组
+  // 创建一个包含实际SVG内容的组
   let g = svg.select('g.zoom-wrapper');
   if (g.empty()) {
     g = svg.append('g').attr('class', 'zoom-wrapper');
-    // 将所有现有内容移动到新的组中
-    const children = svg.node().childNodes;
-    [...children].forEach(child => {
+    // 将所有现有内容移动到新的组中（不再克隆，直接移动）
+    const children = [...svg.node().childNodes];
+    children.forEach(child => {
       if (child.nodeType === 1 && !child.classList.contains('zoom-wrapper')) {
+        // 直接移动原始节点，保留事件监听器
         g.node().appendChild(child);
       }
     });
@@ -369,7 +369,7 @@ const addZoomEffectToSvg = () => {
   const zoom = d3.zoom()
     .scaleExtent([0.5, 10])
     .on('zoom', (event) => {
-      if (!isCropping.value) {
+      if (!isCropping.value && g.node()) {  // 确保 g 元素存在
         g.attr('transform', event.transform);
       }
     });
@@ -378,7 +378,9 @@ const addZoomEffectToSvg = () => {
 
   // 获取参考 SVG 的位置和尺寸
   const referenceSvg = d3.select('.svg-container svg');
-  if (referenceSvg.node()) {
+  if (!referenceSvg.node()) return;  // 确保参考 SVG 存在
+
+  try {
     // 获取两个 SVG 的 viewBox
     const refViewBox = referenceSvg.node().viewBox.baseVal;
     const currentViewBox = svg.node().viewBox.baseVal;
@@ -387,26 +389,36 @@ const addZoomEffectToSvg = () => {
     const refRect = referenceSvg.node().getBoundingClientRect();
     const currentRect = svg.node().getBoundingClientRect();
 
+    // 检查所有值是否为有效数字
+    if (isNaN(refRect.width) || isNaN(refRect.height) || 
+        isNaN(currentRect.width) || isNaN(currentRect.height) ||
+        !refViewBox || !currentViewBox) {
+      return;  // 如果有无效值，直接返回
+    }
+
     // 计算缩放比例
     const scaleX = (refRect.width / refViewBox.width) / (currentRect.width / currentViewBox.width);
     const scaleY = (refRect.height / refViewBox.height) / (currentRect.height / currentViewBox.height);
     const scale = Math.min(scaleX, scaleY);
 
-    // 计算偏移量，使两个 SVG 的内容对齐
-    const refCenterX = refViewBox.x + refViewBox.width / 2;
-    const refCenterY = refViewBox.y + refViewBox.height / 2;
-    const currentCenterX = currentViewBox.x + currentViewBox.width / 2;
-    const currentCenterY = currentViewBox.y + currentViewBox.height / 2;
+    if (isNaN(scale) || scale <= 0) return;  // 确保缩放比例有效
 
-    const translateX = (refCenterX - currentCenterX) * scale + (refRect.width - currentRect.width * scale) / 2;
-    const translateY = (refCenterY - currentCenterY) * scale + (refRect.height - currentRect.height * scale) / 2;
+    // 计算偏移量
+    const translateX = (refViewBox.x - currentViewBox.x) * scale + 
+                      (refRect.width - currentRect.width * scale) / 2;
+    const translateY = (refViewBox.y - currentViewBox.y) * scale + 
+                      (refRect.height - currentRect.height * scale) / 2;
 
-    // 应用变换
-    const initialTransform = d3.zoomIdentity
-      .translate(translateX, translateY)
-      .scale(scale);
+    // 检查计算结果是否有效
+    if (!isNaN(translateX) && !isNaN(translateY) && !isNaN(scale)) {
+      const initialTransform = d3.zoomIdentity
+        .translate(translateX, translateY)
+        .scale(scale);
 
-    svg.call(zoom.transform, initialTransform);
+      svg.call(zoom.transform, initialTransform);
+    }
+  } catch (error) {
+    console.error('Error in zoom calculation:', error);
   }
 };
 
@@ -773,7 +785,7 @@ const deleteCurrentGroup = () => {
 
 const eleURL = computed(() => {
   const step = store.state.steps[active.value];
-  return `./Data3/${step}/layer_data.json`;
+  return `./Data4/${step}/layer_data.json`;
 });
 
 const chartContainer = ref(null);

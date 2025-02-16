@@ -32,7 +32,8 @@ const store = createStore({
       ratings: {},
       steps: [], // 用于存储随机生成的不重复数字
       startTime: null, // 记录开始时间以计算持续时间
-      totalTimeSpent: 0 // 总共花费的时间（以秒为单位）
+      totalTimeSpent: 0, // 总共花费的时间（以秒为单位）
+      submittedData: null, // 新增：存储提交的数据
     };
   },
   mutations: {
@@ -125,7 +126,10 @@ const store = createStore({
     },
     CLEAR_FORM_DATA(state) {
       state.formData = null;
-    }
+    },
+    SET_SUBMITTED_DATA(state, data) {
+      state.submittedData = data;
+    },
   },
   actions: {
     submitForm({ commit }, data) {

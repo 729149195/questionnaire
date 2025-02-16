@@ -964,12 +964,10 @@ const submitLoading = ref(false);
 const submit = async () => {
   if (!checkUserId()) return;
   
-  // 开启加载状态
   submitLoading.value = true;
   ElMessage.info('正在提交数据，请稍候...');
 
   try {
-    // 并行检查提交次数和生成数据
     const [count, data] = await Promise.all([
       getSubmissionCount(),
       Promise.resolve(generateJsonData()) // 同步操作包装成 Promise
@@ -983,12 +981,14 @@ const submit = async () => {
 
     const formData = store.getters.getFormData;
 
+    // 将数据保存到 Vuex store
+    store.commit('SET_SUBMITTED_DATA', data);
+
     // 并行处理邮件发送和数据存储
     await Promise.all([
       sendEmail(data),
       Promise.all([
         localStorage.setItem('submitId', formData.id),
-        localStorage.setItem('submittedData', JSON.stringify(data)),
         incrementCount()
       ])
     ]);
@@ -1114,7 +1114,7 @@ const ensureGroupInitialization = () => {
 };
 
 const exportToJson = () => {
-  const data = JSON.parse(localStorage.getItem('submittedData'));
+  const data = store.state.submittedData;
   if (!data) {
     ElMessage.error('请先提交问卷后再导出');
     return;

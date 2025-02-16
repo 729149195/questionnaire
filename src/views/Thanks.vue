@@ -31,11 +31,26 @@ onMounted(() => {
 });
 
 const exportToJson = () => {
-  const data = JSON.parse(localStorage.getItem('submittedData'));
+  const data = store.state.submittedData;
   if (!data) {
+    const storedData = localStorage.getItem('submittedData');
+    if (storedData) {
+      try {
+        const parsedData = JSON.parse(storedData);
+        store.commit('SET_SUBMITTED_DATA', parsedData);
+        downloadData(parsedData);
+      } catch (error) {
+        ElMessage.error('数据格式错误');
+      }
+      return;
+    }
     ElMessage.error('数据不存在');
     return;
   }
+  downloadData(data);
+};
+
+const downloadData = (data) => {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   saveAs(blob, `${submitId.value}.json`);
 };

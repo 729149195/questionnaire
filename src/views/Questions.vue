@@ -105,6 +105,14 @@
           >
             <el-icon><Select /></el-icon>
           </el-button>
+          <el-button 
+            class="export-button"
+            @click="exportToJson" 
+            type="warning"
+            v-if="active === steps.length - 1"
+          >
+            <el-icon><Download /></el-icon>
+          </el-button>
         </div>
       </el-main>
 
@@ -210,8 +218,8 @@ import { ref, computed, onMounted, nextTick, watch, onBeforeMount } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import * as d3 from 'd3';
-import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, Crop, Pointer } from '@element-plus/icons-vue';
-import { ElMessage, ElMessageBox } from 'element-plus';
+import { Delete, Plus, Hide, View, CaretLeft, CaretRight, Select, Crop, Pointer, Download } from '@element-plus/icons-vue';
+import { ElMessage } from 'element-plus';
 import { getSubmissionCount, incrementCount } from '../api/counter';
 import emailjs from '@emailjs/browser';
 import { saveAs } from 'file-saver';
@@ -953,22 +961,18 @@ const sendEmail = (data) => {
 // 添加 loading ref
 const submitLoading = ref(false);
 
-const exportToJson = () => {
-  const data = generateJsonData();
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  saveAs(blob, `${store.getters.getFormData.id}.json`);
-};
-
 const submit = async () => {
   if (!checkUserId()) return;
   
+  // 开启加载状态
   submitLoading.value = true;
   ElMessage.info('正在提交数据，请稍候...');
 
   try {
+    // 并行检查提交次数和生成数据
     const [count, data] = await Promise.all([
       getSubmissionCount(),
-      Promise.resolve(generateJsonData())
+      Promise.resolve(generateJsonData()) // 同步操作包装成 Promise
     ]);
 
     if (count >= 50) {
@@ -977,36 +981,28 @@ const submit = async () => {
       return;
     }
 
+    const formData = store.getters.getFormData;
+
+    // 并行处理邮件发送和数据存储
     await Promise.all([
       sendEmail(data),
       Promise.all([
-        localStorage.setItem('submitId', store.getters.getFormData.id),
+        localStorage.setItem('submitId', formData.id),
         localStorage.setItem('submittedData', JSON.stringify(data)),
         incrementCount()
       ])
     ]);
 
+    // 清除用户ID
     store.commit('CLEAR_FORM_DATA');
+    
     submitLoading.value = false;
     router.push('/thanks');
 
   } catch (error) {
     console.error('Failed to submit:', error);
     submitLoading.value = false;
-    
-    // 提交失败时弹出导出提示
-    ElMessageBox.confirm('提交失败，是否要导出本地数据备份？', '提示', {
-      confirmButtonText: '导出数据',
-      cancelButtonText: '取消',
-      type: 'error',
-      customClass: 'export-dialog',
-      closeOnClickModal: false
-    }).then(() => {
-      exportToJson();
-      ElMessage.warning('请将导出的.json文件发送给管理员');
-    }).catch(() => {
-      ElMessage.info('您可以在完成页面再次尝试导出');
-    });
+    ElMessage.error('提交失败，请重试');
   }
 };
 
@@ -1117,7 +1113,15 @@ const ensureGroupInitialization = () => {
   }
 };
 
-
+const exportToJson = () => {
+  const data = JSON.parse(localStorage.getItem('submittedData'));
+  if (!data) {
+    ElMessage.error('请先提交问卷后再导出');
+    return;
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  saveAs(blob, `${store.getters.getFormData?.id || 'anonymous'}.json`);
+};
 
 onMounted(async () => {
   if (!checkUserId()) return;
@@ -1596,20 +1600,16 @@ onBeforeMount(() => {
   pointer-events: auto;
 }
 
-:deep(.export-dialog) {
-  .el-message-box__content {
-    padding: 20px;
-    font-size: 16px;
-  }
-  .el-message-box__btns {
-    margin-top: 20px;
-    .el-button {
-      padding: 10px 20px;
-      &--primary {
-        background-color: #f56c6c;
-        border-color: #f56c6c;
-      }
-    }
-  }
+.submit-button {
+  order: 1;
+}
+
+.export-button {
+  order: 2;
+  margin-left: 10px;
+}
+
+.steps-container {
+  justify-content: center;
 }
 </style>
